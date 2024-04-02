@@ -19,7 +19,7 @@ define( 'THEME_DIR', get_template_directory() );
 define( 'THEME_URI', get_template_directory_uri() );
 define( 'STYLESHEET_DIR', get_stylesheet_directory() );
 define( 'STYLESHEET_URI', get_stylesheet_directory_uri() );
-define( 'THEME_NAME', 'b2works' );
+define( 'THEME_NAME', 'donbosco' );
 define( 'THEME_VERSION', '1.0' );
 
 define( 'LIBS_DIR', THEME_DIR. '/functions' );

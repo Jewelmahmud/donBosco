@@ -72,7 +72,7 @@ get_header() ?>
                             <li><a class="emailid" href="mailto:<?php echo $member['email']; ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/mail.svg" alt="Email"> <?php echo $member['email']; ?></a></li>
                             <?php endif; ?>
                           </ul>
-                          <a href="#" class="link-btn" data-bs-toggle="modal" data-bs-target="#seeMoreModal"><?php echo __('See more', 'b2works'); ?> <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11"
+                          <a href="#" class="link-btn" data-bs-toggle="modal" data-bs-target="#seeMoreModal"><?php echo __('See more', 'donbosco'); ?> <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11"
                               viewBox="0 0 7 11" fill="none">
                               <path d="M1 1.5L5 5.5L1 9.5" stroke="#FF551E" stroke-width="2" />
                             </svg></a>
@@ -122,7 +122,7 @@ get_header() ?>
             <ul class="contact contactul">
               <li><a href="tel:+31 (0)24 641 2809"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/whatsup.svg" alt="Call"> +31 (0)24 641
                   2809 </a></li>
-              <li><a href="mailto:info@b2works.nl"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/mail.svg" alt="Email"> info@b2works.nl</a>
+              <li><a href="mailto:info@donbosco.nl"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/mail.svg" alt="Email"> info@donbosco.nl</a>
               </li>
             </ul>
             </div>

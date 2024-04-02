@@ -16,10 +16,10 @@
     </div>
     <div class="content">
         <h1 class="text-404">4<span class="p-color">0</span>4</h1>
-        <h2><strong><?php esc_html_e('Oops!', 'b2works'); ?></strong> <?php esc_html_e('Something went wrong', 'b2works'); ?></h2>
-        <p><?php esc_html_e('This may be because the link has expired or the website is experiencing a few issues behind the scenes.', 'b2works'); ?></p>
+        <h2><strong><?php esc_html_e('Oops!', 'donbosco'); ?></strong> <?php esc_html_e('Something went wrong', 'donbosco'); ?></h2>
+        <p><?php esc_html_e('This may be because the link has expired or the website is experiencing a few issues behind the scenes.', 'donbosco'); ?></p>
         <a href="<?php echo esc_url(home_url('/')); ?>" class="btn btn-secondary">
-            <?php esc_html_e('Back to homepage', 'b2works'); ?>
+            <?php esc_html_e('Back to homepage', 'donbosco'); ?>
         </a>
     </div>
   </section>

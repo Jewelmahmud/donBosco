@@ -5,10 +5,10 @@ if( !defined( 'ABSPATH' ) ) {
     die;
 }
 
-function b2worksThemeSetup() {
+function donboscoThemeSetup() {
 	
 	/* Make theme available for translation.*/
-	load_theme_textdomain( 'b2works', LANG_DIR );
+	load_theme_textdomain( 'donbosco', LANG_DIR );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -36,11 +36,11 @@ function b2worksThemeSetup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(		
-		'mainmenu' 	=> esc_html__( 'Main Menu', 'b2works' ),		
-		'mobile_menu' 	=> esc_html__( 'Mobile Menu', 'b2works' ),
-		'footer_menu_1' 	=> esc_html__( 'B2Works', 'b2works' ),
-		'footer_menu_2' 	=> esc_html__( 'Overige informatie', 'b2works' ),
-		'footer_bottom' 	=> esc_html__( 'Copyright Menu', 'b2works' ),
+		'mainmenu' 	=> esc_html__( 'Main Menu', 'donbosco' ),		
+		'mobile_menu' 	=> esc_html__( 'Mobile Menu', 'donbosco' ),
+		'footer_menu_1' 	=> esc_html__( 'donbosco', 'donbosco' ),
+		'footer_menu_2' 	=> esc_html__( 'Overige informatie', 'donbosco' ),
+		'footer_bottom' 	=> esc_html__( 'Copyright Menu', 'donbosco' ),
 	) );
 
 	/*
@@ -55,7 +55,7 @@ function b2worksThemeSetup() {
 	) );
 
 	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'b2works_custom_background_args', array(
+	add_theme_support( 'custom-background', apply_filters( 'donbosco_custom_background_args', array(
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
@@ -80,9 +80,9 @@ function b2worksThemeSetup() {
 	add_theme_support( 'editor-styles' );	
 	
 }
-add_action( 'after_setup_theme', 'b2worksThemeSetup' );
+add_action( 'after_setup_theme', 'donboscoThemeSetup' );
 
-function b2worksFallbackMenu() {
+function donboscoFallbackMenu() {
 
 }
 
@@ -105,13 +105,13 @@ function b2worksFallbackMenu() {
 //     } elseif (isset($_GET['favorites'])) {
 //         // Check for 'favorites' parameter
 //         $breadcrumbs[] = array(
-//             'text' => __('Favorites Jobs', 'b2works'),
+//             'text' => __('Favorites Jobs', 'donbosco'),
 //             'url' => false,
 //         );
 //     } elseif (isset($_GET['s']) || isset($_GET['search'])) {
 //         // Check for 's' parameter (search)
 //         $breadcrumbs[] = array(
-//             'text' => __('Search', 'b2works'),
+//             'text' => __('Search', 'donbosco'),
 //             'url' => false,
 //         );
 //     } elseif (is_post_type_archive()) {
@@ -172,13 +172,13 @@ function get_breadcrumb() {
     } elseif (isset($_GET['favorites'])) {
         // Check for 'favorites' parameter
         $breadcrumbs[] = array(
-            'text' => __('Favorites Jobs', 'b2works'),
+            'text' => __('Favorites Jobs', 'donbosco'),
             'url'  => false,
         );
     } elseif (isset($_GET['s']) || isset($_GET['search'])) {
         // Check for 's' parameter (search)
         $breadcrumbs[] = array(
-            'text' => __('Search', 'b2works'),
+            'text' => __('Search', 'donbosco'),
             'url'  => false,
         );
     } elseif (is_post_type_archive()) {
@@ -228,7 +228,7 @@ function get_breadcrumb() {
         if ($languages) {
             foreach ($languages as $lang) {
                 if ($lang['active']) {
-                    $breadcrumbs[count($breadcrumbs) - 1]['text'] = icl_translate('b2works', 'Breadcrumb Text', $breadcrumbs[count($breadcrumbs) - 1]['text']);
+                    $breadcrumbs[count($breadcrumbs) - 1]['text'] = icl_translate('donbosco', 'Breadcrumb Text', $breadcrumbs[count($breadcrumbs) - 1]['text']);
                 }
             }
         }

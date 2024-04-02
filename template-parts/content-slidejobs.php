@@ -37,19 +37,19 @@
             <ul>
                 <?php $location = get_field('location'); ?>
                 <li>
-                    <span><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/i-pin.svg" alt="i-pin"> <?php echo __('Location', 'b2works');?></span>
+                    <span><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/i-pin.svg" alt="i-pin"> <?php echo __('Location', 'donbosco');?></span>
                     <span><?php echo ($location ? esc_html($location) : '-'); ?></span>
                 </li>
 
                 <?php $jobType = get_field('job_type'); ?>
                 <li>
-                    <span><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/icon-job.svg" alt="icon-job"> <?php echo __('Job Type', 'b2works');?></span>
+                    <span><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/icon-job.svg" alt="icon-job"> <?php echo __('Job Type', 'donbosco');?></span>
                     <span><?php echo ($jobType ? esc_html($jobType) : '-'); ?></span>
                 </li>
 
                 <?php $hourly_rate = get_field('hourly_rate'); ?>
                 <li>
-                    <span><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/i-euro.svg" alt="i-euro"> <?php echo __('Hourly rate', 'b2works');?></span>
+                    <span><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/i-euro.svg" alt="i-euro"> <?php echo __('Hourly rate', 'donbosco');?></span>
                     <span><?php echo ($hourly_rate ? '&euro; ' . esc_html($hourly_rate) : '-'); ?></span>
                 </li>
 
@@ -61,7 +61,7 @@
                         <li>
                             <span>
                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/i-industri.svg" alt="i-industri"> 
-                                <?php echo __('Industry', 'b2works');?>
+                                <?php echo __('Industry', 'donbosco');?>
                             </span>
                             <span><?php echo ($term ? esc_attr($term->name) : '-'); ?></span>
                         </li>
@@ -72,13 +72,13 @@
 
                 <?php $hours_per_week = get_field('hours_per_week'); ?>
                 <!-- <li>
-                    <span><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/i-time.svg" alt="i-time"> <?php echo __('Number of hours', 'b2works');?></span>
+                    <span><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/i-time.svg" alt="i-time"> <?php echo __('Number of hours', 'donbosco');?></span>
                     <span><?php echo ($hours_per_week ? esc_html($hours_per_week) : '-'); ?></span>
                 </li> -->
 
                 <?php $accommodation = get_field('accommodation'); ?>
                 <li>
-                    <span><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/i-home.svg" alt="i-home"> <?php echo __('Accommodation', 'b2works');?></span>
+                    <span><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/i-home.svg" alt="i-home"> <?php echo __('Accommodation', 'donbosco');?></span>
                     <span><?php echo ($accommodation ? esc_html($accommodation) : '-'); ?></span>
                 </li>
 
@@ -86,7 +86,7 @@
 
             </div>
         </div>
-        <a href="<?php the_permalink(); ?>" class="link-btn"><?php echo __('View Job', 'b2works');  ?> <svg xmlns="http://www.w3.org/2000/svg" width="7"
+        <a href="<?php the_permalink(); ?>" class="link-btn"><?php echo __('View Job', 'donbosco');  ?> <svg xmlns="http://www.w3.org/2000/svg" width="7"
             height="10" viewBox="0 0 7 10" fill="none">
             <path d="M1 1L5 5L1 9" stroke="#FF551E" stroke-width="2"></path>
         </svg></a>

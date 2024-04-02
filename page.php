@@ -2,7 +2,7 @@
 /**
  * Page Template
  *
- * @package b2works
+ * @package donbosco
  * @author Huqson
  * @link http://huqson.nl
  */
@@ -30,7 +30,7 @@ if($isForm):
             <div class="col-lg-7">
                 <div class="btn-form mt-5 d-lg-none">
                     <a href="#scrollform" class="py-2 btn btn-secondary w-100">
-                        <span><?php echo __('Direct Contact', 'b2works'); ?></span>
+                        <span><?php echo __('Direct Contact', 'donbosco'); ?></span>
                     </a>
                 </div>
                 <div class="page-content">

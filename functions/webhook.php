@@ -1,16 +1,16 @@
 <?php 
 
 
-add_action('rest_api_init', 'b2works_register_custom_route');
+add_action('rest_api_init', 'donbosco_register_custom_route');
 
-function b2works_register_custom_route() {
+function donbosco_register_custom_route() {
     register_rest_route('webhook/v1', '/jobs/', array(
         'methods'  => 'POST',
-        'callback' => 'b2works_handle_custom_request',
+        'callback' => 'donbosco_handle_custom_request',
     ));
 }
 
-function b2works_handle_custom_request($request) {
+function donbosco_handle_custom_request($request) {
 
     $data = $request->get_params();
     

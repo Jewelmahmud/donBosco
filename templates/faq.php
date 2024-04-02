@@ -19,7 +19,7 @@ get_header();?>
           <div class="swiper swiper-container slide-tabs filters-button-group">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
-                <a href="#" class="tab faqselector active" data-name="*"><span><?php echo __('All', 'b2works'); ?></span></a>
+                <a href="#" class="tab faqselector active" data-name="*"><span><?php echo __('All', 'donbosco'); ?></span></a>
               </div>
               <?php
                 // Get the terms for the "faq_category" taxonomy
@@ -60,7 +60,7 @@ get_header();?>
               </svg>
             </div>
           </button>
-          <input type="text" class="form-control" name="search" placeholder="<?php echo __('Search questions', 'b2works'); ?>" id="search">
+          <input type="text" class="form-control" name="search" placeholder="<?php echo __('Search questions', 'donbosco'); ?>" id="search">
         </form>
       </div>
       <div class="all-faqs accordion" id="b2-faq" data-aos="fade-up">

@@ -80,7 +80,7 @@
           <div class="top-middle">
           <form role="search" method="get" class="search-form" action="<?php echo esc_url(home_url('/')); ?>">
               <input type="hidden" name="lang" value="<?php echo ICL_LANGUAGE_CODE; ?>">
-              <input type="search" class="form-control" placeholder="<?php echo __('Search', 'b2works'); ?>" value="<?php echo get_search_query(); ?>" name="s" />
+              <input type="search" class="form-control" placeholder="<?php echo __('Search', 'donbosco'); ?>" value="<?php echo get_search_query(); ?>" name="s" />
               <button type="submit">
                   <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
                       <path d="M11 11L7.66667 7.66667M8.77778 4.88889C8.77778 5.39959 8.67719 5.90528 8.48175 6.3771C8.28632 6.84892 7.99987 7.27763 7.63875 7.63875C7.27763 7.99987 6.84892 8.28632 6.3771 8.48175C5.90528 8.67719 5.39959 8.77778 4.88889 8.77778C4.37819 8.77778 3.8725 8.67719 3.40068 8.48175C2.92885 8.28632 2.50015 7.99987 2.13903 7.63875C1.77791 7.27763 1.49146 6.84892 1.29602 6.3771C1.10059 5.90528 1 5.39959 1 4.88889C1 3.85749 1.40972 2.86834 2.13903 2.13903C2.86834 1.40972 3.85749 1 4.88889 1C5.92029 1 6.90944 1.40972 7.63875 2.13903C8.36806 2.86834 8.77778 3.85749 8.77778 4.88889Z" stroke="#5F5B57" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -200,7 +200,7 @@
                       <path fill-rule="evenodd" clip-rule="evenodd"
                         d="M10.5 2.71111C11.2272 1.90489 12.4854 1 14.4013 1C17.7519 1 20 3.97956 20 6.75467C20 12.5556 12.3765 17 10.5 17C8.62346 17 1 12.5556 1 6.75467C1 3.97956 3.2481 1 6.59867 1C8.51462 1 9.77284 1.90489 10.5 2.71111Z"
                         stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg><?php echo __('Favorites', 'b2works'); ?></a>
+                    </svg><?php echo __('Favorites', 'donbosco'); ?></a>
 
                     <?php
                       $loginButton = get_field('login_button', 'option');
@@ -310,11 +310,11 @@
                             if (isset($_GET['search'])) {
                                 echo 'Search for: ' . esc_html($_GET['search']);
                             } elseif(isset($_GET['favorites'])){
-                              echo __('Favorite jobs', 'b2works');
+                              echo __('Favorite jobs', 'donbosco');
                             }elseif (is_post_type_archive()) {
                                 $post_type = get_post_type();
                                 if ($post_type === 'vacancies') {
-                                    echo __('Available jobs', 'b2works');
+                                    echo __('Available jobs', 'donbosco');
                                 } else {
                                     $post_type_object = get_post_type_object($post_type);
                                     if ($post_type_object && property_exists($post_type_object, 'labels') && is_object($post_type_object->labels)) {
@@ -324,7 +324,7 @@
                             } elseif (is_search()) {
 
                                 $search_term = get_search_query();
-                                echo __('Search Results for', 'b2works').': ' . esc_html($search_term);
+                                echo __('Search Results for', 'donbosco').': ' . esc_html($search_term);
 
                             }  elseif(is_tax()){
 
@@ -376,19 +376,19 @@
                 <h1><?php
 
                   if (isset($_GET['search'])) {
-                    echo __('Search Results for','b2works').': ' . esc_html($_GET['search']);
+                    echo __('Search Results for','donbosco').': ' . esc_html($_GET['search']);
                   } 
                   elseif (is_post_type_archive()) {
                       $post_type = get_post_type();
                       if ($post_type === 'vacancies') {
-                          echo __('Available Jobs', 'b2works');
+                          echo __('Available Jobs', 'donbosco');
                       } else {
                           $post_type_object = get_post_type_object($post_type);
                           echo esc_html($post_type_object->labels->name);
                       }
                   } elseif (is_search()) {
                       $search_term = get_search_query();
-                      echo __('Search Results for','b2works').': ' . esc_html($search_term);
+                      echo __('Search Results for','donbosco').': ' . esc_html($search_term);
                   } else {
                       echo get_the_title();
                   }
@@ -427,7 +427,7 @@
         <div class="banner-inner">
           <a href="#" class="back-btn" onclick="window.history.back();"><svg xmlns="http://www.w3.org/2000/svg" width="7" height="10" viewBox="0 0 7 10" fill="none">
             <path opacity="0.8" d="M6 1L2 5L6 9" stroke="currentColor" stroke-width="1.5"/>
-          </svg> <?php echo __('Back to jobs', 'b2works'); ?></a>
+          </svg> <?php echo __('Back to jobs', 'donbosco'); ?></a>
           <h1><?php the_title(); ?></h1>
           <div class="extra-info">
             <ul class="left">
@@ -470,7 +470,7 @@
               <li><button class="btn btn-secondary btn-fav btn-fav-single <?php echo $is_favorite ? 'active' : ''; ?>" data-id="<?php echo get_the_ID() ?>"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 4.30937C11.1781 3.51575 12.3515 2.625 14.1382 2.625C17.2629 2.625 19.3594 5.558 19.3594 8.28975C19.3594 14 12.25 18.375 10.5 18.375C8.75 18.375 1.64062 14 1.64062 8.28975C1.64062 5.558 3.73712 2.625 6.86175 2.625C8.6485 2.625 9.82188 3.51575 10.5 4.30937Z" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg></button></li>
-              <li><button type="button" class="btn btn-secondary takeJobModal" data-bs-toggle="modal" data-bs-target="#takeJobModal"><?php echo __('Apply now', 'b2works'); ?></button></li>
+              <li><button type="button" class="btn btn-secondary takeJobModal" data-bs-toggle="modal" data-bs-target="#takeJobModal"><?php echo __('Apply now', 'donbosco'); ?></button></li>
             </ul>
           </div>
         </div>

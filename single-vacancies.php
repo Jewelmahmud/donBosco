@@ -9,7 +9,7 @@
           <div class="col-lg-6 left">
             
               <div><?php echo date_i18n('j F Y', strtotime(get_the_date())); ?></div>
-              <!-- <div><?php echo __('Referrence number', 'b2works'); ?>: <?php echo get_field('reference_no'); ?></div> -->
+              <!-- <div><?php echo __('Referrence number', 'donbosco'); ?>: <?php echo get_field('reference_no'); ?></div> -->
             
           </div>
           
@@ -34,7 +34,7 @@
                     title="<?php echo (!empty($next_vacancy) && is_object($next_vacancy)) ? $next_vacancy->post_title : "#"; ?>">
                       <svg xmlns="http://www.w3.org/2000/svg" width="7" height="10" viewBox="0 0 7 10" fill="none">
                           <path d="M6 1L2 5L6 9" stroke="currentColor" stroke-width="2"/>
-                      </svg> <?php echo __('previous', 'b2works'); ?>
+                      </svg> <?php echo __('previous', 'donbosco'); ?>
                   </a>
               <?php } ?>
 
@@ -47,7 +47,7 @@
 
                       if ($current_vacancy_number !== false) {
                           $current_vacancy_number++;
-                          echo __('vacancy', 'b2works') . ' (' . $current_vacancy_number . ' ' . __('of', 'b2works') . ' ' . $total_vacancies . ')';
+                          echo __('vacancy', 'donbosco') . ' (' . $current_vacancy_number . ' ' . __('of', 'donbosco') . ' ' . $total_vacancies . ')';
                       }
                   }
                   ?>
@@ -55,7 +55,7 @@
 
               <a href="<?php echo (!empty($previous_vacancy) && is_object($previous_vacancy)) ? get_permalink($previous_vacancy->ID) : '#' ?>"
                 title="<?php echo (!empty($previous_vacancy) && is_object($previous_vacancy)) ? $previous_vacancy->post_title : '' ?>">
-                  <?php echo __('next', 'b2works'); ?> <svg xmlns="http://www.w3.org/2000/svg" width="7" height="10"
+                  <?php echo __('next', 'donbosco'); ?> <svg xmlns="http://www.w3.org/2000/svg" width="7" height="10"
                                                               viewBox="0 0 7 10" fill="none">
                       <path d="M1 1L5 5L1 9" stroke="currentColor" stroke-width="2"/>
                   </svg>
@@ -76,7 +76,7 @@
         <div class="row">
           <div class="col-lg-4" data-aos="fade-right">
             <div class="job-details-box">
-              <h5><?php echo __('Job details', 'b2works'); ?></h5>
+              <h5><?php echo __('Job details', 'donbosco'); ?></h5>
               <ul>
                 <!-- <li>
                   <div><svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18" fill="none">
@@ -84,7 +84,7 @@
                     <path d="M7.99895 14.6274H3.49707" stroke="#FF551E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M11.0001 15.2082C13.806 14.5698 15.8991 12.2234 16.2142 9.3631C16.5293 6.5028 14.9972 3.75703 12.3976 2.52313C9.79796 1.28922 6.70197 1.83828 4.68519 3.89089C2.66841 5.9435 2.17395 9.04868 3.45344 11.6262" stroke="#FF551E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M9.33887 6.34619V8.98429L11.4127 10.2493" stroke="#FF551E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg> <?php echo __('Hours per week', 'b2works'); ?></div>
+                  </svg> <?php echo __('Hours per week', 'donbosco'); ?></div>
                   <div><?php echo (get_field('hours_per_week') ? esc_html(get_field('hours_per_week')) : '-'); ?></div>
                 </li> -->
                 <li>
@@ -93,7 +93,7 @@
                       <path d="M7.25 10.6538C4.63025 11.0146 2.75 11.9828 2.75 13.1251C2.75 14.5748 5.77175 15.7501 9.5 15.7501C13.2283 15.7501 16.25 14.5748 16.25 13.1251C16.25 11.9828 14.3698 11.0146 11.75 10.6538" stroke="#FF551E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                       <path d="M9.5 12.75V6.75" stroke="#FF551E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                       <path d="M11.091 2.90901C11.9697 3.78769 11.9697 5.21231 11.091 6.09099C10.2123 6.96967 8.78769 6.96967 7.90901 6.09099C7.03033 5.21231 7.03033 3.78769 7.90901 2.90901C8.78769 2.03033 10.2123 2.03033 11.091 2.90901" stroke="#FF551E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg> <?php echo __('Location', 'b2works'); ?>
+                    </svg> <?php echo __('Location', 'donbosco'); ?>
                   </div>
                   <div><?php echo (get_field('location') ? esc_html(get_field('location')) : '-'); ?></div>
                 </li>
@@ -102,7 +102,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
                       <path fill-rule="evenodd" clip-rule="evenodd" d="M14.75 15.875H4.25C3.42125 15.875 2.75 15.2038 2.75 14.375V7.625C2.75 6.79625 3.42125 6.125 4.25 6.125H14.75C15.5788 6.125 16.25 6.79625 16.25 7.625V14.375C16.25 15.2038 15.5788 15.875 14.75 15.875Z" stroke="#FE6330" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                       <path d="M12.6301 6.125V4.625C12.6301 3.79625 11.9589 3.125 11.1301 3.125H7.86914C7.04039 3.125 6.36914 3.79625 6.36914 4.625V6.125" stroke="#FE6330" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg> <?php echo __('Job type', 'b2works'); ?>
+                    </svg> <?php echo __('Job type', 'donbosco'); ?>
                   </div>
                   <div><?php echo (get_field('job_type') ? esc_html(get_field('job_type')) : '-'); ?></div>
                 </li>
@@ -114,7 +114,7 @@
                       <path d="M13.0495 12.4335C11.5033 13.9796 8.99771 13.9796 7.45159 12.4335C5.90546 10.8874 5.90546 8.38174 7.45159 6.83562C8.99771 5.28949 11.5033 5.28949 13.0495 6.83562" stroke="#FE6330" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                       <path d="M10.25 8.54183H5.5" stroke="#FE6330" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                       <path d="M10.25 10.7269H5.5" stroke="#FE6330" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg> <?php echo __('Hourly rate', 'b2works'); ?>
+                    </svg> <?php echo __('Hourly rate', 'donbosco'); ?>
                   </div>
                   <div>&euro; <?php echo (get_field('hourly_rate') ? esc_html(get_field('hourly_rate')) : '-'); ?></div>
                 </li>
@@ -124,7 +124,7 @@
                       <path d="M3.5 6.58423V15.8842H15.5V6.58423" stroke="#FF551E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                       <path d="M2 7.63428L9.5 2.38428L17 7.63428" stroke="#FF551E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                       <path d="M11.75 15.8843V11.3843C11.75 10.5555 11.0788 9.88428 10.25 9.88428H8.75C7.92125 9.88428 7.25 10.5555 7.25 11.3843V15.8843" stroke="#FF551E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg> <?php echo __('Accomodation', 'b2works'); ?>
+                    </svg> <?php echo __('Accomodation', 'donbosco'); ?>
                   </div>
                   <div><?php echo (get_field('accommodation') ? esc_html(get_field('accommodation')) : '-'); ?></div>
                 </li>
@@ -151,7 +151,7 @@
                   <path d="M15.5811 14.5328H16.4973" stroke="#F56537" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                   <path d="M4.58594 13.2422C4.58594 12.6899 5.03365 12.2422 5.58594 12.2422H8.16736C8.71965 12.2422 9.16736 12.6899 9.16736 13.2422V17.7399H4.58594V13.2422Z" stroke="#F56537" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
-                  <?php echo __('Industry', 'b2works');?>
+                  <?php echo __('Industry', 'donbosco');?>
                   </div>
                   <div><?php echo implode(', ', $term_names); ?></div>
                 </li>
@@ -163,7 +163,7 @@
                     <path d="M3 9H21" stroke="#FF551E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M19 4H5C3.895 4 3 4.895 3 6V19C3 20.105 3.895 21 5 21H19C20.105 21 21 20.105 21 19V6C21 4.895 20.105 4 19 4Z" stroke="#FF551E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    <?php echo __('Years of experience', 'b2works'); ?>
+                    <?php echo __('Years of experience', 'donbosco'); ?>
                   </div>
                   <div id="refno"><?php echo (get_field('years_of_experience') ? esc_html(get_field('years_of_experience')) : '-'); ?></div>
                 </li>
@@ -171,7 +171,7 @@
                   <div>
                   <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M11.9375 7.875C9.6975 7.875 7.875 9.6975 7.875 11.9375C7.875 14.1775 9.6975 16 11.9375 16C14.1775 16 16 14.1775 16 11.9375C16 9.6975 14.1775 7.875 11.9375 7.875ZM11.9375 15.375C10.0425 15.375 8.5 13.8331 8.5 11.9375C8.5 10.0419 10.0425 8.5 11.9375 8.5C13.8325 8.5 15.375 10.0419 15.375 11.9375C15.375 13.8331 13.8325 15.375 11.9375 15.375ZM12.7838 12.3412C12.9056 12.4631 12.9056 12.6612 12.7838 12.7831C12.7225 12.8444 12.6425 12.8744 12.5625 12.8744C12.4825 12.8744 12.4025 12.8437 12.3412 12.7831L11.7162 12.1581C11.6575 12.0994 11.625 12.02 11.625 11.9369V10.6869C11.625 10.5144 11.765 10.3744 11.9375 10.3744C12.11 10.3744 12.25 10.5144 12.25 10.6869V11.8075L12.7838 12.3412ZM13.1875 3.5H11.92C11.7638 2.09563 10.57 1 9.125 1H7.5625C6.1175 1 4.92312 2.09563 4.7675 3.5H3.8125C2.26188 3.5 1 4.76188 1 6.3125V13.1875C1 14.7381 2.26188 16 3.8125 16H7.5625C7.735 16 7.875 15.86 7.875 15.6875C7.875 15.515 7.735 15.375 7.5625 15.375H3.8125C2.60625 15.375 1.625 14.3937 1.625 13.1875V9.125H6.9375C7.11 9.125 7.25 8.985 7.25 8.8125C7.25 8.64 7.11 8.5 6.9375 8.5H1.625V6.3125C1.625 5.10625 2.60625 4.125 3.8125 4.125H13.1875C14.3937 4.125 15.375 5.10625 15.375 6.3125V7.5625C15.375 7.735 15.515 7.875 15.6875 7.875C15.86 7.875 16 7.735 16 7.5625V6.3125C16 4.76188 14.7381 3.5 13.1875 3.5ZM7.5625 1.625H9.125C10.225 1.625 11.1381 2.44125 11.29 3.5H5.3975C5.54938 2.44125 6.4625 1.625 7.5625 1.625Z" fill="#FF551E" stroke="#FF551E" stroke-width="0.7"/>
-                  </svg> <?php echo __('Career level', 'b2works'); ?>
+                  </svg> <?php echo __('Career level', 'donbosco'); ?>
                   </div>
                   <div><?php echo (get_field('career_level') ? esc_html(get_field('career_level')) : '-'); ?></div>
                 </li>
@@ -180,7 +180,7 @@
                   <svg width="19" height="19" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M9.70316 4.09499L3.52916 7.52499C2.23116 8.24599 2.23116 10.112 3.52916 10.833L9.70316 14.263C11.1312 15.056 12.8682 15.056 14.2972 14.263L20.4712 10.833C21.7692 10.112 21.7692 8.24599 20.4712 7.52499L14.2972 4.09499C12.8682 3.30199 11.1322 3.30199 9.70316 4.09499Z" stroke="#FF551E" stroke-width="1.419" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M5.99121 12.2V16.124C5.99121 17.073 6.46621 17.958 7.25521 18.483L8.86221 19.552C10.7632 20.816 13.2372 20.816 15.1372 19.552L16.7442 18.483C17.5342 17.958 18.0082 17.072 18.0082 16.124V12.2" stroke="#FF551E" stroke-width="1.4167" stroke-linecap="round" stroke-linejoin="round"/>
-</svg> <?php echo __('Education Level', 'b2works'); ?>
+</svg> <?php echo __('Education Level', 'donbosco'); ?>
                   </div>
                   <div id="refno"><?php echo (get_field('educational_level') ? esc_html(get_field('educational_level')) : '-'); ?></div>
                 </li> -->
@@ -234,7 +234,7 @@
               <li><button class="btn btn-secondary btn-fav btn-fav-single <?php echo $is_favorite ? 'active' : ''; ?>" data-id="<?php echo get_the_ID() ?>"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 4.30937C11.1781 3.51575 12.3515 2.625 14.1382 2.625C17.2629 2.625 19.3594 5.558 19.3594 8.28975C19.3594 14 12.25 18.375 10.5 18.375C8.75 18.375 1.64062 14 1.64062 8.28975C1.64062 5.558 3.73712 2.625 6.86175 2.625C8.6485 2.625 9.82188 3.51575 10.5 4.30937Z" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg></button></li>
-              <li><button type="button" class="btn btn-secondary takeJobModal" data-bs-toggle="modal" data-bs-target="#takeJobModal"><?php echo __('Apply now', 'b2works'); ?></button></li>
+              <li><button type="button" class="btn btn-secondary takeJobModal" data-bs-toggle="modal" data-bs-target="#takeJobModal"><?php echo __('Apply now', 'donbosco'); ?></button></li>
             </ul>
           </div>
         </div>
@@ -242,7 +242,7 @@
     </div>
     <div class="vacancy-detail-toolbar">
       <div class="vacancy-detail-toolbar__content">
-        <a href="#" class="btn btn-secondary takeJobModal" data-bs-toggle="modal" data-bs-target="#takeJobModal"><?php echo __('Apply now', 'b2works'); ?></a>
+        <a href="#" class="btn btn-secondary takeJobModal" data-bs-toggle="modal" data-bs-target="#takeJobModal"><?php echo __('Apply now', 'donbosco'); ?></a>
         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 21 21" fill="none">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 4.30937C11.1781 3.51575 12.3515 2.625 14.1382 2.625C17.2629 2.625 19.3594 5.558 19.3594 8.28975C19.3594 14 12.25 18.375 10.5 18.375C8.75 18.375 1.64062 14 1.64062 8.28975C1.64062 5.558 3.73712 2.625 6.86175 2.625C8.6485 2.625 9.82188 3.51575 10.5 4.30937Z" stroke="#666" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
         </svg>
@@ -275,8 +275,8 @@
               $email = get_field('email', 'option');
 
               $share = array(
-                'subject' => __('A wonderful job for you', 'b2works'),
-                'title' => __('Hey I have found an interesting job, you might be interested in. Here\'s the link for you ', 'b2works'),
+                'subject' => __('A wonderful job for you', 'donbosco'),
+                'title' => __('Hey I have found an interesting job, you might be interested in. Here\'s the link for you ', 'donbosco'),
               );
               
               $facebook_share_link = 'https://www.facebook.com/sharer/sharer.php?u=' . rawurlencode(get_the_permalink());
@@ -335,7 +335,7 @@ Linkedin
 <path fill-rule="evenodd" clip-rule="evenodd" d="M11.9985 8.52853L16.0038 5.81298C16.6269 5.39165 16.9994 4.68853 16.9994 3.93654V3.93654C16.9994 2.6832 15.9842 1.66809 14.7318 1.66809H3.28025C2.02781 1.66809 1.0127 2.6832 1.0127 3.93565V3.93565C1.0127 4.68765 1.38514 5.39076 2.00825 5.81298L6.01358 8.52853C7.82069 9.75342 10.1914 9.75342 11.9985 8.52853V8.52853Z" stroke="#FF551E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M1 3.93579V12.3349C1 13.8078 2.19378 15.0016 3.66667 15.0016H14.3333C15.8062 15.0016 17 13.8078 17 12.3349V3.93668" stroke="#FF551E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
- <?php echo __('Email', 'b2works'); ?>
+ <?php echo __('Email', 'donbosco'); ?>
             </a>
           </li>
         </ul>
@@ -348,7 +348,7 @@ Linkedin
     <div class="modal-dialog modal-lg modal-fullscreen-lg-down">
       <div class="modal-content">
         <div class="modal-header px-lg-5 pt-lg-5">
-          <h1 class="modal-title fs-5" id="#takeJobModalLabel"><?php echo __('Apply now', 'b2works'); ?></h1>
+          <h1 class="modal-title fs-5" id="#takeJobModalLabel"><?php echo __('Apply now', 'donbosco'); ?></h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body p-lg-5">
@@ -366,16 +366,16 @@ Linkedin
             </div> -->
 
             <div class="col-md-6">
-              <label for="firstname" class="form-label"><?php echo __('First name', 'b2works');?> <span>(<?php echo __('Required', 'b2works');?>)</span></label>
+              <label for="firstname" class="form-label"><?php echo __('First name', 'donbosco');?> <span>(<?php echo __('Required', 'donbosco');?>)</span></label>
               <input type="text" class="form-control" id="firstname" name="firstname" placeholder="" required>
             </div>
 
             <div class="col-md-6">
-              <label for="lastname" class="form-label"><?php echo __('Last name', 'b2works');?> <span>(<?php echo __('Required', 'b2works');?>)</span></label>
+              <label for="lastname" class="form-label"><?php echo __('Last name', 'donbosco');?> <span>(<?php echo __('Required', 'donbosco');?>)</span></label>
               <input type="text" class="form-control" id="lastname" placeholder="" name="lastname" required>
             </div>
             <div class="col-md-6">
-              <label for="lastname" class="form-label"><?php echo __('Date of birth', 'b2works');?> <span>(<?php echo __('Required', 'b2works');?>)</span></label>
+              <label for="lastname" class="form-label"><?php echo __('Date of birth', 'donbosco');?> <span>(<?php echo __('Required', 'donbosco');?>)</span></label>
               <input type="text" class="form-control datepicker" id="dateOfBirth" placeholder="" name="dateOfBirth" maxlength="10" data-valid="false" required>
             </div>
 
@@ -385,12 +385,12 @@ Linkedin
             </div> -->
 
             <div class="col-md-6">
-              <label for="phone" class="form-label"><?php echo __('Phone', 'b2works');?> <span>(<?php echo __('Required', 'b2works');?>)</span></label>
+              <label for="phone" class="form-label"><?php echo __('Phone', 'donbosco');?> <span>(<?php echo __('Required', 'donbosco');?>)</span></label>
               <input type="text" class="form-control" id="phone" name="phone" placeholder="" required>
             </div>
 
             <div class="col-md-6">
-              <label for="email" class="form-label"><?php echo __('E-mail address', 'b2works');?> <span>(<?php echo __('Required', 'b2works');?>)</span></label>
+              <label for="email" class="form-label"><?php echo __('E-mail address', 'donbosco');?> <span>(<?php echo __('Required', 'donbosco');?>)</span></label>
               <input type="email" class="form-control" id="email" name="email" placeholder="" required>
             </div>
 
@@ -414,41 +414,41 @@ Linkedin
             </div> -->
 
             <div class="col-md-6">
-              <label for="availTo" class="form-label"><?php echo __('Current postion', 'b2works');?></label>
+              <label for="availTo" class="form-label"><?php echo __('Current postion', 'donbosco');?></label>
               <input type="text" class="form-control" id="currentPosition" name="currentPosition" placeholder="">
             </div>
 
             <div class="col-md-6">
-              <label for="availTo" class="form-label"><?php echo __('Current employer', 'b2works');?></label>
+              <label for="availTo" class="form-label"><?php echo __('Current employer', 'donbosco');?></label>
               <input type="text" class="form-control" id="currentEmployer" name="currentEmployer" placeholder="">
             </div>
 
             <!-- <div class="col-md-6">
-              <label for="availTo" class="form-label"><?php echo __('Skype', 'b2works');?></label>
+              <label for="availTo" class="form-label"><?php echo __('Skype', 'donbosco');?></label>
               <input type="text" class="form-control" id="skype" name="skype" placeholder="">
             </div>
             <div class="col-md-6">
-              <label for="availTo" class="form-label"><?php echo __('LinkedIn', 'b2works');?></label>
+              <label for="availTo" class="form-label"><?php echo __('LinkedIn', 'donbosco');?></label>
               <input type="text" class="form-control" id="linkedIn" name="linkedin" placeholder="">
             </div>
             <div class="col-md-6">
-              <label for="availTo" class="form-label"><?php echo __('Facebook', 'b2works');?></label>
+              <label for="availTo" class="form-label"><?php echo __('Facebook', 'donbosco');?></label>
               <input type="text" class="form-control" id="facebook" name="facebook" placeholder="">
             </div>
             <div class="col-md-6">
-              <label for="availTo" class="form-label"><?php echo __('Instagram', 'b2works');?></label>
+              <label for="availTo" class="form-label"><?php echo __('Instagram', 'donbosco');?></label>
               <input type="text" class="form-control" id="instagram" name="instagram" placeholder="">
             </div>
             <div class="col-md-6">
-              <label for="availTo" class="form-label"><?php echo __('Twitter', 'b2works');?></label>
+              <label for="availTo" class="form-label"><?php echo __('Twitter', 'donbosco');?></label>
               <input type="text" class="form-control" id="twitter" name="twitter" placeholder="">
             </div>
             <div class="col-md-6">
-              <label for="availTo" class="form-label"><?php echo __('Website', 'b2works');?></label>
+              <label for="availTo" class="form-label"><?php echo __('Website', 'donbosco');?></label>
               <input type="text" class="form-control" id="website" name="website" placeholder="">
             </div>
             <div class="col-md-6">
-              <label for="availTo" class="form-label"><?php echo __('Blog', 'b2works');?></label>
+              <label for="availTo" class="form-label"><?php echo __('Blog', 'donbosco');?></label>
               <input type="text" class="form-control" id="blog" name="blog" placeholder="">
             </div> -->
 
@@ -495,12 +495,12 @@ Linkedin
             </div>
 
             <div class="col-md-6">
-              <label class="form-label">Do you have your own accommodation, or do you need accommodation from B2Works?</label>
+              <label class="form-label">Do you have your own accommodation, or do you need accommodation from donbosco?</label>
               <div class="input-group">
                 <select class="form-select" aria-label="Default select example" name="accommodation">
                   <option selected>Select an option</option>
                   <option value="Own">Own</option>
-                  <option value="B2Works">B2Works</option>
+                  <option value="donbosco">donbosco</option>
                 </select>
               </div>
             </div>
@@ -521,17 +521,17 @@ Linkedin
             <!-- Add more Yes/No fields as needed -->
 
             <div class="col-12">
-              <label for="textArea" class="form-label"><?php echo __('Motivation', 'b2works'); ?></label>
+              <label for="textArea" class="form-label"><?php echo __('Motivation', 'donbosco'); ?></label>
               <textarea class="form-control" id="textArea" rows="5" name="motivation" placeholder=""></textarea>
             </div>
 
             <div class="col-12">
               <div class='file-input'>
                 <input type='file' name="resume" id="resume">
-                <span class='label uploadlabel' data-js-label><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/i-upload.svg" alt="i-upload"> <?php echo __('Upload CV', 'b2works'); ?></span>
-                <span class='btn btn-secondary'><?php echo __('Select', 'b2works'); ?></span>
+                <span class='label uploadlabel' data-js-label><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/i-upload.svg" alt="i-upload"> <?php echo __('Upload CV', 'donbosco'); ?></span>
+                <span class='btn btn-secondary'><?php echo __('Select', 'donbosco'); ?></span>
               </div>
-              <span><?php echo __('Select a resume .pdf of .doc file max 5mb', 'b2works'); ?></span>
+              <span><?php echo __('Select a resume .pdf of .doc file max 5mb', 'donbosco'); ?></span>
             </div>
 
             <!-- <div class="col-6">
@@ -540,7 +540,7 @@ Linkedin
                 <span class='label uploadlabel' data-js-label><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/i-upload.svg" alt="i-upload"> Upload Cover</span>
                 <span class='btn btn-secondary'>Select</span>
               </div>
-              <span><?php echo __('Slect a cover letter pdf or doc file max 5 MB', 'b2works'); ?></span>
+              <span><?php echo __('Slect a cover letter pdf or doc file max 5 MB', 'donbosco'); ?></span>
             </div> -->
 
             <!-- <div class="col-6">
@@ -549,23 +549,23 @@ Linkedin
                 <span class='label uploadlabel' data-js-label><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/i-upload.svg" alt="i-upload"> Upload Photo</span>
                 <span class='btn btn-secondary'>Select</span>
               </div>
-              <span><?php echo __('Select a photo jpg, jpeg or png file max 1 MB', 'b2works'); ?></span>
+              <span><?php echo __('Select a photo jpg, jpeg or png file max 1 MB', 'donbosco'); ?></span>
             </div> -->
 
             <div class="col-lg-9">
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="gridCheck" name="gridCheck" required>
                 <label class="ms-3 form-check-label" for="gridCheck">
-                <?php echo __('By sending this contact form you give us permission to process your (personal) data. We handle your personal data carefully.', 'b2works'); ?>
+                <?php echo __('By sending this contact form you give us permission to process your (personal) data. We handle your personal data carefully.', 'donbosco'); ?>
                 </label>
               </div>
             </div>
 
             <input type="hidden" id="jobid" name="jobid" value="<?php echo get_field('reference_no'); ?>">
-            <input type="hidden" id="honeypot" name="<?php echo __('Apply now', 'b2works'); ?>" value="">
+            <input type="hidden" id="honeypot" name="<?php echo __('Apply now', 'donbosco'); ?>" value="">
 
             <div class="col-12 mt-5">
-              <button type="submit" class="btn btn-secondary submit-btn"><?php echo __('Send', 'b2works'); ?></button>
+              <button type="submit" class="btn btn-secondary submit-btn"><?php echo __('Send', 'donbosco'); ?></button>
               <div class="loader btn-secondary send-loader"></div>
             </div>
           </form>

@@ -219,7 +219,7 @@ $searchsec = get_field('search_section');
                     </svg>
                 </a>
                 <?php else: ?>
-                <a href="#" class="link-btn takeJobModal" data-bs-toggle="modal" data-bs-target="#takeJobModal"><?php echo __('Application Form', 'b2works'); ?>
+                <a href="#" class="link-btn takeJobModal" data-bs-toggle="modal" data-bs-target="#takeJobModal"><?php echo __('Application Form', 'donbosco'); ?>
                   <svg xmlns="http://www.w3.org/2000/svg" width="7"height="10" viewBox="0 0 7 10" fill="none">
                     <path d="M1 1L5 5L1 9" stroke="#FF551E" stroke-width="2" />
                   </svg>
@@ -298,7 +298,7 @@ $searchsec = get_field('search_section');
                                   <rect x="12.0249" y="12.0249" width="6.8323" height="6.8323" rx="2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></rect>
                                   <rect x="3.14307" y="12.0249" width="6.8323" height="6.8323" rx="2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></rect>
                                 </svg>
-                                <?php echo  __('All', 'b2works') ?>
+                                <?php echo  __('All', 'donbosco') ?>
                               </button>
                           </li>
                           <?php
@@ -322,7 +322,7 @@ $searchsec = get_field('search_section');
                       <?php
                   } else {
                       // Handle the case where no term IDs are provided
-                      echo '<p>'.__('Please select category from backend to display jobs here.', 'b2works').'</p>';
+                      echo '<p>'.__('Please select category from backend to display jobs here.', 'donbosco').'</p>';
                   }
               ?>
 
@@ -330,7 +330,7 @@ $searchsec = get_field('search_section');
 
               
             </div>
-            <a href="<?php echo site_url() ?>/vacancies?&lang=<?php echo ICL_LANGUAGE_CODE; ?>" class="link-btn seeallcat"><?php echo __('See all vacancies', 'b2works'); ?> 
+            <a href="<?php echo site_url() ?>/vacancies?&lang=<?php echo ICL_LANGUAGE_CODE; ?>" class="link-btn seeallcat"><?php echo __('See all vacancies', 'donbosco'); ?> 
                 <svg xmlns="http://www.w3.org/2000/svg" width="7" height="10" viewBox="0 0 7 10" fill="none">
                   <path d="M1 1L5 5L1 9" stroke="#FF551E" stroke-width="2" />
                 </svg>
@@ -452,7 +452,7 @@ $searchsec = get_field('search_section');
   </section>
 
 
-  <?php $about = get_field('about_b2works'); ?>
+  <?php $about = get_field('about_donbosco'); ?>
 
   <!-- aboutUs-home start -->
   <section class="aboutUs-home">
@@ -683,7 +683,7 @@ $searchsec = get_field('search_section');
                     <img src="https://i.postimg.cc/xNJ9kc1k/certificate-2.png" alt="">
                     <div>
                       <h5 class="name">SNF</h5>
-                      <p>B2Works is in possession of the Stichting Normering Flexwonen (Flexible Living Standards Foundation) certification. </p>
+                      <p>donbosco is in possession of the Stichting Normering Flexwonen (Flexible Living Standards Foundation) certification. </p>
                     </div>
                   </li>
                   <li>
@@ -847,7 +847,7 @@ $searchsec = get_field('search_section');
     <div class="modal-dialog modal-lg modal-fullscreen-lg-down">
       <div class="modal-content">
         <div class="modal-header px-lg-5 pt-lg-5">
-          <h1 class="modal-title fs-5" id="#takeJobModalLabel"><?php echo __('Apply for the job', 'b2works'); ?></h1>
+          <h1 class="modal-title fs-5" id="#takeJobModalLabel"><?php echo __('Apply for the job', 'donbosco'); ?></h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body p-lg-5">
@@ -865,16 +865,16 @@ $searchsec = get_field('search_section');
             </div> -->
 
             <div class="col-md-6">
-              <label for="firstname" class="form-label"><?php echo __('First name', 'b2works');?> <span>(<?php echo __('Required', 'b2works');?>)</span></label>
+              <label for="firstname" class="form-label"><?php echo __('First name', 'donbosco');?> <span>(<?php echo __('Required', 'donbosco');?>)</span></label>
               <input type="text" class="form-control" id="firstname" name="firstname" placeholder="" required>
             </div>
 
             <div class="col-md-6">
-              <label for="lastname" class="form-label"><?php echo __('Last name', 'b2works');?> <span>(<?php echo __('Required', 'b2works');?>)</span></label>
+              <label for="lastname" class="form-label"><?php echo __('Last name', 'donbosco');?> <span>(<?php echo __('Required', 'donbosco');?>)</span></label>
               <input type="text" class="form-control" id="lastname" placeholder="" name="lastname" required>
             </div>
             <div class="col-md-6">
-              <label for="lastname" class="form-label"><?php echo __('Date of birth', 'b2works');?> <span>(<?php echo __('Required', 'b2works');?>)</span></label>
+              <label for="lastname" class="form-label"><?php echo __('Date of birth', 'donbosco');?> <span>(<?php echo __('Required', 'donbosco');?>)</span></label>
               <input type="text" class="form-control datepicker" id="dateOfBirth" placeholder="" name="dateOfBirth" required maxlength="10" data-valid="false">
             </div>
 
@@ -884,12 +884,12 @@ $searchsec = get_field('search_section');
             </div> -->
 
             <div class="col-md-6">
-              <label for="phone" class="form-label"><?php echo __('Phone', 'b2works');?> <span>(<?php echo __('Required', 'b2works');?>)</span></label>
+              <label for="phone" class="form-label"><?php echo __('Phone', 'donbosco');?> <span>(<?php echo __('Required', 'donbosco');?>)</span></label>
               <input type="text" class="form-control" id="phone" name="phone" placeholder="" required>
             </div>
 
             <div class="col-md-6">
-              <label for="email" class="form-label"><?php echo __('E-mail address', 'b2works');?> <span>(<?php echo __('Required', 'b2works');?>)</span></label>
+              <label for="email" class="form-label"><?php echo __('E-mail address', 'donbosco');?> <span>(<?php echo __('Required', 'donbosco');?>)</span></label>
               <input type="email" class="form-control" id="email" name="email" placeholder="" required>
             </div>
 
@@ -913,41 +913,41 @@ $searchsec = get_field('search_section');
             </div> -->
 
             <div class="col-md-6">
-              <label for="availTo" class="form-label"><?php echo __('Current postion', 'b2works');?></label>
+              <label for="availTo" class="form-label"><?php echo __('Current postion', 'donbosco');?></label>
               <input type="text" class="form-control" id="currentPosition" name="currentPosition" placeholder="">
             </div>
 
             <div class="col-md-6">
-              <label for="availTo" class="form-label"><?php echo __('Current employer', 'b2works');?></label>
+              <label for="availTo" class="form-label"><?php echo __('Current employer', 'donbosco');?></label>
               <input type="text" class="form-control" id="currentEmployer" name="currentEmployer" placeholder="">
             </div>
 
             <!-- <div class="col-md-6">
-              <label for="availTo" class="form-label"><?php echo __('Skype', 'b2works');?></label>
+              <label for="availTo" class="form-label"><?php echo __('Skype', 'donbosco');?></label>
               <input type="text" class="form-control" id="skype" name="skype" placeholder="">
             </div>
             <div class="col-md-6">
-              <label for="availTo" class="form-label"><?php echo __('LinkedIn', 'b2works');?></label>
+              <label for="availTo" class="form-label"><?php echo __('LinkedIn', 'donbosco');?></label>
               <input type="text" class="form-control" id="linkedIn" name="linkedin" placeholder="">
             </div>
             <div class="col-md-6">
-              <label for="availTo" class="form-label"><?php echo __('Facebook', 'b2works');?></label>
+              <label for="availTo" class="form-label"><?php echo __('Facebook', 'donbosco');?></label>
               <input type="text" class="form-control" id="facebook" name="facebook" placeholder="">
             </div>
             <div class="col-md-6">
-              <label for="availTo" class="form-label"><?php echo __('Instagram', 'b2works');?></label>
+              <label for="availTo" class="form-label"><?php echo __('Instagram', 'donbosco');?></label>
               <input type="text" class="form-control" id="instagram" name="instagram" placeholder="">
             </div>
             <div class="col-md-6">
-              <label for="availTo" class="form-label"><?php echo __('Twitter', 'b2works');?></label>
+              <label for="availTo" class="form-label"><?php echo __('Twitter', 'donbosco');?></label>
               <input type="text" class="form-control" id="twitter" name="twitter" placeholder="">
             </div>
             <div class="col-md-6">
-              <label for="availTo" class="form-label"><?php echo __('Website', 'b2works');?></label>
+              <label for="availTo" class="form-label"><?php echo __('Website', 'donbosco');?></label>
               <input type="text" class="form-control" id="website" name="website" placeholder="">
             </div>
             <div class="col-md-6">
-              <label for="availTo" class="form-label"><?php echo __('Blog', 'b2works');?></label>
+              <label for="availTo" class="form-label"><?php echo __('Blog', 'donbosco');?></label>
               <input type="text" class="form-control" id="blog" name="blog" placeholder="">
             </div> -->
 
@@ -994,12 +994,12 @@ $searchsec = get_field('search_section');
             </div>
 
             <div class="col-md-6">
-              <label class="form-label">Do you have your own accommodation, or do you need accommodation from B2Works?</label>
+              <label class="form-label">Do you have your own accommodation, or do you need accommodation from donbosco?</label>
               <div class="input-group">
                 <select class="form-select" aria-label="Default select example" name="accommodation">
                   <option selected>Select an option</option>
                   <option value="Own">Own</option>
-                  <option value="B2Works">B2Works</option>
+                  <option value="donbosco">donbosco</option>
                 </select>
               </div>
             </div>
@@ -1020,17 +1020,17 @@ $searchsec = get_field('search_section');
             <!-- Add more Yes/No fields as needed -->
 
             <div class="col-12">
-              <label for="textArea" class="form-label"><?php echo __('Motivation', 'b2works'); ?></label>
+              <label for="textArea" class="form-label"><?php echo __('Motivation', 'donbosco'); ?></label>
               <textarea class="form-control" id="textArea" rows="5" name="motivation" placeholder=""></textarea>
             </div>
 
             <div class="col-12">
               <div class='file-input'>
                 <input type='file' name="resume" id="resume">
-                <span class='label uploadlabel' data-js-label><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/i-upload.svg" alt="i-upload"> <?php echo __('Upload CV', 'b2works'); ?></span>
-                <span class='btn btn-secondary'><?php echo __('Select', 'b2works'); ?></span>
+                <span class='label uploadlabel' data-js-label><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/i-upload.svg" alt="i-upload"> <?php echo __('Upload CV', 'donbosco'); ?></span>
+                <span class='btn btn-secondary'><?php echo __('Select', 'donbosco'); ?></span>
               </div>
-              <span><?php echo __('Select a resume .pdf of .doc file max 5mb', 'b2works'); ?></span>
+              <span><?php echo __('Select a resume .pdf of .doc file max 5mb', 'donbosco'); ?></span>
             </div>
 
             <!-- <div class="col-6">
@@ -1039,7 +1039,7 @@ $searchsec = get_field('search_section');
                 <span class='label uploadlabel' data-js-label><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/i-upload.svg" alt="i-upload"> Upload Cover</span>
                 <span class='btn btn-secondary'>Select</span>
               </div>
-              <span><?php echo __('Slect a cover letter pdf or doc file max 5 MB', 'b2works'); ?></span>
+              <span><?php echo __('Slect a cover letter pdf or doc file max 5 MB', 'donbosco'); ?></span>
             </div> -->
 
             <!-- <div class="col-6">
@@ -1048,23 +1048,23 @@ $searchsec = get_field('search_section');
                 <span class='label uploadlabel' data-js-label><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/i-upload.svg" alt="i-upload"> Upload Photo</span>
                 <span class='btn btn-secondary'>Select</span>
               </div>
-              <span><?php echo __('Select a photo jpg, jpeg or png file max 1 MB', 'b2works'); ?></span>
+              <span><?php echo __('Select a photo jpg, jpeg or png file max 1 MB', 'donbosco'); ?></span>
             </div> -->
 
             <div class="col-lg-9">
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="gridCheck" name="gridCheck" required>
                 <label class="ms-3 form-check-label" for="gridCheck">
-                <?php echo __('By sending this contact form you give us permission to process your (personal) data. We handle your personal data carefully.', 'b2works'); ?>
+                <?php echo __('By sending this contact form you give us permission to process your (personal) data. We handle your personal data carefully.', 'donbosco'); ?>
                 </label>
               </div>
             </div>
 
             <input type="hidden" id="honeypot" name="honeypot" value="">
-            <input type="hidden" id="honeypot" name="<?php echo __('Apply now', 'b2works'); ?>" value="">
+            <input type="hidden" id="honeypot" name="<?php echo __('Apply now', 'donbosco'); ?>" value="">
 
             <div class="col-12 mt-5">
-              <button type="submit" class="btn btn-secondary submit-btn"><?php echo __('Send', 'b2works'); ?></button>
+              <button type="submit" class="btn btn-secondary submit-btn"><?php echo __('Send', 'donbosco'); ?></button>
               <div class="loader btn-secondary send-loader"></div>
             </div>
           </form>

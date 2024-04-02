@@ -65,7 +65,7 @@
                   <path d="M10.7777 16.8887H3.44443C2.09388 16.8887 1 15.7948 1 14.4442V3.45776" stroke="#FF551E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M3.45787 1H19.321C20.6776 1 21.7789 2.09999 21.7789 3.45787V3.45787C21.7789 4.27309 21.3743 5.03453 20.6996 5.49164L14.1522 9.92949C12.4839 11.06 10.2937 11.06 8.62539 9.92949L2.07921 5.49286C1.40455 5.03575 1 4.27309 1 3.45909V3.45787C1 2.09999 2.09999 1 3.45787 1Z" stroke="#FF551E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-                <div><?php echo __('or else send us an email', 'b2works');?> <br> <a href="mailto:<?php the_field('email', 'option'); ?>"><?php the_field('email', 'option'); ?></a></div>
+                <div><?php echo __('or else send us an email', 'donbosco');?> <br> <a href="mailto:<?php the_field('email', 'option'); ?>"><?php the_field('email', 'option'); ?></a></div>
 
               </div>
               <div class="map" id="map"></div>
@@ -265,7 +265,7 @@
                     <img src="https://i.postimg.cc/xNJ9kc1k/certificate-2.png" alt="">
                     <div>
                       <h5 class="name">SNF</h5>
-                      <p>B2Works is in possession of the Stichting Normering Flexwonen (Flexible Living Standards Foundation) certification. </p>
+                      <p>donbosco is in possession of the Stichting Normering Flexwonen (Flexible Living Standards Foundation) certification. </p>
                     </div>
                   </li>
                   <li>

@@ -2,7 +2,7 @@
 /**
  * Template Search Page
  *
- * @package b2works
+ * @package donbosco
  * @author Huqson.nl
  * @link http://huqson.nl
  */
@@ -21,7 +21,7 @@ get_header();
             get_template_part('template-parts/content', 'search'); 
           endwhile; 
     } else {
-      echo "<div class='no_result'><h2>".__('Sorry!<br> Nothing Found', 'b2works')."</h2>";
+      echo "<div class='no_result'><h2>".__('Sorry!<br> Nothing Found', 'donbosco')."</h2>";
       echo '<img class="nothing_found" src="'.get_template_directory_uri().'/assets/images/nothing_found.svg" alt="Nothing Found"></div>';
     }?>
   

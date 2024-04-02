@@ -363,7 +363,7 @@ function application_form_submission() {
     if(postCandidate($data)) $status = "success";
     else $status = "error";
 
-    wp_send_json(['send'=>$status, 'message' => __("Application has been successfully submitted.", 'b2works')]);
+    wp_send_json(['send'=>$status, 'message' => __("Application has been successfully submitted.", 'donbosco')]);
     wp_die();
 }
 
@@ -514,7 +514,7 @@ function set_html_content_type() {
         }
         
 
-        $text = __('Show', 'b2works')." (".$total->found_posts.") ".__('results', 'b2works');
+        $text = __('Show', 'donbosco')." (".$total->found_posts.") ".__('results', 'donbosco');
 
         $returned= ['total_found' =>  $total->found_posts, 'jobs'=> $jobs, 'filters' => $filterlists, 'btn_text' => $text];
 

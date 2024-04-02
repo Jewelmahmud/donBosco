@@ -332,12 +332,12 @@
             </div>
 
             <div class="col-md-6">
-              <label class="form-label">Do you have your own accommodation, or do you need accommodation from B2Works?</label>
+              <label class="form-label">Do you have your own accommodation, or do you need accommodation from donbosco?</label>
               <div class="input-group">
                 <select class="form-select" aria-label="Default select example" name="accommodation">
                   <option selected>Select an option</option>
                   <option value="Own">Own</option>
-                  <option value="B2Works">B2Works</option>
+                  <option value="donbosco">donbosco</option>
                 </select>
               </div>
             </div>

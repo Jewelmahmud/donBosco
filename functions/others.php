@@ -72,7 +72,7 @@ function GisolaWelcomeNotice() {
 	global $pagenow;
 
 	if ( is_admin() && isset( $_GET['activated'] ) && 'themes.php' === $pagenow ) {
-		echo '<div class="updated notice notice-success is-dismissible"><p>'.sprintf( __( 'Thank you for installing b2works by Huqson.nl.', 'b2works' )  ).'</p></div>';
+		echo '<div class="updated notice notice-success is-dismissible"><p>'.sprintf( __( 'Thank you for installing donbosco by Huqson.nl.', 'donbosco' )  ).'</p></div>';
 	}
 }
 add_action( 'admin_notices', 'GisolaWelcomeNotice' );
@@ -153,12 +153,12 @@ function enqueue_custom_admin_favicon() {
 add_action('admin_head', 'enqueue_custom_admin_favicon');
 
 function custom_wp_mail_from($original_email_address) {
-    $custom_email_address = 'info@b2works.eu';
+    $custom_email_address = 'info@donbosco.eu';
     return $custom_email_address;
 }
 
 function custom_wp_mail_from_name($original_email_from) {
-    $custom_sender_name = 'B2Works';
+    $custom_sender_name = 'donbosco';
     return $custom_sender_name;
 }
 

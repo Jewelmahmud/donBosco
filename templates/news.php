@@ -149,7 +149,7 @@ $posts_per_page = get_option('posts_per_page');
           <div class="swiper swiper-container slide-tabs filters-button-group">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
-                <a href="#" class="tab newsselector active" data-name="*"><span><?php echo __('All', 'b2works'); ?></span></a>
+                <a href="#" class="tab newsselector active" data-name="*"><span><?php echo __('All', 'donbosco'); ?></span></a>
               </div>
 
               <?php
@@ -219,7 +219,7 @@ $posts_per_page = get_option('posts_per_page');
 
       </div>
       <div class="see-all-btn text-center mt-4" data-aos="fade-zoom-in">
-        <button class="btn btn-secondary" id="load-more" data-cat=""><?php echo __('Load more', 'b2works'); ?></button>
+        <button class="btn btn-secondary" id="load-more" data-cat=""><?php echo __('Load more', 'donbosco'); ?></button>
       </div>
     </div>
   </div>

@@ -189,13 +189,13 @@ $job_cats = get_terms($taxonomy, array('hide_empty' => true));
                   <path d="M11.9165 14.5328H12.8328" stroke="#F56537" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                   <path d="M15.5811 14.5328H16.4973" stroke="#F56537" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                   <path d="M4.58594 13.2422C4.58594 12.6899 5.03365 12.2422 5.58594 12.2422H8.16736C8.71965 12.2422 9.16736 12.6899 9.16736 13.2422V17.7399H4.58594V13.2422Z" stroke="#F56537" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg><?php echo __('Branches', 'b2works'); ?>
+                </svg><?php echo __('Branches', 'donbosco'); ?>
               </a>
               <div class="dropdown-menu fade">
                 <div class="container">
                   <div class="jobboardfilter">
                     <div class="header">
-                      <h3 class="title"><?php echo __('Branches', 'b2works')?></h3>
+                      <h3 class="title"><?php echo __('Branches', 'donbosco')?></h3>
                       <button class="btn close-filter btn-close"><span class="icon">
                         
                       </span></button>
@@ -256,7 +256,7 @@ $job_cats = get_terms($taxonomy, array('hide_empty' => true));
                     </div>
                     <div class="form__container--summary">
                       <button class="btn btn-secondary close-filter v-search">
-                        <?php echo __('Search Job', 'b2works'); ?>
+                        <?php echo __('Search Job', 'donbosco'); ?>
                       </button>
                     </div>
                   </div>
@@ -275,13 +275,13 @@ $job_cats = get_terms($taxonomy, array('hide_empty' => true));
                   <path d="M7.5 11.8375C4.58917 12.2384 2.5 13.3142 2.5 14.5834C2.5 16.1942 5.8575 17.5 10 17.5C14.1425 17.5 17.5 16.1942 17.5 14.5834C17.5 13.3142 15.4108 12.2384 12.5 11.8375" stroke="#F56537" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                   <path d="M9.99967 14.1667V7.5" stroke="#F56537" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                   <path d="M11.7678 3.23223C12.7441 4.20854 12.7441 5.79146 11.7678 6.76776C10.7915 7.74407 9.20854 7.74407 8.23223 6.76776C7.25592 5.79146 7.25592 4.20854 8.23223 3.23223C9.20854 2.25592 10.7915 2.25592 11.7678 3.23223" stroke="#F56537" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg><?php echo __('Location', 'b2works'); ?>
+                </svg><?php echo __('Location', 'donbosco'); ?>
               </a>
               <div class="dropdown-menu fade">
                 <div class="container">
                   <div class="jobboardfilter">
                     <div class="header">
-                      <h3 class="title"><?php echo __('Location', 'b2works')?></h3>
+                      <h3 class="title"><?php echo __('Location', 'donbosco')?></h3>
                       <button class="btn close-filter btn-close"><span class="icon">
                         
                       </span></button>
@@ -315,7 +315,7 @@ $job_cats = get_terms($taxonomy, array('hide_empty' => true));
                     </div>
                     <div class="form__container--summary">
                       <button class="btn btn-secondary close-filter v-search">
-                        <?php echo __('Search Job', 'b2works'); ?>
+                        <?php echo __('Search Job', 'donbosco'); ?>
                       </button>
                     </div>
                   </div>
@@ -335,13 +335,13 @@ $job_cats = get_terms($taxonomy, array('hide_empty' => true));
                   <path d="M3.5 6.58423V15.8842H15.5V6.58423" stroke="#FF551E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                   <path d="M2 7.63428L9.5 2.38428L17 7.63428" stroke="#FF551E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                   <path d="M11.75 15.8843V11.3843C11.75 10.5555 11.0788 9.88428 10.25 9.88428H8.75C7.92125 9.88428 7.25 10.5555 7.25 11.3843V15.8843" stroke="#FF551E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                </svg><?php echo __('Accomodation', 'b2works'); ?>
+                </svg><?php echo __('Accomodation', 'donbosco'); ?>
               </a>
               <div class="dropdown-menu fade">
                 <div class="container">
                   <div class="jobboardfilter">
                     <div class="header">
-                      <h3 class="title"><?php echo __('Accomodation', 'b2works'); ?></h3>
+                      <h3 class="title"><?php echo __('Accomodation', 'donbosco'); ?></h3>
                       <button class="btn close-filter btn-close"><span class="icon">
                         
                       </span></button>
@@ -374,7 +374,7 @@ $job_cats = get_terms($taxonomy, array('hide_empty' => true));
                     </div>
                     <div class="form__container--summary">
                       <button class="btn btn-secondary close-filter v-search">
-                        <?php echo __('Search Job', 'b2works'); ?>
+                        <?php echo __('Search Job', 'donbosco'); ?>
                       </button>
                     </div>
                   </div>
@@ -394,7 +394,7 @@ $job_cats = get_terms($taxonomy, array('hide_empty' => true));
                   <path d="M13.0495 12.4335C11.5033 13.9796 8.99771 13.9796 7.45159 12.4335C5.90546 10.8874 5.90546 8.38174 7.45159 6.83562C8.99771 5.28949 11.5033 5.28949 13.0495 6.83562" stroke="#FE6330" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                   <path d="M10.25 8.54183H5.5" stroke="#FE6330" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                   <path d="M10.25 10.7269H5.5" stroke="#FE6330" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                </svg><?php echo __('Hourly rate', 'b2works'); ?>
+                </svg><?php echo __('Hourly rate', 'donbosco'); ?>
               </a>
 
 
@@ -402,7 +402,7 @@ $job_cats = get_terms($taxonomy, array('hide_empty' => true));
                 <div class="container">
                   <div class="jobboardfilter">
                     <div class="header">
-                      <h3 class="title"><?php echo __('Hourly rate', 'b2works'); ?></h3>
+                      <h3 class="title"><?php echo __('Hourly rate', 'donbosco'); ?></h3>
                       <button class="btn close-filter btn-close"><span class="icon">
                         
                       </span></button>
@@ -434,7 +434,7 @@ $job_cats = get_terms($taxonomy, array('hide_empty' => true));
                     </div>
                     <div class="form__container--summary">
                       <button class="btn btn-secondary close-filter v-search">
-                        <?php echo __('Search Job', 'b2works'); ?>
+                        <?php echo __('Search Job', 'donbosco'); ?>
                       </button>
                     </div>
                   </div>
@@ -455,7 +455,7 @@ $job_cats = get_terms($taxonomy, array('hide_empty' => true));
                   <path d="M8 2V6" stroke="#FF551E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                   <path d="M3 9H21" stroke="#FF551E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M19 4H5C3.895 4 3 4.895 3 6V19C3 20.105 3.895 21 5 21H19C20.105 21 21 20.105 21 19V6C21 4.895 20.105 4 19 4Z" stroke="#FF551E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg><?php echo __('Years of experience', 'b2works'); ?>
+                </svg><?php echo __('Years of experience', 'donbosco'); ?>
               </a>
 
 
@@ -463,7 +463,7 @@ $job_cats = get_terms($taxonomy, array('hide_empty' => true));
                 <div class="container">
                   <div class="jobboardfilter">
                     <div class="header">
-                      <h3 class="title"><?php echo __('Years of Experience', 'b2works'); ?></h3>
+                      <h3 class="title"><?php echo __('Years of Experience', 'donbosco'); ?></h3>
                       <button class="btn close-filter btn-close"><span class="icon">
                         
                       </span></button>
@@ -495,7 +495,7 @@ $job_cats = get_terms($taxonomy, array('hide_empty' => true));
                     </div>
                     <div class="form__container--summary">
                       <button class="btn btn-secondary close-filter v-search">
-                        <?php echo __('Search Job', 'b2works'); ?>
+                        <?php echo __('Search Job', 'donbosco'); ?>
                       </button>
                     </div>
                   </div>
@@ -505,7 +505,7 @@ $job_cats = get_terms($taxonomy, array('hide_empty' => true));
           </div>
           <?php endif; ?>
           <div class="col-12 col-lg-auto ms-auto">
-            <button class="clear-filter"><?php echo __('Clear filter', 'b2works'); ?></button>
+            <button class="clear-filter"><?php echo __('Clear filter', 'donbosco'); ?></button>
           </div>
         </div>
         
@@ -516,7 +516,7 @@ $job_cats = get_terms($taxonomy, array('hide_empty' => true));
         <div class="filter-mobile-btn">
           <a data-bs-toggle="offcanvas" href="#mobile-filter-btn" role="button" aria-controls="mobile-filter-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sliders" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1z"/>
-          </svg> <?php echo __('Filter', 'b2works'); ?></a>
+          </svg> <?php echo __('Filter', 'donbosco'); ?></a>
         </div>
         <div class="filter-content offcanvas offcanvas-top" tabindex="-1" id="mobile-filter-btn" aria-labelledby="offcanvasExampleLabel">
           <div class="offcanvas-header">
@@ -536,7 +536,7 @@ $job_cats = get_terms($taxonomy, array('hide_empty' => true));
                     <path d="M11.9165 14.5328H12.8328" stroke="#F56537" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M15.5811 14.5328H16.4973" stroke="#F56537" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M4.58594 13.2422C4.58594 12.6899 5.03365 12.2422 5.58594 12.2422H8.16736C8.71965 12.2422 9.16736 12.6899 9.16736 13.2422V17.7399H4.58594V13.2422Z" stroke="#F56537" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg><?php echo __('Branches', 'b2works'); ?>
+                  </svg><?php echo __('Branches', 'donbosco'); ?>
                   </button>               
                   <?php endif; ?>
                   <?php if($locations) : ?>
@@ -545,7 +545,7 @@ $job_cats = get_terms($taxonomy, array('hide_empty' => true));
                       <path d="M7.5 11.8375C4.58917 12.2384 2.5 13.3142 2.5 14.5834C2.5 16.1942 5.8575 17.5 10 17.5C14.1425 17.5 17.5 16.1942 17.5 14.5834C17.5 13.3142 15.4108 12.2384 12.5 11.8375" stroke="#F56537" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                       <path d="M9.99967 14.1667V7.5" stroke="#F56537" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                       <path d="M11.7678 3.23223C12.7441 4.20854 12.7441 5.79146 11.7678 6.76776C10.7915 7.74407 9.20854 7.74407 8.23223 6.76776C7.25592 5.79146 7.25592 4.20854 8.23223 3.23223C9.20854 2.25592 10.7915 2.25592 11.7678 3.23223" stroke="#F56537" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg><?php echo __('Location', 'b2works'); ?>
+                    </svg><?php echo __('Location', 'donbosco'); ?>
                   </button>                 
                   <?php endif; ?>
                   <?php if($accomodation) : ?>
@@ -554,7 +554,7 @@ $job_cats = get_terms($taxonomy, array('hide_empty' => true));
                         <path d="M3.5 6.58423V15.8842H15.5V6.58423" stroke="#FF551E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                         <path d="M2 7.63428L9.5 2.38428L17 7.63428" stroke="#FF551E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                         <path d="M11.75 15.8843V11.3843C11.75 10.5555 11.0788 9.88428 10.25 9.88428H8.75C7.92125 9.88428 7.25 10.5555 7.25 11.3843V15.8843" stroke="#FF551E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                      </svg><?php echo __('Accomodation', 'b2works'); ?>
+                      </svg><?php echo __('Accomodation', 'donbosco'); ?>
                   </button> -->
                   <?php endif; ?>
 
@@ -565,7 +565,7 @@ $job_cats = get_terms($taxonomy, array('hide_empty' => true));
                       <path d="M13.0495 12.4335C11.5033 13.9796 8.99771 13.9796 7.45159 12.4335C5.90546 10.8874 5.90546 8.38174 7.45159 6.83562C8.99771 5.28949 11.5033 5.28949 13.0495 6.83562" stroke="#FE6330" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                       <path d="M10.25 8.54183H5.5" stroke="#FE6330" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                       <path d="M10.25 10.7269H5.5" stroke="#FE6330" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </svg><?php echo __('Hourly rate', 'b2works'); ?>
+                    </svg><?php echo __('Hourly rate', 'donbosco'); ?>
                   </button>
                   <?php endif; ?>
 
@@ -576,7 +576,7 @@ $job_cats = get_terms($taxonomy, array('hide_empty' => true));
                       <path d="M8 2V6" stroke="#FF551E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                       <path d="M3 9H21" stroke="#FF551E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                       <path fill-rule="evenodd" clip-rule="evenodd" d="M19 4H5C3.895 4 3 4.895 3 6V19C3 20.105 3.895 21 5 21H19C20.105 21 21 20.105 21 19V6C21 4.895 20.105 4 19 4Z" stroke="#FF551E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg><?php echo __('Years of experience', 'b2works'); ?>
+                    </svg><?php echo __('Years of experience', 'donbosco'); ?>
                   </button>
                   <?php endif; ?>
                 
@@ -775,8 +775,8 @@ $job_cats = get_terms($taxonomy, array('hide_empty' => true));
             </div>
           </div>
           <div class="offcanvas-footer">            
-            <button type="button" class="btn btn-secondary v-search" data-bs-dismiss="offcanvas" aria-label="Close"><?php echo __('Search', 'b2works'); ?></button>
-            <button class="clear-filter"><?php echo __('Clear filter', 'b2works'); ?></button>
+            <button type="button" class="btn btn-secondary v-search" data-bs-dismiss="offcanvas" aria-label="Close"><?php echo __('Search', 'donbosco'); ?></button>
+            <button class="clear-filter"><?php echo __('Clear filter', 'donbosco'); ?></button>
           </div>
         </div>
       </div>
@@ -848,7 +848,7 @@ $job_cats = get_terms($taxonomy, array('hide_empty' => true));
     <div class="modal-dialog modal-lg modal-fullscreen-lg-down">
       <div class="modal-content">
         <div class="modal-header px-lg-5 pt-lg-5">
-          <h1 class="modal-title fs-5" id="#takeJobModalLabel"><?php echo __('Apply for the job', 'b2works'); ?></h1>
+          <h1 class="modal-title fs-5" id="#takeJobModalLabel"><?php echo __('Apply for the job', 'donbosco'); ?></h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body p-lg-5">
@@ -866,16 +866,16 @@ $job_cats = get_terms($taxonomy, array('hide_empty' => true));
             </div> -->
 
             <div class="col-md-6">
-              <label for="firstname" class="form-label"><?php echo __('First name', 'b2works');?> <span>(<?php echo __('Required', 'b2works');?>)</span></label>
+              <label for="firstname" class="form-label"><?php echo __('First name', 'donbosco');?> <span>(<?php echo __('Required', 'donbosco');?>)</span></label>
               <input type="text" class="form-control" id="firstname" name="firstname" placeholder="" required>
             </div>
 
             <div class="col-md-6">
-              <label for="lastname" class="form-label"><?php echo __('Last name', 'b2works');?> <span>(<?php echo __('Required', 'b2works');?>)</span></label>
+              <label for="lastname" class="form-label"><?php echo __('Last name', 'donbosco');?> <span>(<?php echo __('Required', 'donbosco');?>)</span></label>
               <input type="text" class="form-control" id="lastname" placeholder="" name="lastname" required>
             </div>
             <div class="col-md-6">
-              <label for="lastname" class="form-label"><?php echo __('Date of birth', 'b2works');?> <span>(<?php echo __('Required', 'b2works');?>)</span></label>
+              <label for="lastname" class="form-label"><?php echo __('Date of birth', 'donbosco');?> <span>(<?php echo __('Required', 'donbosco');?>)</span></label>
               <input type="text" class="form-control datepicker" id="dateOfBirth" placeholder="" name="dateOfBirth" required maxlength="10" data-valid="false">
             </div>
 
@@ -885,12 +885,12 @@ $job_cats = get_terms($taxonomy, array('hide_empty' => true));
             </div> -->
 
             <div class="col-md-6">
-              <label for="phone" class="form-label"><?php echo __('Phone', 'b2works');?> <span>(<?php echo __('Required', 'b2works');?>)</span></label>
+              <label for="phone" class="form-label"><?php echo __('Phone', 'donbosco');?> <span>(<?php echo __('Required', 'donbosco');?>)</span></label>
               <input type="text" class="form-control" id="phone" name="phone" placeholder="" required>
             </div>
 
             <div class="col-md-6">
-              <label for="email" class="form-label"><?php echo __('E-mail address', 'b2works');?> <span>(<?php echo __('Required', 'b2works');?>)</span></label>
+              <label for="email" class="form-label"><?php echo __('E-mail address', 'donbosco');?> <span>(<?php echo __('Required', 'donbosco');?>)</span></label>
               <input type="email" class="form-control" id="email" name="email" placeholder="" required>
             </div>
 
@@ -914,41 +914,41 @@ $job_cats = get_terms($taxonomy, array('hide_empty' => true));
             </div> -->
 
             <div class="col-md-6">
-              <label for="availTo" class="form-label"><?php echo __('Current postion', 'b2works');?></label>
+              <label for="availTo" class="form-label"><?php echo __('Current postion', 'donbosco');?></label>
               <input type="text" class="form-control" id="currentPosition" name="currentPosition" placeholder="">
             </div>
 
             <div class="col-md-6">
-              <label for="availTo" class="form-label"><?php echo __('Current employer', 'b2works');?></label>
+              <label for="availTo" class="form-label"><?php echo __('Current employer', 'donbosco');?></label>
               <input type="text" class="form-control" id="currentEmployer" name="currentEmployer" placeholder="">
             </div>
 
             <!-- <div class="col-md-6">
-              <label for="availTo" class="form-label"><?php echo __('Skype', 'b2works');?></label>
+              <label for="availTo" class="form-label"><?php echo __('Skype', 'donbosco');?></label>
               <input type="text" class="form-control" id="skype" name="skype" placeholder="">
             </div>
             <div class="col-md-6">
-              <label for="availTo" class="form-label"><?php echo __('LinkedIn', 'b2works');?></label>
+              <label for="availTo" class="form-label"><?php echo __('LinkedIn', 'donbosco');?></label>
               <input type="text" class="form-control" id="linkedIn" name="linkedin" placeholder="">
             </div>
             <div class="col-md-6">
-              <label for="availTo" class="form-label"><?php echo __('Facebook', 'b2works');?></label>
+              <label for="availTo" class="form-label"><?php echo __('Facebook', 'donbosco');?></label>
               <input type="text" class="form-control" id="facebook" name="facebook" placeholder="">
             </div>
             <div class="col-md-6">
-              <label for="availTo" class="form-label"><?php echo __('Instagram', 'b2works');?></label>
+              <label for="availTo" class="form-label"><?php echo __('Instagram', 'donbosco');?></label>
               <input type="text" class="form-control" id="instagram" name="instagram" placeholder="">
             </div>
             <div class="col-md-6">
-              <label for="availTo" class="form-label"><?php echo __('Twitter', 'b2works');?></label>
+              <label for="availTo" class="form-label"><?php echo __('Twitter', 'donbosco');?></label>
               <input type="text" class="form-control" id="twitter" name="twitter" placeholder="">
             </div>
             <div class="col-md-6">
-              <label for="availTo" class="form-label"><?php echo __('Website', 'b2works');?></label>
+              <label for="availTo" class="form-label"><?php echo __('Website', 'donbosco');?></label>
               <input type="text" class="form-control" id="website" name="website" placeholder="">
             </div>
             <div class="col-md-6">
-              <label for="availTo" class="form-label"><?php echo __('Blog', 'b2works');?></label>
+              <label for="availTo" class="form-label"><?php echo __('Blog', 'donbosco');?></label>
               <input type="text" class="form-control" id="blog" name="blog" placeholder="">
             </div> -->
 
@@ -995,12 +995,12 @@ $job_cats = get_terms($taxonomy, array('hide_empty' => true));
             </div>
 
             <div class="col-md-6">
-              <label class="form-label">Do you have your own accommodation, or do you need accommodation from B2Works?</label>
+              <label class="form-label">Do you have your own accommodation, or do you need accommodation from donbosco?</label>
               <div class="input-group">
                 <select class="form-select" aria-label="Default select example" name="accommodation">
                   <option selected>Select an option</option>
                   <option value="Own">Own</option>
-                  <option value="B2Works">B2Works</option>
+                  <option value="donbosco">donbosco</option>
                 </select>
               </div>
             </div>
@@ -1021,17 +1021,17 @@ $job_cats = get_terms($taxonomy, array('hide_empty' => true));
             <!-- Add more Yes/No fields as needed -->
 
             <div class="col-12">
-              <label for="textArea" class="form-label"><?php echo __('Motivation', 'b2works'); ?></label>
+              <label for="textArea" class="form-label"><?php echo __('Motivation', 'donbosco'); ?></label>
               <textarea class="form-control" id="textArea" rows="5" name="motivation" placeholder=""></textarea>
             </div>
 
             <div class="col-12">
               <div class='file-input'>
                 <input type='file' name="resume" id="resume">
-                <span class='label uploadlabel' data-js-label><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/i-upload.svg" alt="i-upload"> <?php echo __('Upload CV', 'b2works'); ?></span>
-                <span class='btn btn-secondary'><?php echo __('Select', 'b2works'); ?></span>
+                <span class='label uploadlabel' data-js-label><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/i-upload.svg" alt="i-upload"> <?php echo __('Upload CV', 'donbosco'); ?></span>
+                <span class='btn btn-secondary'><?php echo __('Select', 'donbosco'); ?></span>
               </div>
-              <span><?php echo __('Select a resume .pdf of .doc file max 5mb', 'b2works'); ?></span>
+              <span><?php echo __('Select a resume .pdf of .doc file max 5mb', 'donbosco'); ?></span>
             </div>
 
             <!-- <div class="col-6">
@@ -1040,7 +1040,7 @@ $job_cats = get_terms($taxonomy, array('hide_empty' => true));
                 <span class='label uploadlabel' data-js-label><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/i-upload.svg" alt="i-upload"> Upload Cover</span>
                 <span class='btn btn-secondary'>Select</span>
               </div>
-              <span><?php echo __('Slect a cover letter pdf or doc file max 5 MB', 'b2works'); ?></span>
+              <span><?php echo __('Slect a cover letter pdf or doc file max 5 MB', 'donbosco'); ?></span>
             </div> -->
 
             <!-- <div class="col-6">
@@ -1049,23 +1049,23 @@ $job_cats = get_terms($taxonomy, array('hide_empty' => true));
                 <span class='label uploadlabel' data-js-label><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/i-upload.svg" alt="i-upload"> Upload Photo</span>
                 <span class='btn btn-secondary'>Select</span>
               </div>
-              <span><?php echo __('Select a photo jpg, jpeg or png file max 1 MB', 'b2works'); ?></span>
+              <span><?php echo __('Select a photo jpg, jpeg or png file max 1 MB', 'donbosco'); ?></span>
             </div> -->
 
             <div class="col-lg-9">
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="gridCheck" name="gridCheck" required>
                 <label class="ms-3 form-check-label" for="gridCheck">
-                <?php echo __('By sending this contact form you give us permission to process your (personal) data. We handle your personal data carefully.', 'b2works'); ?>
+                <?php echo __('By sending this contact form you give us permission to process your (personal) data. We handle your personal data carefully.', 'donbosco'); ?>
                 </label>
               </div>
             </div>
 
             <input type="hidden" id="honeypot" name="honeypot" value="">
-            <input type="hidden" id="honeypot" name="<?php echo __('Apply now', 'b2works'); ?>" value="">
+            <input type="hidden" id="honeypot" name="<?php echo __('Apply now', 'donbosco'); ?>" value="">
 
             <div class="col-12 mt-5">
-              <button type="submit" class="btn btn-secondary submit-btn"><?php echo __('Send', 'b2works'); ?></button>
+              <button type="submit" class="btn btn-secondary submit-btn"><?php echo __('Send', 'donbosco'); ?></button>
               <div class="loader btn-secondary send-loader"></div>
             </div>
           </form>
@@ -1086,8 +1086,8 @@ $job_cats = get_terms($taxonomy, array('hide_empty' => true));
 </div>
 
 <div href="#" class="v-floating-btn" >
-    <p class="d-none d-lg-block"><?php echo __("<strong>Haven't found anything that suits you?</strong> <br>Apply anyway and we will try to find something for you!", "b2works");?></p>
-    <a href="#" class="btn btn-secondary apply-btn takeJobModal" data-bs-toggle="modal" data-bs-target="#takeJobModal"><?php echo __('Apply Now', 'b2works');?></a>
+    <p class="d-none d-lg-block"><?php echo __("<strong>Haven't found anything that suits you?</strong> <br>Apply anyway and we will try to find something for you!", "donbosco");?></p>
+    <a href="#" class="btn btn-secondary apply-btn takeJobModal" data-bs-toggle="modal" data-bs-target="#takeJobModal"><?php echo __('Apply Now', 'donbosco');?></a>
 </div>
 
 
