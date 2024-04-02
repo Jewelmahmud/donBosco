@@ -78,6 +78,14 @@ function GisolaWelcomeNotice() {
 add_action( 'admin_notices', 'GisolaWelcomeNotice' );
 
 
+function custom_admin_favicon() {
+    $favicon = get_field('favicon', 'option');
+
+    if ($favicon) {
+        echo '<link rel="shortcut icon" href="' . esc_url($favicon['url']) . '" />';
+    }
+}
+add_action('admin_head', 'custom_admin_favicon');
 
 
 
@@ -131,26 +139,6 @@ add_filter('wpcf7_autop_or_not', '__return_false');
 
 // add_action('admin_head', 'enqueue_custom_favicon_admin');
 
-function enqueue_custom_admin_favicon() {
-    $favicon_url = get_field('favicon', 'option');   
-    
-    if ($favicon_url) {
-        echo '<link rel="icon" href="' . esc_url($favicon_url) . '" type="image/x-icon" />';
-        echo '<style>
-            #adminmenuicon { 
-                background-image: url("' . esc_url($favicon_url) . '"); 
-            }
-            #wpadminbar #wp-admin-bar-wp-logo>.ab-item .ab-icon:before {
-                content: "";
-                background-image: url("' . esc_url($favicon_url) . '"); 
-            }
-                
-                
-            </style>';
-    }
-}
-
-add_action('admin_head', 'enqueue_custom_admin_favicon');
 
 function custom_wp_mail_from($original_email_address) {
     $custom_email_address = 'info@donbosco.eu';

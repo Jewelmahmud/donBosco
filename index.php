@@ -1,10 +1,15 @@
 <!doctype html>
-<html lang="en">
+<html <?php language_attributes(); ?> class="page-id-<?php the_ID(); ?>">
 
 <head>
+  <?php 
+    
+    $favicon = get_field('favicon', 'option'); 
+    if($favicon) echo '<link rel="shortcut icon" type="image/jpg" href="'.esc_url($favicon).'"/>';
+  ?>
   <meta charset="utf-8">
+  <?php wp_head(); ?>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Home</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- video popup css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
@@ -12,20 +17,23 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="//use.typekit.net/hca3mfo.css">
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/style.css">
+  
 </head>
 
-<body>
+<body <?php body_class(); ?>>
   <div class="bg-home-top" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(<?php echo get_template_directory_uri(); ?>/assets/images/banner-bg.jpg);">
     <header class="header">
       <div class="header-top bg-primary d-none d-lg-block">
         <div class="container">
-          <ul class="header-top-menu justify-content-end nav">
-            <li class="nav-item"><a href="#" class="nav-link">Ons team</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Podcasts</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Werken bij</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">FAQ</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
-          </ul>
+          <?php
+            wp_nav_menu(array(
+                'theme_location' => 'topmenu',
+                'container' => 'ul',
+                'container_class' => 'header-top-menu justify-content-end nav',
+                'menu_class' => 'header-top-menu justify-content-end nav',
+                'walker' => new Custom_Nav_Walker()
+            ));
+          ?>
         </div>
       </div>
       <nav class="navbar navbar-expand-lg">
@@ -57,40 +65,27 @@
           <div class="offcanvas offcanvas-top" id="main-nav"
           tabindex="-1" aria-labelledby="offcanvasNavbarLabel">
           <div class="offcanvas-header">
-            <a class="navbar-brand" href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/main-logo.svg" alt=""></a>
+            <?php 
+              $mainlogo = get_field('logo', 'option'); 
+              if($mainlogo):  ?> 
+              <a class="navbar-brand" href="<?php echo site_url('/'); ?>"><img src="<?php echo $mainlogo['url']; ?>" alt="<?php echo $mainlogo['alt']; ?>"></a>
+              <?php else: ?>
+              <a class="navbar-brand" href="<?php echo site_url('/'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/main-logo.svg" alt="Main logo"></a>
+              <?php endif; ?>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
           <div class="offcanvas-body">
+           
+
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Over ons</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                  aria-expanded="false">
-                  Activiteiten
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Begeleiding</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Verhalen</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Vrienden van</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Steun ons</a>
-              </li>
+                <?php
+                    wp_nav_menu(array(
+                        'theme_location' => 'mainmenu',
+                        'container' => false,
+                        'items_wrap' => '%3$s',
+                        'walker' => new Custom_Nav_Walker()
+                    ));
+                ?>
             </ul>
             <div class="d-flex align-items-center gap-2">
               <a href="#" class="btn btn-primary">Nieuws</a>
@@ -100,9 +95,9 @@
                   <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-search.svg" alt="search icon">
                 </a>
                 <div class="dropdown-menu dropdown-menu-end">
-                  <form class="d-flex search-holder position-relative" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-primary" type="submit">Zoek</button>
+                  <form role="search" method="get" class="search-form d-flex search-holder position-relative" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+                      <input type="search" class="form-control me-2" placeholder="Search" value="<?php echo get_search_query(); ?>" name="s" aria-label="Search">
+                      <button type="submit" class="btn btn-primary">Zoek</button>
                   </form>
                 </div>
 

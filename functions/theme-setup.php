@@ -31,16 +31,13 @@ function donboscoThemeSetup() {
 	 */
 	add_theme_support( 'post-thumbnails' );	
 	// set_post_thumbnail_size( 900, 400, true ); 
-	add_image_size( 'newsbig', 385, 300, true );
-	add_image_size( 'newssmall', 385, 207, true );
+	// add_image_size( 'newsbig', 385, 300, true );
+	// add_image_size( 'newssmall', 385, 207, true );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(		
-		'mainmenu' 	=> esc_html__( 'Main Menu', 'donbosco' ),		
-		'mobile_menu' 	=> esc_html__( 'Mobile Menu', 'donbosco' ),
-		'footer_menu_1' 	=> esc_html__( 'donbosco', 'donbosco' ),
-		'footer_menu_2' 	=> esc_html__( 'Overige informatie', 'donbosco' ),
-		'footer_bottom' 	=> esc_html__( 'Copyright Menu', 'donbosco' ),
+		'topmenu' 	=> esc_html__( 'Top Menu', 'donbosco' ),	
+		'mainmenu' 	=> esc_html__( 'Main Menu', 'donbosco' ),	
 	) );
 
 	/*
@@ -281,17 +278,6 @@ function sanitizeInput($input, $type = 'text') {
 
     return $output;
 }
-function custom_admin_favicon() {
-    $favicon = get_field('favicon', 'option');
-
-    if ($favicon) {
-        // echo '<link rel="icon" href="' . esc_url($favicon['url']) . '" type="image/x-icon" />';
-    }
-}
-
-add_action('admin_head', 'custom_admin_favicon');
-
-
 
 
 function is_job_favorite($job_id) {
