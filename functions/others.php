@@ -81,8 +81,10 @@ add_action( 'admin_notices', 'GisolaWelcomeNotice' );
 function custom_admin_favicon() {
     $favicon = get_field('favicon', 'option');
 
+    // var_dump($favicon);
+
     if ($favicon) {
-        echo '<link rel="shortcut icon" href="' . esc_url($favicon['url']) . '" />';
+        echo '<link rel="shortcut icon" href="' . esc_url($favicon) . '" />';
     }
 }
 add_action('admin_head', 'custom_admin_favicon');
@@ -432,6 +434,17 @@ function get_ip_geolocation($ip = '') {
     $data = json_decode(wp_remote_retrieve_body($response), true);
 
     return $data;
+}
+
+function isEventAlive($eventEndDate, $eventEndTime) {
+    $eventDateTime = strtotime($eventEndDate . ' ' . $eventEndTime);
+
+    $currentDateTime = time();
+    if ($eventDateTime > $currentDateTime) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 
