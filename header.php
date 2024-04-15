@@ -88,7 +88,9 @@
                 ?>
             </ul>
             <div class="d-flex align-items-center gap-2">
-              <a href="#" class="btn btn-primary">Nieuws</a>
+              <?php $link = get_field('header_action_button', 'option'); if($link): ?>
+              <a href="<?php echo $link['url']; ?>" class="btn btn-primary" target="<?php echo $link['target']; ?>"><?php echo $link['title']; ?></a>
+              <?php endif; ?>
               <div class="header-search dropdown d-none d-lg-block">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                   aria-expanded="false">

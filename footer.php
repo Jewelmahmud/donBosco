@@ -71,12 +71,17 @@
           <div class="row align-items-lg-center">
             <div class="col-lg-4 col-xl-auto mb-4 mb-lg-0">
               <div class="footer-top-left d-flex align-items-center justify-content-between">
-                <?php $logo = get_field('footer_logos', 'option'); 
+                <?php 
+                
+                $logo = get_field('footer_logos', 'option'); 
+                $icon = get_field('footer_logo_side_icon', 'option'); 
                 
                 if($logo): ?>
                 <img src="<?php echo $logo['url']; ?>" alt="logo-footer" class="footer-logo">
                 <?php endif; ?>
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/samlogo.png" alt="samlogo" class="footer-logo-other">
+                <?php if($icon): ?>
+                  <img src="<?php echo $icon; ?>" alt="samlogo" class="footer-logo-other">
+                <?php endif; ?>
               </div>
             </div>
             <?php $socialmedia = get_field('social_medias', 'option'); if( $socialmedia): ?>
@@ -104,38 +109,39 @@
         
           <div class="row">
             <div class="col-lg-5">
+              <?php $footermenu = get_field('footer_menu', 'option'); if($footermenu):  ?>
               <div class="footer-menu">
-                <h5 class="toggle">Menu</h5>
+                <h5 class="toggle"><?php echo $footermenu['menu_title']; ?></h5>
                 <ul class="list-unstyled collapse-div">
-                  <li><a href="#">Over ons</a></li>
-                  <li><a href="#">Nieuws</a></li>
-                  <li><a href="#">Media</a></li>
-                  <li><a href="#">Webshop</a></li>
-                  <li><a href="#">Steun ons</a></li>
-                  <li><a href="#">Organisaties</a></li>
-                  <li><a href="#">Veelgestelde vragen</a></li>
-                  <li><a href="#">Contact</a></li>
+                  <?php if($footermenu['menu_items']) : foreach($footermenu['menu_items'] as $item) :?>
+                  <li><a href="<?php echo $item['link']['url'];?>" target="<?php echo $item['link']['target'];?>"><?php echo $item['link']['title'];?></a></li>
+                  <?php endforeach; endif; ?>
                 </ul>
               </div>
+              <?php endif; ?>
             </div>
             <div class="col-lg-6 offset-lg-1">
               <div class="row">
+                <?php $info = get_field('footer_info_1', 'option'); if($info): ?> 
                 <div class="col-md-6">
                   <div class="address">
-                    <h5 class="toggle">Don Bosco Apeldoorn de Maten</h5>
+                    <h5 class="toggle"><?php echo $info['info_title']; ?></h5>
                     <address class="collapse-div">
-                      Eglantierlaan 203 <br>7329 AP Apeldoorn <br>055 - 542 59 51 <br>info@donboscoapeldoorn.nl
+                      <?php echo $info['info_texts']; ?>
                     </address>
                   </div>
                 </div>
+                <?php endif; ?>
+                <?php $info = get_field('footer_info_2', 'option'); if($info): ?> 
                 <div class="col-md-6">
                   <div class="address">
-                    <h5 class="toggle">Don Bosco Apeldoorn Zevenhuizen</h5>
+                    <h5 class="toggle"><?php $info['info_title']; ?></h5>
                     <address class="collapse-div">
-                      Sluisoordlaan 200 <br>7322 EL Apeldoorn <br>055 - 366 46 38 <br>info@donboscoapeldoorn.nl
+                      <?php echo $info['info_texts']; ?>
                     </address>
                   </div>
                 </div>
+                <?php endif; ?>
               </div>
             </div>
           </div>
@@ -148,8 +154,10 @@
         <div class="row">
           <div class="col-md-9">
             <div class="footer-bottom-left">
-              <p>© 2023 /// Don Bosco Apeldoorn <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" style="fill: currentColor;"><path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"></path></svg> All rights reserved</p>
-              <a href="#">Policy and terms</a>
+              <p><?php echo get_field('copyright_texts', 'option'); ?></p>
+              <?php $menu = get_field('footer_bottom_menu', 'option'); if($menu) : foreach($menu as $item): ?>
+              <a href="<?php echo $item['link']['url']; ?>" target="<?php echo $item['link']['target']; ?>"><?php echo $item['link']['title']; ?></a>
+              <?php endforeach; endif; ?>
             </div>
           </div>
           <div class="col-md-3 text-end">
