@@ -215,4 +215,39 @@
       </div>
     </section>
     <?php endif; ?>
+    <?php if(is_page() || is_page_template('templates/contact.php')):?>
+    <div class="page-banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="subtitle">
+              Een thuis voor jongeren.
+            </div>
+            <h1><?php the_title(); ?></h1>
+            <nav aria-label="breadcrumb">
+              <?php
+                $breadcrumbs = get_breadcrumb();
+                if ($breadcrumbs) : ?>
+                  <ol class="breadcrumbs" aria-label="breadcrumb">
+                      <?php foreach ($breadcrumbs as $breadcrumb) : ?>
+                          <li class="breadcrumb-item">
+                              <?php
+                              if ($breadcrumb['url']) {
+                                  echo '<a href="' . esc_url($breadcrumb['url']) . '">';
+                              }
+                              echo $breadcrumb['text'];
+                              if ($breadcrumb['url']) {
+                                  echo '</a>';
+                              }
+                              ?>
+                          </li>
+                      <?php endforeach; ?>
+                    </ol>
+              <?php endif; ?>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+    <?php endif; ?>
   </div>
