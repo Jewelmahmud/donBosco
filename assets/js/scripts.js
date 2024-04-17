@@ -123,6 +123,28 @@ var instaCarousel = new Swiper(".insta-carousel", {
   },
 });
 
+var slideTabsSwiper = new Swiper(".slide-tabs", {
+  slidesPerView: 2,
+  spaceBetween: 15,
+  loop: true,
+  navigation: {
+    nextEl: ".swiper-next",
+    prevEl: ".swiper-prev",
+  },
+
+  breakpoints: {
+    768: {
+      slidesPerView: 3,
+    },
+    992: {
+      slidesPerView: 4,
+    },
+    1200: {
+      slidesPerView: 6,
+    },
+  },
+});
+
 
 // Handle Collapse Divs
 var collapseDivs = document.querySelectorAll(".collapse-div");
@@ -154,6 +176,22 @@ h5Elements.forEach(function (h5) {
       removalDelay: 200,
     });
   });
+
+  // Isotope Filtering
+var faqIso = $(".all-faqs").isotope({
+  itemSelector: ".faq-item",
+  layoutMode: "fitRows",
+});
+
+$("a.faqselector").on("click", function (e) {
+  e.preventDefault();
+  var value = $(this).attr("data-name");
+  $("a.faqselector").removeClass("active");
+  $(this).addClass("active");
+  faqIso.isotope({
+    filter: value,
+  });
+});
 
 })(jQuery);
 

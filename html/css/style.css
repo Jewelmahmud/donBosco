@@ -660,7 +660,9 @@ h2 {
   left: 20px;
   font-weight: 600;
 }
-
+.news-card-tag img{
+  filter: brightness(0) invert(1);
+}
 .news-card-body h3 {
   font-size: 22px;
   color: #363636;
@@ -983,26 +985,143 @@ footer a:hover {
 }
 
 
+.slide-tabs {
+  width: 100%;
+}
 
 
+.pb-tabs {}
 
+.pb-tab-content {}
 
+.pb-tabs .nav-item {
+    flex: 1;
+}
 
+.pb-tabs .nav-item button {
+  background-color: transparent!important;
+  border-bottom: 1px solid rgb(247 249 251 / 10%);
+  border-radius: 0;
+  color: rgb(255 255 255 / 50%);
+  padding: 0.7rem 2rem;
+  height: 100%;
+  line-height: 1.2;
+  /* max-width: 73%; */
+}
 
+.pb-tabs .nav-item button.active {
+  border-color: var(--p-color);
+  border-width: 2px;
+  -webkit-text-stroke: 0.5px #fff;
+}
+.pb-tab-content ul li {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #D7DAD7;
+}
+.pb-tab-content ul li *{
+  color: #d7d7d7;
+}
+.form-box-top {}
 
+.form-box-top h4 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+}
 
+.form-box-top p {
+    color: #505050;
+    font-size: 14px;
+}
 
+.form-box {
+    background-color: #fff;
+    text-align: center;
+    color: #000;
+    padding: 2rem 1rem;
+    border-radius: 8px;
+}
+.form-floating>label {
+  color: #7C7D7E;
+  padding: 1rem 1.7rem;
 
+}
+.form-floating>.form-control, .form-floating>.form-control-plaintext {
+  padding: 1rem 1.7rem;
+  border-radius: 50rem;
+  background-color: #F7F9FB;
+    border-color: transparent;
+}
 
+.form-floating>.form-control-plaintext:focus, .form-floating>.form-control-plaintext:not(:placeholder-shown), .form-floating>.form-control:focus, .form-floating>.form-control:not(:placeholder-shown) {
+  padding-top: 0.625rem;
+  border-color: var(--p-color);
+  background-color: transparent;
+}
+.form-floating>.form-control-plaintext~label, .form-floating>.form-control:focus~label, .form-floating>.form-control:not(:placeholder-shown)~label, .form-floating>.form-select~label {
 
+  transform: scale(.85) translateY(-1.7rem) translateX(1.15rem);
+}
 
+.form-floating>.form-control-plaintext~label::after, .form-floating>.form-control:focus~label::after, .form-floating>.form-control:not(:placeholder-shown)~label::after, .form-floating>.form-select~label::after {
 
+  inset: 1rem 0.8rem;
 
+}
+.form-wrapper textarea.form-control {
+  height: 140px;
+  border-radius: 12px;
+  resize: none;
+}
+.form-wrapper .btn-with-arrow {
+  width: 100%;
+  justify-content: space-between;
+  padding-block: 0.8rem;
+}
 
+.notes {
+  color: #7C7D7E;
+  font-size: 13px;
+}
 
+.notes a {
+  color: var(--p-color);
+  text-decoration: underline;
+}
 
+.error-404 {
 
-
+  height: 55vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 20px;
+  position: relative;
+}
+.error-404 .text-404 {
+  font-size: 65px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  color: #fff;
+}
+.error-404 h2 {
+  font-weight: 400;
+  margin-bottom: 20px;
+  color: #fff;
+}
+.error-404 p {
+  max-width: 466px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+}
+.error-404 .btn {
+  padding: 10px 25px;
+}
 @media (max-width: 767.98px) {
   .search-holder input {
     width: auto;
@@ -1042,6 +1161,12 @@ footer a:hover {
   .slide-content .slide-arrow{
     display: none;
   }
+  .error-404 .text-404 {
+    font-size: 85px;
+}
+.error-404 {
+  height: 64vh;
+}
 }
 @media (min-width: 992px) {
   .navbar-expand-lg .navbar-nav .nav-link {
@@ -1130,6 +1255,36 @@ footer a:hover {
 .news-wrapper .news-card {
   margin-bottom: 9px;
 }
+.form-box {
+
+  max-width: 488px;
+  margin-left: auto;
+  padding: 2rem;
+}
+.form-box-top {
+  padding: 0rem 2rem 0.5rem;
+}
+.pb-tab-content ul li {
+  margin-top: 26px;
+
+}
+.form-wrapper .btn-with-arrow {
+
+  padding: 1.1rem 2rem;
+  font-size: 16px;
+}
+.form-box {
+
+  margin-bottom: -8rem;
+}
+.side-icon.right {
+  right: 0;
+}
+
+.side-icon.left {
+  left: 0;
+}
+
 }
 @media (min-width: 1200px) {
   .navbar-brand {
@@ -1263,6 +1418,21 @@ footer a:hover {
 }
 .image-over-text.fw-bold.text-community {
   font-size: 91px;
+}
+.error-404 .text-404 {
+  font-size: 174px;
+  line-height: 1;
+}
+.error-404 {
+  height: 80vh;
+  padding-bottom: 9rem;
+}
+.error-404 h2 {
+
+  font-size: 36px;
+}
+.error-404 .btn {
+  padding: 20px 50px;
 }
 }
 @media (min-width: 1400px) {

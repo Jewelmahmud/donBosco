@@ -134,14 +134,13 @@ var slideTabsSwiper = new Swiper(".slide-tabs", {
 
   breakpoints: {
     768: {
-      
       slidesPerView: 3,
     },
     992: {
       slidesPerView: 4,
     },
     1200: {
-      slidesPerView: 5,
+      slidesPerView: 6,
     },
   },
 });

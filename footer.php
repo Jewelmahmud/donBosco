@@ -1,4 +1,112 @@
-<?php $instagram = get_field('instagram_feed'); ?>
+
+
+  <?php $partner = get_field('partner_section', 'option'); ?>
+  <section class="bg-primary text-white partner-holder py-5 ">
+    <div class="container pt-xl-4 pb-xl-5">
+      <div class="row">
+        <div class="col-12">
+          <div class="d-flex align-items-center gap-4 mb-4 mb-xl-5">
+            <h6><?php echo $partner['title']; ?></h6>
+            <div class="straight-line"></div>
+          </div>
+          <div class="partners-carosuel swiper">
+            <div class="swiper-wrapper align-items-center">
+              <?php if($partner['logos']): foreach($partner['logos'] as $logo): ?>
+              <div class="swiper-slide">
+                <img src="<?php echo $logo['logo_image']['url']; ?>" alt="<?php echo $logo['logo_image']['alt']; ?>" class="img-fluid">
+              </div>
+              <?php endforeach; endif; ?>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <?php $news = get_field('news_section', 'option'); ?>
+  <section class="mb-5 mt-3 mt-xl-5 pt-5 pb-3">
+    <div class="container py-xl-4">
+      <div class="row mb-4 mb-xl-5 align-items-md-end">
+        <div class="col-8">
+          <div class="subtitle">
+            <?php echo $news['subtitle']; ?>
+          </div>
+          <h2 class="mb-md-0"><?php echo $news['title']; ?></h2>
+        </div>
+        <div class="col-md-4 text-end">
+          <a href="<?php echo $news['all_new_link']['url']; ?>" class="text-all_new_link justify-content-md-end"><?php echo $news['all_new_link']['title']; ?> <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow"></a>
+        </div>
+      </div>
+      <div class="news-carousel swiper">
+        <div class="swiper-wrapper">
+        <?php 
+        $args = array(
+            'posts_per_page' => 10,
+            'post_status' => 'publish',
+            'orderby' => 'rand',
+          );
+
+          $recent_post = new WP_Query($args);
+          if ($recent_post->have_posts()) :
+              $colors = array('ylw', 'green', 'red');
+              $counter = 0;
+              while ($recent_post->have_posts()) : $recent_post->the_post(); $counter ++; $color = $colors[$counter % 3];
+                  $categories = get_the_category();
+          ?>
+
+
+          <div class="swiper-slide">
+            <a href="<?php the_permalink(); ?>" class="news-card">
+              <div class="news-card-header">
+                  <div class="card-image">
+                      <?php
+                      if (has_post_thumbnail()) {
+                          the_post_thumbnail('newsthumb', ['class' => 'img-fluid', 'alt' => 'card image']);
+                      } else {
+                      ?>
+                          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/placeholoder_logo.jpg" alt="card image" class="img-fluid">
+                      <?php
+                      }
+                      ?>
+                  </div>
+                  <?php
+                    if (!empty($categories)) {
+                        $category_count = count($categories);
+                        foreach ($categories as $index => $category) {
+                            $category_names[] = $category->name;
+                            ?>
+                            <div class="news-card-tag tag-bg-<?php echo $color; ?>">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-info.svg" alt="info icon">
+                                <?php echo esc_html(implode(', ', $category_names)); ?>
+                            </div>
+                            <?php
+                        }
+                    }
+                  ?>
+                  </div>
+                  <div class="news-card-body">
+                      <h3><?php the_title(); ?></h3>
+                      <p><?php echo wp_trim_words(get_the_excerpt(), 20, '...'); ?></p>
+                      <div class="text-link">Lees meer <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow"></div>
+                  </div>
+              </a>
+          </div>
+          <?php  endwhile; wp_reset_postdata(); endif;  ?>
+        </div>
+        <div class="carousel-action-both">
+          <div class="swiper-next">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow">
+          </div>
+          <div class="swiper-prev">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow">
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<?php $instagram = get_field('instagram_feed', 'option'); ?>
 <section class="insta-wrapper">
     <div class="container">
       <div class="row mb-4 mb-xl-5 align-items-end">
@@ -173,6 +281,7 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/assets/js/scripts.js"></script>
 </body>
 

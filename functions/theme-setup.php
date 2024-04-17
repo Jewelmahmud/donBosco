@@ -32,7 +32,7 @@ function donboscoThemeSetup() {
 	add_theme_support( 'post-thumbnails' );	
 	// set_post_thumbnail_size( 900, 400, true ); 
 	// add_image_size( 'newsbig', 385, 300, true );
-	// add_image_size( 'newssmall', 385, 207, true );
+	add_image_size( 'newsthumb', 384, 252, true );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(		
@@ -83,79 +83,13 @@ function donboscoFallbackMenu() {
 
 }
 
-// function get_breadcrumb() {
-//     $breadcrumbs = array();
-
-//     // Home page
-//     $breadcrumbs[] = array(
-//         'text' => wp_kses_post('<img src="' . get_template_directory_uri() . '/assets/images/icons/i-home.svg" alt="home">'),
-//         'url' => home_url('/'),
-//     );
-
-//     // Single page
-//     if (is_page()) {
-//         // Current page
-//         $breadcrumbs[] = array(
-//             'text' => get_the_title(),
-//             'url' => false,
-//         );
-//     } elseif (isset($_GET['favorites'])) {
-//         // Check for 'favorites' parameter
-//         $breadcrumbs[] = array(
-//             'text' => __('Favorites Jobs', 'donbosco'),
-//             'url' => false,
-//         );
-//     } elseif (isset($_GET['s']) || isset($_GET['search'])) {
-//         // Check for 's' parameter (search)
-//         $breadcrumbs[] = array(
-//             'text' => __('Search', 'donbosco'),
-//             'url' => false,
-//         );
-//     } elseif (is_post_type_archive()) {
-//         // Post type archive
-//         $post_type = get_post_type_object(get_post_type());
-
-//         // Post type archive link
-//         if ($post_type && property_exists($post_type, 'labels') && is_object($post_type->labels)) {
-//             $breadcrumbs[] = array(
-//                 'text' => isset($post_type->labels->name) ? $post_type->labels->name : '',
-//                 'url' => get_post_type_archive_link($post_type->name),
-//             );
-//         }
-//     } elseif (is_single()) {
-//         // Single post
-//         $post_type = get_post_type();
-//         $post_type_object = get_post_type_object($post_type);
-
-//         // Post type archive link
-//         if ($post_type_object && property_exists($post_type_object, 'labels') && is_object($post_type_object->labels)) {
-//             if ($post_type !== 'post') {
-//                 $breadcrumbs[] = array(
-//                     'text' => isset($post_type_object->labels->name) ? $post_type_object->labels->name : '',
-//                     'url' => get_post_type_archive_link($post_type),
-//                 );
-//             }
-//         }
-
-//         // Current post
-//         $breadcrumbs[] = array(
-//             'text' => get_the_title(),
-//             'url' => false,
-//         );
-//     }
-
-//     // Add more conditions for other cases as needed
-
-//     return $breadcrumbs;
-// }
-
 
 function get_breadcrumb() {
     $breadcrumbs = array();
 
     // Home page
     $breadcrumbs[] = array(
-        'text' => wp_kses_post('<img src="' . get_template_directory_uri() . '/assets/images/icons/i-home.svg" alt="home">'),
+        'text' => wp_kses_post('<img src="' . get_template_directory_uri() . '/assets/images/icon-home.svg" alt="home">'),
         'url'  => home_url('/'),
     );
 

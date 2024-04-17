@@ -215,7 +215,7 @@
       </div>
     </section>
     <?php endif; ?>
-    <?php if(is_page() || is_page_template('templates/contact.php')):?>
+    <?php if(!is_front_page() && is_page()):?>
     <div class="page-banner">
       <div class="container">
         <div class="row">
@@ -228,7 +228,7 @@
               <?php
                 $breadcrumbs = get_breadcrumb();
                 if ($breadcrumbs) : ?>
-                  <ol class="breadcrumbs" aria-label="breadcrumb">
+                  <ol class="breadcrumb">
                       <?php foreach ($breadcrumbs as $breadcrumb) : ?>
                           <li class="breadcrumb-item">
                               <?php
