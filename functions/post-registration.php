@@ -121,6 +121,64 @@ function register_activiteiten_post_type() {
 add_action( 'init', 'register_activiteiten_post_type', 0 );
 
 
+// Register Custom Download Post Type
+function register_download_post_type() {
+
+    $labels = array(
+        'name'                  => _x( 'Downloads', 'Downloads', 'donbosco' ),
+        'singular_name'         => _x( 'Download', 'Download', 'donbosco' ),
+        'menu_name'             => __( 'Downloads', 'donbosco' ),
+        'name_admin_bar'        => __( 'Downloads', 'donbosco' ),
+        'archives'              => __( 'Download Archives', 'donbosco' ),
+        'attributes'            => __( 'Download Attributes', 'donbosco' ),
+        'parent_item_colon'     => __( 'Parent Download:', 'donbosco' ),
+        'all_items'             => __( 'All Downloads', 'donbosco' ),
+        'add_new_item'          => __( 'Add New Download', 'donbosco' ),
+        'add_new'               => __( 'Add New', 'donbosco' ),
+        'new_item'              => __( 'New Download', 'donbosco' ),
+        'edit_item'             => __( 'Edit Download', 'donbosco' ),
+        'update_item'           => __( 'Update Download', 'donbosco' ),
+        'view_item'             => __( 'View Download', 'donbosco' ),
+        'view_items'            => __( 'View Downloads', 'donbosco' ),
+        'search_items'          => __( 'Search Download', 'donbosco' ),
+        'not_found'             => __( 'Not found', 'donbosco' ),
+        'not_found_in_trash'    => __( 'Not found in Trash', 'donbosco' ),
+        'featured_image'        => __( 'Featured Image', 'donbosco' ),
+        'set_featured_image'    => __( 'Set featured image', 'donbosco' ),
+        'remove_featured_image' => __( 'Remove featured image', 'donbosco' ),
+        'use_featured_image'    => __( 'Use as featured image', 'donbosco' ),
+        'insert_into_item'      => __( 'Insert into Download', 'donbosco' ),
+        'uploaded_to_this_item' => __( 'Uploaded to this Download', 'donbosco' ),
+        'items_list'            => __( 'Downloads list', 'donbosco' ),
+        'items_list_navigation' => __( 'Downloads list navigation', 'donbosco' ),
+        'filter_items_list'     => __( 'Filter Downloads list', 'donbosco' ),
+    );
+    $args = array(
+        'label'                 => __( 'Download', 'donbosco' ),
+        'description'           => __( 'Downloads', 'donbosco' ),
+        'labels'                => $labels,
+        'supports'              => array( 'title', 'editor', 'thumbnail', 'custom-fields', 'page-attributes' ),
+        'hierarchical'          => false,
+        'public'                => true,
+        'show_ui'               => true,
+        'show_in_menu'          => true,
+        'menu_position'         => 5,
+        'menu_icon'             => 'dashicons-download',
+        'show_in_admin_bar'     => true,
+        'show_in_nav_menus'     => true,
+        'can_export'            => true,
+        'has_archive'           => true,
+        'exclude_from_search'   => false,
+        'publicly_queryable'    => true,
+        'capability_type'       => 'page',
+    );
+    register_post_type( 'download_items', $args );
+
+}
+add_action( 'init', 'register_download_post_type', 0 );
+
+
+
 
 
 

@@ -111,6 +111,36 @@ function submit_contact_form() {
     $post = sanitizeFields($_POST);
     $to_emails = get_field('form_email_addresses', 'option');
 
+    // Get the form data string
+    $form_data_string = isset($post['formData']) ? $post['formData'] : '';
+    $url = $post['url'];
+    $name = '';
+    $email = '';
+    $phone = '';
+    $textarea = '';
+    
+    parse_str($form_data_string, $form_data_array);
+
+    if (isset($form_data_array['name'])) {
+        $name = $form_data_array['name'];
+    }
+    if (isset($form_data_array['email'])) {
+        $email = $form_data_array['email'];
+    }
+    if (isset($form_data_array['phone'])) {
+        $phone = $form_data_array['phone'];
+    }
+    if (isset($form_data_array['message'])) {
+        $textarea = $form_data_array['message'];
+    }
+    if (isset($form_data_array['honeypot'])) {
+        $honeypot = $form_data_array['honeypot'];
+    }
+    
+    if(!empty($honeypot)) {
+        wp_send_json(['status' => false]);
+        exit();
+    }
 
     $to = array();
 
@@ -129,44 +159,30 @@ function submit_contact_form() {
         exit();
     }
 
-    // Sanitize form data if needed
-    $name       = $post['firstname'];
-    $lastname   = $post['lastName'];
-    $company    = $post['companyName'];
-    $telephone  = $post['telephone'];
-    $email      = $post['email'];
-    $textarea   = $post['textArea'];
-    $url        = $post['url'];
-    $permission = isset($post['checkbox']) ? 'Yes' : 'No'; // Assuming 'checkbox' is a boolean value
 
     // Use the form data to construct the HTML email
-    $subject = 'A new contact form message';
+    $subject = 'Nieuw contactformulier ingediend door '.$name;
     $message = "<html><body style='text-align: center;'>";
-    $message .= "<p style='text-align: left;'>Name: {$name}</p>";
-    $message .= "<p style='text-align: left;'>Last Name: {$lastname}</p>";
-    $message .= "<p style='text-align: left;'>Company Name: {$company}</p>";
-    $message .= "<p style='text-align: left;'>Telephone: {$telephone}</p>";
-    $message .= "<p style='text-align: left;'>Email: {$email}</p>";
-    $message .= "<p style='text-align: left;'>Question: {$textarea}</p>";
-    $message .= "<p style='text-align: left;'>Permission: {$permission}</p>";
-    $message .= "<p style='text-align: left;'>Form submmited from: {$url}</p>";
+    $message .= "<p style='text-align: left;'>Voor-en achternaam: {$name}</p>";
+    $message .= "<p style='text-align: left;'>Telefoon: {$phone}</p>";
+    $message .= "<p style='text-align: left;'>Bericht: {$textarea}</p>";
+    $message .= "<p style='text-align: left;'>Formulier ingediend vanaf: {$url}</p>";
     $message .= "</body></html>";
 
     $headers = array('Content-Type: text/html; charset=UTF-8');
 
 
-    $status = 'success';
+    $status = true;
 
     foreach ($to as $recipient) {
         $result = wp_mail($recipient, $subject, $message, $headers);
         if (!$result) {
-            $status = 'error';
+            $status = false;
         }
     }
 
     $response = array('status' => $status);
-    echo json_encode($response);
-
+    wp_send_json($response);
     exit();
 }
 
@@ -199,7 +215,7 @@ function submit_page_form() {
     // Sanitize form data if needed
     $name       = $post['naam'];
     $company    = $post['companyName'];
-    $telephone  = $post['telephone'];
+    $telephone  = $post['phone'];
     $email      = $post['email'];
     $textarea   = $post['textArea'];
     $honeypot   = $post['honeypot'];
@@ -214,7 +230,6 @@ function submit_page_form() {
     $subject = 'A new message from '.$name;
     $message = "<html><body style='text-align: center;'>";
     $message .= "<p style='text-align: left;'>Name: {$name}</p>";
-    $message .= "<p style='text-align: left;'>Company Name: {$company}</p>";
     $message .= "<p style='text-align: left;'>Telephone: {$telephone}</p>";
     $message .= "<p style='text-align: left;'>Email: {$email}</p>";
     $message .= "<p style='text-align: left;'>Message: {$textarea}</p>";

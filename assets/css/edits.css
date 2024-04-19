@@ -1,0 +1,20 @@
+.author-image {
+    width: 25px;
+    border-radius: 50%;
+}
+.go-back {
+    text-decoration: none;
+    color: white !important;
+}
+.loading-animation img {
+    width: 50px;
+}
+.loading-animation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.btntexts {
+    width: 100%;
+}

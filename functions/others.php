@@ -235,14 +235,19 @@ function sanitizeFields($input) {
         foreach ($input as &$value) {
             $value = sanitizeFields($value);
         }
-        unset($value); // unset reference to last element
+        unset($value);
     } else {
-        // If it's not an array, sanitize the value
-        $input = sanitize_text_field($input);
+        if (!is_email($input)) {
+            $input = trim($input);
+        }
+        $input = stripslashes($input);
+        $input = wp_strip_all_tags($input);
     }
 
     return $input;
 }
+
+
 
 
 function b2_validateFile($file, $allowedExtensions = ['pdf','doc','jpg','jpeg','png','docx'], $maxFileSizeMB=5) {

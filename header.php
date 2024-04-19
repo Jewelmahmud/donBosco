@@ -17,7 +17,18 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="//use.typekit.net/hca3mfo.css">
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/style.css">
-  
+  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/edits.css">
+  <script>
+    // Global variables
+    const ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
+
+    <?php if(is_page_template('templates/contact.php')): $message = get_field('form_messages'); ?>
+      let successmsg  = "<?php echo $message['success_message']?>";
+      let errormsg    = "<?php echo $message['error_message']?>";
+      let invaliemail = "<?php echo $message['invalid_email_message']?>";
+      let mandatoryFields = "<?php echo $message['mandatory_fields']?>";
+    <?php endif; ?>
+  </script>
 </head>
 
 <body <?php body_class(); ?>>
@@ -36,9 +47,20 @@
           ?>
         </div>
       </div>
+      <!-- <div class="header-top bg-primary d-none d-lg-block">
+          <div class="container">
+              <ul class="header-top-menu justify-content-end nav">
+                  <li class="nav-item"><a href="#" class="nav-link">Ons team</a></li>
+                  <li class="nav-item"><a href="#" class="nav-link">Podcasts</a></li>
+                  <li class="nav-item"><a href="#" class="nav-link">Werken bij</a></li>
+                  <li class="nav-item"><a href="#" class="nav-link">FAQ</a></li>
+                  <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+              </ul>
+          </div>
+      </div> -->
       <nav class="navbar navbar-expand-lg">
         <div class="container">
-          <a class="navbar-brand" href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/main-logo.svg" alt="main logo" class="img-fluid"></a>
+          <a class="navbar-brand" href="<?php echo site_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/main-logo.svg" alt="main logo" class="img-fluid"></a>
           <div class="d-lg-none d-flex align-items-center gap-3">
             <div class="header-search dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -215,13 +237,18 @@
       </div>
     </section>
     <?php endif; ?>
-    <?php if(!is_front_page() && is_page()):?>
+    <?php if(!is_front_page() && !is_home() && !is_single() && !is_page_template("templates/contact.php")): ?>
     <div class="page-banner">
       <div class="container">
         <div class="row">
           <div class="col-12">
             <div class="subtitle">
-              Een thuis voor jongeren.
+              <?php if(get_field('subtitle')) {
+                echo get_field('subtitle');
+              }else {
+                echo "Een thuis voor jongeren";
+              } ?>
+              
             </div>
             <h1><?php the_title(); ?></h1>
             <nav aria-label="breadcrumb">
@@ -250,4 +277,43 @@
       </div>
     </div>
     <?php endif; ?>
+    <?php if(is_single()): while (have_posts()) : the_post(); ?>
+      <div class="single-news-header text-white">
+          <div class="container">
+              <h1 class="text-white"><?php the_title(); ?></h1>
+              <div class="mt-4">
+                  <div class="d-flex align-items-center gap-5">
+                      <div class="d-flex align-items-center gap-3">
+                          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-news-calendar.svg" alt="icon-news-calendar"> 
+                          <?php echo get_the_date('d.m.Y'); ?>
+                      </div>
+                      <div class="d-flex align-items-center gap-3">
+                          <?php
+                          // Check if ACF is active and author image field exists
+                          if (function_exists('get_field') && get_field('author_image')) {
+                              $author_image = get_field('author_image');
+                              echo '<img class="author-image" src="' . esc_url($author_image['url']) . '" alt="' . esc_attr(get_the_author()) . '">';
+                          } else {
+                              // Fallback to Gravatar if ACF field is not available
+                              $author_email = get_the_author_meta('email');
+                              $author_avatar = 'https://www.gravatar.com/avatar/' . md5(strtolower(trim($author_email))) . '?s=100';
+                              echo '<img class="author-image" src="' . esc_url($author_avatar) . '" alt="' . esc_attr(get_the_author()) . '">';
+                          }
+                          ?>
+                          <span><?php echo ucwords(strtolower(get_the_author_meta('display_name'))); ?></span>
+                      </div>
+                      <div class="d-flex align-items-center gap-3">
+                          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-circle-back.svg" alt="icon-circle-back">
+                          <a class="go-back" href="javascript:void(0);" onclick="history.back();">terug naar overzicht</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  <?php endwhile; endif; ?>
+
+
+
+<?php if(!is_page_template("template/contact.php")):?>
   </div>
+<?php endif; ?>

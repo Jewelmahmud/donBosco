@@ -282,7 +282,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/assets/js/scripts.js"></script>
+  <script src="<?php echo get_template_directory_uri(); ?>/assets/js/functions.js"></script>
 </body>
 
 </html>

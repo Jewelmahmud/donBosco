@@ -1,6 +1,6 @@
 <?php 
 
-// Template name: News
+// Template name: Downloads
 get_header(); 
 $posts_per_page = get_option('posts_per_page');
 ?>
@@ -12,16 +12,11 @@ $posts_per_page = get_option('posts_per_page');
           <div class="slide-content">
             <div class="swiper-prev slide-arrow"><img src="images/icon-arrow.svg" alt="icon-arrow"></div>
             <div class="slide-tabs filter-button-group swiper">
-              <!-- <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <a href="#" class="tab faqselector active" data-name="*"><img src="images/icon-globe.svg" alt="">Alles</a>
-                </div>
-
-
                 <?php
-                  $categories = get_categories(array(
-                      'hide_empty' => true,
-                  ));
+                  $categories = get_categories( array(
+                    'taxonomy'   => 'download_category',
+                    'hide_empty' => true,
+                  ) );
 
                   if (!empty($categories)) {
                       foreach ($categories as $category) {
@@ -38,9 +33,10 @@ $posts_per_page = get_option('posts_per_page');
                   <a href="#" class="tab faqselector active" data-name="*"><img src="images/icon-globe.svg" alt="">Alles</a>
                 </div>
                 <?php
-                  $categories = get_categories(array(
-                      'hide_empty' => true,
-                  ));
+                  $categories = get_categories( array(
+                    'taxonomy'   => 'download_category',
+                    'hide_empty' => true,
+                  ) );
 
                   if (!empty($categories)) {
                     foreach ($categories as $category) {
@@ -60,8 +56,9 @@ $posts_per_page = get_option('posts_per_page');
         <div class="row" style="--bs-gutter-x: 2rem;">
           <?php
           $args = array(
-            'posts_per_page' => get_option('post_per_page'),
-            'post_status' => 'publish',
+              'post_type'      => 'download_items',
+              'posts_per_page' => $posts_per_page, 
+              'post_status'    => 'publish',
           );
 
           $recent_post = new WP_Query($args);

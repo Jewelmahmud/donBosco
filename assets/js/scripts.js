@@ -193,6 +193,7 @@ $("a.faqselector").on("click", function (e) {
   });
 });
 
+
 })(jQuery);
 
 

@@ -1,567 +1,566 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Contact</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <!-- video popup css -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" />
+        <!-- swiper slider css -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+        <link rel="stylesheet" href="//use.typekit.net/hca3mfo.css" />
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contact</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- video popup css -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
-  <!-- swiper slider css -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="//use.typekit.net/hca3mfo.css">
-  <link rel="stylesheet" href="css/style.css">
-</head>
+    <body>
+        <div class="bg-home-top" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/images/banner-bg.jpg);">
+            <header class="header">
+                <div class="header-top bg-primary d-none d-lg-block">
+                    <div class="container">
+                        <ul class="header-top-menu justify-content-end nav">
+                            <li class="nav-item"><a href="#" class="nav-link">Ons team</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link">Podcasts</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link">Werken bij</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link">FAQ</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <nav class="navbar navbar-expand-lg">
+                    <div class="container">
+                        <a class="navbar-brand" href="#"><img src="images/main-logo.svg" alt="main logo" class="img-fluid" /></a>
+                        <div class="d-lg-none d-flex align-items-center gap-3">
+                            <div class="header-search dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="images/icon-search.svg" alt="search icon" />
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <form class="d-flex search-holder position-relative" role="search">
+                                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                                        <button class="btn btn-primary" type="submit">
+                                            <span class="d-none d-md-block">Zoek</span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-right d-md-none" viewBox="0 0 16 16">
+                                                <path
+                                                    fill-rule="evenodd"
+                                                    d="M14.854 4.854a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 4H3.5A2.5 2.5 0 0 0 1 6.5v8a.5.5 0 0 0 1 0v-8A1.5 1.5 0 0 1 3.5 5h9.793l-3.147 3.146a.5.5 0 0 0 .708.708z"
+                                                />
+                                            </svg>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                        <div class="offcanvas offcanvas-top" id="main-nav" tabindex="-1" aria-labelledby="offcanvasNavbarLabel">
+                            <div class="offcanvas-header">
+                                <a class="navbar-brand" href="#"><img src="images/main-logo.svg" alt="" /></a>
+                                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Over ons</a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Activiteiten
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Action</a></li>
+                                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Begeleiding</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Verhalen</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Vrienden van</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Steun ons</a>
+                                    </li>
+                                </ul>
+                                <div class="d-flex align-items-center gap-2">
+                                    <a href="#" class="btn btn-primary">Nieuws</a>
+                                    <div class="header-search dropdown d-none d-lg-block">
+                                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <img src="images/icon-search.svg" alt="search icon" />
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-end">
+                                            <form class="d-flex search-holder position-relative" role="search">
+                                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                                                <button class="btn btn-primary" type="submit">Zoek</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+            <div class="page-banner text-white">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-xl-5">
+                            <div class="subtitle">
+                                Een thuis voor jongeren.
+                            </div>
+                            <h1>Contact</h1>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item">
+                                        <a href="#"><img src="images/icon-home.svg" alt="icon-home" /></a>
+                                    </li>
+                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
+                                </ol>
+                            </nav>
 
-<body>
-  <div class="bg-home-top"
-    style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(/images/banner-bg.jpg);">
-    <header class="header">
-      <div class="header-top bg-primary d-none d-lg-block">
-        <div class="container">
-          <ul class="header-top-menu justify-content-end nav">
-            <li class="nav-item"><a href="#" class="nav-link">Ons team</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Podcasts</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Werken bij</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">FAQ</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
-          </ul>
-        </div>
-      </div>
-      <nav class="navbar navbar-expand-lg">
-        <div class="container">
-          <a class="navbar-brand" href="#"><img src="images/main-logo.svg" alt="main logo" class="img-fluid"></a>
-          <div class="d-lg-none d-flex align-items-center gap-3">
-            <div class="header-search dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                <img src="images/icon-search.svg" alt="search icon">
-              </a>
-              <div class="dropdown-menu dropdown-menu-end">
-                <form class="d-flex search-holder position-relative" role="search">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-primary" type="submit"><span class="d-none d-md-block">Zoek</span> <svg
-                      xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                      class="bi bi-arrow-90deg-right d-md-none" viewBox="0 0 16 16">
-                      <path fill-rule="evenodd"
-                        d="M14.854 4.854a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 4H3.5A2.5 2.5 0 0 0 1 6.5v8a.5.5 0 0 0 1 0v-8A1.5 1.5 0 0 1 3.5 5h9.793l-3.147 3.146a.5.5 0 0 0 .708.708z" />
-                    </svg></button>
-                </form>
-              </div>
+                            <div class="mt-5">
+                                <p>Bij Don Bosco zijn veel vrijwilligers werkzaam, waar wij enorm dankbaar voor zijn! Wil jij vrijwilliger worden? Scroll dan eens door onze organisaties en neem gerust contact met hen</p>
 
+                                <ul class="nav nav-pills mb-4 my-lg-5 pb-tabs" id="pills-tab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-maten" type="button" role="tab" aria-controls="pills-maten" aria-selected="true">
+                                            Don Bosco de Maten
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="pills-zevenhuizen-tab" data-bs-toggle="pill" data-bs-target="#pills-zevenhuizen" type="button" role="tab" aria-controls="pills-zevenhuizen" aria-selected="false">
+                                            Don Bosco Zevenhuizen
+                                        </button>
+                                    </li>
+                                </ul>
+                                <div class="tab-content pb-tab-content" id="pills-tabContent">
+                                    <div class="tab-pane fade show active" id="pills-maten" role="tabpanel" aria-labelledby="pills-maten-tab" tabindex="0">
+                                        <ul class="list-unstyled">
+                                            <li><img src="images/icon-address.svg" alt="address" />Eglantierlaan 203, 7329 AP Apeldoorn</li>
+                                            <li><img src="images/icon-phone.svg" alt="phone icon" /> <a href="tel:0555425951">055 - 542 59 51</a></li>
+                                            <li><img src="images/icon-envelope.svg" alt="envelope icon" /> <a href="mailto:info@donboscoapeldoorn.nl">info@donboscoapeldoorn.nl</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-pane fade" id="pills-zevenhuizen" role="tabpanel" aria-labelledby="pills-zevenhuizen-tab" tabindex="0">
+                                        <ul class="list-unstyled">
+                                            <li><img src="images/icon-address.svg" alt="address" />Eglantierlaan 203, 7329 AP Apeldoorn</li>
+                                            <li><img src="images/icon-phone.svg" alt="phone icon" /> <a href="tel:0555425951">055 - 542 59 51</a></li>
+                                            <li><img src="images/icon-envelope.svg" alt="envelope icon" /> <a href="mailto:info@donboscoapeldoorn.nl">info@donboscoapeldoorn.nl</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 offset-xl-1 mt-4 mt-lg-0">
+                            <div class="form-box">
+                                <div class="form-box-top">
+                                    <h4>Vragen? Stel ze gerust.</h4>
+                                    <p>Voer onderstaande gegeven in en meld je direct aan. Aanmelden is verplicht.</p>
+                                </div>
+                                <div class="form-wrapper">
+                                    <form>
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" placeholder="Naam" id="fi-naam" />
+                                            <label for="fi-naam">Naam</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input type="email" class="form-control" placeholder="E-mail*" id="fi-email" />
+                                            <label for="fi-email">E-mail*</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" placeholder="Telefoonnummer*" id="fi-phone" />
+                                            <label for="fi-phone">Telefoonnummer*</label>
+                                        </div>
+                                        <div class="form-floating mb-2">
+                                            <textarea class="form-control" placeholder="Bericht*" id="floatingTextarea" rows="5"></textarea>
+                                            <label for="floatingTextarea">Bericht*</label>
+                                        </div>
+                                        <div class="text-start mb-3">
+                                            *Verplichte velden
+                                        </div>
+                                        <button type="submit" class="btn btn-primary btn-with-arrow">
+                                            VERZENDEN
+                                            <svg width="8" height="12" viewBox="0 0 8 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="2" cy="2" r="2" fill="currentColor"></circle>
+                                                <circle cx="6" cy="6" r="2" fill="currentColor"></circle>
+                                                <circle cx="2" cy="10" r="2" fill="currentColor"></circle>
+                                            </svg>
+                                        </button>
+
+                                        <div class="notes pt-4 mt-3 px-lg-4">Deze site wordt beschermd door reCAPTCHA. Het <a href="#">Privacybeleid</a> en de <a href="#">Servicevoorwaarden</a> van Google zijn van toepassing.</div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#main-nav"
-              aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
-          </div>
-          <div class="offcanvas offcanvas-top" id="main-nav" tabindex="-1" aria-labelledby="offcanvasNavbarLabel">
-            <div class="offcanvas-header">
-              <a class="navbar-brand" href="#"><img src="images/main-logo.svg" alt=""></a>
-              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-              <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Over ons</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    Activiteiten
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                  </ul>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Begeleiding</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Verhalen</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Vrienden van</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Steun ons</a>
-                </li>
-              </ul>
-              <div class="d-flex align-items-center gap-2">
-                <a href="#" class="btn btn-primary">Nieuws</a>
-                <div class="header-search dropdown d-none d-lg-block">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    <img src="images/icon-search.svg" alt="search icon">
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-end">
-                    <form class="d-flex search-holder position-relative" role="search">
-                      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                      <button class="btn btn-primary" type="submit">Zoek</button>
-                    </form>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </nav>
-    </header>
-    <div class="page-banner text-white">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 col-xl-5">
-            <div class="subtitle">
-              Een thuis voor jongeren.
-            </div>
-            <h1>Contact</h1>
-            <nav aria-label="breadcrumb">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#"><img src="images/icon-home.svg" alt="icon-home"></a></li>
-                <li class="breadcrumb-item active" aria-current="page">Library</li>
-              </ol>
-            </nav>
-
-            <div class="mt-5">
-              <p>Bij Don Bosco zijn veel vrijwilligers werkzaam, waar wij enorm dankbaar voor zijn! Wil jij vrijwilliger
-                worden? Scroll dan eens door onze organisaties en neem gerust contact met hen</p>
-
-              <ul class="nav nav-pills mb-4 my-lg-5 pb-tabs" id="pills-tab" role="tablist">
-                <li class="nav-item" role="presentation">
-                  <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
-                    data-bs-target="#pills-maten" type="button" role="tab" aria-controls="pills-maten"
-                    aria-selected="true">Don Bosco de Maten</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                  <button class="nav-link" id="pills-zevenhuizen-tab" data-bs-toggle="pill"
-                    data-bs-target="#pills-zevenhuizen" type="button" role="tab" aria-controls="pills-zevenhuizen"
-                    aria-selected="false">Don Bosco Zevenhuizen</button>
-                </li>
-
-              </ul>
-              <div class="tab-content pb-tab-content" id="pills-tabContent">
-                <div class="tab-pane fade show active" id="pills-maten" role="tabpanel"
-                  aria-labelledby="pills-maten-tab" tabindex="0">
-                  <ul class="list-unstyled">
-                    <li><img src="images/icon-address.svg" alt="address">Eglantierlaan 203, 7329 AP Apeldoorn</li>
-                    <li><img src="images/icon-phone.svg" alt="phone icon"> <a href="tel:0555425951">055 - 542 59 51</a>
-                    </li>
-                    <li><img src="images/icon-envelope.svg" alt="envelope icon"> <a
-                        href="mailto:info@donboscoapeldoorn.nl">info@donboscoapeldoorn.nl</a></li>
-                  </ul>
-                </div>
-                <div class="tab-pane fade" id="pills-zevenhuizen" role="tabpanel"
-                  aria-labelledby="pills-zevenhuizen-tab" tabindex="0">
-                  <ul class="list-unstyled">
-                    <li><img src="images/icon-address.svg" alt="address">Eglantierlaan 203, 7329 AP Apeldoorn</li>
-                    <li><img src="images/icon-phone.svg" alt="phone icon"> <a href="tel:0555425951">055 - 542 59 51</a>
-                    </li>
-                    <li><img src="images/icon-envelope.svg" alt="envelope icon"> <a
-                        href="mailto:info@donboscoapeldoorn.nl">info@donboscoapeldoorn.nl</a></li>
-                  </ul>
-                </div>
-
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6  offset-xl-1 mt-4 mt-lg-0">
-            <div class="form-box">
-              <div class="form-box-top">
-                <h4>Vragen? Stel ze gerust.</h4>
-                <p>Voer onderstaande gegeven in en meld je direct aan.
-                  Aanmelden is verplicht. </p>
-              </div>
-              <div class="form-wrapper">
-                <form>
-                  <div class="form-floating mb-3">
-                    <input type="text" class="form-control" placeholder="Naam" id="fi-naam">
-                    <label for="fi-naam">Naam</label>
-                  </div>
-                  <div class="form-floating mb-3">
-                    <input type="email" class="form-control" placeholder="E-mail*" id="fi-email">
-                    <label for="fi-email">E-mail*</label>
-                  </div>
-                  <div class="form-floating mb-3">
-                    <input type="text" class="form-control" placeholder="Telefoonnummer*" id="fi-phone">
-                    <label for="fi-phone">Telefoonnummer*</label>
-                  </div>
-                  <div class="form-floating mb-2">
-                    <textarea class="form-control" placeholder="Bericht*" id="floatingTextarea" rows="5"></textarea>
-                    <label for="floatingTextarea">Bericht*</label>
-                  </div>
-                  <div class="text-start mb-3">
-                    *Verplichte velden
-                  </div>
-                  <button type="submit" class="btn btn-primary btn-with-arrow">VERZENDEN <svg width="8" height="12"
-                      viewBox="0 0 8 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="2" cy="2" r="2" fill="currentColor"></circle>
-                      <circle cx="6" cy="6" r="2" fill="currentColor"></circle>
-                      <circle cx="2" cy="10" r="2" fill="currentColor"></circle>
-                    </svg></button>
-
-                  <div class="notes pt-4 mt-3 px-lg-4">
-                    Deze site wordt beschermd door reCAPTCHA. Het <a href="#">Privacybeleid</a>
-                    en de <a href="#">Servicevoorwaarden</a> van Google zijn van toepassing.
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <section class="bg-primary text-white partner-holder py-5 ">
-    <div class="container pt-xl-4 pb-xl-5">
-      <div class="row">
-        <div class="col-12">
-          <div class="d-flex align-items-center gap-4 mb-4 mb-xl-5">
-            <h6>Vrienden van Don Bosco Apeldoorn</h6>
-            <div class="straight-line"></div>
-          </div>
-          <div class="partners-carosuel swiper">
-            <div class="swiper-wrapper align-items-center">
-              <div class="swiper-slide">
-                <img src="images/partner1.svg" alt="partner1" class="img-fluid">
-              </div>
-              <div class="swiper-slide">
-                <img src="images/partner2.svg" alt="partner2" class="img-fluid">
-              </div>
-              <div class="swiper-slide">
-                <img src="images/partner3.svg" alt="partner3" class="img-fluid">
-              </div>
-              <div class="swiper-slide">
-                <img src="images/partner4.svg" alt="partner4" class="img-fluid">
-              </div>
-              <div class="swiper-slide">
-                <img src="images/partner5.svg" alt="partner5" class="img-fluid">
-              </div>
-              <div class="swiper-slide">
-                <img src="images/partner6.svg" alt="partner6" class="img-fluid">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="mb-5 mt-3 mt-xl-5 pt-5 pb-3">
-    <div class="container py-xl-4">
-      <div class="row mb-4 mb-xl-5 align-items-md-end">
-        <div class="col-8">
-          <div class="subtitle">
-            Een thuis voor jongeren.
-          </div>
-          <h2 class="mb-md-0">Nieuwsberichten</h2>
-        </div>
-        <div class="col-md-4 text-end">
-          <a href="#" class="text-link justify-content-md-end">bekijk alles <img src="images/icon-arrow.svg"
-              alt="icon-arrow"></a>
-        </div>
-      </div>
-      <div class="news-carousel swiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <a href="#" class="news-card">
-              <div class="news-card-header">
-                <div class="card-image">
-                  <img src="images/card-image.jpg" alt="card image" class="img-fluid">
-                </div>
-                <div class="news-card-tag tag-bg-ylw">
-                  <img src="images/icon-info.svg" alt="info icon">
-                  vrije tijd
-                </div>
-              </div>
-              <div class="news-card-body">
-                <h3>Don Bosco De Maten tegen bekende Youtubers?</h3>
-                <p>Het doel is dit keer niet om te winnen, maar om geld op te halen voor de Voedselbank in Apel...</p>
-                <div class="text-link">Lees meer <img src="images/icon-arrow.svg" alt="icon-arrow"></div>
-              </div>
-            </a>
-          </div>
-          <div class="swiper-slide">
-            <a href="#" class="news-card">
-              <div class="news-card-header">
-                <div class="card-image">
-                  <img src="images/card-image.jpg" alt="card image" class="img-fluid">
-                </div>
-                <div class="news-card-tag tag-bg-green">
-                  <img src="images/icon-info.svg" alt="info icon">
-                  Activiteitein
-                </div>
-              </div>
-              <div class="news-card-body">
-                <h3>Don Bosco De Maten tegen bekende Youtubers?</h3>
-                <p>Het doel is dit keer niet om te winnen, maar om geld op te halen voor de Voedselbank in Apel...</p>
-                <div class="text-link">Lees meer <img src="images/icon-arrow.svg" alt="icon-arrow"></div>
-              </div>
-            </a>
-          </div>
-          <div class="swiper-slide">
-            <a href="#" class="news-card">
-              <div class="news-card-header">
-                <div class="card-image">
-                  <img src="images/card-image.jpg" alt="card image" class="img-fluid">
-                </div>
-                <div class="news-card-tag tag-bg-red">
-                  <img src="images/icon-sun.svg" alt="sun icon">
-                  talentontwikkeling
-                </div>
-              </div>
-              <div class="news-card-body">
-                <h3>Don Bosco De Maten tegen bekende Youtubers?</h3>
-                <p>Het doel is dit keer niet om te winnen, maar om geld op te halen voor de Voedselbank in Apel...</p>
-                <div class="text-link">Lees meer <img src="images/icon-arrow.svg" alt="icon-arrow"></div>
-              </div>
-            </a>
-          </div>
-          <div class="swiper-slide">
-            <a href="#" class="news-card">
-              <div class="news-card-header">
-                <div class="card-image">
-                  <img src="images/card-image.jpg" alt="card image" class="img-fluid">
-                </div>
-                <div class="news-card-tag tag-bg-ylw">
-                  <img src="images/icon-info.svg" alt="info icon">
-                  vrije tijd
-                </div>
-              </div>
-              <div class="news-card-body">
-                <h3>Don Bosco De Maten tegen bekende Youtubers?</h3>
-                <p>Het doel is dit keer niet om te winnen, maar om geld op te halen voor de Voedselbank in Apel...</p>
-                <div class="text-link">Lees meer <img src="images/icon-arrow.svg" alt="icon-arrow"></div>
-              </div>
-            </a>
-          </div>
-          <div class="swiper-slide">
-            <a href="#" class="news-card">
-              <div class="news-card-header">
-                <div class="card-image">
-                  <img src="images/card-image.jpg" alt="card image" class="img-fluid">
-                </div>
-                <div class="news-card-tag tag-bg-green">
-                  <img src="images/icon-info.svg" alt="info icon">
-                  Activiteitein
-                </div>
-              </div>
-              <div class="news-card-body">
-                <h3>Don Bosco De Maten tegen bekende Youtubers?</h3>
-                <p>Het doel is dit keer niet om te winnen, maar om geld op te halen voor de Voedselbank in Apel...</p>
-                <div class="text-link">Lees meer <img src="images/icon-arrow.svg" alt="icon-arrow"></div>
-              </div>
-            </a>
-          </div>
-          <div class="swiper-slide">
-            <a href="#" class="news-card">
-              <div class="news-card-header">
-                <div class="card-image">
-                  <img src="images/card-image.jpg" alt="card image" class="img-fluid">
-                </div>
-                <div class="news-card-tag tag-bg-red">
-                  <img src="images/icon-sun.svg" alt="sun icon">
-                  talentontwikkeling
-                </div>
-              </div>
-              <div class="news-card-body">
-                <h3>Don Bosco De Maten tegen bekende Youtubers?</h3>
-                <p>Het doel is dit keer niet om te winnen, maar om geld op te halen voor de Voedselbank in Apel...</p>
-                <div class="text-link">Lees meer <img src="images/icon-arrow.svg" alt="icon-arrow"></div>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="carousel-action-both">
-          <div class="swiper-next">
-            <img src="images/icon-arrow.svg" alt="icon-arrow">
-          </div>
-          <div class="swiper-prev">
-            <img src="images/icon-arrow.svg" alt="icon-arrow">
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="insta-wrapper">
-    <div class="container">
-      <div class="row mb-4 mb-xl-5 align-items-end">
-        <div class="col-sm-6">
-          <div class="subtitle">volg ons</div>
-          <h2>Social Media</h2>
-        </div>
-        <div class="col-sm-6">
-          <div class="d-flex gap-2 align-items-center justify-content-sm-end">
-            <a href="#" class="btn btn-primary">De Maten</a>
-            <a href="#" class="btn btn-outline-primary">Zevenhuizen</a>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <div class="insta-carousel swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <img src="images/insta-post.jpg" alt="insta-post" class="img-fluid">
-              </div>
-              <div class="swiper-slide">
-                <img src="images/insta-post.jpg" alt="insta-post" class="img-fluid">
-              </div>
-              <div class="swiper-slide">
-                <img src="images/insta-post.jpg" alt="insta-post" class="img-fluid">
-              </div>
-              <div class="swiper-slide">
-                <img src="images/insta-post.jpg" alt="insta-post" class="img-fluid">
-              </div>
-              <div class="swiper-slide">
-                <img src="images/insta-post.jpg" alt="insta-post" class="img-fluid">
-              </div>
-              <div class="swiper-slide">
-                <img src="images/insta-post.jpg" alt="insta-post" class="img-fluid">
-              </div>
-              <div class="swiper-slide">
-                <img src="images/insta-post.jpg" alt="insta-post" class="img-fluid">
-              </div>
-              <div class="swiper-slide">
-                <img src="images/insta-post.jpg" alt="insta-post" class="img-fluid">
-              </div>
-              <div class="swiper-slide">
-                <img src="images/insta-post.jpg" alt="insta-post" class="img-fluid">
-              </div>
-            </div>
-            <div class="carousel-action-both">
-              <div class="swiper-next">
-                <img src="images/icon-arrow.svg" alt="icon-arrow">
-              </div>
-              <div class="swiper-prev">
-                <img src="images/icon-arrow.svg" alt="icon-arrow">
-              </div>
-              <div class="swiper-pagination"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="bg-primary">
-    <div class="footer-top">
-      <div class="container">
-        <div class="footer-top-first">
-          <div class="row align-items-lg-center">
-            <div class="col-lg-4 col-xl-auto mb-4 mb-lg-0">
-              <div class="footer-top-left d-flex align-items-center justify-content-between">
-                <img src="images/logo-footer.svg" alt="logo-footer" class="footer-logo">
-                <img src="images/samlogo.png" alt="samlogo" class="footer-logo-other">
-              </div>
-            </div>
-            <div class="col-lg-4 col-xl-auto mb-3 mb-lg-0">
-              <ul class="footer-social-logos list-unstyled">
-                <li><a href="#"><img src="images/icon-insta.svg" alt="instgram logo"></a></li>
-                <li><a href="#"><img src="images/icon-fb.svg" alt="facebook logo"></a></li>
-                <li><a href="#"><img src="images/icon-ln.svg" alt="instgram logo"></a></li>
-                <li><a href="#"><img src="images/icon-insta.svg" alt="instgram logo"></a></li>
-                <li><a href="#"><img src="images/icon-insta.svg" alt="instgram logo"></a></li>
-              </ul>
-            </div>
-            <div class="col-lg-4 col-xl">
-              <div class="footer-newslater">
-                <h5 class="toggle">Aanmelden nieuwsbrief:</h5>
-                <div class="collapse-div">
-                  <div class="d-flex align-items-center gap-3">
-                    <input type="email" placeholder="E-mail" class="rounded-pill form-control">
-                    <input type="submit" value="Verzenden" class="btn btn-secondary">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
 
-        <div class="row">
-          <div class="col-lg-5">
-            <div class="footer-menu">
-              <h5 class="toggle">Menu</h5>
-              <ul class="list-unstyled collapse-div">
-                <li><a href="#">Over ons</a></li>
-                <li><a href="#">Nieuws</a></li>
-                <li><a href="#">Media</a></li>
-                <li><a href="#">Webshop</a></li>
-                <li><a href="#">Steun ons</a></li>
-                <li><a href="#">Organisaties</a></li>
-                <li><a href="#">Veelgestelde vragen</a></li>
-                <li><a href="#">Contact</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-6 offset-lg-1">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="address">
-                  <h5 class="toggle">Don Bosco Apeldoorn de Maten</h5>
-                  <address class="collapse-div">
-                    Eglantierlaan 203 <br>7329 AP Apeldoorn <br>055 - 542 59 51 <br>info@donboscoapeldoorn.nl
-                  </address>
+        <section class="bg-primary text-white partner-holder py-5">
+            <div class="container pt-xl-4 pb-xl-5">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="d-flex align-items-center gap-4 mb-4 mb-xl-5">
+                            <h6>Vrienden van Don Bosco Apeldoorn</h6>
+                            <div class="straight-line"></div>
+                        </div>
+                        <div class="partners-carosuel swiper">
+                            <div class="swiper-wrapper align-items-center">
+                                <div class="swiper-slide">
+                                    <img src="images/partner1.svg" alt="partner1" class="img-fluid" />
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="images/partner2.svg" alt="partner2" class="img-fluid" />
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="images/partner3.svg" alt="partner3" class="img-fluid" />
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="images/partner4.svg" alt="partner4" class="img-fluid" />
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="images/partner5.svg" alt="partner5" class="img-fluid" />
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="images/partner6.svg" alt="partner6" class="img-fluid" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div class="col-md-6">
-                <div class="address">
-                  <h5 class="toggle">Don Bosco Apeldoorn Zevenhuizen</h5>
-                  <address class="collapse-div">
-                    Sluisoordlaan 200 <br>7322 EL Apeldoorn <br>055 - 366 46 38 <br>info@donboscoapeldoorn.nl
-                  </address>
+            </div>
+        </section>
+
+        <section class="mb-5 mt-3 mt-xl-5 pt-5 pb-3">
+            <div class="container py-xl-4">
+                <div class="row mb-4 mb-xl-5 align-items-md-end">
+                    <div class="col-8">
+                        <div class="subtitle">
+                            Een thuis voor jongeren.
+                        </div>
+                        <h2 class="mb-md-0">Nieuwsberichten</h2>
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <a href="#" class="text-link justify-content-md-end">bekijk alles <img src="images/icon-arrow.svg" alt="icon-arrow" /></a>
+                    </div>
                 </div>
-              </div>
+                <div class="news-carousel swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="#" class="news-card">
+                                <div class="news-card-header">
+                                    <div class="card-image">
+                                        <img src="images/card-image.jpg" alt="card image" class="img-fluid" />
+                                    </div>
+                                    <div class="news-card-tag tag-bg-ylw">
+                                        <img src="images/icon-info.svg" alt="info icon" />
+                                        vrije tijd
+                                    </div>
+                                </div>
+                                <div class="news-card-body">
+                                    <h3>Don Bosco De Maten tegen bekende Youtubers?</h3>
+                                    <p>Het doel is dit keer niet om te winnen, maar om geld op te halen voor de Voedselbank in Apel...</p>
+                                    <div class="text-link">Lees meer <img src="images/icon-arrow.svg" alt="icon-arrow" /></div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#" class="news-card">
+                                <div class="news-card-header">
+                                    <div class="card-image">
+                                        <img src="images/card-image.jpg" alt="card image" class="img-fluid" />
+                                    </div>
+                                    <div class="news-card-tag tag-bg-green">
+                                        <img src="images/icon-info.svg" alt="info icon" />
+                                        Activiteitein
+                                    </div>
+                                </div>
+                                <div class="news-card-body">
+                                    <h3>Don Bosco De Maten tegen bekende Youtubers?</h3>
+                                    <p>Het doel is dit keer niet om te winnen, maar om geld op te halen voor de Voedselbank in Apel...</p>
+                                    <div class="text-link">Lees meer <img src="images/icon-arrow.svg" alt="icon-arrow" /></div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#" class="news-card">
+                                <div class="news-card-header">
+                                    <div class="card-image">
+                                        <img src="images/card-image.jpg" alt="card image" class="img-fluid" />
+                                    </div>
+                                    <div class="news-card-tag tag-bg-red">
+                                        <img src="images/icon-sun.svg" alt="sun icon" />
+                                        talentontwikkeling
+                                    </div>
+                                </div>
+                                <div class="news-card-body">
+                                    <h3>Don Bosco De Maten tegen bekende Youtubers?</h3>
+                                    <p>Het doel is dit keer niet om te winnen, maar om geld op te halen voor de Voedselbank in Apel...</p>
+                                    <div class="text-link">Lees meer <img src="images/icon-arrow.svg" alt="icon-arrow" /></div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#" class="news-card">
+                                <div class="news-card-header">
+                                    <div class="card-image">
+                                        <img src="images/card-image.jpg" alt="card image" class="img-fluid" />
+                                    </div>
+                                    <div class="news-card-tag tag-bg-ylw">
+                                        <img src="images/icon-info.svg" alt="info icon" />
+                                        vrije tijd
+                                    </div>
+                                </div>
+                                <div class="news-card-body">
+                                    <h3>Don Bosco De Maten tegen bekende Youtubers?</h3>
+                                    <p>Het doel is dit keer niet om te winnen, maar om geld op te halen voor de Voedselbank in Apel...</p>
+                                    <div class="text-link">Lees meer <img src="images/icon-arrow.svg" alt="icon-arrow" /></div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#" class="news-card">
+                                <div class="news-card-header">
+                                    <div class="card-image">
+                                        <img src="images/card-image.jpg" alt="card image" class="img-fluid" />
+                                    </div>
+                                    <div class="news-card-tag tag-bg-green">
+                                        <img src="images/icon-info.svg" alt="info icon" />
+                                        Activiteitein
+                                    </div>
+                                </div>
+                                <div class="news-card-body">
+                                    <h3>Don Bosco De Maten tegen bekende Youtubers?</h3>
+                                    <p>Het doel is dit keer niet om te winnen, maar om geld op te halen voor de Voedselbank in Apel...</p>
+                                    <div class="text-link">Lees meer <img src="images/icon-arrow.svg" alt="icon-arrow" /></div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#" class="news-card">
+                                <div class="news-card-header">
+                                    <div class="card-image">
+                                        <img src="images/card-image.jpg" alt="card image" class="img-fluid" />
+                                    </div>
+                                    <div class="news-card-tag tag-bg-red">
+                                        <img src="images/icon-sun.svg" alt="sun icon" />
+                                        talentontwikkeling
+                                    </div>
+                                </div>
+                                <div class="news-card-body">
+                                    <h3>Don Bosco De Maten tegen bekende Youtubers?</h3>
+                                    <p>Het doel is dit keer niet om te winnen, maar om geld op te halen voor de Voedselbank in Apel...</p>
+                                    <div class="text-link">Lees meer <img src="images/icon-arrow.svg" alt="icon-arrow" /></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="carousel-action-both">
+                        <div class="swiper-next">
+                            <img src="images/icon-arrow.svg" alt="icon-arrow" />
+                        </div>
+                        <div class="swiper-prev">
+                            <img src="images/icon-arrow.svg" alt="icon-arrow" />
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-
-
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-9">
-            <div class="footer-bottom-left">
-              <p>© 2023 /// Don Bosco Apeldoorn <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
-                  viewBox="0 0 24 24" style="fill: currentColor;">
-                  <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"></path>
-                </svg> All rights reserved</p>
-              <a href="#">Policy and terms</a>
+        </section>
+        <section class="insta-wrapper">
+            <div class="container">
+                <div class="row mb-4 mb-xl-5 align-items-end">
+                    <div class="col-sm-6">
+                        <div class="subtitle">volg ons</div>
+                        <h2>Social Media</h2>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex gap-2 align-items-center justify-content-sm-end">
+                            <a href="#" class="btn btn-primary">De Maten</a>
+                            <a href="#" class="btn btn-outline-primary">Zevenhuizen</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="insta-carousel swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="images/insta-post.jpg" alt="insta-post" class="img-fluid" />
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="images/insta-post.jpg" alt="insta-post" class="img-fluid" />
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="images/insta-post.jpg" alt="insta-post" class="img-fluid" />
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="images/insta-post.jpg" alt="insta-post" class="img-fluid" />
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="images/insta-post.jpg" alt="insta-post" class="img-fluid" />
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="images/insta-post.jpg" alt="insta-post" class="img-fluid" />
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="images/insta-post.jpg" alt="insta-post" class="img-fluid" />
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="images/insta-post.jpg" alt="insta-post" class="img-fluid" />
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="images/insta-post.jpg" alt="insta-post" class="img-fluid" />
+                                </div>
+                            </div>
+                            <div class="carousel-action-both">
+                                <div class="swiper-next">
+                                    <img src="images/icon-arrow.svg" alt="icon-arrow" />
+                                </div>
+                                <div class="swiper-prev">
+                                    <img src="images/icon-arrow.svg" alt="icon-arrow" />
+                                </div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="col-md-3 text-end">
-            <a href="#" class="back-top">back top <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16">
-                <path fill-rule="evenodd"
-                  d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z" />
-              </svg></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
-  <script src="js/scripts.js"></script>
-</body>
+        </section>
 
+        <footer class="bg-primary">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="footer-top-first">
+                        <div class="row align-items-lg-center">
+                            <div class="col-lg-4 col-xl-auto mb-4 mb-lg-0">
+                                <div class="footer-top-left d-flex align-items-center justify-content-between">
+                                    <img src="images/logo-footer.svg" alt="logo-footer" class="footer-logo" />
+                                    <img src="images/samlogo.png" alt="samlogo" class="footer-logo-other" />
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-xl-auto mb-3 mb-lg-0">
+                                <ul class="footer-social-logos list-unstyled">
+                                    <li>
+                                        <a href="#"><img src="images/icon-insta.svg" alt="instgram logo" /></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><img src="images/icon-fb.svg" alt="facebook logo" /></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><img src="images/icon-ln.svg" alt="instgram logo" /></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><img src="images/icon-insta.svg" alt="instgram logo" /></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><img src="images/icon-insta.svg" alt="instgram logo" /></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl">
+                                <div class="footer-newslater">
+                                    <h5 class="toggle">Aanmelden nieuwsbrief:</h5>
+                                    <div class="collapse-div">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <input type="email" placeholder="E-mail" class="rounded-pill form-control" />
+                                            <input type="submit" value="Verzenden" class="btn btn-secondary" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="footer-menu">
+                                <h5 class="toggle">Menu</h5>
+                                <ul class="list-unstyled collapse-div">
+                                    <li><a href="#">Over ons</a></li>
+                                    <li><a href="#">Nieuws</a></li>
+                                    <li><a href="#">Media</a></li>
+                                    <li><a href="#">Webshop</a></li>
+                                    <li><a href="#">Steun ons</a></li>
+                                    <li><a href="#">Organisaties</a></li>
+                                    <li><a href="#">Veelgestelde vragen</a></li>
+                                    <li><a href="#">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 offset-lg-1">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="address">
+                                        <h5 class="toggle">Don Bosco Apeldoorn de Maten</h5>
+                                        <address class="collapse-div">
+                                            Eglantierlaan 203 <br />
+                                            7329 AP Apeldoorn <br />
+                                            055 - 542 59 51 <br />
+                                            info@donboscoapeldoorn.nl
+                                        </address>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="address">
+                                        <h5 class="toggle">Don Bosco Apeldoorn Zevenhuizen</h5>
+                                        <address class="collapse-div">
+                                            Sluisoordlaan 200 <br />
+                                            7322 EL Apeldoorn <br />
+                                            055 - 366 46 38 <br />
+                                            info@donboscoapeldoorn.nl
+                                        </address>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="footer-bottom-left">
+                                <p>
+                                    © 2023 /// Don Bosco Apeldoorn
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" style="fill: currentColor;">
+                                        <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"></path>
+                                    </svg>
+                                    All rights reserved
+                                </p>
+                                <a href="#">Policy and terms</a>
+                            </div>
+                        </div>
+                        <div class="col-md-3 text-end">
+                            <a href="#" class="back-top">
+                                back top
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+        <script src="js/scripts.js"></script>
+    </body>
 </html>
