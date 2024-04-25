@@ -177,9 +177,43 @@ function register_download_post_type() {
 }
 add_action( 'init', 'register_download_post_type', 0 );
 
+// Career post type
 
-
-
-
-
-
+function create_vacatures_post_type() {
+    $labels = array(
+        'name'                  => _x( 'Vacatures', 'Post Type General Name', 'donbosco' ),
+        'singular_name'         => _x( 'Vacature', 'Post Type Singular Name', 'donbosco' ),
+        'menu_name'             => __( 'Vacatures', 'donbosco' ),
+        'all_items'             => __( 'Alle Vacatures', 'donbosco' ),
+        'add_new_item'          => __( 'Nieuwe Vacature Toevoegen', 'donbosco' ),
+        'add_new'               => __( 'Nieuwe Toevoegen', 'donbosco' ),
+        'new_item'              => __( 'Nieuwe Vacature', 'donbosco' ),
+        'edit_item'             => __( 'Bewerk Vacature', 'donbosco' ),
+        'update_item'           => __( 'Update Vacature', 'donbosco' ),
+        'view_item'             => __( 'Bekijk Vacature', 'donbosco' ),
+        'search_items'          => __( 'Zoek Vacatures', 'donbosco' ),
+        'not_found'             => __( 'Niet gevonden', 'donbosco' ),
+        'not_found_in_trash'    => __( 'Niet gevonden in prullenbak', 'donbosco' ),
+    );
+    $args = array(
+        'label'                 => __( 'Vacature', 'donbosco' ),
+        'description'           => __( 'Vacatures', 'donbosco' ),
+        'labels'                => $labels,
+        'supports'              => array( 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields' ),
+        'hierarchical'          => false,
+        'public'                => true,
+        'show_ui'               => true,
+        'show_in_menu'          => true,
+        'menu_position'         => 5,
+        'menu_icon'             => 'dashicons-portfolio',
+        'show_in_admin_bar'     => true,
+        'show_in_nav_menus'     => true,
+        'can_export'            => true,
+        'has_archive'           => true,
+        'exclude_from_search'   => false,
+        'publicly_queryable'    => true,
+        'capability_type'       => 'post',
+    );
+    register_post_type( 'vacatures', $args );
+}
+add_action( 'init', 'create_vacatures_post_type', 0 );

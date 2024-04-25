@@ -12,31 +12,15 @@ $posts_per_page = get_option('posts_per_page');
           <div class="slide-content">
             <div class="swiper-prev slide-arrow"><img src="images/icon-arrow.svg" alt="icon-arrow"></div>
             <div class="slide-tabs filter-button-group swiper">
-                <?php
-                  $categories = get_categories( array(
-                    'taxonomy'   => 'download_category',
-                    'hide_empty' => true,
-                  ) );
-
-                  if (!empty($categories)) {
-                      foreach ($categories as $category) {
-                          $slugimage = (get_field('slug_image', 'category_' . $category->term_id)) ? get_field('slug_image', 'category_' . $category->term_id)['url'] :  get_template_directory_uri().'/assets/images/icon-notes.svg';
-                          echo '<div class="swiper-slide">';
-                          echo '<a href="#" class="tab faqselector" data-name="' . esc_attr('.' . $category->slug) . '"><img src="'.$slugimage.'" alt="">' . esc_html($category->name) . '</a>';
-                          echo '</div>';
-                      }
-                  }
-                  ?>
-              </div> -->
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
                   <a href="#" class="tab faqselector active" data-name="*"><img src="images/icon-globe.svg" alt="">Alles</a>
                 </div>
                 <?php
-                  $categories = get_categories( array(
-                    'taxonomy'   => 'download_category',
-                    'hide_empty' => true,
-                  ) );
+                  $categories = get_categories(array(
+                      'taxonomy' => 'download_category',
+                      'hide_empty' => true,
+                  ));
 
                   if (!empty($categories)) {
                     foreach ($categories as $category) {
@@ -56,9 +40,9 @@ $posts_per_page = get_option('posts_per_page');
         <div class="row" style="--bs-gutter-x: 2rem;">
           <?php
           $args = array(
-              'post_type'      => 'download_items',
-              'posts_per_page' => $posts_per_page, 
-              'post_status'    => 'publish',
+            'post_type' => 'download_items',
+            'posts_per_page' => get_option('post_per_page'),
+            'post_status' => 'publish',
           );
 
           $recent_post = new WP_Query($args);

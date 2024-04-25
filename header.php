@@ -23,21 +23,28 @@
     const ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
     <?php $page_template = get_page_template_slug(); ?>
 
-    <?php if(is_page_template('templates/contact.php') || empty($page_template)): $message = get_field('form_messages'); ?>
+    <?php $message = get_field('form_message', 'option'); ?>
       let successmsg  = "<?php echo $message['success_message']?>";
       let errormsg    = "<?php echo $message['error_message']?>";
       let invaliemail = "<?php echo $message['invalid_email_message']?>";
       let mandatoryFields = "<?php echo $message['mandatory_fields']?>";
-    <?php endif; ?>
   </script>
 </head>
 
 <body <?php body_class(); ?>>
   <?php 
+        $attachment_url = null; 
+        if(is_single()){
+          $attachment_id = get_post_thumbnail_id(get_the_ID());
+          $attachmentdata = wp_get_attachment_image_src($attachment_id, 'full');
+          if(is_array($attachmentdata)) $attachment_url = wp_get_attachment_image_src($attachment_id, 'full')[0];
+          else $attachment_url = wp_get_attachment_image_src($attachment_id, 'full');
+        }
         $pagebanner = get_field('banner');
         $defaultbanner = get_field('default_page_banner', 'option');
 
         if($pagebanner) $banner = $pagebanner['url'];
+        elseif ( $attachment_url ) $banner = $attachment_url;
         else $banner = $defaultbanner['url'];
   ?>
   <div class="bg-home-top" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(<?php echo $banner; ?>);">
@@ -285,7 +292,7 @@
       </div>
     </div>
     <?php endif; ?>
-    <?php if(is_single()): while (have_posts()) : the_post(); ?>
+    <?php if(is_single() && is_page_template('single.php')): while (have_posts()) : the_post(); ?>
       <div class="single-news-header text-white">
           <div class="container">
               <h1 class="text-white"><?php the_title(); ?></h1>
@@ -320,7 +327,78 @@
       </div>
   <?php endwhile; endif; ?>
 
+      <?php if(is_singular( 'activiteiten' )) { ?>
+        <div class="page-banner text-white event-single-banner">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-6 mb-5 mb-lg-0">
+                <div class="event-date">
+                  <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-calendar-w.svg" alt="icon-calendar"> <?php the_field('start_date'); ?> - <?php the_field('end_date'); ?>
+                </div>
+                <h1><?php the_title(); ?></h1>
+                <div class="event-time">
+                  <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-clock.svg" alt="clock"><?php the_field('start_time'); ?> - <?php the_field('end_time'); ?> 
+                </div>
+                <div class="event-place">
+                  <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-place.svg" alt="place"> <?php the_field('location'); ?>
+                </div>
 
+                <div class="d-flex align-items-center gap-3 mt-4">
+                  <?php $olink = get_field('other_link'); if($olink): ?>
+                  <a href="<?php echo $olink['url']; ?>" class="btn btn-secondary" target="<?php echo $olink['title']; ?>"><?php echo $olink['title']; ?></a>
+                  <?php endif; ?>
+                  <?php $tlink = get_field('ticket_link'); if($tlink): ?>
+                  <a href="<?php echo $tlink['url']; ?>" class="btn btn-outline-secondary"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-ticket.svg" alt="ticket" target="<?php echo $tlink['target']; ?>"><?php echo $tlink['Title']; ?></a>
+                  <?php endif; ?>
+                </div>
+              </div>
+              <div class="col-lg-5 col-xl-4 offset-lg-1 offset-xl-2">
+                <ul class="event-summary">
+                  <li>
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-users.svg" alt="icon-users"> <span class="total-number">2603</span> Deelnemende jongeren
+                  </li>
+                  <li>
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-users.svg" alt="icon-users"> <span class="total-number">2603</span> Samenwerkingen
+                  </li>
+                  <li>
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-users.svg" alt="icon-users"> <span class="total-number">2406</span> Sponsoren
+                  </li>
+                  <li>
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-users.svg" alt="icon-users"> <span class="total-number">100%</span> Doelen bereikt
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      <?php } ?>
+
+      <?php if(is_singular( 'vacatures' )) { ?>
+      <div class="page-banner text-white">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              
+              <?php echo (get_field('subtitle'))? '<div class="subtitle">'.get_field('subtitle').'</div>' : ''; ?>             
+              <h1><?php the_title(); ?></h1>
+              <?php echo (get_field('short_line_after_title'))? '<p>'.get_field('short_line_after_title').'</p>' : ''?> 
+              <div class="d-flex align-items-center gap-3">
+                <?php if(get_field('location')): ?>
+                <div class="d-flex align-items-center gap-3">
+                  <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-map.svg" alt="map icon"><?php the_field('location'); ?>
+                </div>
+                <?php endif; ?>
+                <?php if(get_field('location')): ?>
+                <div class="d-flex align-items-center gap-3">
+                  <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-time-2.svg" alt="timeicon-time icon"><?php the_field('job_type'); ?>
+                </div>
+                <?php endif; ?>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <?php } ?>
 
 <?php if(!is_page_template("template/contact.php")):?>
   </div>
