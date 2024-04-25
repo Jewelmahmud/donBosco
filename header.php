@@ -21,8 +21,9 @@
   <script>
     // Global variables
     const ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
+    <?php $page_template = get_page_template_slug(); ?>
 
-    <?php if(is_page_template('templates/contact.php')): $message = get_field('form_messages'); ?>
+    <?php if(is_page_template('templates/contact.php') || empty($page_template)): $message = get_field('form_messages'); ?>
       let successmsg  = "<?php echo $message['success_message']?>";
       let errormsg    = "<?php echo $message['error_message']?>";
       let invaliemail = "<?php echo $message['invalid_email_message']?>";
@@ -32,7 +33,14 @@
 </head>
 
 <body <?php body_class(); ?>>
-  <div class="bg-home-top" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(<?php echo get_template_directory_uri(); ?>/assets/images/banner-bg.jpg);">
+  <?php 
+        $pagebanner = get_field('banner');
+        $defaultbanner = get_field('default_page_banner', 'option');
+
+        if($pagebanner) $banner = $pagebanner['url'];
+        else $banner = $defaultbanner['url'];
+  ?>
+  <div class="bg-home-top" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(<?php echo $banner; ?>);">
     <header class="header">
       <div class="header-top bg-primary d-none d-lg-block">
         <div class="container">

@@ -66,6 +66,9 @@ h5,
 h6 {
   font-weight: 700;
 }
+h4 {
+  margin-bottom: 12px;
+}
 a {
   text-decoration: none;
   transition: all 250ms ease;
@@ -980,7 +983,7 @@ footer a:hover {
 .image-over-text.fw-bold.text-community {
   font-size: 54px;
 }
-.news-wrapper {
+.news-wrapper,.vacancies-wrapper {
   padding: 4rem 0 3rem;
 }
 
@@ -1043,6 +1046,8 @@ footer a:hover {
     color: #000;
     padding: 2rem 1rem;
     border-radius: 8px;
+    box-shadow: 0px 14px 44px 0px #0000001A;
+    border: 1px solid #0F13391A;
 }
 .form-floating>label {
   color: #7C7D7E;
@@ -1091,7 +1096,7 @@ footer a:hover {
   color: var(--p-color);
   text-decoration: underline;
 }
-
+/* Error Page */
 .error-404 {
 
   height: 55vh;
@@ -1122,6 +1127,280 @@ footer a:hover {
 .error-404 .btn {
   padding: 10px 25px;
 }
+
+
+/* Teqam Page */
+.team-card-body h3 {
+  color: #282828;
+  margin-bottom: 0;
+}
+
+.team-card-body .position {
+  font-weight: 600;
+  margin-bottom: 13px;
+}
+.team-ppl-status {
+  border-radius: 12px;
+  padding: 40px 20px;
+  height: 100%;
+}
+
+.team-ppl-status .status {
+  font-weight: 700;
+  font-size: 33px;
+  line-height: 1.2;
+  margin-bottom: 25px;
+
+}
+
+.team-ppl-status .status-giver {
+  font-weight: 700;
+}
+
+.team-card-body p {
+  margin-bottom: 35px;
+}
+.dot-list-style {
+  padding-left: 20px;
+}
+
+.dot-list-style li {
+  font-weight: 700;
+  font-size: 16px;
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+.dot-list-style li::marker {
+  color: var(--p-color);
+}
+
+
+/* sponsor page */
+
+.sponsr-holder:not(:last-child) {
+  margin-bottom: 65px;
+}
+.sponsr-holder h2 {
+  margin-bottom: 25px;
+}
+.sponsor-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    /* justify-content: space-between; */
+}
+
+
+
+.sponsor-list li {
+    flex: 0 0 auto;
+    width: calc(50% - 7px);
+    background-color: #F2F2F2;
+    padding: 17px;
+}
+
+
+
+.sponsor-list li img {
+  max-width: 100%;
+  display: block;
+  filter: grayscale(1);
+  margin: 0 auto;
+}
+
+.four-column-full .swiper-slide .overlay-content .content-top .price {
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.four-column-full .swiper-slide .overlay-content .content-top .price .currency-sign {
+  font-size: 16px;
+}
+
+.four-column-full .swiper-slide .overlay-content .features {
+  list-style: none;
+  padding: 0;
+  position: relative;
+  padding: 0 35px;
+  margin-bottom: 35px;
+}
+
+.four-column-full .swiper-slide .overlay-content .features li {
+  position: relative;
+  padding-left: 29px;
+  margin-bottom: 10px;
+}
+
+.four-column-full .swiper-slide .overlay-content .features li:before {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  content: "";
+  background-image: url(../images/checklist-green.svg);
+  width: 20px;
+  height: 13px;
+  background-size: 15px;
+  background-repeat: no-repeat;
+  transform: translateY(-50%);
+  /* line-height: 24px; */
+}
+.four-column-full .swiper-slide .overlay-content .features li.not-available:before{
+  background-image: url(../images/xmark.svg);
+
+}
+.four-column-full .swiper-slide .overlay-content .text-link {
+  position: relative;
+  padding: 0 35px;
+  display: none;
+}
+
+.four-col-carousel-2 .swiper-slide .overlay-content .content-top {
+  border-bottom: 1px solid rgb(255 255 255 / 10%);
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+}
+/* Single Event page */
+.event-single-banner {}
+.event-single-banner h1 {
+  margin-bottom: 30px;
+}
+
+.event-single-banner .event-time {
+  margin-bottom: 7px;
+}
+.event-single-banner .event-date {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.event-single-banner .event-time,.event-single-banner .event-place {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    /* font-size: 16px; */
+    line-height: 1.2;
+}
+
+.event-single-banner .event-place {}
+
+.event-single-banner .btn-secondary {
+    color: var(--p-color);
+}
+
+.event-single-banner .btn {
+    padding: 0px 17px;
+    line-height: 2.5;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.event-single-banner .btn-outline-secondary {
+    color: #fff;
+    border-color: #fff;
+}
+
+.event-summary {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.event-summary li {
+  border-bottom: 1px solid rgb(255 255 255 / 30%);
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+.event-summary li:last-child{
+  border-bottom: 0;
+}
+.event-summary li img {
+    width: 20px;
+    filter: brightness(0) invert(1);
+}
+
+.event-summary li .total-number {
+    margin: 0 16px;
+
+    font-size: 22px;
+}
+
+.file-input {
+  display: flex;
+  justify-content: space-between;
+  background: #FCE4E7;
+  padding: 16px 20px;
+  width: 100%;
+  position: relative;
+  border-radius: 50rem;
+  border: 1px solid transparent;
+  align-items: center;
+}
+.file-input:hover {
+  border-color: currentColor;
+}
+.file-input > [type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.file-input > .button {
+  display: inline-block;
+  cursor: pointer;
+  background: #eee;
+  padding: 8px 16px;
+  border-radius: 2px;
+  margin-right: 8px;
+}
+
+.file-input:hover > .button {
+  background: dodgerblue;
+  color: white;
+}
+
+.file-input > .label {
+  color: #000;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  max-width: calc(100% - 125px);
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.file-input.-chosen > .label {
+  opacity: 1;
+}
+
+
+
+
+
+
+
+
+
 @media (max-width: 767.98px) {
   .search-holder input {
     width: auto;
@@ -1167,6 +1446,12 @@ footer a:hover {
 .error-404 {
   height: 64vh;
 }
+.sponsor-list li {
+  flex: 0 0 auto;
+  width: calc(33.334% - 7px);
+
+}
+
 }
 @media (min-width: 992px) {
   .navbar-expand-lg .navbar-nav .nav-link {
@@ -1284,7 +1569,24 @@ footer a:hover {
 .side-icon.left {
   left: 0;
 }
+.sponsor-list {
 
+  gap: 25px;
+
+}
+.sponsor-list li {
+
+  width: calc(25% - 19px);
+}
+.four-column-full .swiper-slide .overlay-content .features {
+
+  margin-bottom: 40px;
+}
+.four-column-full .swiper-slide .overlay-content .text-link {
+
+  display: block;
+  margin-bottom: 45px;
+}
 }
 @media (min-width: 1200px) {
   .navbar-brand {
@@ -1434,6 +1736,41 @@ footer a:hover {
 .error-404 .btn {
   padding: 20px 50px;
 }
+.team-ppl-status .status {
+
+  font-size: 40px;
+
+  margin-bottom: 38px;
+}
+.dot-list-style li {
+
+  font-size: 18px;
+
+}
+.sponsr-holder h2 {
+  margin-bottom: 40px;
+  font-size: 44px;
+}
+.sponsr-holder:not(:last-child) {
+  margin-bottom: 100px;
+}
+.sponsor-list li {
+
+  padding: 35px;
+}
+.event-single-banner .event-date {
+
+  margin-bottom: 10px;
+}
+.event-single-banner h1 {
+
+  margin-bottom: 25px;
+}
+.event-summary li .total-number {
+
+  font-size: 32px;
+  margin: 0 27px;
+}
 }
 @media (min-width: 1400px) {
   .container {
@@ -1458,7 +1795,36 @@ footer a:hover {
 
   font-size: 70px;
 }
+.event-single-banner h1 {
+  font-size: 58px;
+
+}
 .image-over-text.fw-bold.text-community {
   font-size: 100px;
 }
+.team-card-body {
+  padding-left: 35px;
+}
+.team-ppl-status .status {
+  font-size: 44px;
+
+}
+.team-ppl-status {
+  border-radius: 12px;
+  padding: 50px 35px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

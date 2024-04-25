@@ -92,7 +92,7 @@
         </div>
       </div>
     </div>
-    <div class="four-column-full swiper">
+    <div class="four-column-full four-col-carousel swiper">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
           <a href="#" class="column">

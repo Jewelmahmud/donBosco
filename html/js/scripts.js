@@ -15,7 +15,7 @@ var homeBannerSlider = new Swiper(".home-banner-slider", {
 });
 
 
-var fourColumnFull = new Swiper(".four-column-full", {
+var fourColCarousel = new Swiper(".four-col-carousel", {
   slidesPerView: 1,
   spaceBetween: 1,
   loop: true,
@@ -34,6 +34,30 @@ var fourColumnFull = new Swiper(".four-column-full", {
     },
     1024: {
       slidesPerView: 4,
+
+    },
+  },
+});
+
+var fourColCarousel_2 = new Swiper(".four-col-carousel-2", {
+  slidesPerView: 1,
+  spaceBetween: 1,
+  loop: true,
+  navigation: {
+    nextEl: ".swiper-next",
+    prevEl: ".swiper-prev",
+  },
+  breakpoints: {
+    640: {
+      slidesPerView: 2.3,
+
+    },
+    768: {
+      slidesPerView: 3.3,
+
+    },
+    1024: {
+      slidesPerView: 3.3,
 
     },
   },
@@ -196,3 +220,22 @@ $("a.faqselector").on("click", function (e) {
 })(jQuery);
 
 
+var inputs = document.querySelectorAll('.file-input')
+
+  for (var i = 0, len = inputs.length; i < len; i++) {
+    customInput(inputs[i])
+  }
+  
+  function customInput (el) {
+    const fileInput = el.querySelector('[type="file"]')
+    const label = el.querySelector('[data-js-label]')
+    
+    fileInput.onchange =
+    fileInput.onmouseout = function () {
+      if (!fileInput.value) return
+      
+      var value = fileInput.value.replace(/^.*[\\\/]/, '')
+      el.className += ' -chosen'
+      label.innerText = value
+    }
+  };

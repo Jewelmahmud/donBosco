@@ -41,12 +41,10 @@ jQuery(document).ready(function($) {
                 url: window.location.href
             },
             success: function(response) {
-                console.log(response);
                 if(response.status) swal("Bericht verzonden", successmsg, "success");
                 else swal("Fout!", errormsg, "error");
             },
             error: function(xhr, status, error) {
-                console.error(xhr.responseText);
                 swal("Fout!", errormsg, "error");
             },
             complete: function() {

@@ -452,5 +452,22 @@ function isEventAlive($eventEndDate, $eventEndTime) {
     }
 }
 
+function alter_get_the_content($content) {
+    $doc = new DOMDocument();
+    @$doc->loadHTML(mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8'));
+
+    $img_tags = $doc->getElementsByTagName('img');
+    foreach ($img_tags as $img) {
+        $img->setAttribute('class', 'img-fluid');
+    }
+
+    $ul_tags = $doc->getElementsByTagName('ul');
+    foreach ($ul_tags as $ul) {
+        $ul->setAttribute('class', 'dot-list-style');
+    }
+
+    $altered_content = $doc->saveHTML();
+    return $altered_content;
+}
 
 
