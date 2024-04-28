@@ -104,3 +104,43 @@ function create_vacatures_taxonomy() {
 }
 add_action( 'init', 'create_vacatures_taxonomy', 0 );
 
+// Register Custom Taxonomy
+function register_activity_type_taxonomy() {
+
+    $labels = array(
+        'name'                       => _x( 'Activity Types', 'Taxonomy General Name', 'donbosco' ),
+        'singular_name'              => _x( 'Activity Type', 'Taxonomy Singular Name', 'donbosco' ),
+        'menu_name'                  => __( 'Activity Types', 'donbosco' ),
+        'all_items'                  => __( 'All Activity Types', 'donbosco' ),
+        'parent_item'                => __( 'Parent Activity Type', 'donbosco' ),
+        'parent_item_colon'          => __( 'Parent Activity Type:', 'donbosco' ),
+        'new_item_name'              => __( 'New Activity Type Name', 'donbosco' ),
+        'add_new_item'               => __( 'Add New Activity Type', 'donbosco' ),
+        'edit_item'                  => __( 'Edit Activity Type', 'donbosco' ),
+        'update_item'                => __( 'Update Activity Type', 'donbosco' ),
+        'view_item'                  => __( 'View Activity Type', 'donbosco' ),
+        'separate_items_with_commas' => __( 'Separate activity types with commas', 'donbosco' ),
+        'add_or_remove_items'        => __( 'Add or remove activity types', 'donbosco' ),
+        'choose_from_most_used'      => __( 'Choose from the most used activity types', 'donbosco' ),
+        'popular_items'              => __( 'Popular Activity Types', 'donbosco' ),
+        'search_items'               => __( 'Search Activity Types', 'donbosco' ),
+        'not_found'                  => __( 'Not Found', 'donbosco' ),
+        'no_terms'                   => __( 'No activity types', 'donbosco' ),
+        'items_list'                 => __( 'Activity types list', 'donbosco' ),
+        'items_list_navigation'      => __( 'Activity types list navigation', 'donbosco' ),
+    );
+    $args = array(
+        'labels'                     => $labels,
+        'hierarchical'               => true,
+        'public'                     => true,
+        'show_ui'                    => true,
+        'show_admin_column'          => true,
+        'show_in_nav_menus'          => true,
+        'show_tagcloud'              => true,
+    );
+    register_taxonomy( 'activity_type', array( 'activiteiten' ), $args );
+
+}
+add_action( 'init', 'register_activity_type_taxonomy', 0 );
+
+

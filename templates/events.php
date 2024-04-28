@@ -15,6 +15,7 @@ $posts_per_page = get_option('posts_per_page');
                 <div class="swiper-wrapper">
                   <div class="swiper-slide">
                     <a href="#" class="tab faqselector active" data-name="*"><img src="<?php echo get_template_directory_uri();?>/assets/images/icon-globe.svg" alt="">Alles</a>
+                    <a href="#" class="tab active" data-name="*"><img src="<?php echo get_template_directory_uri();?>/assets/images/icon-globe.svg" alt="">Alles</a>
                   </div>
 
                   <?php
@@ -47,6 +48,12 @@ $posts_per_page = get_option('posts_per_page');
                 <option value="1">2025</option>
                 <option value="2">2026</option>
                 <option value="3">2024</option>
+              Archief: 
+              <select class="form-select">
+                <option selected>Open this select menu</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
               </select>
             </div>
           </div>
@@ -54,6 +61,7 @@ $posts_per_page = get_option('posts_per_page');
           
         
         <div class="row filter-wrapper" style="--bs-gutter-x: 2rem;">
+        <div class="row" style="--bs-gutter-x: 2rem;">
         <?php
           $args = array(
             'post_type' => 'activiteiten',
@@ -69,6 +77,7 @@ $posts_per_page = get_option('posts_per_page');
                     $categories =get_the_terms( get_the_ID(), 'activity_type' );?>
 
                     <div class="col-lg-4 col-md-6 mb-4 filter-item">
+                    <div class="col-lg-4 col-md-6 mb-4">
                         <a href="<?php the_permalink(); ?>" class="news-card event-card">
                         <div class="news-card-header">
                             <div class="card-image">
@@ -109,6 +118,11 @@ $posts_per_page = get_option('posts_per_page');
                                 <img src="<?php echo get_template_directory_uri();?>/assets/images/icon-clock-r.svg" alt="clock"> <?php the_field('start_time'); ?> - <?php the_field('end_time'); ?>
                             </div>
                             <div class="d-flex align-items-center gap-2 mb-2 pb-1 text-grey fs13px">
+                            <div class="mb-4">
+                            <div class="d-flex align-items-center gap-2">
+                                <img src="<?php echo get_template_directory_uri();?>/assets/images/icon-clock-r.svg" alt="clock"> <?php the_field('start_time'); ?> - <?php the_field('end_time'); ?>
+                            </div>
+                            <div class="d-flex align-items-center gap-2">
                                 <img src="<?php echo get_template_directory_uri();?>/assets/images/icon-place-r.svg" alt="place"> <?php the_field('location'); ?>
                             </div>
                             </div>
