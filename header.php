@@ -292,7 +292,7 @@
       </div>
     </div>
     <?php endif; ?>
-    <?php if(is_single() && is_page_template('single.php')): while (have_posts()) : the_post(); ?>
+    <?php if(is_singular('post')): while (have_posts()) : the_post(); ?>
       <div class="single-news-header text-white">
           <div class="container">
               <h1 class="text-white"><?php the_title(); ?></h1>

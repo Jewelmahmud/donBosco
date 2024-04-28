@@ -466,8 +466,19 @@ function alter_get_the_content($content) {
         $ul->setAttribute('class', 'dot-list-style');
     }
 
+    $body_tags = $doc->getElementsByTagName('body');
+    foreach ($body_tags as $body) {
+        foreach ($body->childNodes as $child) {
+            if ($child->nodeType === XML_TEXT_NODE && trim($child->nodeValue) !== '') {
+                $p_tag = $doc->createElement('p', $child->nodeValue);
+                $body->replaceChild($p_tag, $child);
+            }
+        }
+    }
+
     $altered_content = $doc->saveHTML();
     return $altered_content;
 }
+
 
 
