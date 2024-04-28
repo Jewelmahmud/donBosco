@@ -34,7 +34,7 @@
           <h2 class="mb-md-0"><?php echo $news['title']; ?></h2>
         </div>
         <div class="col-md-4 text-end">
-          <a href="<?php echo $news['all_new_link']['url']; ?>" class="text-all_new_link justify-content-md-end"><?php echo $news['all_new_link']['title']; ?> <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow"></a>
+          <a href="<?php echo $news['all_new_link']['url']; ?>" class="text-link justify-content-md-end"><?php echo $news['all_new_link']['title']; ?> <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow"></a>
         </div>
       </div>
       <div class="news-carousel swiper">

@@ -12,7 +12,7 @@ $posts_per_page = get_option('posts_per_page');
             <div class="slide-tabs filter-button-group swiper">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                  <a href="#" class="tab active" data-name="*"><img src="images/icon-globe.svg" alt="">Alles</a>
+                  <a href="#" class="tab faqselector active" data-name="*"><img src="<?php echo get_template_directory_uri();?>/assets/images/icon-globe.svg" alt="">Alles</a>
                 </div>
 
                 <?php
@@ -25,7 +25,7 @@ $posts_per_page = get_option('posts_per_page');
                     foreach ($categories as $category) {
                         $slugimage = (get_field('slug_image', 'category_' . $category->term_id)) ? get_field('slug_image', 'category_' . $category->term_id)['url'] :  get_template_directory_uri().'/assets/images/icon-notes.svg'; ?>
                         <div class="swiper-slide">
-                          <a href="#" class="tab" data-name=".<?php echo esc_attr($category->slug); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-notes.svg" alt=""><?php echo esc_html($category->name); ?></a>
+                          <a href="#" class="tab faqselector" data-name=".<?php echo esc_attr($category->slug); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-notes.svg" alt=""><?php echo esc_html($category->name); ?></a>
                         </div> 
                         <?php 
                     }
@@ -37,7 +37,7 @@ $posts_per_page = get_option('posts_per_page');
             <div class="swiper-next slide-arrow"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow"></div>
           </div>
         
-        <div class="row" style="--bs-gutter-x: 2rem;">
+        <div class="row filter-wrapper" style="--bs-gutter-x: 2rem;">
         <?php
           $args = array(
             'post_type' => 'vacatures',
@@ -52,7 +52,7 @@ $posts_per_page = get_option('posts_per_page');
               while ($recent_post->have_posts()) : $recent_post->the_post(); $counter ++; $color = $colors[$counter % 3];
                   $categories = get_the_category();
           ?>
-          <div class="col-lg-4 col-md-6 mb-4">
+          <div class="col-lg-4 col-md-6 mb-4 filter-item">
             <div class="vacancies-card">
               <div class="vacancies-card-header">
                 <div class="card-image">

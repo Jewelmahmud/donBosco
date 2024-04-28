@@ -45,7 +45,7 @@ get_header();
         </div>
         <div class="col-md-4"></div>
       </div>
-      <div class="all-faqs accordion" id="donbosco-faq">
+      <div class="all-faqs accordion" id="db-faq">
 
 
       <?php 

@@ -14,7 +14,7 @@ $posts_per_page = get_option('posts_per_page');
             <div class="slide-tabs filter-button-group swiper">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                  <a href="#" class="tab faqselector active" data-name="*"><img src="images/icon-globe.svg" alt="">Alles</a>
+                  <a href="#" class="tab faqselector active" data-name="*"><img src="<?php echo get_template_directory_uri();?>/assets/images/icon-globe.svg" alt="">Alles</a>
                 </div>
                 <?php
                   $categories = get_categories(array(
@@ -36,7 +36,7 @@ $posts_per_page = get_option('posts_per_page');
             <div class="swiper-next slide-arrow"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow"></div>
           </div>
         
-        <div class="row" style="--bs-gutter-x: 2rem;">
+        <div class="row filter-wrapper" style="--bs-gutter-x: 2rem;">
           <?php
           $args = array(
             'posts_per_page' => get_option('post_per_page'),
@@ -50,7 +50,7 @@ $posts_per_page = get_option('posts_per_page');
               while ($recent_post->have_posts()) : $recent_post->the_post(); $counter ++; $color = $colors[$counter % 3];
                   $categories = get_the_category();
           ?>
-          <div class="col-lg-4 col-md-6 mb-4">
+          <div class="col-lg-4 col-md-6 mb-4 filter-item">
               <a href="<?php the_permalink(); ?>" class="news-card">
                   <div class="news-card-header">
                       <div class="card-image">

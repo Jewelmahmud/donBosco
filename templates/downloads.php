@@ -14,7 +14,7 @@ $posts_per_page = get_option('posts_per_page');
             <div class="slide-tabs filter-button-group swiper">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                  <a href="#" class="tab faqselector active" data-name="*"><img src="images/icon-globe.svg" alt="">Alles</a>
+                  <a href="#" class="tab faqselector active" data-name="*"><img src="<?php echo get_template_directory_uri();?>/assets/images/icon-globe.svg" alt="">Alles</a>
                 </div>
                 <?php
                   $categories = get_categories(array(
@@ -37,7 +37,7 @@ $posts_per_page = get_option('posts_per_page');
             <div class="swiper-next slide-arrow"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow"></div>
           </div>
         
-        <div class="row" style="--bs-gutter-x: 2rem;">
+        <div class="row filter-wrapper" style="--bs-gutter-x: 2rem;">
           <?php
           $args = array(
             'post_type' => 'download_items',
@@ -52,7 +52,7 @@ $posts_per_page = get_option('posts_per_page');
               while ($recent_post->have_posts()) : $recent_post->the_post(); $counter ++; $color = $colors[$counter % 3];
                   $categories = get_the_category();
           ?>
-          <div class="col-lg-4 col-md-6 mb-4">
+          <div class="col-lg-4 col-md-6 mb-4 filter-item">
               <a href="<?php the_permalink(); ?>" class="news-card">
                   <div class="news-card-header">
                       <div class="card-image">
@@ -72,7 +72,7 @@ $posts_per_page = get_option('posts_per_page');
                             foreach ($categories as $index => $category) {
                                 $category_names[] = $category->name;
                                 ?>
-                                <div class="news-card-tag tag-bg-<?php echo $color; ?>">
+                                <div class="download-card-tag news-card-tag tag-bg-<?php echo $color; ?>">
                                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-info.svg" alt="info icon">
                                     <?php echo esc_html(implode(', ', $category_names)); ?>
                                 </div>
@@ -84,7 +84,7 @@ $posts_per_page = get_option('posts_per_page');
                   <div class="news-card-body">
                       <h3><?php the_title(); ?></h3>
                       <p><?php echo wp_trim_words(get_the_excerpt(), 20, '...'); ?></p>
-                      <div class="text-link">Lees meer <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow"></div>
+                      <div class="text-link">Download <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow"></div>
                   </div>
               </a>
           </div>

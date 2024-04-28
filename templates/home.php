@@ -29,20 +29,22 @@
                 <img src="<?php echo $community['i___images__2']['url'] ?>" alt="<?php echo $community['i___images__2']['alt'] ?>" class="img-fluid">
              <?php endif; ?>
              <div class="border-image"></div>
-             <div class="position-absolute" style="top: -16px;left: -20px;transform: rotate(180deg);">
-               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow" style="width: 40px;">
+             <div class="position-absolute" style="top: -20px;left: -20px;">
+               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/three-dots.svg" alt="three-dots" style="width: 40px;">
              </div>
              
            </div>
           </div>
        </div>
-        <div class="col-md-6 col-xl-5 order-md-1">
+        <div class="col-md-6 col-xl-5 order-md-1 position-relative">
           <div class="subtitle"><?php echo $community['subtitle']; ?></div>
           <h2><?php echo $community['title']; ?></h2>
           <p class="mb-xl-5"><?php echo $community['descriptions']; ?></p>
           <?php if($community['link']): ?>
           <a href="<?php echo $community['link']['url']; ?>" class="btn btn-primary btn-with-arrow" target="<?php echo $community['link']['target']; ?>"><?php echo $community['link']['title']; ?> <svg width="8" height="12" viewBox="0 0 8 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="2" fill="currentColor"/><circle cx="6" cy="6" r="2" fill="currentColor"/><circle cx="2" cy="10" r="2" fill="currentColor"/></svg></a>
           <?php endif; ?>
+
+          <div class="don-bosco position-absolute bottom-0 text-nowrap pe-none d-none d-xl-block">DOn bosco</div>
         </div>
         
       </div>
