@@ -452,6 +452,7 @@ function isEventAlive($eventEndDate, $eventEndTime) {
     }
 }
 
+
 function alter_get_the_content($content) {
     $doc = new DOMDocument();
     @$doc->loadHTML(mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8'));
@@ -471,7 +472,8 @@ function alter_get_the_content($content) {
         foreach ($body->childNodes as $child) {
             if ($child->nodeType === XML_TEXT_NODE && trim($child->nodeValue) !== '') {
                 $p_tag = $doc->createElement('p', $child->nodeValue);
-                $body->replaceChild($p_tag, $child);
+                $body->appendChild($p_tag);
+                $body->removeChild($child);
             }
         }
     }
@@ -479,6 +481,7 @@ function alter_get_the_content($content) {
     $altered_content = $doc->saveHTML();
     return $altered_content;
 }
+
 
 
 

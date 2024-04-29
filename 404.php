@@ -1,12 +1,5 @@
 <?php get_header(); ?>
-<style>
-  .bg-home-top {
-    background: gray !important;
-  }
-  .error-404 {
-    background: gray !important;
-  } 
-</style>
+
 
 <div class="error-404 text-center">
       <div class="side-icon position-absolute right d-none d-lg-block">

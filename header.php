@@ -252,6 +252,7 @@
       </div>
     </section>
     <?php endif; ?>
+    <?php if(!is_404()): ?>
     <?php if(!is_front_page() && !is_home() && !is_single() && !is_page_template("templates/contact.php")): ?>
     <div class="page-banner">
       <div class="container">
@@ -291,6 +292,7 @@
         </div>
       </div>
     </div>
+    <?php endif; ?>
     <?php endif; ?>
     <?php if(is_singular('post')): while (have_posts()) : the_post(); ?>
       <div class="single-news-header text-white">
