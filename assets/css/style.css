@@ -69,6 +69,9 @@ h6 {
 h4 {
   margin-bottom: 12px;
 }
+ul {
+  list-style: square;
+}
 a {
   text-decoration: none;
   transition: all 250ms ease;
@@ -474,7 +477,7 @@ div#main-nav .btn {
 .border-image {
   border: 1px dashed #999;
   position: absolute;
-  z-index: 100;
+
   left: 15px;
   pointer-events: none;
   top: 15px;
@@ -640,9 +643,9 @@ h2 {
   color: inherit;
   transition: all 0.2s ease;
   border-radius: 12px;
-  border: 1px solid #ddd;
-
+  border: 1px solid #eee;
   overflow: hidden;
+  box-shadow: 0px 14px 46px -4px #0000001A;
 }
 .news-card:hover {
   top: 3px;
@@ -663,6 +666,7 @@ h2 {
 }
 .news-card-header .card-image img {
   width: 100%;
+  border-radius: 12px;
 }
 .news-card-tag {
   position: absolute;
@@ -1307,7 +1311,9 @@ footer a:hover {
   filter: grayscale(1);
   margin: 0 auto;
 }
-
+.sponsor-list li:hover img{
+  filter: grayscale(0);
+}
 .four-column-full .swiper-slide .overlay-content .content-top .price {
   font-size: 32px;
   display: flex;
@@ -1747,7 +1753,7 @@ cursor: pointer;
 
 .vacancies-card .vacancies-card-body .feature-list li::marker {
   color: var(--p-color);
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1;
 }
 .vacancies-card .vacancies-card-body .btn {
@@ -1757,11 +1763,18 @@ cursor: pointer;
     padding: 13px 25px;
     margin-top: 18px;
 }
+.single-image-carousel .border-image {
+  z-index: 2;
+}
 .single-image-carousel .swiper-pagination {
   bottom: 25px;
 }
 .single-image-carousel .swiper-pagination-bullet {
   background: #fff;
+}
+.news-carousel .news-card {
+  box-shadow: none;
+  border-color: #ddd;
 }
 @media (max-width: 767.98px) {
   .search-holder input {
@@ -2053,7 +2066,7 @@ cursor: pointer;
   }
   .h2,
   h2 {
-    font-size: 50px;
+    font-size: 49px;
     line-height: 55px;
     margin-bottom: 2rem;
   }
@@ -2174,7 +2187,7 @@ cursor: pointer;
     margin-bottom: 38px;
   }
   .dot-list-style li {
-    font-size: 18px;
+    font-size: 16px;
   }
   .sponsr-holder h2 {
     margin-bottom: 40px;
