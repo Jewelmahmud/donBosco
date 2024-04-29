@@ -240,10 +240,10 @@
                   </div>
                 </div>
                 <?php endif; ?>
-                <?php $info = get_field('footer_info_2', 'option'); if($info): ?> 
+                <?php $info = get_field('footer_info_2', 'option');  if($info): ?> 
                 <div class="col-md-6">
                   <div class="address">
-                    <h5 class="toggle"><?php $info['info_title']; ?></h5>
+                    <h5 class="toggle"><?php echo $info['info_title']; ?></h5>
                     <address class="collapse-div">
                       <?php echo $info['info_texts']; ?>
                     </address>

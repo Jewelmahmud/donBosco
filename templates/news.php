@@ -23,14 +23,18 @@ $posts_per_page = get_option('posts_per_page');
 
                   if (!empty($categories)) {
                     foreach ($categories as $category) {
-                        $slugimage = (get_field('slug_image', 'category_' . $category->term_id)) ? get_field('slug_image', 'category_' . $category->term_id)['url'] :  get_template_directory_uri().'/assets/images/icon-notes.svg'; ?>
+                        $slug_image_url = get_field('slug_image', $category);
+                        $image_url = !empty($slug_image_url) ? $slug_image_url['url'] : get_template_directory_uri() . '/assets/images/icon-notes.svg'; ?>
                         <div class="swiper-slide">
-                          <a href="#" class="tab faqselector" data-name=".<?php echo esc_attr($category->slug); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-notes.svg" alt=""><?php echo esc_html($category->name); ?></a>
-                        </div> 
-                        <?php 
+                            <a href="#" class="tab faqselector" data-name=".<?php echo esc_attr($category->slug); ?>">
+                                <img src="<?php echo esc_url($image_url); ?>" alt="">
+                                <?php echo esc_html($category->name); ?>
+                            </a>
+                        </div>
+                <?php
                     }
-                  }
-                ?>
+                }
+              ?>
               </div>
             </div>
             <div class="swiper-next slide-arrow"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow"></div>
@@ -49,8 +53,19 @@ $posts_per_page = get_option('posts_per_page');
               $counter = 0;
               while ($recent_post->have_posts()) : $recent_post->the_post(); $counter ++; $color = $colors[$counter % 3];
                   $categories = get_the_category();
-          ?>
-          <div class="col-lg-4 col-md-6 mb-4 filter-item">
+                  // $categories = get_the_terms( get_the_ID());
+                    $category_slugs = array();
+        
+                    if (!empty($categories)) {
+                        foreach ($categories as $category) {
+                            $category_slugs[] = esc_attr($category->slug);
+                        }
+                    }
+                    $category_class = implode(' ', $category_slugs); 
+                    
+                    
+                    ?>
+          <div class="col-lg-4 col-md-6 mb-4 filter-item <?php echo $category_class; ?>">
               <a href="<?php the_permalink(); ?>" class="news-card">
                   <div class="news-card-header">
                       <div class="card-image">
@@ -59,10 +74,8 @@ $posts_per_page = get_option('posts_per_page');
                               the_post_thumbnail('newsthumb', ['class' => 'img-fluid', 'alt' => 'card image']);
                           } else {
                           ?>
-                              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/placeholoder_logo.jpg" alt="card image" class="img-fluid">
-                          <?php
-                          }
-                          ?>
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/placeholoder_logo.jpg" alt="card image" class="img-fluid">
+                          <?php } ?>
                       </div>
                       <?php
                         if (!empty($categories)) {

@@ -402,6 +402,8 @@
       </div>
       <?php } ?>
 
-<?php if(!is_page_template("template/contact.php")):?>
+<?php if(!is_page_template("templates/contact.php")):?>
   </div>
 <?php endif; ?>
+
+
