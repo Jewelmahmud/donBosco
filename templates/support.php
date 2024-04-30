@@ -60,10 +60,10 @@ $section1 = get_field('section_1');
         <div class="swiper single-image-carousel">
           <div class="border-image"></div>
           <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="<?php echo $section2['images']['url']; ?>" alt="<?php echo $section2['images']['alt']; ?>" class="img-fluid"></div>
-            <div class="swiper-slide"><img src="<?php echo $section2['images']['url']; ?>" alt="<?php echo $section2['images']['alt']; ?>" class="img-fluid"></div>
-            <div class="swiper-slide"><img src="<?php echo $section2['images']['url']; ?>" alt="<?php echo $section2['images']['alt']; ?>" class="img-fluid"></div>
-            <div class="swiper-slide"><img src="<?php echo $section2['images']['url']; ?>" alt="<?php echo $section2['images']['alt']; ?>" class="img-fluid"></div>
+            <?php            
+            if($section2['imagess']){ foreach($section2['imagess'] as $image){ ?>
+              <div class="swiper-slide"><img src="<?php echo $image['image']['url']; ?>" alt="<?php echo $image['image']['alt']; ?>" class="img-fluid"></div>
+            <?php }}?>
           </div>
           <div class="swiper-pagination"></div>
         </div>

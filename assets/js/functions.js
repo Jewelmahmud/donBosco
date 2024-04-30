@@ -56,6 +56,37 @@ jQuery(document).ready(function($) {
     });
 
 
+    $('.text-link').click(function(){
+        let contents    =   $(this).closest('.team-card'),
+            img         =   contents.find('.personimage').attr('data-img'),
+            name        =   contents.find('.team-card-body h3').text(),
+            position    =   contents.find('.position').text(),
+            texts       =   contents.find('.full-text').text(),
+            phone       =   contents.find('.pphone').text(),
+            email       =   contents.find('.pemail').text(),
+            socials     =   contents.find('.socials li');
+
+
+            let modal   =   $('.modal-body');
+                modal.find('.person_name').text(name);
+                modal.find('.details').text(texts);
+                modal.find('.position').text(position);
+                modal.find('.modalphone').text(phone);
+                if(phone) modal.find('.modalphone').show().attr('href', phone);
+                else modal.find('.modalphone').hide();
+                if(email) modal.find('.modalemail').show().text(email);
+                else modal.find('.modalemail').hide();
+                modal.find('.modalemail').attr('href', 'mailto:' + email);
+                modal.find('.person-img').attr('src', img);
+                modal.find('.social-icon-wrapper li').remove();
+                socials.clone().appendTo(modal.find('.social-icon-wrapper'));
+    }); 
+
+    $('.single-news-body').contents().filter(function() {
+        return this.nodeType === 3 && this.parentNode.nodeName !== 'P';
+    }).wrap('<p></p>');
+
+
 
     function isValidEmail(email) {
         var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

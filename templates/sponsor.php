@@ -15,7 +15,7 @@ $sponsors = get_field('sponsors');
             <h2><?php echo $sponsor['sponsors_title']; ?></h2>
             <ul class="sponsor-list">
                 <?php if($sponsor['sponsor']){ foreach($sponsor['sponsor'] as $item){
-                    echo '<li><a href="'.$item['url'].'"><img src="'.$item['logo']['url'].'" alt="'.$item['logo']['alt'].'"></a></li>';
+                    echo '<li><a href="'.$item['url'].'" target="_blank"><img src="'.$item['logo']['url'].'" alt="'.$item['logo']['alt'].'"></a></li>';
                 }}?>
             </ul>
           </div>
@@ -29,6 +29,4 @@ $sponsors = get_field('sponsors');
   </section>
 
 <?php get_footer(); ?>
-
-
 

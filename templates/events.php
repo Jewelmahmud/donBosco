@@ -79,16 +79,20 @@ $posts_per_page = get_option('posts_per_page');
                         }
                     }
                     $category_class = implode(' ', $category_slugs); 
+
+                    $enddata = get_field('end_date');
+                    $endtime = get_field('end_time');
+
+                    if(isEventAlive($enddata, $endtime)){
                     
                     
                     ?>
 
         
                     <div class="col-lg-4 col-md-6 mb-4 filter-item <?php echo $category_class; ?>">
-                      <a href="#" class="news-card event-card">
+                      <a href="<?php the_permalink(); ?>" class="news-card event-card">
                         <div class="news-card-header">
                           <div class="card-image">
-                            <!-- <img src="images/card-image.jpg" alt="card image" class="img-fluid"> -->
                             <?php
                             if (has_post_thumbnail()) {
                                 the_post_thumbnail('newsthumb', ['class' => 'img-fluid', 'alt' => 'card image']);
@@ -119,7 +123,7 @@ $posts_per_page = get_option('posts_per_page');
                           <div class="text-link">Lees meer <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow"></div>
                         </div>
                       </a>
-                    </div><?php  
+                    </div><?php } 
                   endwhile; wp_reset_postdata(); 
             endif;  ?>
           

@@ -37,9 +37,17 @@
                         <input type="text" class="form-control" placeholder="<?php echo $form['telephone_input']; ?>*" id="phone" name="phone" />
                         <label for="phone"><?php echo $form['telephone_input']; ?>*</label>
                     </div>
+                    
                     <div class="form-floating mb-2">
                         <textarea class="form-control" placeholder="<?php echo $form['textarea']; ?>*" id="message" name="message" rows="5"></textarea>
                         <label for="message"><?php echo $form['textarea']; ?>*</label>
+                    </div>
+                    <div class="mb-2">
+                        <div class="file-input">
+                            <input type="file">
+                            <span class="label" data-js-label="">Upload CV</span>
+                            <span class=""><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-upload.svg" alt="icon-upload"></span>
+                        </div>
                     </div>
                     <div class="text-start mb-3">
                         *<?php echo $form['valid_field_texts']; ?>

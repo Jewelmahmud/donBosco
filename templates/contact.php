@@ -39,8 +39,17 @@
                                 <?php foreach ($tabs as $index => $tab) : ?>
                                     <div class="tab-pane fade <?php echo ($index === 0) ? 'show active' : ''; ?>" id="pills-<?php echo sanitize_title($tab['tab_title']); ?>" role="tabpanel" aria-labelledby="pills-<?php echo sanitize_title($tab['tab_title']); ?>-tab" tabindex="<?php echo ($index === 0) ? '0' : '-1'; ?>">
                                         <ul class="list-unstyled">
-                                            <?php foreach ($tab['tab_items'] as $item) : ?>
-                                                <li><img src="<?php echo esc_url($item['icon']['url']); ?>" alt="<?php echo esc_attr($item['texts']); ?>" /><?php echo esc_html($item['texts']); ?></li>
+                                            <?php foreach ($tab['tab_items'] as $item) : 
+                                                $check = identifyContact($item['texts']); 
+                                                if($check === 'email') $anchor = 'mailto:'.$item['texts'];
+                                                if($check === 'phone') $anchor = 'tel:'.$item['texts'];
+                                                
+                                                ?>
+                                                <li>
+                                                    <?php if($check == 'email' || $check == 'phone') echo "<a href='".$anchor."'> ";?>
+                                                    <img src="<?php echo esc_url($item['icon']['url']); ?>" alt="<?php echo esc_attr($item['texts']); ?>" /> <?php echo esc_html($item['texts']); ?>
+                                                    <?php if($check == 'email' || $check == 'phone') echo "</a>";?>                                                    
+                                                </li>
                                             <?php endforeach; ?>
                                         </ul>
                                     </div>

@@ -12,6 +12,13 @@ var homeBannerSlider = new Swiper(".home-banner-slider", {
     nextEl: ".activity-slider-next",
     prevEl: ".activity-slider-prev",
   },
+  on: {
+    slideChange: function () {
+      var currentSlideText = this.slides[this.activeIndex].querySelector('.dmaten-text').innerText;
+      if(currentSlideText) $('.dematen-title').show().text(currentSlideText);
+      else $('.dematen-title').hide();
+    },
+  },
 });
 
 

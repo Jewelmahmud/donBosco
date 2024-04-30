@@ -33,6 +33,7 @@ function donboscoThemeSetup() {
 	// set_post_thumbnail_size( 900, 400, true ); 
 	// add_image_size( 'newsbig', 385, 300, true );
 	add_image_size( 'newsthumb', 384, 252, true );
+	add_image_size( 'teamimg', 384, 532, true );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(		

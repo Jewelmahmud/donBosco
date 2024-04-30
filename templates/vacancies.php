@@ -63,39 +63,39 @@ $posts_per_page = get_option('posts_per_page');
                     }
                 }
                 $category_class = implode(' ', $category_slugs);  ?>
-          <div class="col-lg-4 col-md-6 mb-4 filter-item <?php echo $category_class; ?>">
-            <div class="vacancies-card">
-              <div class="vacancies-card-header">
-                <div class="card-image">
-                  <img src="<?php echo get_template_directory_uri(); ?>/assets/images/card-image.jpg" alt="card image" class="img-fluid">
+                <div class="col-lg-4 col-md-6 mb-4 filter-item <?php echo $category_class; ?>">
+                  <a href="<?php the_permalink(); ?>" class="vacancies-card">
+                    <div class="vacancies-card-header">
+                      <div class="card-image">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/card-image.jpg" alt="card image" class="img-fluid">
+                      </div>
+                    </div>
+                    <div class="vacancies-card-body">
+                      <h3><?php the_title(); ?></h3>
+                      <p><?php the_field('short_line_after_title'); ?></p>
+                      <?php $feature = get_field('jobs_features'); if($feature): ?>
+                      <ul class="feature-list">
+                          <?php foreach($feature as $item) echo "<li>".$item['feature']."</li>";?>
+                      </ul>
+                      <?php endif; ?>
+                      <div class="d-flex align-items-center gap-3">
+                        <div class="d-flex align-items-center gap-3">
+                          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-map.svg" alt="map icon"><?php the_field('location'); ?>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-time-2.svg" alt="timeicon-time icon"><?php the_field('job_type'); ?>
+                        </div>
+                      </div>
+                      <div class="btn btn-primary">Bekijk vacature
+                          <svg width="8" height="12" viewBox="0 0 8 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          <circle cx="2" cy="2" r="2" fill="currentColor"></circle>
+                          <circle cx="6" cy="6" r="2" fill="currentColor"></circle>
+                          <circle cx="2" cy="10" r="2" fill="currentColor"></circle>
+                          </svg>
+                      </div>
+                    </div>
+                  </a>
                 </div>
-              </div>
-              <div class="vacancies-card-body">
-                <h3><?php the_title(); ?></h3>
-                <p><?php the_field('short_line_after_title'); ?></p>
-                <?php $feature = get_field('jobs_features'); if($feature): ?>
-                <ul class="feature-list">
-                    <?php foreach($feature as $item) echo "<li>".$item['feature']."</li>";?>
-                </ul>
-                <?php endif; ?>
-                <div class="d-flex align-items-center gap-3">
-                  <div class="d-flex align-items-center gap-3">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-map.svg" alt="map icon"><?php the_field('location'); ?>
-                  </div>
-                  <div class="d-flex align-items-center gap-3">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-time-2.svg" alt="timeicon-time icon"><?php the_field('job_type'); ?>
-                  </div>
-                </div>
-                <a href="<?php the_permalink(); ?>" class="btn btn-primary">Bekijk vacature
-                    <svg width="8" height="12" viewBox="0 0 8 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="2" cy="2" r="2" fill="currentColor"></circle>
-                    <circle cx="6" cy="6" r="2" fill="currentColor"></circle>
-                    <circle cx="2" cy="10" r="2" fill="currentColor"></circle>
-                    </svg>
-                </a>
-              </div>
-            </div>
-          </div>
           <?php  endwhile; wp_reset_postdata(); endif;  ?>          
         </div>
         <div class="row my-5">

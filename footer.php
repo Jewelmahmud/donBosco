@@ -13,7 +13,9 @@
             <div class="swiper-wrapper align-items-center">
               <?php if($partner['logos']): foreach($partner['logos'] as $logo): ?>
               <div class="swiper-slide">
-                <img src="<?php echo $logo['logo_image']['url']; ?>" alt="<?php echo $logo['logo_image']['alt']; ?>" class="img-fluid">
+                <a href="<?php echo $logo['url']; ?>" target="_blank">
+                  <img src="<?php echo $logo['logo_image']['url']; ?>" alt="<?php echo $logo['logo_image']['alt']; ?>" class="img-fluid">
+                </a>
               </div>
               <?php endforeach; endif; ?>
             </div>

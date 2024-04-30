@@ -220,6 +220,8 @@
                             </div>
                             <div class="col-xl-3">
                               <div class="d-flex align-items-center justify-content-between justify-content-xl-end">
+                                <?php $dematen = get_field('other_link');?>
+                                <div class="d-none dmaten-text"><?php echo (!empty($dematen) && is_array($dematen)) ? $dematen['title'] : ''; ?></div>
                                 <a href="<?php the_permalink(); ?>" class="text-link">
                                   Lees VERDER <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow">
                                 </a>
@@ -238,7 +240,7 @@
               </div>
             </div>
             <div class="col-lg-2">
-              <div class="position-absolute bg-primary top-0 end-0 rounded-top-right rounded-bottom-left py-1 px-3 text-uppercase fw-bold">
+              <div class="position-absolute bg-primary top-0 end-0 rounded-top-right rounded-bottom-left py-1 px-3 text-uppercase fw-bold dematen-title">
                 <?php echo $hero['activiteiten']['right_side_title']?>
               </div>
               <div class="action-btn d-flex align-items-center gap-1 justify-content-end">
@@ -261,12 +263,16 @@
             <div class="subtitle">
               <?php if(get_field('subtitle')) {
                 echo get_field('subtitle');
+              }elseif(is_search()){
+                echo "Uw zoekresultaat";
               }else {
                 echo "Een thuis voor jongeren";
               } ?>
               
             </div>
-            <h1><?php the_title(); ?></h1>
+            <h1><?php
+            if(is_search()) echo "Zoekresultaten";
+            else the_title(); ?></h1>
             <nav aria-label="breadcrumb">
               <?php
                 $breadcrumbs = get_breadcrumb();
@@ -350,25 +356,35 @@
                   <a href="<?php echo $olink['url']; ?>" class="btn btn-secondary" target="<?php echo $olink['title']; ?>"><?php echo $olink['title']; ?></a>
                   <?php endif; ?>
                   <?php $tlink = get_field('ticket_link'); if($tlink): ?>
-                  <a href="<?php echo $tlink['url']; ?>" class="btn btn-outline-secondary"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-ticket.svg" alt="ticket" target="<?php echo $tlink['target']; ?>"><?php echo $tlink['Title']; ?></a>
+                  <a href="<?php echo $tlink['url']; ?>" class="btn btn-outline-secondary"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-ticket.svg" alt="ticket" target="<?php echo $tlink['target']; ?>"><?php echo $tlink['title']; ?></a>
                   <?php endif; ?>
                 </div>
               </div>
               <div class="col-lg-5 col-xl-4 offset-lg-1 offset-xl-2">
+                <?php $total = get_field('event_statistics'); if($total): ?>
                 <ul class="event-summary">
+                  <?php if($total['people_participated']): ?>
                   <li>
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-users.svg" alt="icon-users"> <span class="total-number">2603</span> Deelnemende jongeren
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-users.svg" alt="icon-users"> <span class="total-number"><?php echo $total['people_participated']; ?></span> Deelnemende jongeren
                   </li>
+                  <?php endif; ?>
+                  <?php if($total['total_collaborations']): ?>
                   <li>
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-users.svg" alt="icon-users"> <span class="total-number">2603</span> Samenwerkingen
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-users.svg" alt="icon-users"> <span class="total-number"><?php echo $total['total_collaborations']; ?></span> Samenwerkingen
                   </li>
+                  <?php endif; ?>
+                  <?php if($total['total_sponsors']): ?>
                   <li>
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-users.svg" alt="icon-users"> <span class="total-number">2406</span> Sponsoren
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-users.svg" alt="icon-users"> <span class="total-number"><?php echo $total['total_sponsors']; ?></span> Sponsoren
                   </li>
+                  <?php endif; ?>
+                  <?php if($total['goal_achieved']): ?>
                   <li>
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-users.svg" alt="icon-users"> <span class="total-number">100%</span> Doelen bereikt
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-users.svg" alt="icon-users"> <span class="total-number"><?php echo $total['goal_achieved']; ?></span> Doelen bereikt
                   </li>
+                  <?php endif; ?>
                 </ul>
+                <?php endif; ?>
               </div>
             </div>
           </div>
@@ -402,7 +418,7 @@
       </div>
       <?php } ?>
 
-<?php if(!is_page_template("templates/contact.php")):?>
+<?php if(!is_page_template("templates/contact.php") && !is_404()):?>
   </div>
 <?php endif; ?>
 

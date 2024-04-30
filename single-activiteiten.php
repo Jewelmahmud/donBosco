@@ -15,6 +15,7 @@
 
             ?>
         </div>
+        
         <div class="col-lg-6">
           <div class="form-box position-sticky" style="top: 20px">
             <div class="form-box-top">
