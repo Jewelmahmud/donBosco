@@ -1719,8 +1719,10 @@ cursor: pointer;
 }
 
 .vacancies-card {
-    background-color: #F5F5F5;
-    border-radius: 8px;
+  background-color: #F5F5F5;
+  border-radius: 8px;
+  display: block;
+  color: currentColor;
 }
 
 .vacancies-card .vacancies-card-header {}
