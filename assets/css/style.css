@@ -1665,7 +1665,7 @@ footer a:hover {
   color: #6F677C;
 
 }
-.single-news-body figure figcaption {
+figure figcaption {
   margin-top: 10px;
   border-bottom: 1px solid #dfdfdf;
   padding-bottom: 9px;
