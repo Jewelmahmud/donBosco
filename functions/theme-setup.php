@@ -39,6 +39,7 @@ function donboscoThemeSetup() {
 	register_nav_menus( array(		
 		'topmenu' 	=> esc_html__( 'Top Menu', 'donbosco' ),	
 		'mainmenu' 	=> esc_html__( 'Main Menu', 'donbosco' ),	
+		'mobilemenu' 	=> esc_html__( 'Mobile Menu', 'donbosco' ),	
 	) );
 
 	/*

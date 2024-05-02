@@ -115,14 +115,24 @@
            
 
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                
                 <?php
-                    wp_nav_menu(array(
-                        'theme_location' => 'mainmenu',
-                        'container' => false,
-                        'items_wrap' => '%3$s',
-                        'walker' => new Custom_Nav_Walker()
-                    ));
-                ?>
+                  if(wp_is_mobile()) {
+                      wp_nav_menu(array(
+                          'theme_location' => 'mobilemenu',
+                          'container' => false,
+                          'items_wrap' => '%3$s',
+                          'walker' => new Custom_Nav_Walker()
+                      ));
+                  } else {
+                      wp_nav_menu(array(
+                          'theme_location' => 'mainmenu',
+                          'container' => false,
+                          'items_wrap' => '%3$s',
+                          'walker' => new Custom_Nav_Walker()
+                      ));
+                  }
+                  ?>
             </ul>
             <div class="d-flex align-items-center gap-2">
               <?php $link = get_field('header_action_button', 'option'); if($link): ?>
@@ -340,6 +350,8 @@
           <div class="container">
             <div class="row">
               <div class="col-lg-6 mb-5 mb-lg-0">
+
+
                 <div class="event-date">
                   <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-calendar-w.svg" alt="icon-calendar"> <?php the_field('start_date'); ?> - <?php the_field('end_date'); ?>
                 </div>
@@ -363,26 +375,12 @@
               <div class="col-lg-5 col-xl-4 offset-lg-1 offset-xl-2">
                 <?php $total = get_field('event_statistics'); if($total): ?>
                 <ul class="event-summary">
-                  <?php if($total['people_participated']): ?>
+                  <?php if($total['icon'] && $total['key'] && $total['value']): ?>
                   <li>
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-users.svg" alt="icon-users"> <span class="total-number"><?php echo $total['people_participated']; ?></span> Deelnemende jongeren
+                    <img src="<?php echo $total['icon']['url'];?>" alt="icon-users"> <span class="total-number"><?php echo $total['value'];?></span> <?php echo $total['key'];?>
                   </li>
                   <?php endif; ?>
-                  <?php if($total['total_collaborations']): ?>
-                  <li>
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-users.svg" alt="icon-users"> <span class="total-number"><?php echo $total['total_collaborations']; ?></span> Samenwerkingen
-                  </li>
-                  <?php endif; ?>
-                  <?php if($total['total_sponsors']): ?>
-                  <li>
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-users.svg" alt="icon-users"> <span class="total-number"><?php echo $total['total_sponsors']; ?></span> Sponsoren
-                  </li>
-                  <?php endif; ?>
-                  <?php if($total['goal_achieved']): ?>
-                  <li>
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-users.svg" alt="icon-users"> <span class="total-number"><?php echo $total['goal_achieved']; ?></span> Doelen bereikt
-                  </li>
-                  <?php endif; ?>
+                  
                 </ul>
                 <?php endif; ?>
               </div>

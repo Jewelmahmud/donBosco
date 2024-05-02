@@ -20,8 +20,13 @@
           <div class="form-box position-sticky" style="top: 20px">
             <div class="form-box-top">
                 <?php $form = get_field('single_page_form', 'option');?>
-                <h4><?php echo $form['form_title']; ?></h4>
-                <p><?php echo $form['form_description']; ?></p>
+                <?php $sform = get_field('form_details');?>
+                <h4><?php 
+                if($sform['form_title']) echo $sform['form_title'];
+                else echo $form['form_title']; ?></h4>
+
+                <p><?php if($sform['form_description']) echo $sform['form_description'];
+                else echo $form['form_description']; ?></p>
             </div>
             <div class="form-wrapper">
                 <form id="contact-form">
@@ -50,7 +55,8 @@
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/loading.svg" alt="loading">
                         </div>
                         <div class="btntexts">
-                            <?php echo $form['send_button']; ?>
+                            <?php if($sform['send_button']) echo $sform['send_button'];
+                            else echo $form['send_button']; ?>
                             <svg width="8" height="12" viewBox="0 0 8 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="2" cy="2" r="2" fill="currentColor"></circle>
                                 <circle cx="6" cy="6" r="2" fill="currentColor"></circle>
@@ -59,7 +65,11 @@
                         </div>
                     </button>
 
-                    <div class="notes pt-4 mt-3 px-lg-4"><?php echo $form['form_below_texts']; ?></div>
+                    <div class="notes pt-4 mt-3 px-lg-4">
+                    <?php 
+                    if($sform['form_below_texts']) echo $sform['form_below_texts'];
+                    else echo $form['form_below_texts']; ?>
+                    </div>
                 </form>
             </div>
           </div>

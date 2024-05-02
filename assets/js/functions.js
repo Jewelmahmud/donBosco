@@ -56,6 +56,34 @@ jQuery(document).ready(function($) {
     });
 
 
+    // Load archieve contents through ajax
+    function fetchPostsByYear(year) {
+        $.ajax({
+            url: ajaxurl,
+            type: 'POST',
+            data: {
+                action: 'fetch_events_by_year',
+                year: year,
+            },
+            success: function(response) {
+                filterWrap.empty();
+                var newContent = $(response.jobs);
+                filterWrap.append(newContent).isotope('appended', newContent);
+                filterWrap.isotope('layout');
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching posts:', error);
+            }
+        });
+    }
+
+    // Event listener for select change
+    $('.form-select').change(function() {
+        var selectedYear = $(this).val();
+        fetchPostsByYear(selectedYear);
+    });
+
+
     $('.text-link').click(function(){
         let contents    =   $(this).closest('.team-card'),
             img         =   contents.find('.personimage').attr('data-img'),

@@ -618,7 +618,7 @@ h2 {
   text-transform: uppercase;
 }
 .partners-carosuel {
-  overflow: visible;
+  overflow: hidden;
 }
 .partners-carosuel .swiper-slide {
   /* text-align: center; */

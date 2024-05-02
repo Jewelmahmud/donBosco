@@ -10,7 +10,7 @@ $posts_per_page = get_option('posts_per_page');
         <div class="row">
           <div class="col-lg-8 col-xl-9">
             <div class="slide-content">
-              <div class="swiper-prev slide-arrow"><img src="images/icon-arrow.svg" alt="icon-arrow"></div>
+              <div class="swiper-prev slide-arrow"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow"></div>
               <div class="slide-tabs filter-button-group swiper">
                 <div class="swiper-wrapper">
                   <div class="swiper-slide">
@@ -39,18 +39,21 @@ $posts_per_page = get_option('posts_per_page');
                   
                 </div>
               </div>
-              <div class="swiper-next slide-arrow"><img src="images/icon-arrow.svg" alt="icon-arrow"></div>
+              <div class="swiper-next slide-arrow"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow"></div>
             </div>
           </div>
           <div class="col-lg-4 col-xl-3">
             <div class="select-filter">
               Archief: 
               <select class="form-select">
-                <option selected>2024</option>
-                <option value="1">2025</option>
-                <option value="2">2026</option>
-                <option value="3">2027</option>
-              </select>
+                <?php
+                $current_year = date('Y');
+                for ($year = 2010; $year <= 2100; $year++) {
+                    $selected = ($year == $current_year) ? 'selected' : '';
+                    echo '<option value="' . $year . '" ' . $selected . '>' . $year . '</option>';
+                }
+                ?>
+            </select>
             </div>
           </div>
         </div>

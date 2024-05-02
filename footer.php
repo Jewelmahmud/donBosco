@@ -72,19 +72,18 @@
                       ?>
                   </div>
                   <?php
-                    if (!empty($categories)) {
-                        $category_count = count($categories);
-                        foreach ($categories as $index => $category) {
-                            $category_names[] = $category->name;
-                            ?>
+                        if (!empty($categories)) {
+                          $category_names = array();
+                          foreach ($categories as $category)   $category_names[] = esc_html($category->name);
+                            $slug_image_url = get_field('slug_image', $category);
+                            $image_url = !empty($slug_image_url) ? $slug_image_url['url'] : get_template_directory_uri() . '/assets/images/icon-notes.svg'; ?>
                             <div class="news-card-tag tag-bg-<?php echo $color; ?>">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-info.svg" alt="info icon">
-                                <?php echo esc_html(implode(', ', $category_names)); ?>
+                                <img src="<?php echo $image_url; ?>" alt="info icon">
+                                <?php echo implode(', ', $category_names); ?>
                             </div>
                             <?php
                         }
-                    }
-                  ?>
+                      ?>
                   </div>
                   <div class="news-card-body">
                       <h3><?php the_title(); ?></h3>
@@ -127,48 +126,14 @@
           </div>
         </div>
       </div>
+    </div>
+
+
+<?php $instagram_api = new InstagramAPI();?>
+    <div class="container-fluid ps-0">
       <div class="row">
         <div class="col-12">
-          <div class="insta-carousel swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/insta-post.jpg" alt="insta-post" class="img-fluid">
-              </div>
-              <div class="swiper-slide">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/insta-post.jpg" alt="insta-post" class="img-fluid">
-              </div>
-              <div class="swiper-slide">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/insta-post.jpg" alt="insta-post" class="img-fluid">
-              </div>
-              <div class="swiper-slide">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/insta-post.jpg" alt="insta-post" class="img-fluid">
-              </div>
-              <div class="swiper-slide">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/insta-post.jpg" alt="insta-post" class="img-fluid">
-              </div>
-              <div class="swiper-slide">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/insta-post.jpg" alt="insta-post" class="img-fluid">
-              </div>
-              <div class="swiper-slide">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/insta-post.jpg" alt="insta-post" class="img-fluid">
-              </div>
-              <div class="swiper-slide">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/insta-post.jpg" alt="insta-post" class="img-fluid">
-              </div>
-              <div class="swiper-slide">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/insta-post.jpg" alt="insta-post" class="img-fluid">
-              </div>
-            </div>
-            <div class="carousel-action-both">
-              <div class="swiper-next">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow">
-              </div>
-              <div class="swiper-prev">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow">
-              </div>
-              <div class="swiper-pagination"></div>
-            </div>
-          </div>
+        <?php $instagram_api->displayInstagramFeed(); ?>
         </div>
       </div>
     </div>
@@ -285,6 +250,7 @@
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+  <?php wp_footer(); ?>
   <script src="<?php echo get_template_directory_uri(); ?>/assets/js/scripts.js"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/assets/js/functions.js"></script>
 </body>

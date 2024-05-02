@@ -81,7 +81,7 @@
     </div>
   </section>
 
-  <?php $activity = get_field('activiteiten_section'); ?>
+  <?php $activity = get_field('alpadoon_section', 'option'); ?>
   <section class="mb-5 mt-3 mt-xl-5 pt-5 pb-3">
     <div class="container mb-4 mb-xl-5 mt-xl-5 pt-xl-5 pb-xl-4">
       <div class="row align-items-end">
@@ -90,29 +90,43 @@
             <h2 class="mb-lg-0"><?php echo $activity['title']; ?></h2>
         </div>
         <div class="col-lg-5 offset-lg-1">
-          <p class="mb-lg-0"><?php echo $activity['descriptions']; ?></p>
+          <p class="mb-lg-0"><?php echo $activity['texts']; ?></p>
         </div>
       </div>
     </div>
     <div class="four-column-full four-col-carousel swiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <a href="#" class="column">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/pexels-rheza-aulia-3375234.jpg" alt="pexels-rheza-aulia-3375234" class="slider-image">
-            <div class="overlay-content">
-              <div class="content-top d-flex align-items-center justify-content-between">
-                <div>
-                  <h4>Kinderen</h4>
-                  <p>Na school</p>
+
+      <?php 
+      if($activity['alpadoon_item']){
+        foreach($activity['alpadoon_item'] as $item) {?>
+
+            <div class="swiper-slide">
+              <a href="<?php echo $item['link']['url']; ?>" class="column">
+                <img src="<?php echo $item['image']['url']; ?>" alt="<?php echo $item['image']['alt']; ?>" class="slider-image">
+                <div class="overlay-content">
+                  <div class="content-top d-flex align-items-center justify-content-between">
+                    <div>
+                      <h4><?php echo $item['link']['title']; ?></h4>
+                      <p><?php echo $item['sub_heading']; ?></p>
+                    </div>
+                    <div>
+                      <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow" class="arrow-right">
+                    </div>
+                  </div>
+                  <div class="content-btn">Lees VERDER</div>
                 </div>
-                <div>
-                  <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow" class="arrow-right">
-                </div>
-              </div>
-              <div class="content-btn">Lees VERDER</div>
-            </div>
-          </a>
-        </div>
+              </a>
+            </div><?php 
+            
+          }
+        }
+        
+        
+        ?>
+
+
+
         <div class="swiper-slide">
           <a href="#" class="column">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mi-pham-xtd3zYWxEs4-unsplash.jpg" alt="mi-pham-xtd3zYWxEs4-unsplash" class="slider-image">

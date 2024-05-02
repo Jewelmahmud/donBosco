@@ -238,15 +238,15 @@ function limitWords($inputString, $limit = 10, $dots = false) {
 
 function dd($input, $die = true) {
     // If $input is an array, apply strip_tags recursively to all its elements
-    if (is_array($input)) {
-        array_walk_recursive($input, function (&$value) {
-            $value = strip_tags($value);
-        });
-    } else {
-        $input = strip_tags($input);
-    }
+    // if (is_array($input)) {
+    //     array_walk_recursive($input, function (&$value) {
+    //         $value = strip_tags($value);
+    //     });
+    // } else {
+    //     $input = strip_tags($input);
+    // }
     echo "<pre>";
-    print_r($input);
+    var_dump($input);
     echo "</pre>";
 
     if ($die) die();

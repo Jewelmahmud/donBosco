@@ -8,7 +8,7 @@ $posts_per_page = get_option('posts_per_page');
 <section class="vacancies-wrapper">
     <div class="container">
           <div class="slide-content">
-            <div class="swiper-prev slide-arrow"><img src="images/icon-arrow.svg" alt="icon-arrow"></div>
+            <div class="swiper-prev slide-arrow"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow"></div>
             <div class="slide-tabs filter-button-group swiper">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">

@@ -41,3 +41,22 @@
     font-size: 1rem;
     margin-bottom: 1.5em;
 }
+
+.insta-carousel .swiper-slide {
+    display: flex;
+    overflow: hidden;
+}
+
+.insta-carousel a {
+    width: 100%;
+}
+
+.insta-carousel a video {
+    width: 100%;
+    object-fit: contain;
+}
+
+.insta-carousel a img {
+    width: 100%;
+    object-fit: contain;
+}

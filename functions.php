@@ -57,6 +57,8 @@ require_once( THEME_DIR .'/classes/nav-walker.php' );
 require_once(get_template_directory() . '/classes/footer-nav-walker.php');
 // Bootstrap Nav Walker --------------------------------------------------------
 require_once(get_template_directory() . '/classes/Custom-nav-Walker.php');
+// Bootstrap Nav Walker --------------------------------------------------------
+require_once(get_template_directory() . '/classes/InstagramAPI.php');
 // ForceFull API --------------------------------------------------------
 require_once( LIBS_DIR .'/api/api.php' );
 // ForceFull Webhook --------------------------------------------------------
