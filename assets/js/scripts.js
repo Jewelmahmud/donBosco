@@ -155,7 +155,8 @@ var instaCarousel = new Swiper(".insta-carousel", {
 });
 
 var slideTabsSwiper = new Swiper(".slide-tabs", {
-  slidesPerView: 2,
+  slidesPerView: 'auto',
+  // slidesPerView: 2,
   spaceBetween: 15,
   loop: true,
   navigation: {
