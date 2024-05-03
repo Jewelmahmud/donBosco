@@ -676,7 +676,7 @@ h2 {
   bottom: -13px;
   background-color: #ccc;
   border-radius: 50rem;
-  padding: 3px 10px;
+  padding: 3px 14px;
   display: flex;
   align-items: center;
   gap: 5px;
@@ -684,6 +684,7 @@ h2 {
   text-transform: uppercase;
   left: 20px;
   font-weight: 600;
+  font-size: 12px;
 }
 .news-card-tag img {
   filter: brightness(0) invert(1);
