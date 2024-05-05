@@ -76,6 +76,9 @@ a {
   text-decoration: none;
   transition: all 250ms ease;
 }
+a:hover {
+  --bs-link-color-rgb: var(--p-color);
+}
 .fs13px{
   font-size: 13px;
 }
@@ -673,7 +676,7 @@ h2 {
   bottom: -13px;
   background-color: #ccc;
   border-radius: 50rem;
-  padding: 3px 10px;
+  padding: 3px 14px;
   display: flex;
   align-items: center;
   gap: 5px;
@@ -681,6 +684,7 @@ h2 {
   text-transform: uppercase;
   left: 20px;
   font-weight: 600;
+  font-size: 12px;
 }
 .news-card-tag img {
   filter: brightness(0) invert(1);
@@ -741,8 +745,14 @@ h2 {
 }
 
 .social-icon-wrapper li a svg {
-  width: 24px;
-  height: 24px;
+  width: 36px;
+  height: 36px;
+  border: 1px solid transparent;
+  border-radius: 100vmax;
+
+}
+.social-icon-wrapper li a:hover svg {
+  border-color: var(--p-color);
 }
 .tag-bg-ylw {
   background-color: #fbbc43;
@@ -1279,6 +1289,14 @@ footer a:hover {
 
 #teamPpl .modal-body .position {
   margin-bottom: 25px;
+}
+a.modalphone, a.modalemail {
+  color: currentColor;
+    font-size: 1rem;
+}
+a.modalphone:hover, a.modalemail:hover {
+  color: var(--p-color);
+
 }
 /* sponsor page */
 
@@ -1961,6 +1979,9 @@ cursor: pointer;
   .pb-tab-content ul li {
     margin-top: 26px;
   }
+  .pb-tab-content ul li a:hover {
+    color: var(--p-color);
+}
   .form-wrapper .btn-with-arrow {
     padding: 1.1rem 2rem;
     font-size: 16px;
