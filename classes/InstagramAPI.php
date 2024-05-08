@@ -86,12 +86,23 @@ class InstagramAPI {
                 echo '<a href="' . $permalink . '" target="_blank">' . $media_html . '</a>';
                 echo '</div>';
             }
-            echo '</div>'; 
-            echo '</div>'; 
+            echo '</div>';
+            // Add next and previous buttons along with pagination
+            echo '<div class="carousel-action-both">';
+            echo '<div class="swiper-prev">';
+            echo '<img src="'.get_template_directory_uri().'/assets/images/icon-arrow.svg" alt="icon-arrow">';
+            echo '</div>';
+            echo '<div class="swiper-next">';
+            echo '<img src="'.get_template_directory_uri().'/assets/images/icon-arrow.svg" alt="icon-arrow">';
+            echo '</div>';
+            echo '<div class="swiper-pagination"></div>';
+            echo '</div>';
+            echo '</div>';
         } else {
             echo 'Error: Unable to fetch Instagram feed.';
         }
     }
+    
     
 }
 
