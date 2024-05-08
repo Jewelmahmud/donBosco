@@ -131,7 +131,7 @@
       $instagramzh = new InstagramAPI(get_field('instagram_access_token_2', 'option'));
 
     ?>
-    <div class="container-fluid ps-0">
+    <div class="container">
       <div class="row">
         <div class="col-12">
           <div class="dematen">
