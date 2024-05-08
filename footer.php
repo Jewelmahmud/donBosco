@@ -117,23 +117,29 @@
         </div>
         <div class="col-sm-6">
           <div class="d-flex gap-2 align-items-center justify-content-sm-end">
-            <?php if($instagram['button_1']): ?>
-              <a href="<?php echo $instagram['button_1']['url']; ?>" class="btn btn-primary" target="<?php echo $instagram['button_1']['target']; ?>"><?php echo $instagram['button_1']['title']; ?></a>
-            <?php endif; ?>
-            <?php if($instagram['button_2']): ?>
-              <a href="<?php echo $instagram['button_2']['url']; ?>" class="btn btn-outline-primary" target="<?php echo $instagram['button_2']['target']; ?>"><?php echo $instagram['button_2']['title']; ?></a>
-            <?php endif; ?>
+              <a href="#" class="btn btn-primary dematenbtn" target="">De Maten</a>
+              <a href="#" class="btn btn-outline-primary zevenhuizenbtn">Zevenhuizen</a>
           </div>
         </div>
       </div>
     </div>
 
 
-<?php $instagram_api = new InstagramAPI();?>
-    <div class="container-fluid ps-0">
+    <?php 
+
+      $instagramdemaden = new InstagramAPI();
+      $instagramzh = new InstagramAPI(get_field('instagram_access_token_2', 'option'));
+
+    ?>
+    <div class="container">
       <div class="row">
         <div class="col-12">
-        <?php $instagram_api->displayInstagramFeed(); ?>
+          <div class="dematen">
+            <?php $instagramdemaden->displayInstagramFeed(); ?>
+          </div>
+          <div class="zevenhuizen d-none">
+            <?php $instagramzh->displayInstagramFeed(); ?>
+          </div>
         </div>
       </div>
     </div>

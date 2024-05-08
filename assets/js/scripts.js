@@ -5,12 +5,14 @@ var homeBannerSlider = new Swiper(".home-banner-slider", {
       delay: 5000,
       disableOnInteraction: false,
   },
+
   pagination: false,
   loop: true,
   navigation: {
       nextEl: ".activity-slider-next",
       prevEl: ".activity-slider-prev",
   },
+
   on: {
       slideChange: function () {
           var currentSlideText = this.slides[this.activeIndex].querySelector(".dmaten-text").innerText;
@@ -109,7 +111,7 @@ var newsCarousel = new Swiper(".news-carousel", {
 });
 
 var instaCarousel = new Swiper(".insta-carousel", {
-  slidesPerView: 2,
+  slidesPerView: 4,
 
   spaceBetween: 11,
 
@@ -128,13 +130,18 @@ var instaCarousel = new Swiper(".insta-carousel", {
   },
 
   breakpoints: {
+      0: {
+        slidesPerView: 2,
+        pagination: false,
+      },
       640: {
-          slidesPerView: 2.3,
+          slidesPerView: 2,
           pagination: false,
       },
       768: {
-          slidesPerView: 4.3,
+          slidesPerView: 4,
       },
+      
   },
 });
 

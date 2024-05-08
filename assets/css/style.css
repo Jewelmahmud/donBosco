@@ -688,6 +688,7 @@ h2 {
 }
 .news-card-tag img {
   filter: brightness(0) invert(1);
+  width: 20px;
 }
 .news-card-body h3 {
   font-size: 22px;
@@ -1797,8 +1798,16 @@ cursor: pointer;
   border-color: #ddd;
 }
 @media (max-width: 767.98px) {
+  .header-search {
+    position: static;
+}
+.header-search .dropdown-menu {
+  top: 90%;
+  width: calc(100% - 75px);
+  right: 55px;
+}
   .search-holder input {
-    width: auto;
+    width: 100%;
   }
   .search-holder .btn {
     padding-left: 0.8rem;
@@ -1810,6 +1819,23 @@ cursor: pointer;
   .banner-home h1 br {
     display: none;
   }
+  .activity-box {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+  .activity-box h4 {
+
+    font-size: 18px;
+
+}
+.activity-box h4 br {
+  display: none;
+}
+.home-banner-slider h5 {
+  font-size: 16px;
+  margin-bottom: 4px;
+  margin-top: 4px;
+}
 }
 @media (min-width: 768px) {
   .btn-with-arrow {
