@@ -6,11 +6,11 @@ class InstagramAPI {
     private $redirect_uri;
     private $access_token;
 
-    public function __construct() {
+    public function __construct($access_token = null) {
         $this->client_id = get_field('instagram_client_id', 'option');
         $this->client_secret = get_field('instagram_client_secret', 'option');
         $this->redirect_uri = get_field('instagram_redirect_uri', 'option');
-        $this->access_token = get_field('instagram_access_token', 'option');
+        $this->access_token = $access_token ? $access_token : get_field('instagram_access_token', 'option');
     }
 
     public function refreshAccessTokenIfNeeded() {

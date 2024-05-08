@@ -115,6 +115,24 @@ jQuery(document).ready(function($) {
     }).wrap('<p></p>');
 
 
+    $('.zevenhuizenbtn').click(function(e){
+        e.preventDefault();
+        $('.dematen').addClass('d-none');
+        $('.zevenhuizen').removeClass('d-none');
+
+        $(this).addClass('btn-primary').removeClass('btn-outline-primary');
+        $('.dematenbtn').removeClass('btn-primary').addClass('btn-outline-primary');
+
+    });
+    $('.dematenbtn').click(function(e){
+        e.preventDefault();
+        $('.dematen').removeClass('d-none');
+        $('.zevenhuizen').addClass('d-none');
+
+        $(this).addClass('btn-primary').removeClass('btn-outline-primary');
+        $('.zevenhuizenbtn').removeClass('btn-primary').addClass('btn-outline-primary');
+    });
+
 
     function isValidEmail(email) {
         var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
