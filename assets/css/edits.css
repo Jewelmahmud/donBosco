@@ -83,3 +83,8 @@
     padding-top: 40%;
   }
 }
+@media(max-width:640px){
+  .insta-carousel .swiper-slide{
+    padding-top: 58%;
+  }
+}

@@ -115,7 +115,7 @@ var instaCarousel = new Swiper(".insta-carousel", {
 
   spaceBetween: 11,
 
-  loop: true,
+  // loop: true,
 
   slidesPerGroup: 3,
   grabCursor: true,
@@ -131,7 +131,7 @@ var instaCarousel = new Swiper(".insta-carousel", {
 
   breakpoints: {
       0: {
-        slidesPerView: 2,
+        slidesPerView: 1.5,
         pagination: false,
       },
       640: {

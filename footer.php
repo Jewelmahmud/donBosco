@@ -111,7 +111,7 @@
 <section class="insta-wrapper">
     <div class="container">
       <div class="row mb-4 mb-xl-5 align-items-end">
-        <div class="col-sm-6">
+        <div class="col-sm-6 mb-3 mb-sm-0">
           <div class="subtitle"><?php echo $instagram['subtitle']; ?></div>
           <h2><?php echo $instagram['title']; ?></h2>
         </div>
