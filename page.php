@@ -19,7 +19,7 @@ $isForm      = get_field('do_you_need_form');
     <div class="container">
       <div class="row">
         <div class="col-lg-<?php echo ($isForm)? '6' : '12'; ?> mb-5 mb-lg-0">
-            <?php echo alter_get_the_content(get_the_content()); ?>
+            <?php the_content(); ?>
         </div>
         <?php if($isForm): ?>
         <div class="col-lg-6">

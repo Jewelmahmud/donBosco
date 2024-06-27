@@ -24,7 +24,7 @@ $section1 = get_field('section_1');
             <div class="subtitle"><?php echo $section1['subtitle']; ?></div>
             <h2><?php echo $section1['title']; ?></h2>
             <p class="mb-xl-5"><?php echo $section1['texts']; ?></p>
-            <a href="<?php echo $section1['link']['url']; ?>" class="btn btn-primary btn-with-arrow" target="<?php echo $section1['link']['target']; ?>"><?php echo $section1['link']['title']; ?> <svg width="8" height="12" viewBox="0 0 8 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="2" fill="currentColor"/><circle cx="6" cy="6" r="2" fill="currentColor"/><circle cx="2" cy="10" r="2" fill="currentColor"/></svg></a>
+            <a href="<?php echo $section1['link']['url']; ?>" class="btn btn-primary btn-with-arrow" style="padding:1rem 3rem 0.9rem" target="<?php echo $section1['link']['target']; ?>"><?php echo $section1['link']['title']; ?> <svg width="8" height="12" viewBox="0 0 8 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="2" fill="currentColor"/><circle cx="6" cy="6" r="2" fill="currentColor"/><circle cx="2" cy="10" r="2" fill="currentColor"/></svg></a>
           </div>
       </div>
     </div>
@@ -55,7 +55,15 @@ $section1 = get_field('section_1');
           </div>
         </div>
         <div class="col-md-6">
-          <img src="<?php echo $section2['images']['url']; ?>" alt="<?php echo $section2['images']['alt']; ?>" class="img-fluid">
+        <div class="swiper single-image-carousel">
+          <div class="border-image"></div>
+          <div class="swiper-wrapper">
+            <?php if($section2['imagess']){ foreach($section2['imagess'] as $image){ ?>
+              <div class="swiper-slide"><img src="<?php echo $image['image']['url']; ?>" alt="<?php echo $image['image']['alt']; ?>" class="img-fluid"></div>
+            <?php }}?>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
         </div>
       </div>
     </div>
@@ -75,103 +83,41 @@ $section1 = get_field('section_1');
       </div>
     </div>
     <div class="four-column-full four-col-carousel-2 swiper">
-      <div class="swiper-wrapper">
+      <div class="swiper-wrapper"><?php 
+      
+      if($activity['item_details']){
+        foreach($activity['item_details'] as $item) {?>
+
         <div class="swiper-slide">
-          <a href="#" class="column">
-            <img src="<?php echo get_template_directory_uri();?>/assets/images/pexels-rheza-aulia-3375234.jpg" alt="pexels-rheza-aulia-3375234" class="slider-image">
+          <a href="<?php echo $item['link']['url']; ?>" class="column">
+            <img src="<?php echo $item['image']['url']; ?>" alt="<?php echo $item['image']['alt']; ?>" class="slider-image">
             <div class="overlay-content">
               <div class="content-top d-flex align-items-center justify-content-between">
                 <div>
-                  <h4>Kinderen</h4>
-                  <p>Na school</p>
+                  <h4><?php echo $item['link']['title']; ?></h4>
+                  <p><?php echo $item['subheading']; ?></p>
                 </div>
                 <div>
-                  <div class="price"><span class="currency-sign">€</span> 750,-</div>
+                  <div class="price"><span class="currency-sign">�</span> <?php echo $item['price']; ?>,-</div>
                 </div>
               </div>
+              <?php if($item['list_item']){?>
+                
               <ul class="features">
-                <li>Logo vermelding website</li>
-                <li>Logo vermelding Social Media</li>
-                <li>Vriend van plakaat</li>
-                <li>Uitnodiging bijeenkomsten</li>
+                <?php foreach($item['list_item'] as $list) {?>
+                <li><?php echo $list['item']; ?></li>
+                <?php }?>
               </ul>
+              <?php }?>
               <div class="text-link">bekijk alles <img src="<?php echo get_template_directory_uri();?>/assets/images/icon-arrow.svg" alt="icon-arrow"></div>
               <div class="content-btn">Lees VERDER</div>
             </div>
           </a>
-        </div>
-        <div class="swiper-slide">
-          <a href="#" class="column">
-            <img src="<?php echo get_template_directory_uri();?>/assets/images/mi-pham-xtd3zYWxEs4-unsplash.jpg" alt="mi-pham-xtd3zYWxEs4-unsplash" class="slider-image">
-            <div class="overlay-content">
-              <div class="content-top d-flex align-items-center justify-content-between">
-                <div>
-                  <h4>Kinderen</h4>
-                  <p>Na school</p>
-                </div>
-                <div>
-                  <div class="price"><span class="currency-sign">€</span> 750,-</div>
-                </div>
-              </div>
-              <ul class="features">
-                <li>Logo vermelding website</li>
-                <li>Logo vermelding Social Media</li>
-                <li>Vriend van plakaat</li>
-                <li>Uitnodiging bijeenkomsten</li>
-              </ul>
-              <div class="text-link">bekijk alles <img src="<?php echo get_template_directory_uri();?>/assets/images/icon-arrow.svg" alt="icon-arrow"></div>
-              <div class="content-btn">Lees VERDER</div>
-            </div>
-          </a>
-        </div>
-        <div class="swiper-slide">
-          <a href="#" class="column">
-            <img src="<?php echo get_template_directory_uri();?>/assets/images/mask-group.jpg" alt="mask-group" class="slider-image">
-            <div class="overlay-content">
-              <div class="content-top d-flex align-items-center justify-content-between">
-                <div>
-                  <h4>Kinderen</h4>
-                  <p>Na school</p>
-                </div>
-                <div>
-                  <div class="price"><span class="currency-sign">€</span> 750,-</div>
-                </div>
-              </div>
-              <ul class="features">
-                <li>Logo vermelding website</li>
-                <li>Logo vermelding Social Media</li>
-                <li>Vriend van plakaat</li>
-                <li class="not-available">Uitnodiging bijeenkomsten</li>
-              </ul>
-              <div class="text-link">bekijk alles <img src="<?php echo get_template_directory_uri();?>/assets/images/icon-arrow.svg" alt="icon-arrow"></div>
-              <div class="content-btn">Lees VERDER</div>
-            </div>
-          </a>
-        </div>
-        <div class="swiper-slide">
-          <a href="#" class="column">
-            <img src="<?php echo get_template_directory_uri();?>/assets/images/cdc-GDokEYnOfnE-unsplash.jpg" alt="cdc-GDokEYnOfnE-unsplash" class="slider-image">
-            <div class="overlay-content">
-              <div class="content-top d-flex align-items-center justify-content-between">
-                <div>
-                  <h4>Kinderen</h4>
-                  <p>Na school</p>
-                </div>
-                <div>
-                  <div class="price"><span class="currency-sign">€</span> 750,-</div>
-                </div>
-              </div>
-              <ul class="features">
-                <li>Logo vermelding website</li>
-                <li>Logo vermelding Social Media</li>
-                <li>Vriend van plakaat</li>
-                <li>Uitnodiging bijeenkomsten</li>
-              </ul>
-              <div class="text-link">bekijk alles <img src="<?php echo get_template_directory_uri();?>/assets/images/icon-arrow.svg" alt="icon-arrow"></div>
-              <div class="content-btn">Lees VERDER</div>
-            </div>
-          </a>
-        </div>
+        </div><?php 
+
+        }
+      }
+      ?>
       </div>
       
         <div class="swiper-next swiper-arrow">

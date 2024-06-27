@@ -13,7 +13,9 @@
             <div class="swiper-wrapper align-items-center">
               <?php if($partner['logos']): foreach($partner['logos'] as $logo): ?>
               <div class="swiper-slide">
-                <img src="<?php echo $logo['logo_image']['url']; ?>" alt="<?php echo $logo['logo_image']['alt']; ?>" class="img-fluid">
+                <a href="<?php echo $logo['url']; ?>" target="_blank">
+                  <img src="<?php echo $logo['logo_image']['url']; ?>" alt="<?php echo $logo['logo_image']['alt']; ?>" class="img-fluid">
+                </a>
               </div>
               <?php endforeach; endif; ?>
             </div>
@@ -34,7 +36,7 @@
           <h2 class="mb-md-0"><?php echo $news['title']; ?></h2>
         </div>
         <div class="col-md-4 text-end">
-          <a href="<?php echo $news['all_new_link']['url']; ?>" class="text-all_new_link justify-content-md-end"><?php echo $news['all_new_link']['title']; ?> <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow"></a>
+          <a href="<?php echo $news['all_new_link']['url']; ?>" class="text-link justify-content-md-end"><?php echo $news['all_new_link']['title']; ?> <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow"></a>
         </div>
       </div>
       <div class="news-carousel swiper">
@@ -70,19 +72,18 @@
                       ?>
                   </div>
                   <?php
-                    if (!empty($categories)) {
-                        $category_count = count($categories);
-                        foreach ($categories as $index => $category) {
-                            $category_names[] = $category->name;
-                            ?>
+                        if (!empty($categories)) {
+                          $category_names = array();
+                          foreach ($categories as $category)   $category_names[] = esc_html($category->name);
+                            $slug_image_url = get_field('slug_image', $category);
+                            $image_url = !empty($slug_image_url) ? $slug_image_url['url'] : get_template_directory_uri() . '/assets/images/icon-notes.svg'; ?>
                             <div class="news-card-tag tag-bg-<?php echo $color; ?>">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-info.svg" alt="info icon">
-                                <?php echo esc_html(implode(', ', $category_names)); ?>
+                                <img src="<?php echo $image_url; ?>" alt="info icon">
+                                <?php echo implode(', ', $category_names); ?>
                             </div>
                             <?php
                         }
-                    }
-                  ?>
+                      ?>
                   </div>
                   <div class="news-card-body">
                       <h3><?php the_title(); ?></h3>
@@ -110,62 +111,34 @@
 <section class="insta-wrapper">
     <div class="container">
       <div class="row mb-4 mb-xl-5 align-items-end">
-        <div class="col-sm-6">
+        <div class="col-sm-6 mb-3 mb-sm-0">
           <div class="subtitle"><?php echo $instagram['subtitle']; ?></div>
           <h2><?php echo $instagram['title']; ?></h2>
         </div>
         <div class="col-sm-6">
           <div class="d-flex gap-2 align-items-center justify-content-sm-end">
-            <?php if($instagram['button_1']): ?>
-              <a href="<?php echo $instagram['button_1']['url']; ?>" class="btn btn-primary" target="<?php echo $instagram['button_1']['target']; ?>"><?php echo $instagram['button_1']['title']; ?></a>
-            <?php endif; ?>
-            <?php if($instagram['button_2']): ?>
-              <a href="<?php echo $instagram['button_2']['url']; ?>" class="btn btn-outline-primary" target="<?php echo $instagram['button_2']['target']; ?>"><?php echo $instagram['button_2']['title']; ?></a>
-            <?php endif; ?>
+              <a href="#" class="btn btn-primary dematenbtn" target="">De Maten</a>
+              <a href="#" class="btn btn-outline-primary zevenhuizenbtn">Zevenhuizen</a>
           </div>
         </div>
       </div>
+    </div>
+
+
+    <?php 
+
+      $instagramdemaden = new InstagramAPI();
+      $instagramzh = new InstagramAPI(get_field('instagram_access_token_2', 'option'));
+
+    ?>
+    <div class="container-fluid">
       <div class="row">
         <div class="col-12">
-          <div class="insta-carousel swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/insta-post.jpg" alt="insta-post" class="img-fluid">
-              </div>
-              <div class="swiper-slide">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/insta-post.jpg" alt="insta-post" class="img-fluid">
-              </div>
-              <div class="swiper-slide">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/insta-post.jpg" alt="insta-post" class="img-fluid">
-              </div>
-              <div class="swiper-slide">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/insta-post.jpg" alt="insta-post" class="img-fluid">
-              </div>
-              <div class="swiper-slide">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/insta-post.jpg" alt="insta-post" class="img-fluid">
-              </div>
-              <div class="swiper-slide">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/insta-post.jpg" alt="insta-post" class="img-fluid">
-              </div>
-              <div class="swiper-slide">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/insta-post.jpg" alt="insta-post" class="img-fluid">
-              </div>
-              <div class="swiper-slide">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/insta-post.jpg" alt="insta-post" class="img-fluid">
-              </div>
-              <div class="swiper-slide">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/insta-post.jpg" alt="insta-post" class="img-fluid">
-              </div>
-            </div>
-            <div class="carousel-action-both">
-              <div class="swiper-next">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow">
-              </div>
-              <div class="swiper-prev">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow">
-              </div>
-              <div class="swiper-pagination"></div>
-            </div>
+          <div class="dematen">
+            <?php $instagramdemaden->displayInstagramFeed(); ?>
+          </div>
+          <div class="zevenhuizen d-none">
+            <?php $instagramzh->displayInstagramFeed(); ?>
           </div>
         </div>
       </div>
@@ -175,7 +148,7 @@
   <footer class="bg-primary">
     <div class="footer-top">
       <div class="container">
-          <div class="footer-top-first">
+        <div class="footer-top-first">
           <div class="row align-items-lg-center">
             <div class="col-lg-4 col-xl-auto mb-4 mb-lg-0">
               <div class="footer-top-left d-flex align-items-center justify-content-between">
@@ -201,7 +174,7 @@
               </ul>
             </div>
             <?php endif; ?>
-            <div class="col-lg-4 col-xl">
+            <div class="col-lg-4 col-xl ml-auto mb-3 mb-lg-0">
               <div class="footer-newslater">
                 <h5 class="toggle">Aanmelden nieuwsbrief:</h5>
                 <div class="collapse-div">
@@ -240,10 +213,10 @@
                   </div>
                 </div>
                 <?php endif; ?>
-                <?php $info = get_field('footer_info_2', 'option'); if($info): ?> 
+                <?php $info = get_field('footer_info_2', 'option');  if($info): ?> 
                 <div class="col-md-6">
                   <div class="address">
-                    <h5 class="toggle"><?php $info['info_title']; ?></h5>
+                    <h5 class="toggle"><?php echo $info['info_title']; ?></h5>
                     <address class="collapse-div">
                       <?php echo $info['info_texts']; ?>
                     </address>
@@ -283,6 +256,7 @@
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+  <?php wp_footer(); ?>
   <script src="<?php echo get_template_directory_uri(); ?>/assets/js/scripts.js"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/assets/js/functions.js"></script>
 </body>

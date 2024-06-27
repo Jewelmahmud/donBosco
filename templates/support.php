@@ -26,7 +26,7 @@ $section1 = get_field('section_1');
             <div class="subtitle"><?php echo $section1['subtitle']; ?></div>
             <h2><?php echo $section1['title']; ?></h2>
             <p class="mb-xl-5"><?php echo $section1['texts']; ?></p>
-            <a href="<?php echo $section1['link']['url']; ?>" class="btn btn-primary btn-with-arrow" target="<?php echo $section1['link']['target']; ?>"><?php echo $section1['link']['title']; ?> <svg width="8" height="12" viewBox="0 0 8 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="2" fill="currentColor"/><circle cx="6" cy="6" r="2" fill="currentColor"/><circle cx="2" cy="10" r="2" fill="currentColor"/></svg></a>
+            <a href="<?php echo $section1['link']['url']; ?>" class="btn btn-primary btn-with-arrow" style="padding:1rem 3rem 0.9rem" target="<?php echo $section1['link']['target']; ?>"><?php echo $section1['link']['title']; ?> <svg width="8" height="12" viewBox="0 0 8 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="2" fill="currentColor"/><circle cx="6" cy="6" r="2" fill="currentColor"/><circle cx="2" cy="10" r="2" fill="currentColor"/></svg></a>
           </div>
       </div>
     </div>
@@ -57,7 +57,19 @@ $section1 = get_field('section_1');
           </div>
         </div>
         <div class="col-md-6">
-          <img src="<?php echo $section2['images']['url']; ?>" alt="<?php echo $section2['images']['alt']; ?>" class="img-fluid">
+        <div class="swiper single-image-carousel">
+          <div class="border-image"></div>
+          <div class="swiper-wrapper">
+            <?php
+            // dd($section2['imagess']);
+            
+            if($section2['imagess']){ foreach($section2['imagess'] as $image){ ?>
+              <div class="swiper-slide"><img src="<?php echo $image['image']['url']; ?>" alt="<?php echo $image['image']['alt']; ?>" class="img-fluid"></div>
+            <?php }}?>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+          
         </div>
       </div>
     </div>

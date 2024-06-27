@@ -64,61 +64,61 @@ add_action( 'init', 'register_faq_post_type', 0 );
 
 
 
-// Register Custom Activiteiten -----------------------------------------------------------------
-function register_activiteiten_post_type() {
+// Register Custom Events (Evenementen) -----------------------------------------------------------------
+function register_events_post_type() {
 
-    $labels = array(
-        'name'                  => _x( 'Activiteiten', 'Activiteiten', 'donbosco' ),
-        'singular_name'         => _x( 'Activiteiten', 'Activiteiten', 'donbosco' ),
-        'menu_name'             => __( 'Activiteiten', 'donbosco' ),
-        'name_admin_bar'        => __( 'Activiteiten', 'donbosco' ),
-        'archives'              => __( 'Activiteiten Archives', 'donbosco' ),
-        'attributes'            => __( 'Activiteiten Attributes', 'donbosco' ),
-        'parent_item_colon'     => __( 'Parent Activiteiten:', 'donbosco' ),
-        'all_items'             => __( 'All Activiteiten', 'donbosco' ),
-        'add_new_item'          => __( 'Add New Activiteiten', 'donbosco' ),
-        'add_new'               => __( 'Add New', 'donbosco' ),
-        'new_item'              => __( 'New Activiteiten', 'donbosco' ),
-        'edit_item'             => __( 'Edit Activiteiten', 'donbosco' ),
-        'update_item'           => __( 'Update Activiteiten', 'donbosco' ),
-        'view_item'             => __( 'View Activiteiten', 'donbosco' ),
-        'view_items'            => __( 'View Activiteiten', 'donbosco' ),
-        'search_items'          => __( 'Search Activiteiten', 'donbosco' ),
-        'not_found'             => __( 'Not found', 'donbosco' ),
-        'not_found_in_trash'    => __( 'Not found in Trash', 'donbosco' ),
-        'featured_image'        => __( 'Featured Image', 'donbosco' ),
-        'set_featured_image'    => __( 'Set featured image', 'donbosco' ),
-        'remove_featured_image' => __( 'Remove featured image', 'donbosco' ),
-        'use_featured_image'    => __( 'Use as featured image', 'donbosco' ),
-        'insert_into_item'      => __( 'Insert into Activiteiten', 'donbosco' ),
-        'uploaded_to_this_item' => __( 'Uploaded to this Activiteiten', 'donbosco' ),
-        'items_list'            => __( 'Activiteiten list', 'donbosco' ),
-        'items_list_navigation' => __( 'Activiteiten list navigation', 'donbosco' ),
-        'filter_items_list'     => __( 'Filter Activiteiten list', 'donbosco' ),
-    );
-    $args = array(
-        'label'                 => __( 'Activiteiten', 'donbosco' ),
-        'description'           => __( 'Alles activieiten', 'donbosco' ),
-        'labels'                => $labels,
-        'supports'              => array( 'title', 'editor', 'thumbnail', 'custom-fields', 'page-attributes' ),
-        'hierarchical'          => false,
-        'public'                => true,
-        'show_ui'               => true,
-        'show_in_menu'          => true,
-        'menu_position'         => 5,
-        'menu_icon'             => 'dashicons-list-view',
-        'show_in_admin_bar'     => true,
-        'show_in_nav_menus'     => true,
-        'can_export'            => true,
-        'has_archive'           => true,
-        'exclude_from_search'   => false,
-        'publicly_queryable'    => true,
-        'capability_type'       => 'page',
-    );
-    register_post_type( 'activiteiten', $args );
+  $labels = array(
+      'name'                  => _x( 'Evenementen', 'Evenementen', 'donbosco' ),
+      'singular_name'         => _x( 'Evenement', 'Evenement', 'donbosco' ),
+      'menu_name'             => __( 'Evenementen', 'donbosco' ),
+      'name_admin_bar'        => __( 'Evenement', 'donbosco' ),
+      'archives'              => __( 'Evenementen Archieven', 'donbosco' ),
+      'attributes'            => __( 'Evenementen Attributen', 'donbosco' ),
+      'parent_item_colon'     => __( 'Bovenliggende Evenement:', 'donbosco' ),
+      'all_items'             => __( 'Alle Evenementen', 'donbosco' ),
+      'add_new_item'          => __( 'Nieuw Evenement Toevoegen', 'donbosco' ),
+      'add_new'               => __( 'Nieuw Toevoegen', 'donbosco' ),
+      'new_item'              => __( 'Nieuw Evenement', 'donbosco' ),
+      'edit_item'             => __( 'Evenement Bewerken', 'donbosco' ),
+      'update_item'           => __( 'Evenement Bijwerken', 'donbosco' ),
+      'view_item'             => __( 'Evenement Bekijken', 'donbosco' ),
+      'view_items'            => __( 'Evenementen Bekijken', 'donbosco' ),
+      'search_items'          => __( 'Zoek Evenementen', 'donbosco' ),
+      'not_found'             => __( 'Niet Gevonden', 'donbosco' ),
+      'not_found_in_trash'    => __( 'Niet Gevonden in Prullenbak', 'donbosco' ),
+      'featured_image'        => __( 'Uitgelichte Afbeelding', 'donbosco' ),
+      'set_featured_image'    => __( 'Stel uitgelichte afbeelding in', 'donbosco' ),
+      'remove_featured_image' => __( 'Verwijder uitgelichte afbeelding', 'donbosco' ),
+      'use_featured_image'    => __( 'Gebruik als uitgelichte afbeelding', 'donbosco' ),
+      'insert_into_item'      => __( 'Voeg in Evenement', 'donbosco' ),
+      'uploaded_to_this_item' => __( 'Ge&#1100;pload naar dit Evenement', 'donbosco' ),
+      'items_list'            => __( 'Evenementenlijst', 'donbosco' ),
+      'items_list_navigation' => __( 'Evenementenlijst Navigatie', 'donbosco' ),
+      'filter_items_list'     => __( 'Filter Evenementenlijst', 'donbosco' ),
+  );
+  $args = array(
+      'label'                 => __( 'Evenement', 'donbosco' ),
+      'description'           => __( 'Alles evenementen', 'donbosco' ),
+      'labels'                => $labels,
+      'supports'              => array( 'title', 'editor', 'thumbnail', 'custom-fields', 'page-attributes' ),
+      'hierarchical'          => false,
+      'public'                => true,
+      'show_ui'               => true,
+      'show_in_menu'          => true,
+      'menu_position'         => 5,
+      'menu_icon'             => 'dashicons-calendar-alt',
+      'show_in_admin_bar'     => true,
+      'show_in_nav_menus'     => true,
+      'can_export'            => true,
+      'has_archive'           => true,
+      'exclude_from_search'   => false,
+      'publicly_queryable'    => true,
+      'capability_type'       => 'page',
+  );
+  register_post_type( 'fk_events', $args );
 
 }
-add_action( 'init', 'register_activiteiten_post_type', 0 );
+add_action( 'init', 'register_events_post_type', 0 );
 
 
 // Register Custom Download Post Type
@@ -217,3 +217,44 @@ function create_vacatures_post_type() {
     register_post_type( 'vacatures', $args );
 }
 add_action( 'init', 'create_vacatures_post_type', 0 );
+
+
+
+function create_verhuur_post_type() {
+    $labels = array(
+        'name'               => _x('Verhuur', 'post type general name', 'donbosco'),
+        'singular_name'      => _x('Verhuur', 'post type singular name', 'donbosco'),
+        'menu_name'          => _x('Verhuur', 'admin menu', 'donbosco'),
+        'name_admin_bar'     => _x('Verhuur', 'add new on admin bar', 'donbosco'),
+        'add_new'            => _x('Voeg nieuw toe', 'verhuur', 'donbosco'),
+        'add_new_item'       => __('Voeg nieuwe verhuur toe', 'donbosco'),
+        'new_item'           => __('Nieuwe verhuur', 'donbosco'),
+        'edit_item'          => __('Bewerk verhuur', 'donbosco'),
+        'view_item'          => __('Bekijk verhuur', 'donbosco'),
+        'all_items'          => __('Alle verhuur', 'donbosco'),
+        'search_items'       => __('Zoek verhuur', 'donbosco'),
+        'parent_item_colon'  => __('Ouder verhuur:', 'donbosco'),
+        'not_found'          => __('Geen verhuur gevonden.', 'donbosco'),
+        'not_found_in_trash' => __('Geen verhuur gevonden in prullenbak.', 'donbosco')
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array('slug' => 'fk_verhuur'),
+        'menu_icon'          => 'dashicons-businessman',
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => null,
+        'supports'           => array('title', 'editor', 'thumbnail')
+    );
+
+    register_post_type('fk_verhuur', $args);
+}
+
+add_action('init', 'create_verhuur_post_type');

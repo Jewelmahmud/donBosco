@@ -1,12 +1,5 @@
 <?php get_header(); ?>
-<style>
-  .bg-home-top {
-    background: gray !important;
-  }
-  .error-404 {
-    background: gray !important;
-  } 
-</style>
+
 
 <div class="error-404 text-center">
       <div class="side-icon position-absolute right d-none d-lg-block">
@@ -21,6 +14,8 @@
         <p>Onze fout. Misschien bestaat de pagina die je zocht niet meer. Of is hij verplaatst. Klik hieronder om terug te gaan naar de homepagina. Succes!</p>
         <a href="<?php echo site_url();?>" class="btn btn-primary">Terug naar homepagina</a>
     </div>
+</div>
+
 </div>
 
 

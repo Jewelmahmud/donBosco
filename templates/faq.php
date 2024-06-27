@@ -11,9 +11,9 @@ get_header();
   <section class="faq-wrapper">
     <div class="container">
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12">
           <div class="slide-content">
-            <div class="swiper-prev slide-arrow"><img src="images/icon-arrow.svg" alt="icon-arrow"></div>
+            <div class="swiper-prev slide-arrow"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow"></div>
             <div class="slide-tabs filter-button-group swiper">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
@@ -43,9 +43,8 @@ get_header();
             <div class="swiper-next slide-arrow"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow"></div>
           </div>
         </div>
-        <div class="col-md-4"></div>
       </div>
-      <div class="all-faqs accordion" id="donbosco-faq">
+      <div class="all-faqs accordion" id="db-faq">
 
 
       <?php 

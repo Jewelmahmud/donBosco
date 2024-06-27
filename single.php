@@ -3,9 +3,9 @@
 <section class="single-news-body">
     <div class="container">
         <?php
-        while (have_posts()) : the_post();
-            the_content();
-            ?>
+        while (have_posts()) : the_post();?>
+            <?php echo alter_get_the_content(get_the_content()); ?>
+
         <hr />
         <div class="share-news">
             <div>DEEL</div>

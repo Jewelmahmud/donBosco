@@ -29,20 +29,22 @@
                 <img src="<?php echo $community['i___images__2']['url'] ?>" alt="<?php echo $community['i___images__2']['alt'] ?>" class="img-fluid">
              <?php endif; ?>
              <div class="border-image"></div>
-             <div class="position-absolute" style="top: -16px;left: -20px;transform: rotate(180deg);">
-               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow" style="width: 40px;">
+             <div class="position-absolute" style="top: -20px;left: -20px;">
+               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/three-dots.svg" alt="three-dots" style="width: 40px;">
              </div>
              
            </div>
           </div>
        </div>
-        <div class="col-md-6 col-xl-5 order-md-1">
+        <div class="col-md-6 col-xl-5 order-md-1 position-relative">
           <div class="subtitle"><?php echo $community['subtitle']; ?></div>
           <h2><?php echo $community['title']; ?></h2>
           <p class="mb-xl-5"><?php echo $community['descriptions']; ?></p>
           <?php if($community['link']): ?>
           <a href="<?php echo $community['link']['url']; ?>" class="btn btn-primary btn-with-arrow" target="<?php echo $community['link']['target']; ?>"><?php echo $community['link']['title']; ?> <svg width="8" height="12" viewBox="0 0 8 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="2" fill="currentColor"/><circle cx="6" cy="6" r="2" fill="currentColor"/><circle cx="2" cy="10" r="2" fill="currentColor"/></svg></a>
           <?php endif; ?>
+
+          <div class="don-bosco position-absolute bottom-0 text-nowrap pe-none d-none d-xl-block">DOn bosco</div>
         </div>
         
       </div>
@@ -79,7 +81,7 @@
     </div>
   </section>
 
-  <?php $activity = get_field('activiteiten_section'); ?>
+  <?php $activity = get_field('alpadoon_section', 'option'); ?>
   <section class="mb-5 mt-3 mt-xl-5 pt-5 pb-3">
     <div class="container mb-4 mb-xl-5 mt-xl-5 pt-xl-5 pb-xl-4">
       <div class="row align-items-end">
@@ -88,29 +90,43 @@
             <h2 class="mb-lg-0"><?php echo $activity['title']; ?></h2>
         </div>
         <div class="col-lg-5 offset-lg-1">
-          <p class="mb-lg-0"><?php echo $activity['descriptions']; ?></p>
+          <p class="mb-lg-0"><?php echo $activity['texts']; ?></p>
         </div>
       </div>
     </div>
     <div class="four-column-full four-col-carousel swiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <a href="#" class="column">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/pexels-rheza-aulia-3375234.jpg" alt="pexels-rheza-aulia-3375234" class="slider-image">
-            <div class="overlay-content">
-              <div class="content-top d-flex align-items-center justify-content-between">
-                <div>
-                  <h4>Kinderen</h4>
-                  <p>Na school</p>
+
+      <?php 
+      if($activity['alpadoon_item']){
+        foreach($activity['alpadoon_item'] as $item) {?>
+
+            <div class="swiper-slide">
+              <a href="<?php echo $item['link']['url']; ?>" class="column">
+                <img src="<?php echo $item['image']['url']; ?>" alt="<?php echo $item['image']['alt']; ?>" class="slider-image">
+                <div class="overlay-content">
+                  <div class="content-top d-flex align-items-center justify-content-between">
+                    <div>
+                      <h4><?php echo $item['link']['title']; ?></h4>
+                      <p><?php echo $item['sub_heading']; ?></p>
+                    </div>
+                    <div>
+                      <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow" class="arrow-right">
+                    </div>
+                  </div>
+                  <div class="content-btn">Lees VERDER</div>
                 </div>
-                <div>
-                  <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow" class="arrow-right">
-                </div>
-              </div>
-              <div class="content-btn">Lees VERDER</div>
-            </div>
-          </a>
-        </div>
+              </a>
+            </div><?php 
+            
+          }
+        }
+        
+        
+        ?>
+
+
+
         <div class="swiper-slide">
           <a href="#" class="column">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mi-pham-xtd3zYWxEs4-unsplash.jpg" alt="mi-pham-xtd3zYWxEs4-unsplash" class="slider-image">

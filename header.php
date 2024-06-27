@@ -75,7 +75,19 @@
       </div> -->
       <nav class="navbar navbar-expand-lg">
         <div class="container">
-          <a class="navbar-brand" href="<?php echo site_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/main-logo.svg" alt="main logo" class="img-fluid"></a>
+          <?php $mainlogo = get_field('logo', 'option');  ?>
+          <!-- <a class="navbar-brand" href="<?php echo site_url(); ?>">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/main-logo.svg" alt="main logo" class="img-fluid">
+          </a> -->
+
+          <?php if($mainlogo):  ?> 
+          <a class="navbar-brand" href="<?php echo site_url('/'); ?>"><img src="<?php echo $mainlogo['url']; ?>" alt="<?php echo $mainlogo['alt']; ?>"></a>
+          <?php else: ?>
+          <a class="navbar-brand" href="<?php echo site_url('/'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/main-logo.svg" alt="Main logo"></a>
+          <?php endif; ?>
+
+
+
           <div class="d-lg-none d-flex align-items-center gap-3">
             <div class="header-search dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -103,7 +115,7 @@
           tabindex="-1" aria-labelledby="offcanvasNavbarLabel">
           <div class="offcanvas-header">
             <?php 
-              $mainlogo = get_field('logo', 'option'); 
+
               if($mainlogo):  ?> 
               <a class="navbar-brand" href="<?php echo site_url('/'); ?>"><img src="<?php echo $mainlogo['url']; ?>" alt="<?php echo $mainlogo['alt']; ?>"></a>
               <?php else: ?>
@@ -115,14 +127,24 @@
            
 
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                
                 <?php
-                    wp_nav_menu(array(
-                        'theme_location' => 'mainmenu',
-                        'container' => false,
-                        'items_wrap' => '%3$s',
-                        'walker' => new Custom_Nav_Walker()
-                    ));
-                ?>
+                  if(wp_is_mobile()) {
+                      wp_nav_menu(array(
+                          'theme_location' => 'mobilemenu',
+                          'container' => false,
+                          'items_wrap' => '%3$s',
+                          'walker' => new Custom_Nav_Walker()
+                      ));
+                  } else {
+                      wp_nav_menu(array(
+                          'theme_location' => 'mainmenu',
+                          'container' => false,
+                          'items_wrap' => '%3$s',
+                          'walker' => new Custom_Nav_Walker()
+                      ));
+                  }
+                  ?>
             </ul>
             <div class="d-flex align-items-center gap-2">
               <?php $link = get_field('header_action_button', 'option'); if($link): ?>
@@ -172,86 +194,198 @@
             <a href="<?php echo $hero['video']['url']?>" class="btn btn-secondary openVideo d-flex align-items-center justify-content-center gap-2"><?php echo $hero['video']['title']?> <div class="btn-play"><span></span></div></a>
           <?php endif; ?>
         </div>
-        
 
-        <div class="activity-box position-relative">
-          <div class="row align-items-center">
-            <div class="col-lg-3">
-              <h4><?php echo $hero['activiteiten']['title']?></h4>
-            </div>
-            <div class="col-lg-7">
-              <div class="swiper home-banner-slider">
-                <div class="swiper-wrapper">
-                  <?php 
-                  $args = array(
-                      'post_type'      => 'activiteiten',
-                      'post_status'    => 'publish',
-                      'posts_per_page' => -1, 
-                  );
-                
-                $query = new WP_Query( $args );
-                
-                if ( $query->have_posts() ) {
-                  while ( $query->have_posts() ) { 
-                    $query->the_post();
-                    $enddata = get_field('end_date');
-                    $endtime = get_field('end_time');
+        <?php 
+            $args = array(
+                'post_type'      => 'fk_verhuur',
+                'post_status'    => 'publish',
+                'posts_per_page' => -1, 
+            );
 
-                      if(isEventAlive($enddata, $endtime)){ ?>
-                        <div class="swiper-slide">
-                          <div class="row align-items-center gap-4 gap-xl-0">
-                            <div class="col-md-5 col-xl-4">
-                              <div class="d-flex align-items-center gap-2">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-calendar.svg" alt="icon-calendar">
-                                <span class="text-grey"><?php the_field('start_date'); ?> - <?php the_field('end_date'); ?></span>
+            $evnts = array(
+              'post_type'      => 'fk_events',
+              'post_status'    => 'publish',
+              'posts_per_page' => -1, 
+          );
+          
+          $verhuur = new WP_Query( $args );
+          $events = new WP_Query( $evnts );
+          
+          ?>
+          
+          
+        <?php if($events->have_posts() || $verhuur->have_posts()): ?>
+        <div class="activity-tabs">
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <?php if ( $events->have_posts() ) :?>
+              <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="event-tab" data-bs-toggle="tab" data-bs-target="#event" type="button" role="tab" aria-controls="event" aria-selected="true">Event</button>
+              </li>
+              <?php endif; ?>
+              <?php if ( $verhuur->have_posts() ) :?>
+              <li class="nav-item" role="presentation">
+                  <button class="nav-link  <?= (!$events->have_posts())? 'active': ''; ?>" id="verhuur-tab" data-bs-toggle="tab" data-bs-target="#verhuur" type="button" role="tab" aria-controls="verhuur" aria-selected="false">Verhuur</button>
+              </li>
+              <?php endif; ?>
+          </ul>
+        </div>
+        <?php endif; ?>
+        <?php if($events->have_posts() || $verhuur->have_posts()): ?>
+          <div class="activity-box position-relative tab-content" id="myTabContent">
+            <?php if ( $events->have_posts() ) :?>
+              <div class="tab-pane fade show active" id="event" role="tabpanel" aria-labelledby="event-tab">
+                <div class="row align-items-center">
+                  <div class="col-lg-3">
+                    <h4><?php echo $hero['activiteiten']['tab_1_title']?></h4>
+                  </div>
+                  <div class="col-lg-7">
+                    <div class="swiper home-banner-slider">
+                      <div class="swiper-wrapper">
+                        <?php 
+                        $args = array(
+                            'post_type'      => 'fk_events',
+                            'post_status'    => 'publish',
+                            'posts_per_page' => -1, 
+                        );
+                      
+                      $query = new WP_Query( $args );
+                      
+                      if ( $query->have_posts() ) {
+                        while ( $query->have_posts() ) { 
+                          $query->the_post();
+                          $enddata = get_field('end_date');
+                          $endtime = get_field('end_time');
+
+                            if(isEventAlive($enddata, $endtime)){ ?>
+                              <div class="swiper-slide">
+                                <div class="row align-items-center gap-3 gap-md-4 gap-xl-0">
+                                  <div class="col-md-5 col-xl-4">
+                                    <div class="d-flex align-items-center gap-2">
+                                      <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-calendar.svg" alt="icon-calendar">
+                                      <span class="text-grey"><?php the_field('start_date'); ?> - <?php the_field('end_date'); ?></span>
+                                    </div>
+                                    <h5 class="fw-600 evt-title"><?php the_title(); ?></h5>
+                                    <div class="text-grey bornona"><?= limitWords(get_field('info_line')) ?></div>                                    
+                                  </div>
+                                  <div class="col-md-5">
+                                    <div class="d-flex align-items-center gap-2 mb-1 mb-lg-2">
+                                      <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-time.svg" alt="icon-time">
+                                      <span class="text-grey"><?php the_field('start_time'); ?> - <?php the_field('end_time'); ?> </span>
+                                    </div>
+                                    <div class="d-flex align-items-center gap-2 mb-1 mb-lg-2">
+                                      <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-map-addr.svg" alt="icon-map-addr.svg">
+                                      <span class="text-grey"><?php the_field('location'); ?></span>
+                                    </div>
+                                  </div>
+                                  <div class="col-xl-3 mt-3 mt-lg-0">
+                                    <div class="d-flex align-items-center justify-content-between justify-content-xl-end">
+                                      <?php $dematen = get_field('other_link');?>
+                                      <div class="d-none dmaten-text"><?php echo (!empty($dematen) && is_array($dematen)) ? $dematen['title'] : ''; ?></div>
+                                      <a href="<?php the_permalink(); ?>" class="text-link">
+                                        Lees VERDER <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow">
+                                      </a>
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
-                              <h5 class="fw-600"><?php the_title(); ?></h5>
-                              <div class="text-grey"><?php the_field('info_line'); ?></div>
-                            </div>
-                            <div class="col-md-5">
-                              <div class="d-flex align-items-center gap-2 mb-2">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-time.svg" alt="icon-time">
-                                <span class="text-grey"><?php the_field('start_time'); ?> - <?php the_field('end_time'); ?> </span>
-                              </div>
-                              <div class="d-flex align-items-center gap-2 mb-2">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-map-addr.svg" alt="icon-map-addr.svg">
-                                <span class="text-grey"><?php the_field('location'); ?></span>
-                              </div>
-                            </div>
-                            <div class="col-xl-3">
-                              <div class="d-flex align-items-center justify-content-between justify-content-xl-end">
-                                <a href="<?php the_permalink(); ?>" class="text-link">
-                                  Lees VERDER <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow">
-                                </a>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      <?php                    
-                      }
-                  }  
-                  wp_reset_postdata();                
-                };                 
-              ?>
-                  
+                            <?php                    
+                            }
+                        }  
+                        wp_reset_postdata();                
+                      };                 
+                    ?>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-2">
+                    <div class="position-absolute bg-primary top-0 end-0 rounded-top-right rounded-bottom-left py-1 px-3 text-uppercase fw-bold dematen-title">
+                      <?php echo $hero['activiteiten']['right_side_title']?>
+                    </div>
+                    <div class="action-btn d-flex align-items-center gap-1 justify-content-end d-none d-md-block">
+                        <a href="#" class="activity-slider-prev"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow"></a>
+                        <a href="#" class="activity-slider-next"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow"></a>
+                      
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="col-lg-2">
-              <div class="position-absolute bg-primary top-0 end-0 rounded-top-right rounded-bottom-left py-1 px-3 text-uppercase fw-bold">
-                <?php echo $hero['activiteiten']['right_side_title']?>
-              </div>
-              <div class="action-btn d-flex align-items-center gap-1 justify-content-end">
-                  <a href="#" class="activity-slider-prev"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow"></a>
-                  <a href="#" class="activity-slider-next"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow"></a>
-                 
-              </div>
-            </div>
+            <?php endif; ?>
+            <?php if ( $verhuur->have_posts() ) :?>
+              <div class="tab-pane fade <?= (!$events->have_posts())? 'show active': ''; ?>" id="verhuur" role="tabpanel" aria-labelledby="verhuur-tab">
+                <div class="row align-items-center">
+                    <div class="col-lg-3">
+                      <h4><?php echo $hero['activiteiten']['tab_2_title']?></h4>
+                    </div>
+                    <div class="col-lg-7">
+                      <div class="swiper home-banner-slider">
+                        <div class="swiper-wrapper">
+                          <?php 
+                          $args = array(
+                              'post_type'      => 'fk_verhuur',
+                              'post_status'    => 'publish',
+                              'posts_per_page' => -1, 
+                          );
+                        
+                        $query = new WP_Query( $args );
+                        
+                        if ( $query->have_posts() ) {
+                          while ( $query->have_posts() ) { $query->the_post(); ?>
+                                <div class="swiper-slide">
+                                  <div class="row align-items-center gap-3 gap-md-4 gap-xl-0">
+                                    <div class="col-md-5 col-xl-4">
+                                      <div class="d-flex align-items-center gap-2">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-calendar.svg" alt="icon-calendar">
+                                        <span class="text-grey"><?php the_date(); ?></span>
+                                      </div>
+                                      <h5 class="fw-600 evt-title"><?php the_title(); ?></h5>
+                                      <div class="text-grey bornona"><?= limitWords(get_the_excerpt(), 5) ?></div>
+                                    </div>
+                                    <div class="col-md-5">
+                                      <div class="d-flex align-items-center gap-2 mb-1 mb-lg-2">
+                                        <img class="eurosign" src="<?php echo get_template_directory_uri(); ?>/assets/images/euro.svg" alt="SVG Image">
+                                        <span class="text-grey"><?php the_field('price'); ?></span>
+                                      </div>
+                                    </div>
+                                    <div class="col-xl-3 mt-3 mt-lg-0">
+                                      <div class="d-flex align-items-center justify-content-between justify-content-xl-end">
+                                        <?php $dematen = get_field('other_link');?>
+                                        <div class="d-none dmaten-text"><?php echo (!empty($dematen) && is_array($dematen)) ? $dematen['title'] : ''; ?></div>
+                                        <a href="<?php the_permalink(); ?>" class="text-link">
+                                          Lees VERDER <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow">
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              <?php  
+                          } 
+                          wp_reset_postdata();                
+                        };                 
+                      ?>
+                          
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-2">
+                      <div class="position-absolute bg-primary top-0 end-0 rounded-top-right rounded-bottom-left py-1 px-3 text-uppercase fw-bold dematen-title">
+                        <?php echo $hero['activiteiten']['right_side_title']?>
+                      </div>
+                      <div class="action-btn d-flex align-items-center gap-1 justify-content-end d-none d-md-block">
+                          <a href="#" class="activity-slider-prev"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow"></a>
+                          <a href="#" class="activity-slider-next"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow"></a>
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <?php endif; ?>
           </div>
-        </div>
+        <?php endif; ?>
       </div>
     </section>
     <?php endif; ?>
+    <?php if(!is_404()): ?>
     <?php if(!is_front_page() && !is_home() && !is_single() && !is_page_template("templates/contact.php")): ?>
     <div class="page-banner">
       <div class="container">
@@ -260,12 +394,16 @@
             <div class="subtitle">
               <?php if(get_field('subtitle')) {
                 echo get_field('subtitle');
+              }elseif(is_search()){
+                echo "Uw zoekresultaat";
               }else {
                 echo "Een thuis voor jongeren";
               } ?>
               
             </div>
-            <h1><?php the_title(); ?></h1>
+            <h1><?php
+            if(is_search()) echo "Zoekresultaten";
+            else the_title(); ?></h1>
             <nav aria-label="breadcrumb">
               <?php
                 $breadcrumbs = get_breadcrumb();
@@ -292,7 +430,8 @@
       </div>
     </div>
     <?php endif; ?>
-    <?php if(is_single() && is_page_template('single.php')): while (have_posts()) : the_post(); ?>
+    <?php endif; ?>
+    <?php if(is_singular('post')): while (have_posts()) : the_post(); ?>
       <div class="single-news-header text-white">
           <div class="container">
               <h1 class="text-white"><?php the_title(); ?></h1>
@@ -332,6 +471,8 @@
           <div class="container">
             <div class="row">
               <div class="col-lg-6 mb-5 mb-lg-0">
+
+
                 <div class="event-date">
                   <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-calendar-w.svg" alt="icon-calendar"> <?php the_field('start_date'); ?> - <?php the_field('end_date'); ?>
                 </div>
@@ -348,25 +489,21 @@
                   <a href="<?php echo $olink['url']; ?>" class="btn btn-secondary" target="<?php echo $olink['title']; ?>"><?php echo $olink['title']; ?></a>
                   <?php endif; ?>
                   <?php $tlink = get_field('ticket_link'); if($tlink): ?>
-                  <a href="<?php echo $tlink['url']; ?>" class="btn btn-outline-secondary"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-ticket.svg" alt="ticket" target="<?php echo $tlink['target']; ?>"><?php echo $tlink['Title']; ?></a>
+                  <a href="<?php echo $tlink['url']; ?>" class="btn btn-outline-secondary"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-ticket.svg" alt="ticket" target="<?php echo $tlink['target']; ?>"><?php echo $tlink['title']; ?></a>
                   <?php endif; ?>
                 </div>
               </div>
               <div class="col-lg-5 col-xl-4 offset-lg-1 offset-xl-2">
+                <?php $total = get_field('event_statistics'); if($total): ?>
                 <ul class="event-summary">
+                  <?php if($total['icon'] && $total['key'] && $total['value']): ?>
                   <li>
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-users.svg" alt="icon-users"> <span class="total-number">2603</span> Deelnemende jongeren
+                    <img src="<?php echo $total['icon']['url'];?>" alt="icon-users"> <span class="total-number"><?php echo $total['value'];?></span> <?php echo $total['key'];?>
                   </li>
-                  <li>
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-users.svg" alt="icon-users"> <span class="total-number">2603</span> Samenwerkingen
-                  </li>
-                  <li>
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-users.svg" alt="icon-users"> <span class="total-number">2406</span> Sponsoren
-                  </li>
-                  <li>
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-users.svg" alt="icon-users"> <span class="total-number">100%</span> Doelen bereikt
-                  </li>
+                  <?php endif; ?>
+                  
                 </ul>
+                <?php endif; ?>
               </div>
             </div>
           </div>
@@ -400,6 +537,8 @@
       </div>
       <?php } ?>
 
-<?php if(!is_page_template("template/contact.php")):?>
+<?php if(!is_page_template("templates/contact.php") && !is_404()):?>
   </div>
 <?php endif; ?>
+
+

@@ -57,6 +57,8 @@ require_once( THEME_DIR .'/classes/nav-walker.php' );
 require_once(get_template_directory() . '/classes/footer-nav-walker.php');
 // Bootstrap Nav Walker --------------------------------------------------------
 require_once(get_template_directory() . '/classes/Custom-nav-Walker.php');
+// Bootstrap Nav Walker --------------------------------------------------------
+require_once(get_template_directory() . '/classes/InstagramAPI.php');
 // ForceFull API --------------------------------------------------------
 require_once( LIBS_DIR .'/api/api.php' );
 // ForceFull Webhook --------------------------------------------------------
@@ -95,6 +97,33 @@ require_once( LIBS_DIR .'/themeoptions.php' );
 
 // Loadmore Options -----------------------------------------------------------
 // require_once( LIBS_DIR .'/loadmore.php' );
+
+
+// Function to create a test shortcode
+function test_shortcode_function($atts) {
+    // Attributes
+    $atts = shortcode_atts(
+        array(
+            'text' => 'Hello, this is a test shortcode!',
+        ),
+        $atts,
+        'test_shortcode'
+    );
+
+    // Output
+    return '<div class="test-shortcode">' . esc_html($atts['text']) . '</div>';
+}
+
+// Register the shortcode
+function register_test_shortcode() {
+    add_shortcode('test_shortcode', 'test_shortcode_function');
+}
+add_action('init', 'register_test_shortcode');
+
+
+
+
+
 
 
 

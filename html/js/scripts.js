@@ -164,8 +164,24 @@ var slideTabsSwiper = new Swiper(".slide-tabs", {
       slidesPerView: 4,
     },
     1200: {
-      slidesPerView: 6,
+      slidesPerView: 4,
     },
+    1400: {
+      slidesPerView: 5,
+      spaceBetween: 22,
+    },
+  },
+});
+
+
+var singleImageCarousel = new Swiper(".single-image-carousel", {
+  autoplay: {
+    delay: 3000,
+    loop: true,
+    disableOnInteraction: false,
+  },
+  pagination: {
+    el: ".swiper-pagination",
   },
 });
 
@@ -213,6 +229,22 @@ $("a.faqselector").on("click", function (e) {
   $("a.faqselector").removeClass("active");
   $(this).addClass("active");
   faqIso.isotope({
+    filter: value,
+  });
+});
+
+
+var filterWrap = $(".filter-wrapper").isotope({
+  filterItem: ".filter-item",
+  layoutMode: "fitRows",
+});
+
+$("a.faqselector").on("click", function (e) {
+  e.preventDefault();
+  var value = $(this).attr("data-name");
+  $("a.faqselector").removeClass("active");
+  $(this).addClass("active");
+  filterWrap.isotope({
     filter: value,
   });
 });

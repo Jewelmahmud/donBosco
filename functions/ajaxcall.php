@@ -629,3 +629,233 @@ function set_html_content_type() {
 
     add_action('wp_ajax_load_more_jobs', 'load_more_jobs');
     add_action('wp_ajax_nopriv_load_more_jobs', 'load_more_jobs');
+
+
+
+    function fetch_events_by_year() {
+    
+        $post = sanitizeFields($_POST);
+        $year = $post['year'];
+        $start_date = mktime(0, 0, 0, 1, 1, $year);
+        $end_date = mktime(23, 59, 59, 12, 31, $year);
+
+    
+        $args = array(
+            'post_type' => 'activiteiten',
+            'posts_per_page' => get_option('posts_per_page'),
+            'status' => 'publish'
+            // 'meta_query' => array(
+            //     'relation' => 'AND',
+            //     array(
+            //         'key' => 'start_date',
+            //         'value' => array(date('Ymd', $start_date), date('Ymd', $end_date)),
+            //         'compare' => 'BETWEEN',
+            //         'type' => 'DATE',
+            //     ),
+            // ),
+        );
+        $query = new WP_Query($args);
+    
+        ob_start();
+        if ($query->have_posts()) {
+            $colors = array('ylw', 'green', 'red');
+            $counter = 0;
+            while ($query->have_posts()) {
+                $query->the_post();
+                $counter ++; $color = $colors[$counter % 3];
+
+                $categories = get_the_terms( get_the_ID(), 'activity_type' );
+                $category_slugs = array();
+    
+                if (!empty($categories)) {
+                    foreach ($categories as $category) {
+                        $category_slugs[] = esc_attr($category->slug);
+                    }
+                }
+                $category_class = implode(' ', $category_slugs); 
+                $startdate = get_field('start_date');
+                $start_year = date('Y', strtotime($startdate));
+
+                $enddata = get_field('end_date');
+                $endtime = get_field('end_time');
+
+                if($year < date('Y')) {
+                    if(!isEventAlive($enddata, $endtime) && $year === $start_year){ ?>        
+                        <div class="col-lg-4 col-md-6 mb-4 filter-item <?php echo $category_class; ?>">
+                            <a href="<?php the_permalink(); ?>" class="news-card event-card">
+                            <div class="news-card-header">
+                                <div class="card-image">
+                                <?php
+                                if (has_post_thumbnail()) {
+                                    the_post_thumbnail('newsthumb', ['class' => 'img-fluid', 'alt' => 'card image']);
+                                } else {  ?>
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/placeholoder_logo.jpg" alt="card image" class="img-fluid">
+                                <?php  }  ?>
+                                </div>
+                                <div class="news-card-tag tag-bg-<?php echo $color; ?>">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-info.svg" alt="info icon">
+                                <?php echo $category_class; ?>
+                                </div>
+                            </div>
+                            <div class="news-card-body">
+                                <div class="event-date">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-calendar.svg" alt="icon-calendar">
+                                <?php the_field('start_date'); ?> - <?php the_field('end_date'); ?>
+                                </div>
+                                <h3><?php the_title(); ?></h3>
+                                <p><?php echo wp_trim_words(get_the_excerpt(), 10, '...'); ?></p>
+                                <div class="mb-4 mb-xl-5">
+                                <div class="d-flex align-items-center gap-2 mb-2 pb-1 text-grey fs13px">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-clock-r.svg" alt="clock"> <?php the_field('start_time'); ?> - <?php the_field('end_time'); ?>
+                                </div>
+                                <div class="d-flex align-items-center gap-2 mb-2 pb-1 text-grey fs13px">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-place-r.svg" alt="place"> <?php the_field('location'); ?>
+                                </div>
+                                </div>
+                                <div class="text-link">Lees meer <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow"></div>
+                            </div>
+                            </a>
+                        </div><?php 
+                    } 
+
+                } else {
+                    if(isEventAlive($enddata, $endtime) && $year === $start_year){ ?>        
+                        <div class="col-lg-4 col-md-6 mb-4 filter-item <?php echo $category_class; ?>">
+                            <a href="<?php the_permalink(); ?>" class="news-card event-card">
+                            <div class="news-card-header">
+                                <div class="card-image">
+                                <?php
+                                if (has_post_thumbnail()) {
+                                    the_post_thumbnail('newsthumb', ['class' => 'img-fluid', 'alt' => 'card image']);
+                                } else {  ?>
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/placeholoder_logo.jpg" alt="card image" class="img-fluid">
+                                <?php  }  ?>
+                                </div>
+                                <div class="news-card-tag tag-bg-<?php echo $color; ?>">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-info.svg" alt="info icon">
+                                <?php echo $category_class; ?>
+                                </div>
+                            </div>
+                            <div class="news-card-body">
+                                <div class="event-date">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-calendar.svg" alt="icon-calendar">
+                                <?php the_field('start_date'); ?> - <?php the_field('end_date'); ?>
+                                </div>
+                                <h3><?php the_title(); ?></h3>
+                                <p><?php echo wp_trim_words(get_the_excerpt(), 10, '...'); ?></p>
+                                <div class="mb-4 mb-xl-5">
+                                <div class="d-flex align-items-center gap-2 mb-2 pb-1 text-grey fs13px">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-clock-r.svg" alt="clock"> <?php the_field('start_time'); ?> - <?php the_field('end_time'); ?>
+                                </div>
+                                <div class="d-flex align-items-center gap-2 mb-2 pb-1 text-grey fs13px">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-place-r.svg" alt="place"> <?php the_field('location'); ?>
+                                </div>
+                                </div>
+                                <div class="text-link">Lees meer <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow"></div>
+                            </div>
+                            </a>
+                        </div><?php 
+                    } 
+                }
+            }
+            wp_reset_postdata();
+        } else {
+            echo 'No posts found';
+        }
+
+        $jobs = ob_get_clean();
+    
+        echo wp_send_json(['jobs'=> $jobs]);
+        wp_die();
+    }
+    add_action('wp_ajax_fetch_events_by_year', 'fetch_events_by_year');
+    add_action('wp_ajax_nopriv_fetch_events_by_year', 'fetch_events_by_year');
+
+
+    function fetch_verhuur_by_year() {
+    
+        $post = sanitizeFields($_POST);
+        $year = $post['year'];
+        $start_date = mktime(0, 0, 0, 1, 1, $year);
+        $end_date = mktime(23, 59, 59, 12, 31, $year);
+
+    
+        $args = array(
+            'post_type' => 'fk_verhuur',
+            'posts_per_page' => get_option('posts_per_page'),
+            'status' => 'publish'
+            // 'meta_query' => array(
+            //     'relation' => 'AND',
+            //     array(
+            //         'key' => 'start_date',
+            //         'value' => array(date('Ymd', $start_date), date('Ymd', $end_date)),
+            //         'compare' => 'BETWEEN',
+            //         'type' => 'DATE',
+            //     ),
+            // ),
+        );
+        $query = new WP_Query($args);
+    
+        ob_start();
+        if ($query->have_posts()) {
+            $colors = array('ylw', 'green', 'red');
+            $counter = 0;
+            while ($query->have_posts()) {
+                $query->the_post();
+                $counter ++; $color = $colors[$counter % 3];
+
+                $categories = get_the_terms( get_the_ID(), 'activity_type' );
+                $category_slugs = array();
+    
+                if (!empty($categories)) {
+                    foreach ($categories as $category) {
+                        $category_slugs[] = esc_attr($category->slug);
+                    }
+                }
+                $category_class = implode(' ', $category_slugs); ?> 
+
+                <div class="col-lg-4 col-md-6 mb-4 filter-item <?php echo $category_class; ?>">
+                    <a href="<?php the_permalink(); ?>" class="news-card event-card">
+                    <div class="news-card-header">
+                        <div class="card-image">
+                        <?php
+                        if (has_post_thumbnail()) {
+                            the_post_thumbnail('newsthumb', ['class' => 'img-fluid', 'alt' => 'card image']);
+                        } else {  ?>
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/placeholoder_logo.jpg" alt="card image" class="img-fluid">
+                        <?php  }  ?>
+                        </div>
+                        <div class="news-card-tag tag-bg-<?php echo $color; ?>">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-info.svg" alt="info icon">
+                        <?php echo $category_class; ?>
+                        </div>
+                    </div>
+                    <div class="news-card-body">
+                        <div class="event-date">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-calendar.svg" alt="icon-calendar">
+                        <?php the_field('start_date'); ?> - <?php the_field('end_date'); ?>
+                        </div>
+                        <h3><?php the_title(); ?></h3>
+                        <p><?php echo wp_trim_words(get_the_excerpt(), 10, '...'); ?></p>
+                        <div class="mb-4 mb-xl-5">
+                        <div class="d-flex align-items-center eurodiv gap-2 mb-2 pb-1 text-grey fs13px">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/euro.svg" alt="Euro"> <?php the_field('price'); ?>
+                        </div>
+                        </div>
+                        <div class="text-link">Lees meer <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow"></div>
+                    </div>
+                    </a>
+                </div><?php 
+
+                
+            }
+            wp_reset_postdata();
+        } 
+
+        $jobs = ob_get_clean();
+    
+        echo wp_send_json(['jobs'=> $jobs]);
+        wp_die();
+    }
+    add_action('wp_ajax_fetch_verhuur_by_year', 'fetch_verhuur_by_year');
+    add_action('wp_ajax_nopriv_fetch_verhuur_by_year', 'fetch_verhuur_by_year');
