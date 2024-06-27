@@ -62,32 +62,14 @@
           ?>
         </div>
       </div>
-      <!-- <div class="header-top bg-primary d-none d-lg-block">
-          <div class="container">
-              <ul class="header-top-menu justify-content-end nav">
-                  <li class="nav-item"><a href="#" class="nav-link">Ons team</a></li>
-                  <li class="nav-item"><a href="#" class="nav-link">Podcasts</a></li>
-                  <li class="nav-item"><a href="#" class="nav-link">Werken bij</a></li>
-                  <li class="nav-item"><a href="#" class="nav-link">FAQ</a></li>
-                  <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
-              </ul>
-          </div>
-      </div> -->
       <nav class="navbar navbar-expand-lg">
         <div class="container">
           <?php $mainlogo = get_field('logo', 'option');  ?>
-          <!-- <a class="navbar-brand" href="<?php echo site_url(); ?>">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/main-logo.svg" alt="main logo" class="img-fluid">
-          </a> -->
-
           <?php if($mainlogo):  ?> 
           <a class="navbar-brand" href="<?php echo site_url('/'); ?>"><img src="<?php echo $mainlogo['url']; ?>" alt="<?php echo $mainlogo['alt']; ?>"></a>
           <?php else: ?>
           <a class="navbar-brand" href="<?php echo site_url('/'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/main-logo.svg" alt="Main logo"></a>
           <?php endif; ?>
-
-
-
           <div class="d-lg-none d-flex align-items-center gap-3">
             <div class="header-search dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -466,7 +448,7 @@
       </div>
   <?php endwhile; endif; ?>
 
-      <?php if(is_singular( 'activiteiten' )) { ?>
+      <?php if(is_singular( 'fk_events' ) || is_singular( 'fk_verhuur' )) { ?>
         <div class="page-banner text-white event-single-banner">
           <div class="container">
             <div class="row">
@@ -477,12 +459,15 @@
                   <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-calendar-w.svg" alt="icon-calendar"> <?php the_field('start_date'); ?> - <?php the_field('end_date'); ?>
                 </div>
                 <h1><?php the_title(); ?></h1>
+                
                 <div class="event-time">
-                  <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-clock.svg" alt="clock"><?php the_field('start_time'); ?> - <?php the_field('end_time'); ?> 
+                  <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-clock.svg" alt="clock"><?php if(!is_singular( 'fk_verhuur' ))? the_field('start_time').' - '.the_field('end_time') : the_date(); ?>
                 </div>
+                <?php if(!is_singular( 'fk_verhuur' )): ?>
                 <div class="event-place">
                   <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-place.svg" alt="place"> <?php the_field('location'); ?>
                 </div>
+                <?php endif; ?>
 
                 <div class="d-flex align-items-center gap-3 mt-4">
                   <?php $olink = get_field('other_link'); if($olink): ?>
