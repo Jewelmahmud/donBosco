@@ -461,7 +461,7 @@
                 <h1><?php the_title(); ?></h1>
                 
                 <div class="event-time">
-                  <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-clock.svg" alt="clock"><?php if(!is_singular( 'fk_verhuur' ))? the_field('start_time').' - '.the_field('end_time') : the_date(); ?>
+                  <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-clock.svg" alt="clock"><?php echo !is_singular('fk_verhuur') ? the_field('start_time') . ' - ' . the_field('end_time') : the_date(); ?>
                 </div>
                 <?php if(!is_singular( 'fk_verhuur' )): ?>
                 <div class="event-place">
