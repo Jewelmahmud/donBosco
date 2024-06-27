@@ -456,16 +456,23 @@
 
 
                 <div class="event-date">
-                  <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-calendar-w.svg" alt="icon-calendar"> <?php the_field('start_date'); ?> - <?php the_field('end_date'); ?>
+                  <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-calendar-w.svg" alt="icon-calendar"> <?php echo !is_singular('fk_verhuur') ? get_field('start_date') . ' - ' . get_field('end_date') : get_the_date(); ?>
                 </div>
                 <h1><?php the_title(); ?></h1>
-                
+                <?php if(!is_singular('fk_verhuur')): ?>
                 <div class="event-time">
                   <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-clock.svg" alt="clock"><?php echo !is_singular('fk_verhuur') ? the_field('start_time') . ' - ' . the_field('end_time') : the_date(); ?>
                 </div>
+                <?php endif; ?>
                 <?php if(!is_singular( 'fk_verhuur' )): ?>
                 <div class="event-place">
                   <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-place.svg" alt="place"> <?php the_field('location'); ?>
+                </div>
+                <?php endif; ?>
+
+                <?php if(is_singular( 'fk_verhuur' )): ?>
+                <div class="event-place">
+                  <img class="eurosign" src="<?php echo get_template_directory_uri(); ?>/assets/images/euro-w.svg" alt="place"> <?php the_field('price'); ?>
                 </div>
                 <?php endif; ?>
 
@@ -479,13 +486,13 @@
                 </div>
               </div>
               <div class="col-lg-5 col-xl-4 offset-lg-1 offset-xl-2">
-                <?php $total = get_field('event_statistics'); if($total): ?>
+                <?php $totals = get_field('event_statistics'); if($totals):  ?>
                 <ul class="event-summary">
-                  <?php if($total['icon'] && $total['key'] && $total['value']): ?>
+                  <?php foreach($totals as $total):  ?>
                   <li>
                     <img src="<?php echo $total['icon']['url'];?>" alt="icon-users"> <span class="total-number"><?php echo $total['value'];?></span> <?php echo $total['key'];?>
                   </li>
-                  <?php endif; ?>
+                  <?php endforeach; ?>
                   
                 </ul>
                 <?php endif; ?>
