@@ -99,30 +99,10 @@ require_once( LIBS_DIR .'/themeoptions.php' );
 // require_once( LIBS_DIR .'/loadmore.php' );
 
 
-// Function to create a test shortcode
-function test_shortcode_function($atts) {
-    // Attributes
-    $atts = shortcode_atts(
-        array(
-            'text' => 'Hello, this is a test shortcode!',
-        ),
-        $atts,
-        'test_shortcode'
-    );
-
-    // Output
-    return '<div class="test-shortcode">' . esc_html($atts['text']) . '</div>';
+function flush_rewrite_rules_temp() {
+    flush_rewrite_rules();
 }
-
-// Register the shortcode
-function register_test_shortcode() {
-    add_shortcode('test_shortcode', 'test_shortcode_function');
-}
-add_action('init', 'register_test_shortcode');
-
-
-
-
+add_action('init', 'flush_rewrite_rules_temp');
 
 
 

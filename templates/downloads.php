@@ -67,41 +67,31 @@ $posts_per_page = get_option('posts_per_page');
                   // Definining is it video or URL
                   $pdf = get_field('pdf_file');
                   $youtube = get_field('youtube_rul');
-
-                  // dd($youtube);
                   if($pdf) {
                     $url = [
                       'url' => $pdf['url'],
-                      'type' => 'pdf'
+                      'download' => true
                     ];
-                    $linktext = 'Donwload';
-                  } elseif($youtube) {
-                    $url = [
-                      'url' => $youtube,
-                      'type' => 'video'
-                    ];
-                    $linktext = 'Bekijk Video';
                   } else {
                     $url = [
-                      'url' => null,
-                      'type' => null
+                      'url' => $youtube,
+                      'download' => false
                     ];
-                    $linktext = 'Lees Meer';
                   }
           ?>
           <div class="col-lg-4 col-md-6 mb-4 filter-item <?php echo $category_class; ?>">
-              <a href="<?php echo $url['url']; ?>" class="news-card videobtn <?php echo ($url['type'] == 'video')? 'openVideo': ''; ?>" target="_blank" <?php if($url['type']) echo 'url="'.$url['url'].'"'; ?>>
+              <a href="<?php echo ($url['download'])? $url['url'] : $url['url']; ?>" class="news-card" target="_blank">
                   <div class="news-card-header">
                       <div class="card-image">
                           <?php
                           if (has_post_thumbnail()) {
                               the_post_thumbnail('newsthumb', ['class' => 'img-fluid', 'alt' => 'card image']);
-                          } else { ?>
+                          } else {
+                          ?>
                               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/placeholoder_logo.jpg" alt="card image" class="img-fluid">
-                          <?php } ?>
-                          <?php if($url['type'] == 'video'):  ?> 
-                            <img class="playbtn" src="<?php echo get_template_directory_uri(); ?>/assets/images/play_video.png" alt="video play">
-                          <?php endif;  ?>
+                          <?php
+                          }
+                          ?>
                       </div>
                       <?php
                         if (!empty($categories)) {
@@ -120,7 +110,7 @@ $posts_per_page = get_option('posts_per_page');
                   <div class="news-card-body">
                       <h3><?php the_title(); ?></h3>
                       <p><?php echo wp_trim_words(get_the_excerpt(), 20, '...'); ?></p>
-                      <div class="text-link"><?php echo $linktext; ?> <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow"></div>
+                      <div class="text-link"><?php echo ($url['download'])? 'Download' : 'Bekijk Video'; ?> <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow"></div>
                   </div>
               </a>
           </div>

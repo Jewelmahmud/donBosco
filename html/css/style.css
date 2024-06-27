@@ -48,7 +48,7 @@ button:focus,
 .form-control:focus,
 .form-select:focus,
 .form-check:focus,
-.navbar-toggler:focus, .form-select_verhuur:focus {
+.navbar-toggler:focus {
   box-shadow: none !important;
 }
 h1,
@@ -1145,16 +1145,14 @@ footer a:hover {
 .form-floating > .form-control-plaintext ~ label,
 .form-floating > .form-control:focus ~ label,
 .form-floating > .form-control:not(:placeholder-shown) ~ label,
-.form-floating > .form-select ~ label,
-.form-floating > .form-select_verhuur ~ label {
+.form-floating > .form-select ~ label {
   transform: scale(0.85) translateY(-1.7rem) translateX(1.15rem);
 }
 
 .form-floating > .form-control-plaintext ~ label::after,
 .form-floating > .form-control:focus ~ label::after,
 .form-floating > .form-control:not(:placeholder-shown) ~ label::after,
-.form-floating > .form-select ~ label::after,
-.form-floating > .form-select_verhuur ~ label::after {
+.form-floating > .form-select ~ label::after {
   inset: 1rem 0.8rem;
 }
 .form-wrapper textarea.form-control {
@@ -1678,7 +1676,7 @@ footer a:hover {
   margin-bottom: 30px;
 }
 
-.select-filter .form-select, .select-filter .form-select_verhuur {
+.select-filter .form-select {
 
 border-radius: 50rem;
 
@@ -1692,7 +1690,7 @@ background-size: 16px;
 cursor: pointer;
 }
 
-.select-filter .form-select:focus,.select-filter .form-select:hover, .form-select_verhuur:hover{
+.select-filter .form-select:focus,.select-filter .form-select:hover{
   border-color: #aaa;
 }
 .event-card .news-card-tag,.download-card-tag {
@@ -2251,7 +2249,7 @@ cursor: pointer;
 
   margin-bottom: 55px;
 }
-.select-filter .form-select, .select-filter .form-select_verhuur {
+.select-filter .form-select {
 
   padding-top: 15px;
   padding-bottom: 15px;

@@ -70,10 +70,10 @@ add_action( 'init', 'register_download_taxonomy', 0 );
 
 function create_vacatures_taxonomy() {
     $labels = array(
-        'name'                       => _x( 'Vacaturecategorie&#1043;�n', 'Taxonomy General Name', 'donbosco' ),
+        'name'                       => _x( 'Vacaturecategorie&#1043;&#65533;n', 'Taxonomy General Name', 'donbosco' ),
         'singular_name'              => _x( 'Vacaturecategorie', 'Taxonomy Singular Name', 'donbosco' ),
-        'menu_name'                  => __( 'Categorie&#1043;�n', 'donbosco' ),
-        'all_items'                  => __( 'Alle Categorie&#1043;�n', 'donbosco' ),
+        'menu_name'                  => __( 'Categorie&#1043;&#65533;n', 'donbosco' ),
+        'all_items'                  => __( 'Alle Categorie&#1043;&#65533;n', 'donbosco' ),
         'parent_item'                => __( 'Parent Item', 'donbosco' ),
         'parent_item_colon'          => __( 'Parent Item:', 'donbosco' ),
         'new_item_name'              => __( 'Nieuwe Categorie', 'donbosco' ),
@@ -81,15 +81,15 @@ function create_vacatures_taxonomy() {
         'edit_item'                  => __( 'Bewerk categorie', 'donbosco' ),
         'update_item'                => __( 'Update categorie', 'donbosco' ),
         'view_item'                  => __( 'Bekijk categorie', 'donbosco' ),
-        'separate_items_with_commas' => __( 'Scheid categorie&#1043;�n met komma\'s', 'donbosco' ),
-        'add_or_remove_items'        => __( 'Voeg categorie&#1043;�n toe of verwijder ze', 'donbosco' ),
-        'choose_from_most_used'      => __( 'Kies uit meest gebruikte categorie&#1043;�n', 'donbosco' ),
-        'popular_items'              => __( 'Populaire categorie&#1043;�n', 'donbosco' ),
-        'search_items'               => __( 'Zoek categorie&#1043;�n', 'donbosco' ),
+        'separate_items_with_commas' => __( 'Scheid categorie&#1043;&#65533;n met komma\'s', 'donbosco' ),
+        'add_or_remove_items'        => __( 'Voeg categorie&#1043;&#65533;n toe of verwijder ze', 'donbosco' ),
+        'choose_from_most_used'      => __( 'Kies uit meest gebruikte categorie&#1043;&#65533;n', 'donbosco' ),
+        'popular_items'              => __( 'Populaire categorie&#1043;&#65533;n', 'donbosco' ),
+        'search_items'               => __( 'Zoek categorie&#1043;&#65533;n', 'donbosco' ),
         'not_found'                  => __( 'Niet gevonden', 'donbosco' ),
-        'no_terms'                   => __( 'Geen categorie&#1043;�n', 'donbosco' ),
-        'items_list'                 => __( 'Categorie&#1043;�n lijst', 'donbosco' ),
-        'items_list_navigation'      => __( 'Categorie&#1043;�n lijst navigatie', 'donbosco' ),
+        'no_terms'                   => __( 'Geen categorie&#1043;&#65533;n', 'donbosco' ),
+        'items_list'                 => __( 'Categorie&#1043;&#65533;n lijst', 'donbosco' ),
+        'items_list_navigation'      => __( 'Categorie&#1043;&#65533;n lijst navigatie', 'donbosco' ),
     );
     $args = array(
         'labels'                     => $labels,

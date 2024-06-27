@@ -171,7 +171,7 @@
         <div class="col-md-6 order-md-1 pb-xl-5">
           <div class="subtitle">Een thuis voor jongeren.</div>
           <h2>Don Bosco Apeldoorn <span class="p-color">kernpartner Samen055</span></h2>
-          <p class="mb-xl-5 pe-xl-5">Om vraagstukken en knelpunten van jongeren succenvol aan te pakken zijn we aangewezen op goede samenwerking met sociale partners. Samen met MEE Veluwe, Stimenz en De Kap nemen wij deel aan de â€˜welzijnsnetwerkenâ€™. Dit zijn netwerkstructuren waarin uiteenlopende professionele disciplines (in het â€˜voorliggende veldâ€™) een samenhangende aanpak binnen de Apeldoornse...</p>
+          <p class="mb-xl-5 pe-xl-5">Om vraagstukken en knelpunten van jongeren succenvol aan te pakken zijn we aangewezen op goede samenwerking met sociale partners. Samen met MEE Veluwe, Stimenz en De Kap nemen wij deel aan de &#1074;&#1026;˜welzijnsnetwerken&#1074;&#1026;™. Dit zijn netwerkstructuren waarin uiteenlopende professionele disciplines (in het &#1074;&#1026;˜voorliggende veld&#1074;&#1026;™) een samenhangende aanpak binnen de Apeldoornse...</p>
           <a href="#" class="btn btn-primary btn-with-arrow">Lees VERDER <svg width="8" height="12" viewBox="0 0 8 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="2" fill="currentColor"/><circle cx="6" cy="6" r="2" fill="currentColor"/><circle cx="2" cy="10" r="2" fill="currentColor"/></svg></a>
         </div>
         
