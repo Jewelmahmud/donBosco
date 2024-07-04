@@ -156,25 +156,32 @@
     <?php if(is_home() || is_front_page()): $hero = get_field('hero_section');?>
     <section class="banner-home">
       <div class="container">
-        <?php if($hero['sub_title']): ?>
-        <div class="subtitle p-color">
-          <?php echo $hero['sub_title']; ?>
-        </div>
-        <?php endif; ?>
-        <?php if($hero['title']): ?>
-          <h1><?php echo $hero['title']; ?></h1>
-        <?php endif; ?>
-        <?php if($hero['texts']): ?>
-        <p><?php echo $hero['texts']; ?></p>
-        <?php endif; ?>
-        
-        <div class="d-grid d-md-flex align-items-center gap-3">
-          <?php if($hero['learn_more']): ?>
-            <a href="<?php echo $hero['learn_more']['url']; ?>" class="btn btn-primary" target="<?php echo $hero['learn_more']['target']; ?>"><?php echo $hero['learn_more']['title']; ?></a>
-          <?php endif; ?>
-          <?php if($hero['video']): ?>
-            <a href="<?php echo $hero['video']['url']?>" class="btn btn-secondary openVideo d-flex align-items-center justify-content-center gap-2"><?php echo $hero['video']['title']?> <div class="btn-play"><span></span></div></a>
-          <?php endif; ?>
+        <div class="row">
+          <div class="col-md-7 col-12">
+            <?php if($hero['sub_title']): ?>
+            <div class="subtitle p-color">
+              <?php echo $hero['sub_title']; ?>
+            </div>
+            <?php endif; ?>
+            <?php if($hero['title']): ?>
+              <h1><?php echo $hero['title']; ?></h1>
+            <?php endif; ?>
+            <?php if($hero['texts']): ?>
+            <p><?php echo $hero['texts']; ?></p>
+            <?php endif; ?>
+            
+            <div class="d-grid d-md-flex align-items-center gap-3">
+              <?php if($hero['learn_more']): ?>
+                <a href="<?php echo $hero['learn_more']['url']; ?>" class="btn btn-primary" target="<?php echo $hero['learn_more']['target']; ?>"><?php echo $hero['learn_more']['title']; ?></a>
+              <?php endif; ?>
+              <?php if($hero['video']): ?>
+                <a href="<?php echo $hero['video']['url']?>" class="btn btn-secondary openVideo d-flex align-items-center justify-content-center gap-2"><?php echo $hero['video']['title']?> <div class="btn-play"><span></span></div></a>
+              <?php endif; ?>
+            </div>
+          </div>
+          <div class="col-md-5 col-12 donation-form-home">
+                <?php echo do_shortcode("[donation_form]"); ?>
+          </div>
         </div>
 
         <?php 

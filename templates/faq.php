@@ -55,6 +55,9 @@ get_header();
 
         $faq_query = new WP_Query( $args );
 
+        echo $faq_query->found_posts;
+
+
         if ( $faq_query->have_posts() ) : $i = 0; while ( $faq_query->have_posts() ) : $faq_query->the_post(); $i++;
 
             $categories = get_the_terms( get_the_ID(), 'faq_category' );

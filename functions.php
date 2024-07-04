@@ -31,6 +31,8 @@ define( 'LIB_DIR', THEME_DIR. '/lib' );
 define( 'ACF_PATH', STYLESHEET_DIR. '/lib/acf/' );
 define( 'ACF_URL', STYLESHEET_URI. '/lib/acf/' );
 
+// Autoload Webhook --------------------------------------------------------
+require_once get_template_directory() . '/vendor/autoload.php';
 // Others Fucntions -----------------------------------------------------------
 require_once( LIBS_DIR .'/others.php' );
 // Functions ------------------------------------------------------------------
@@ -63,6 +65,10 @@ require_once(get_template_directory() . '/classes/InstagramAPI.php');
 require_once( LIBS_DIR .'/api/api.php' );
 // ForceFull Webhook --------------------------------------------------------
 require_once( LIBS_DIR .'/webhook.php' );
+// Mollie Include --------------------------------------------------------
+require_once( LIBS_DIR .'/mollie.php' );
+
+
 
 /* ---------------------------------------------------------------------------
  * Library Intigration

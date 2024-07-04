@@ -163,4 +163,98 @@ jQuery(document).ready(function($) {
         var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailPattern.test(email);
     }
+
+
+
+
+    // Donation Functions -----------------------------------
+
+    let frequencies = $('.frequency .form-check');
+    let amountItems = $('.donation-amount .form-check');   
+    let methodTab   = $('#paymentMethodTab li button');
+
+
+    $('button[data-bs-toggle="tab"]').on('click', function() {
+        $('#paypalInfo').hide();
+        $('#bankInfo').hide();
+        $('#idealInfo').hide();
+
+        if ($(this).attr('id') === 'paypal-tab') {
+            $('#paypalInfo').show();
+        } else if ($(this).attr('id') === 'bank-tab') {
+            $('#bankInfo').show();
+        } else if ($(this).attr('id') === 'ideal-tab') {
+            $('#idealInfo').show();
+        }
+    });
+
+             
+
+    amountItems.click(function(){
+
+        let amount = $(this).find('.form-check-label').text();
+        let radioButton = $(this).find('input[type=radio]');
+        
+        $(this).find('input[type=radio]').prop('checked', true);
+        $(this).addClass('active').siblings().removeClass('active');        
+        $('.custom-amount').hide();       
+        if (radioButton.attr('id') === 'amountCustom') {
+            $('.custom-amount').show();
+        }else {
+            $('#donationSubmit').text('Ja, doneer '+ amount +'!');
+        }
+    });
+
+    frequencies.click(function(){                
+        $(this).find('input[type=radio]').prop('checked', true);
+        $(this).addClass('active').siblings().removeClass('active');
+    });
+
+    methodTab.click(function(){
+        $(this).closest('.nav-tabs').find('.nav-item button input').prop('checked', false);
+        $(this).find('input').prop('checked', true);
+    });
+
+    $('#custom_amount').on('input', function(){
+        $('#donationSubmit').text('Ja, doneer '+ '€' + $(this).val() +'!');
+    });
+
+
+    $('#donationSubmit').click(function(e) {
+        e.preventDefault();
+        var formData = $('#donationForm').serialize() + '&action=process_donation_ajax';
+        $('.loading-animation').show();
+        $('.btntexts').hide();
+        $.ajax({
+            type: 'POST',
+            url: ajaxurl,
+            data: formData,
+            success: function(response) {
+                console.log('Success:', response);
+                if(response.success){
+                    window.location.href = response.data.paymentUrl
+                }else {
+                    swal({
+                        title: "Aandacht alstublieft",
+                        text: response.data,
+                        icon: "error"
+                    });
+                }
+                $('.loading-animation').hide();
+                $('.btntexts').show();
+            },
+            error: function(xhr, status, error) {
+                swal("Sorry!", error, "error");
+                $('.loading-animation').hide();
+                $('.btntexts').show();
+            }
+        });
+    });
+
+
+
+
+
 });
+
+

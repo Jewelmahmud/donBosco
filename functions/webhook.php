@@ -1,14 +1,24 @@
 <?php 
 
+add_action('rest_api_init', function () {
+    register_rest_route('mollie/v1', '/webhook', array(
+        'methods' => 'POST',
+        'callback' => 'mollie_webhook_handler',
+        'permission_callback' => '__return_true',
+    ));
+});
 
-add_action('rest_api_init', 'donbosco_register_custom_route');
 
-function donbosco_register_custom_route() {
+add_action('rest_api_init', function () {
     register_rest_route('webhook/v1', '/jobs/', array(
         'methods'  => 'POST',
         'callback' => 'donbosco_handle_custom_request',
     ));
-}
+});
+
+
+
+
 
 function donbosco_handle_custom_request($request) {
 
