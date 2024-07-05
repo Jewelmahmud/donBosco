@@ -2178,7 +2178,9 @@ cursor: pointer;
   }
   .footer-newslater {
     flex-direction: row;
-  }
+    max-width: 555px;
+    margin-left: auto;
+}
   .footer-newslater .collapse-div {
     flex: 1;
   }
