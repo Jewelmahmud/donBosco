@@ -61,11 +61,14 @@ $posts_per_page = get_option('posts_per_page');
         
         <div class="row filter-wrapper" style="--bs-gutter-x: 2rem;">
         <?php
-          $args = array(
-            'post_type' => 'fk_events',
-            'posts_per_page' => get_option('post_per_page'),
-            'post_status' => 'publish',
-          );
+            $args = array(
+                'post_type'      => 'fk_events',
+                'posts_per_page' => get_option('posts_per_page'), 
+                'post_status'    => 'publish',
+                'meta_key'       => 'start_date', 
+                'orderby'        => 'meta_value_num',
+                'order'          => 'DESC'
+            );
 
             $recent_post = new WP_Query($args);
             if ($recent_post->have_posts()) :

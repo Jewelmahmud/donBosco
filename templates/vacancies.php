@@ -67,7 +67,14 @@ $posts_per_page = get_option('posts_per_page');
                   <a href="<?php the_permalink(); ?>" class="vacancies-card">
                     <div class="vacancies-card-header">
                       <div class="card-image">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/card-image.jpg" alt="card image" class="img-fluid">
+                        <?php
+                          if (has_post_thumbnail()) {
+                              the_post_thumbnail('newsthumb', ['class' => 'img-fluid', 'alt' => 'card image']);
+                          } else {
+                          ?>
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/card-image.jpg" alt="card image" class="img-fluid">
+                          <?php } ?>
+                      
                       </div>
                     </div>
                     <div class="vacancies-card-body">

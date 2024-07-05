@@ -641,9 +641,12 @@ function set_html_content_type() {
 
     
         $args = array(
-            'post_type' => 'activiteiten',
+            'post_type' => 'fk_events',
             'posts_per_page' => get_option('posts_per_page'),
-            'status' => 'publish'
+            'status' => 'publish',
+            'meta_key'       => 'start_date', 
+            'orderby'        => 'meta_value_num',
+            'order'          => 'DESC',
             // 'meta_query' => array(
             //     'relation' => 'AND',
             //     array(

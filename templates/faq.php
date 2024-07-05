@@ -49,14 +49,12 @@ get_header();
 
       <?php 
         $args = array(
-          'post_type'      => 'faq', 
+          'post_type'      => 'don_faq', 
+          'post_status'    => 'publish',
           'posts_per_page' => -1,
         );
 
         $faq_query = new WP_Query( $args );
-
-        echo $faq_query->found_posts;
-
 
         if ( $faq_query->have_posts() ) : $i = 0; while ( $faq_query->have_posts() ) : $faq_query->the_post(); $i++;
 
