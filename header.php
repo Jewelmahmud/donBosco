@@ -108,26 +108,26 @@
           <div class="offcanvas-body">
            
 
-            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                
-                <?php
-                  if(wp_is_mobile()) {
-                      wp_nav_menu(array(
-                          'theme_location' => 'mobilemenu',
-                          'container' => false,
-                          'items_wrap' => '%3$s',
-                          'walker' => new Custom_Nav_Walker()
-                      ));
-                  } else {
-                      wp_nav_menu(array(
-                          'theme_location' => 'mainmenu',
-                          'container' => false,
-                          'items_wrap' => '%3$s',
-                          'walker' => new Custom_Nav_Walker()
-                      ));
-                  }
-                  ?>
-            </ul>
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+              <?php
+              if (wp_is_mobile()) {
+                  wp_nav_menu(array(
+                      'theme_location' => 'mobilemenu',
+                      'container' => false,
+                      'items_wrap' => '%3$s',
+                      'walker' => new Custom_Nav_Walker()
+                  ));
+              } else {
+                  wp_nav_menu(array(
+                      'theme_location' => 'mainmenu',
+                      'container' => false,
+                      'items_wrap' => '%3$s',
+                      'walker' => new Custom_Nav_Walker()
+                  ));
+              }
+              ?>
+          </ul>
+
             <div class="d-flex align-items-center gap-2">
               <?php $link = get_field('header_action_button', 'option'); if($link): ?>
               <a href="<?php echo $link['url']; ?>" class="btn btn-primary" target="<?php echo $link['target']; ?>"><?php echo $link['title']; ?></a>
