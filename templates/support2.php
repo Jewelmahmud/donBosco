@@ -33,7 +33,35 @@ $section1 = get_field('section_1');
   <?php $section2 = get_field('section_2'); ?>
   <section class="bg-primary text-white py-5">
     <div class="container">
-      <div class="row align-items-end py-4 pt-lg-5 mt-lg-5">
+      <div class="row align-items-end py-4 pt-lg-5 mt-lg-5 d-center">
+        <?php if($section2['display_form_on_left_side']): ?>
+          <div class="col-md-6">
+          <?php 
+              $choise = $section2['choose_donation__image_slider'];
+              $title = $section2['donation_form_details']['form_title'];
+
+              if($choise === 'Donation Form'){
+                if($title) echo "<div class='page-donation'>". do_shortcode('[donation_form title="'.  esc_attr($title)  .'"]') . "</div>";
+                else echo "<div class='page-donation'>". do_shortcode('[donation_form]') . "</div>";
+              } elseif($choise === 'Image Slider') { ?> 
+                <div class="swiper single-image-carousel">
+                    <div class="border-image"></div>
+                    <div class="swiper-wrapper">
+                      <?php            
+                      if($section2['images_list']) { foreach($section2['images_list'] as $image){ ?>
+                        <div class="swiper-slide"><img src="<?php echo $image['image']['url']; ?>" alt="<?php echo $image['image']['alt']; ?>" class="img-fluid"></div>
+                      <?php }}?>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                  </div><?php
+                }
+            ?>
+          </div>
+        <?php endif; ?>
+
+
+
+
         <div class="col-md-6 pe-lg-5">
           <div class="subtitle text-white">
             <?php echo $section2['subtitle']; ?>
@@ -54,17 +82,32 @@ $section1 = get_field('section_1');
           </div>
           </div>
         </div>
+
+        
+        <?php if(!$section2['display_form_on_left_side']): ?>
         <div class="col-md-6">
-        <div class="swiper single-image-carousel">
-          <div class="border-image"></div>
-          <div class="swiper-wrapper">
-            <?php if($section2['imagess']){ foreach($section2['imagess'] as $image){ ?>
-              <div class="swiper-slide"><img src="<?php echo $image['image']['url']; ?>" alt="<?php echo $image['image']['alt']; ?>" class="img-fluid"></div>
-            <?php }}?>
-          </div>
-          <div class="swiper-pagination"></div>
+        <?php 
+            $choise = $section2['choose_donation__image_slider'];
+            $title = $section2['donation_form_details']['form_title'];
+
+            if($choise === 'Donation Form'){
+              if($title) echo "<div class='page-donation'>". do_shortcode('[donation_form title="'.  esc_attr($title)  .'"]') . "</div>";
+              else echo "<div class='page-donation'>". do_shortcode('[donation_form]') . "</div>";
+            } elseif($choise === 'Image Slider') { ?> 
+              <div class="swiper single-image-carousel">
+                  <div class="border-image"></div>
+                  <div class="swiper-wrapper">
+                    <?php            
+                    if($section2['images_list']) { foreach($section2['images_list'] as $image){ ?>
+                      <div class="swiper-slide"><img src="<?php echo $image['image']['url']; ?>" alt="<?php echo $image['image']['alt']; ?>" class="img-fluid"></div>
+                    <?php }}?>
+                  </div>
+                  <div class="swiper-pagination"></div>
+                </div><?php
+              }
+          ?>
         </div>
-        </div>
+        <?php endif; ?>
       </div>
     </div>
   </section>
@@ -98,7 +141,7 @@ $section1 = get_field('section_1');
                   <p><?php echo $item['subheading']; ?></p>
                 </div>
                 <div>
-                  <div class="price"><span class="currency-sign">€</span> <?php echo $item['price']; ?>,-</div>
+                  <div class="price"><span class="currency-sign">ï¿½</span> <?php echo $item['price']; ?>,-</div>
                 </div>
               </div>
               <?php if($item['list_item']){?>

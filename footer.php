@@ -107,7 +107,9 @@
     </div>
   </section>
 
+
 <?php $instagram = get_field('instagram_feed', 'option'); ?>
+<?php if($instagram['show_instafeed_1'] || $instagram['show_instafeed_2']): ?>
 <section class="insta-wrapper">
     <div class="container">
       <div class="row mb-4 mb-xl-5 align-items-end">
@@ -117,8 +119,12 @@
         </div>
         <div class="col-sm-6">
           <div class="d-flex gap-2 align-items-center justify-content-sm-end">
-              <a href="#" class="btn btn-primary dematenbtn" target="">De Maten</a>
-              <a href="#" class="btn btn-outline-primary zevenhuizenbtn">Zevenhuizen</a>
+            <?php if($instagram['show_instafeed_1']): ?>
+              <a href="#" class="btn btn-primary dematenbtn" target=""><?php echo $instagram['button_1']['title'] ?></a>
+            <?php endif; ?>
+            <?php if($instagram['show_instafeed_2']):?>
+              <a href="#" class="btn btn-outline-primary zevenhuizenbtn"><?php echo $instagram['button_2']['title'] ?></a>
+            <?php endif; ?>
           </div>
         </div>
       </div>
@@ -134,16 +140,22 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
-          <div class="dematen">
-            <?php $instagramdemaden->displayInstagramFeed(); ?>
-          </div>
-          <div class="zevenhuizen d-none">
-            <?php $instagramzh->displayInstagramFeed(); ?>
-          </div>
+        
+          <?php if($instagram['show_instafeed_1']):?>
+            <div class="dematen">
+              <?php $instagramdemaden->displayInstagramFeed(); ?>
+            </div>
+          <?php endif; ?>
+          <?php if($instagram['show_instafeed_2']):?>
+            <div class="zevenhuizen d-none">
+              <?php $instagramzh->displayInstagramFeed(); ?>
+            </div>
+          <?php endif; ?>
         </div>
       </div>
     </div>
   </section>
+  <?php endif; ?>
 
   <footer class="bg-primary">
     <div class="footer-top">
@@ -174,13 +186,13 @@
               </ul>
             </div>
             <?php endif; ?>
-            <div class="col-lg-4 col-xl ml-auto mb-3 mb-lg-0">
+            <div class="col-lg-4 col-xl ml-auto <?php if(!wp_is_mobile()) echo 'mb-3'; ?> mb-lg-0">
               <div class="footer-newslater">
                 <h5 class="toggle">Aanmelden nieuwsbrief:</h5>
                 <div class="collapse-div">
                 <div class="d-flex align-items-center gap-3">
-                  <input type="email" placeholder="E-mail" class="rounded-pill form-control">
-                  <input type="submit" value="Verzenden" class="btn btn-secondary">
+                  <input type="email" placeholder="E-mail" class="rounded-pill form-control" id="newsiemail">
+                  <input type="submit" value="Verzenden" class="btn btn-secondary emailsubmit">
                 </div>
               </div>
               </div>

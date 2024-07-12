@@ -1463,8 +1463,8 @@ a.modalphone:hover, a.modalemail:hover {
 
 .event-summary li .total-number {
   margin: 0 16px;
-
   font-size: 22px;
+  min-width: 100px;
 }
 
 .file-input {
@@ -2132,6 +2132,12 @@ cursor: pointer;
   .banner-home {
     padding-top: 2rem;
   }
+  .home-padding {
+    padding-top: 7rem;
+  }
+  .activity-margin {
+    margin-top: 7rem;
+  }
   .h2,
   h2 {
     font-size: 49px;
@@ -2178,9 +2184,7 @@ cursor: pointer;
   }
   .footer-newslater {
     flex-direction: row;
-    max-width: 555px;
-    margin-left: auto;
-}
+  }
   .footer-newslater .collapse-div {
     flex: 1;
   }

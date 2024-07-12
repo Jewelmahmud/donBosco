@@ -27,3 +27,51 @@ function enqueue_admin_styles() {
 }
 
 add_action('admin_enqueue_scripts', 'enqueue_admin_styles');
+
+function add_custom_script_to_footer_if_contact_template() {
+    if (is_page_template('templates/events.php')) { ?>
+        <script>
+            jQuery(document).ready(function($) {
+                var lastScrollTop = 0;
+                $(window).scroll(function() {
+                    var scrollTop = $(this).scrollTop();
+                    if (scrollTop > lastScrollTop) {
+                        loadmoreEvents();
+                    }
+                    lastScrollTop = scrollTop;
+                });
+            });
+        </script> <?php
+    }
+
+    if (is_page_template('templates/nieuws.php')) {  ?>
+        <script>
+            jQuery(document).ready(function($) {
+                var lastScrollTop = 0;
+                $(window).scroll(function() {
+                    var scrollTop = $(this).scrollTop();
+                    if (scrollTop > lastScrollTop) {
+                        load_news('', true);
+                    }
+                    lastScrollTop = scrollTop;
+                });
+            });
+        </script> <?php
+    }
+
+    if (is_page_template('templates/downloads.php')) {  ?>
+        <script>
+            jQuery(document).ready(function($) {
+                var lastScrollTop = 0;
+                $(window).scroll(function() {
+                    var scrollTop = $(this).scrollTop();
+                    if (scrollTop > lastScrollTop) {
+                        load_downloads('', true);
+                    }
+                    lastScrollTop = scrollTop;
+                });
+            });
+        </script> <?php
+    }
+}
+add_action('wp_footer', 'add_custom_script_to_footer_if_contact_template');

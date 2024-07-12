@@ -14,7 +14,7 @@ get_header();
             <div class="slide-tabs filter-button-group swiper">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                  <a href="#" class="tab faqselector active" data-name="*"><img src="<?php echo get_template_directory_uri();?>/assets/images/icon-globe.svg" alt="">Alles</a>
+                  <a href="#" class="tab newsselector active" data-name="*"><img src="<?php echo get_template_directory_uri();?>/assets/images/icon-globe.svg" alt="">Alles</a>
                 </div>
                 <?php
                   $categories = get_categories(array(
@@ -26,7 +26,7 @@ get_header();
                         $slug_image_url = get_field('slug_image', $category);
                         $image_url = !empty($slug_image_url) ? $slug_image_url['url'] : get_template_directory_uri() . '/assets/images/icon-notes.svg'; ?>
                         <div class="swiper-slide">
-                            <a href="#" class="tab faqselector" data-name=".<?php echo esc_attr($category->slug); ?>">
+                            <a href="#" class="tab newsselector" data-name=".<?php echo esc_attr($category->slug); ?>" data-id="<?php echo esc_attr($category->term_id); ?>">
                                 <img src="<?php echo esc_url($image_url); ?>" alt="">
                                 <?php echo esc_html($category->name); ?>
                             </a>

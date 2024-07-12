@@ -8,7 +8,7 @@ $posts_per_page = get_option('posts_per_page');
     <div class="container">
       
         <div class="row">
-          <div class="col-lg-8 col-xl-9">
+          <div class="col-lg-12 col-xl-12">
             <div class="slide-content">
               <div class="swiper-prev slide-arrow"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow"></div>
               <div class="slide-tabs filter-button-group swiper">
@@ -42,9 +42,8 @@ $posts_per_page = get_option('posts_per_page');
               <div class="swiper-next slide-arrow"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow"></div>
             </div>
           </div>
-          <div class="col-lg-4 col-xl-3">
-            <div class="select-filter">
-              Archief: 
+          <!-- <div class="col-lg-4 col-xl-3">
+            <div class="select-filter">  Archief: 
               <select class="form-select" id="verhuur">
                 <?php
                 $current_year = date('Y');
@@ -53,9 +52,9 @@ $posts_per_page = get_option('posts_per_page');
                     echo '<option value="' . $year . '" ' . $selected . '>' . $year . '</option>';
                 }
                 ?>
-            </select>
+              </select>
             </div>
-          </div>
+          </div> -->
         </div>
           
         

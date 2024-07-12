@@ -1,10 +1,21 @@
 <?php 
 
-function donation_form_shortcode() {
+function donation_form_shortcode($atts) {
+    
+    $atts = shortcode_atts(
+        array(
+            'title' => 'Steun ons door te doneren',
+        ),
+        $atts,
+        'donation_form'
+    );
+
+    $title = $atts['title'];
+
     ob_start();
     ?>
     <div class="donation my-4">
-        <h2>Steun ons door te doneren</h2>
+        <h2><?php echo esc_html($title); ?></h2>
         <form id="donationForm" class="p-4">
             <?php generate_donation_frequency_options(); ?>
             <?php generate_donation_amount_options(); ?>
@@ -160,6 +171,9 @@ function generate_ideal_information_fields() {
 
 
 function process_donation_ajax() {
+    // Ensure the request is valid
+    // check_ajax_referer('donation_nonce', 'security');
+
     // Validate the incoming data
     if (!isset($_POST['amount']) || !isset($_POST['frequency']) || !isset($_POST['method'])) {
         wp_send_json_error('Ongeldige donatiegegevens');

@@ -14,7 +14,7 @@ $posts_per_page = get_option('posts_per_page');
               <div class="slide-tabs filter-button-group swiper">
                 <div class="swiper-wrapper">
                   <div class="swiper-slide">
-                    <a href="#" class="tab faqselector active" data-name="*"><img src="images/icon-globe.svg" alt="">Alles</a>
+                    <a href="#" class="tab eventselector active" data-name="*" data-id="*"><img src="images/icon-globe.svg" alt="">Alles</a>
                   </div>
                   <?php
                     $categories = get_categories(array(
@@ -27,7 +27,7 @@ $posts_per_page = get_option('posts_per_page');
                           $slug_image_url = get_field('slug_image', $category);
                           $image_url = !empty($slug_image_url) ? $slug_image_url['url'] : get_template_directory_uri() . '/assets/images/icon-notes.svg'; ?>
                           <div class="swiper-slide">
-                              <a href="#" class="tab faqselector" data-name=".<?php echo esc_attr($category->slug); ?>">
+                              <a href="#" class="tab eventselector" data-name=".<?php echo esc_attr($category->slug); ?>" data-id="<?php echo esc_html($category->term_id); ?>">
                                   <img src="<?php echo esc_url($image_url); ?>" alt="">
                                   <?php echo esc_html($category->name); ?>
                               </a>
@@ -46,11 +46,12 @@ $posts_per_page = get_option('posts_per_page');
             <div class="select-filter">
               Archief: 
               <select class="form-select" id="eventment">
+              <option value="" selected>Year</option>';
                 <?php
                 $current_year = date('Y');
-                for ($year = 2010; $year <= 2100; $year++) {
+                for ($year = $current_year; $year >= 2000; $year--) {
                     $selected = ($year == $current_year) ? 'selected' : '';
-                    echo '<option value="' . $year . '" ' . $selected . '>' . $year . '</option>';
+                    echo '<option value="' . $year . '">' . $year . '</option>';
                 }
                 ?>
             </select>
@@ -63,11 +64,11 @@ $posts_per_page = get_option('posts_per_page');
         <?php
             $args = array(
                 'post_type'      => 'fk_events',
-                'posts_per_page' => get_option('posts_per_page'), 
+                'posts_per_page' => get_option('posts_per_page'),
                 'post_status'    => 'publish',
                 'meta_key'       => 'start_date', 
                 'orderby'        => 'meta_value_num',
-                'order'          => 'DESC'
+                'order'          => 'ASC'
             );
 
             $recent_post = new WP_Query($args);
@@ -88,6 +89,7 @@ $posts_per_page = get_option('posts_per_page');
 
                     $enddata = get_field('end_date');
                     $endtime = get_field('end_time');
+
 
                     if(isEventAlive($enddata, $endtime)){
                     
@@ -112,19 +114,25 @@ $posts_per_page = get_option('posts_per_page');
                           </div>
                         </div>
                         <div class="news-card-body">
+                          <?php if(get_field('start_date') && get_field('end_date')): ?>
                           <div class="event-date">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-calendar.svg" alt="icon-calendar">
                             <?php the_field('start_date'); ?> - <?php the_field('end_date'); ?>
                           </div>
+                          <?php endif;?>
                           <h3><?php the_title(); ?></h3>
                           <p><?php echo wp_trim_words(get_the_excerpt(), 10, '...'); ?></p>
                           <div class="mb-4 mb-xl-5">
+                            <?php if(get_field('start_time')): ?>
                             <div class="d-flex align-items-center gap-2 mb-2 pb-1 text-grey fs13px">
                               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-clock-r.svg" alt="clock"> <?php the_field('start_time'); ?> - <?php the_field('end_time'); ?>
                             </div>
+                            <?php endif;?>
+                            <?php if(get_field('location')): ?>
                             <div class="d-flex align-items-center gap-2 mb-2 pb-1 text-grey fs13px">
                               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-place-r.svg" alt="place"> <?php the_field('location'); ?>
                             </div>
+                            <?php endif;?>
                           </div>
                           <div class="text-link">Lees meer <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow"></div>
                         </div>

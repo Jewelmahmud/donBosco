@@ -1,6 +1,6 @@
 <?php 
 
-// Template name: News
+// Template name: Vacancies
 get_header(); 
 $posts_per_page = get_option('posts_per_page');
 ?>
@@ -12,7 +12,7 @@ $posts_per_page = get_option('posts_per_page');
             <div class="slide-tabs filter-button-group swiper">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                  <a href="#" class="tab faqselector active" data-name="*"><img src="<?php echo get_template_directory_uri();?>/assets/images/icon-globe.svg" alt="">Alles</a>
+                  <a href="#" class="tab jobselector active" data-name="*"><img src="<?php echo get_template_directory_uri();?>/assets/images/icon-globe.svg" alt="">Alles</a>
                 </div>
 
                 <?php
@@ -26,7 +26,7 @@ $posts_per_page = get_option('posts_per_page');
                         $slug_image_url = get_field('slug_image', $category);
                         $image_url = !empty($slug_image_url) ? $slug_image_url['url'] : get_template_directory_uri() . '/assets/images/icon-notes.svg'; ?>
                         <div class="swiper-slide">
-                            <a href="#" class="tab faqselector" data-name=".<?php echo esc_attr($category->slug); ?>">
+                            <a href="#" class="tab jobselector" data-name=".<?php echo esc_attr($category->slug); ?>">
                                 <img src="<?php echo esc_url($image_url); ?>" alt="">
                                 <?php echo esc_html($category->name); ?>
                             </a>
@@ -45,7 +45,7 @@ $posts_per_page = get_option('posts_per_page');
         <?php
           $args = array(
             'post_type' => 'vacatures',
-            'posts_per_page' => get_option('post_per_page'),
+            'posts_per_page' => -1,
             'post_status' => 'publish',
           );
 
@@ -105,11 +105,11 @@ $posts_per_page = get_option('posts_per_page');
                 </div>
           <?php  endwhile; wp_reset_postdata(); endif;  ?>          
         </div>
-        <div class="row my-5">
+        <!-- <div class="row my-5">
           <div class="col-12">
             <a href="#" class="text-link justify-content-center">BEKIJK ALLES <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow"></a>
           </div>
-        </div>
+        </div> -->
       
     </div>
   </section>

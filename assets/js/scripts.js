@@ -214,30 +214,47 @@ var faqIso = $(".all-faqs").isotope({
   layoutMode: "fitRows",
 });
 
-$("a.faqselector").on("click", function (e) {
-  e.preventDefault();
-  var value = $(this).attr("data-name");
-  $("a.faqselector").removeClass("active");
-  $(this).addClass("active");
-  faqIso.isotope({
-      filter: value,
-  });
-});
-
 var filterWrap = $(".filter-wrapper").isotope({
-  filterItem: ".filter-item",
-  layoutMode: "fitRows",
-});
+    filterItem: ".filter-item",
+    layoutMode: "fitRows",
+  });
 
 $("a.faqselector").on("click", function (e) {
+    e.preventDefault();
+    var value = $(this).attr("data-name");
+    $("a.faqselector").removeClass("active");
+    $(this).addClass("active");
+    faqIso.isotope({
+        filter: value,
+    });
+    filterWrap.isotope({
+        filter: value,
+    });
+});
+
+$("a.jobselector").on("click", function (e) {
+    e.preventDefault();
+    var value = $(this).attr("data-name");
+    $("a.jobselector").removeClass("active");
+    $(this).addClass("active");
+    filterWrap.isotope({
+        filter: value,
+    });
+});
+
+$("a.eventselector").on("click", function (e) {
   e.preventDefault();
   var value = $(this).attr("data-name");
+  var cat = $(this).attr("data-id");
   $("a.faqselector").removeClass("active");
   $(this).addClass("active");
-  filterWrap.isotope({
-      filter: value,
-  });
+  loadeventsbycat(cat);
 });
+
+
+
+
+
 
 var inputs = document.querySelectorAll(".file-input");
 

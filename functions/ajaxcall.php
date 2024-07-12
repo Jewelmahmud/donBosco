@@ -646,7 +646,7 @@ function set_html_content_type() {
             'status' => 'publish',
             'meta_key'       => 'start_date', 
             'orderby'        => 'meta_value_num',
-            'order'          => 'DESC',
+            'order'          => 'ASC',
             // 'meta_query' => array(
             //     'relation' => 'AND',
             //     array(
@@ -660,6 +660,8 @@ function set_html_content_type() {
         $query = new WP_Query($args);
     
         ob_start();
+
+        
         if ($query->have_posts()) {
             $colors = array('ylw', 'green', 'red');
             $counter = 0;
@@ -677,12 +679,17 @@ function set_html_content_type() {
                 }
                 $category_class = implode(' ', $category_slugs); 
                 $startdate = get_field('start_date');
-                $start_year = date('Y', strtotime($startdate));
+                // $start_year = date('Y', strtotime($startdate));
 
                 $enddata = get_field('end_date');
                 $endtime = get_field('end_time');
 
-                if($year < date('Y')) {
+                $date = DateTime::createFromFormat('d/m/Y', $startdate);
+                $start_year = $date->format('Y');
+
+                // echo "start year: ".$start_year;
+
+                if($year <= date('Y')) {
                     if(!isEventAlive($enddata, $endtime) && $year === $start_year){ ?>        
                         <div class="col-lg-4 col-md-6 mb-4 filter-item <?php echo $category_class; ?>">
                             <a href="<?php the_permalink(); ?>" class="news-card event-card">
@@ -701,19 +708,25 @@ function set_html_content_type() {
                                 </div>
                             </div>
                             <div class="news-card-body">
+                                <?php if(get_field('start_date') && get_field('end_date')): ?>
                                 <div class="event-date">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-calendar.svg" alt="icon-calendar">
-                                <?php the_field('start_date'); ?> - <?php the_field('end_date'); ?>
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-calendar.svg" alt="icon-calendar">
+                                    <?php the_field('start_date'); ?> - <?php the_field('end_date'); ?>
                                 </div>
+                                <?php endif;?>
                                 <h3><?php the_title(); ?></h3>
                                 <p><?php echo wp_trim_words(get_the_excerpt(), 10, '...'); ?></p>
                                 <div class="mb-4 mb-xl-5">
-                                <div class="d-flex align-items-center gap-2 mb-2 pb-1 text-grey fs13px">
+                                    <?php if(get_field('start_time') && get_field('end_time')): ?>
+                                    <div class="d-flex align-items-center gap-2 mb-2 pb-1 text-grey fs13px">
                                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-clock-r.svg" alt="clock"> <?php the_field('start_time'); ?> - <?php the_field('end_time'); ?>
-                                </div>
-                                <div class="d-flex align-items-center gap-2 mb-2 pb-1 text-grey fs13px">
+                                    </div>
+                                    <?php endif;?>
+                                    <?php if(get_field('location')): ?>
+                                    <div class="d-flex align-items-center gap-2 mb-2 pb-1 text-grey fs13px">
                                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-place-r.svg" alt="place"> <?php the_field('location'); ?>
-                                </div>
+                                    </div>
+                                    <?php endif;?>
                                 </div>
                                 <div class="text-link">Lees meer <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow"></div>
                             </div>
@@ -862,3 +875,518 @@ function set_html_content_type() {
     }
     add_action('wp_ajax_fetch_verhuur_by_year', 'fetch_verhuur_by_year');
     add_action('wp_ajax_nopriv_fetch_verhuur_by_year', 'fetch_verhuur_by_year');
+
+
+
+    function fetch_verhuur_by_cat() {
+    
+        $post = sanitizeFields($_POST);
+        $cat = $post['cat'];
+        
+
+        
+        $args = array(
+            'post_type' => 'fk_events',
+            'posts_per_page' => get_option('posts_per_page'),
+            'status' => 'publish',
+            'meta_key'       => 'start_date', 
+            'orderby'        => 'meta_value_num',
+            'order'          => 'ASC',
+            
+        );
+
+        if($cat !== '*') {
+            $args['tax_query'] = array(
+                array(
+                    'taxonomy' => 'activity_type',
+                    'field'    => 'term_id',
+                    'terms'    => $cat,
+                )
+            );
+        }
+
+        $query = new WP_Query($args);
+    
+        ob_start();
+        if ($query->have_posts()) {
+            $colors = array('ylw', 'green', 'red');
+            $counter = 0;
+            while ($query->have_posts()) {
+                $query->the_post();
+                $counter ++; $color = $colors[$counter % 3];
+
+                $categories = get_the_terms( get_the_ID(), 'activity_type' );
+                $category_slugs = array();
+    
+                if (!empty($categories)) {
+                    foreach ($categories as $category) {
+                        $category_slugs[] = esc_attr($category->slug);
+                    }
+                }
+                $category_class = implode(' ', $category_slugs); 
+                $startdate = get_field('start_date');
+                $start_year = date('Y', strtotime($startdate));
+
+                $enddata = get_field('end_date');
+                $endtime = get_field('end_time');
+
+               
+                    if(isEventAlive($enddata, $endtime)){ ?>        
+                        <div class="col-lg-4 col-md-6 mb-4 filter-item <?php echo $category_class; ?>">
+                            <a href="<?php the_permalink(); ?>" class="news-card event-card">
+                            <div class="news-card-header">
+                                <div class="card-image">
+                                <?php
+                                if (has_post_thumbnail()) {
+                                    the_post_thumbnail('newsthumb', ['class' => 'img-fluid', 'alt' => 'card image']);
+                                } else {  ?>
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/placeholoder_logo.jpg" alt="card image" class="img-fluid">
+                                <?php  }  ?>
+                                </div>
+                                <div class="news-card-tag tag-bg-<?php echo $color; ?>">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-info.svg" alt="info icon">
+                                <?php echo $category_class; ?>
+                                </div>
+                            </div>
+                            <div class="news-card-body">
+                                <?php if(get_field('start_date') && get_field('end_date')): ?>
+                                <div class="event-date">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-calendar.svg" alt="icon-calendar">
+                                    <?php the_field('start_date'); ?> - <?php the_field('end_date'); ?>
+                                </div>
+                                <?php endif;?>
+                                <h3><?php the_title(); ?></h3>
+                                <p><?php echo wp_trim_words(get_the_excerpt(), 10, '...'); ?></p>
+                                <div class="mb-4 mb-xl-5">
+                                    <?php if(get_field('start_time') && get_field('end_time')): ?>
+                                    <div class="d-flex align-items-center gap-2 mb-2 pb-1 text-grey fs13px">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-clock-r.svg" alt="clock"> <?php the_field('start_time'); ?> - <?php the_field('end_time'); ?>
+                                    </div>
+                                    <?php endif;?>
+                                    <?php if(get_field('location')): ?>
+                                    <div class="d-flex align-items-center gap-2 mb-2 pb-1 text-grey fs13px">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-place-r.svg" alt="place"> <?php the_field('location'); ?>
+                                    </div>
+                                    <?php endif;?>
+                                </div>
+                                <div class="text-link">Lees meer <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow"></div>
+                            </div>
+                            </a>
+                        </div><?php 
+                    } 
+
+                
+            }
+            wp_reset_postdata();
+        }
+
+        $jobs = ob_get_clean();
+    
+        echo wp_send_json(['jobs'=> $jobs]);
+        wp_die();
+    }
+    add_action('wp_ajax_fetch_verhuur_by_cat', 'fetch_verhuur_by_cat');
+    add_action('wp_ajax_nopriv_fetch_verhuur_by_cat', 'fetch_verhuur_by_cat');
+
+
+    function load_more_events() {
+    
+        $post = sanitizeFields($_POST);
+        if(isset($post['cat'])) $cat = $post['cat'];
+        else $cat = '*';
+        $page = $post['page'];
+        
+
+        
+        $args = array(
+            'post_type'      => 'fk_events',
+            'posts_per_page' => get_option('posts_per_page'),
+            'status'         => 'publish',
+            'meta_key'       => 'start_date', 
+            'orderby'        => 'meta_value_num',
+            'order'          => 'ASC',
+            'paged'          => $page,
+            
+        );
+
+        if($cat !== '*') {
+            $args['tax_query'] = array(
+                array(
+                    'taxonomy' => 'activity_type',
+                    'field'    => 'term_id',
+                    'terms'    => $cat,
+                )
+            );
+        }
+
+        $query = new WP_Query($args);
+    
+        ob_start();
+        if ($query->have_posts()) {
+            $colors = array('ylw', 'green', 'red');
+            $counter = 0;
+            while ($query->have_posts()) {
+                $query->the_post();
+                $counter ++; $color = $colors[$counter % 3];
+
+                $categories = get_the_terms( get_the_ID(), 'activity_type' );
+                $category_slugs = array();
+    
+                if (!empty($categories)) {
+                    foreach ($categories as $category) {
+                        $category_slugs[] = esc_attr($category->slug);
+                    }
+                }
+                $category_class = implode(' ', $category_slugs); 
+                $startdate = get_field('start_date');
+                $start_year = date('Y', strtotime($startdate));
+
+                $enddata = get_field('end_date');
+                $endtime = get_field('end_time');
+
+               
+                    if(isEventAlive($enddata, $endtime)){ ?>        
+                        <div class="col-lg-4 col-md-6 mb-4 filter-item <?php echo $category_class; ?>">
+                            <a href="<?php the_permalink(); ?>" class="news-card event-card">
+                            <div class="news-card-header">
+                                <div class="card-image">
+                                <?php
+                                if (has_post_thumbnail()) {
+                                    the_post_thumbnail('newsthumb', ['class' => 'img-fluid', 'alt' => 'card image']);
+                                } else {  ?>
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/placeholoder_logo.jpg" alt="card image" class="img-fluid">
+                                <?php  }  ?>
+                                </div>
+                                <div class="news-card-tag tag-bg-<?php echo $color; ?>">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-info.svg" alt="info icon">
+                                <?php echo $category_class; ?>
+                                </div>
+                            </div>
+                            <div class="news-card-body">
+                                <?php if(get_field('start_date') && get_field('end_date')): ?>
+                                <div class="event-date">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-calendar.svg" alt="icon-calendar">
+                                    <?php the_field('start_date'); ?> - <?php the_field('end_date'); ?>
+                                </div>
+                                <?php endif;?>
+                                <h3><?php the_title(); ?></h3>
+                                <p><?php echo wp_trim_words(get_the_excerpt(), 10, '...'); ?></p>
+                                <div class="mb-4 mb-xl-5">
+                                    <?php if(get_field('start_time') && get_field('end_time')): ?>
+                                    <div class="d-flex align-items-center gap-2 mb-2 pb-1 text-grey fs13px">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-clock-r.svg" alt="clock"> <?php the_field('start_time'); ?> - <?php the_field('end_time'); ?>
+                                    </div>
+                                    <?php endif;?>
+                                    <?php if(get_field('location')): ?>
+                                    <div class="d-flex align-items-center gap-2 mb-2 pb-1 text-grey fs13px">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-place-r.svg" alt="place"> <?php the_field('location'); ?>
+                                    </div>
+                                    <?php endif;?>
+                                </div>
+                                <div class="text-link">Lees meer <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow"></div>
+                            </div>
+                            </a>
+                        </div><?php 
+                    } 
+
+                
+            }
+            wp_reset_postdata();
+        }
+
+        $jobs = ob_get_clean();
+    
+        echo wp_send_json(['jobs'=> $jobs]);
+        wp_die();
+    }
+    add_action('wp_ajax_load_more_events', 'load_more_events');
+    add_action('wp_ajax_nopriv_load_more_events', 'load_more_events');
+
+
+    function load_new_by_category() {
+    
+        $post = sanitizeFields($_POST);
+        $loadmore = $post['loadmore'];
+        if($loadmore == 'true') $page = $post['page'];
+
+        if(isset($post['cat'])) $cat = $post['cat'];  
+        else $cat = '*';     
+
+        
+        $args = array(
+            'post_type'      => 'post',
+            'posts_per_page' => get_option('posts_per_page'),
+            'status'         => 'publish',            
+        );
+
+        if($cat !== '*') {
+            $args['cat'] = (int) $cat;
+        }
+        if($loadmore == 'true') $args['paged'] = $page;
+
+        $query = new WP_Query($args);
+        
+        ob_start();
+        if ($query->have_posts()) {
+            $colors = array('ylw', 'green', 'red');
+            $counter = 0;
+            while ($query->have_posts()) { $query->the_post(); $counter ++; $color = $colors[$counter % 3];
+                    $categories = get_the_category(get_the_ID());
+                    $category_slugs = array();
+          
+                    if (!empty($categories)) {
+                        foreach ($categories as $category) {
+                            $category_slugs[] = esc_attr($category->slug);
+                        }
+                    }
+                    $category_class = implode(' ', $category_slugs); 
+                      
+                      
+                      ?>
+  
+                    <!-- <div class="post-categories">
+                    <?php
+                    $categories = get_the_category();
+                    if ( !empty( $categories ) ) {
+                        echo '<ul>';
+                        foreach( $categories as $category ) {
+                            echo '<li><a href="' . get_category_link( $category->term_id ) . '">' . $category->name . '</a></li>';
+                        }
+                        echo '</ul>';
+                    }
+                    ?>
+                    </div> -->
+                    <div class="col-lg-4 col-md-6 mb-4 filter-item <?php echo $category_class; ?>">
+                        <a href="<?php the_permalink(); ?>" class="news-card">
+                            <div class="news-card-header">
+                                <div class="card-image">
+                                    <?php
+                                    if (has_post_thumbnail()) {
+                                        the_post_thumbnail('newsthumb', ['class' => 'img-fluid', 'alt' => 'card image']);
+                                    } else {
+                                    ?>
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/placeholoder_logo.jpg" alt="card image" class="img-fluid">
+                                    <?php } ?>
+                                </div>
+                                <?php
+                                if (!empty($categories)) {
+                                    $category_names = array();
+                                    foreach ($categories as $category)   $category_names[] = esc_html($category->name);
+                                    $slug_image_url = get_field('slug_image', $category);
+                                    $image_url = !empty($slug_image_url) ? $slug_image_url['url'] : get_template_directory_uri() . '/assets/images/icon-notes.svg'; ?>
+                                    <div class="news-card-tag tag-bg-<?php echo $color; ?>">
+                                        <img src="<?php echo $image_url; ?>" alt="info icon">
+                                        <?php echo implode(', ', $category_names); ?>
+                                    </div>
+                                    <?php
+                                }
+                                ?>
+                            </div>
+                            <div class="news-card-body">
+                                <h3><?php the_title(); ?></h3>
+                                <p><?php echo wp_trim_words(get_the_excerpt(), 20, '...'); ?></p>
+                                <div class="text-link">Lees meer <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow"></div>
+                            </div>
+                        </a>
+                    </div><?php                 
+            }
+
+            wp_reset_postdata();
+        }
+
+        $jobs = ob_get_clean();
+    
+        echo wp_send_json(['news'=> $jobs]);
+        wp_die();
+    }
+    add_action('wp_ajax_load_new_by_category', 'load_new_by_category');
+    add_action('wp_ajax_nopriv_load_new_by_category', 'load_new_by_category');
+
+
+    function load_downloads() {
+    
+        $post = sanitizeFields($_POST);
+        $loadmore = $post['loadmore'];
+        if($loadmore == 'true') $page = $post['page'];
+
+        if(isset($post['cat']) ) $cat = $post['cat'];     
+        
+        
+        $args = array(
+            'post_type' => 'download_items',
+            'posts_per_page' => get_option('posts_per_page'),
+            'post_status' => 'publish',
+            'meta_key' => 'post_position', 
+            'orderby' => 'meta_value_num',
+            'order' => 'ASC', 
+            'meta_query' => array(
+                'relation' => 'OR',
+                array(
+                    'key' => 'post_position',
+                    'compare' => 'EXISTS'
+                ),
+                array(
+                    'key' => 'post_position',
+                    'compare' => 'NOT EXISTS'
+                )
+            ),
+        );
+
+        if($cat !== '*') {
+            $args['tax_query'] = array(
+                array(
+                    'taxonomy' => 'download_category',
+                    'field'    => 'term_id',
+                    'terms'    => $cat,
+                )
+            );
+        }
+
+        if($loadmore == 'true') $args['paged'] = $page;
+
+        $query = new WP_Query($args);
+
+        
+        
+        ob_start();
+        if ($query->have_posts()) {
+            $colors = array('ylw', 'green', 'red');
+            $counter = 0;
+            while ($query->have_posts()) { $query->the_post(); $counter ++; $color = $colors[$counter % 3];
+                  $categories = get_the_terms( get_the_ID(), 'download_category' );
+                  $category_slugs = array();
+      
+                  if (!empty($categories)) {
+                      foreach ($categories as $category) {
+                          $category_slugs[] = esc_attr($category->slug);
+                      }
+                  }
+                  $category_class = implode(' ', $category_slugs);
+
+                  // Definining is it video or URL
+                  $pdf = get_field('pdf_file');
+                  $youtube = get_field('youtube_rul');
+                  if($pdf) {
+                    $url = [
+                      'url' => $pdf['url'],
+                      'download' => true
+                    ];
+                  } elseif($youtube) {
+                    $url = [
+                      'url' => $youtube,
+                      'download' => false
+                    ];
+                  }else {
+                    $url = [
+                      'url' => '',
+                      'download' => ''
+                    ];
+                  }
+            ?>
+            <div class="col-lg-4 col-md-6 mb-4 filter-item <?php echo $category_class; ?>">
+              <a href="<?= ($url['url'])? $url['url'] : '#'; ?>" class="news-card <?php if(!$url['download'] && $url['url']) echo 'openVideo'; ?>" <?= ($url['url'])? 'target="_blank"' : ''; ?>>
+                  <div class="news-card-header">
+                      <?php if(!$url['download'] && $url['url']): ?>
+                      <div class="play_btn">
+                          <img src="<?php echo get_template_directory_uri();?>/assets/images/play_video.png" alt="Play Button">
+                      </div>
+                      <?php endif; ?>
+                      <div class="card-image">
+                          <?php
+                          if (has_post_thumbnail()) {
+                              the_post_thumbnail('newsthumb', ['class' => 'img-fluid', 'alt' => 'card image']);
+                          } else {
+                          ?>
+                              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/placeholoder_logo.jpg" alt="card image" class="img-fluid">
+                          <?php
+                          }
+                          ?>
+                      </div>
+                      <?php
+                        if (!empty($categories)) {
+                          $category_names = array();
+                          foreach ($categories as $category)   $category_names[] = esc_html($category->name);
+                            $slug_image_url = get_field('slug_image', $category);
+                            $image_url = !empty($slug_image_url) ? $slug_image_url['url'] : get_template_directory_uri() . '/assets/images/icon-notes.svg'; ?>
+                            <div class="news-card-tag tag-bg-<?php echo $color; ?>">
+                                <img src="<?php echo $image_url; ?>" alt="info icon">
+                                <?php echo implode(', ', $category_names); ?>
+                            </div>
+                            <?php
+                        }
+                      ?>
+                  </div>
+                  <div class="news-card-body">
+                  <?php 
+                  
+                    if(!$url['download']) $linktext = 'Bekijk Video';
+                    else $linktext = 'Download'; ?>
+
+                      <h3><?php the_title(); ?></h3>
+                      <p><?php echo wp_trim_words(get_the_excerpt(), 20, '...'); ?></p>
+                      <div class="text-link"><?= $linktext; ?> <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-arrow.svg" alt="icon-arrow"></div>
+                  </div>
+              </a>
+            </div><?php 
+            } 
+            wp_reset_postdata();
+        }
+
+        $downloads = ob_get_clean();
+    
+        echo wp_send_json(['downloads'=> $downloads]);
+        wp_die();
+    }
+    add_action('wp_ajax_load_downloads', 'load_downloads');
+    add_action('wp_ajax_nopriv_load_downloads', 'load_downloads');
+
+
+    function mailchimp_subscription() {
+    
+        $post = sanitizeFields($_POST);
+        $email = $post['email'];  
+        $return = array();
+
+        $mailchimpApiKey = get_field('mailchimp_apiKey', 'option');
+        $mailchimpAudienceId = get_field('mailchimp_audience_id', 'option');
+        $mailchimpServerPrefix = get_field('mailchimp_serverprefix', 'option');
+
+        if (!empty($mailchimpApiKey) && !empty($mailchimpAudienceId) && !empty($mailchimpServerPrefix)) {
+
+            $url = "https://$mailchimpServerPrefix.api.mailchimp.com/3.0/lists/$mailchimpAudienceId/members/";
+
+            $data = array(
+                'email_address' => $email,
+                'status' => 'subscribed'
+            );
+
+            $response = wp_remote_post($url, array(
+                'headers' => array(
+                    'Authorization' => 'apikey ' . $mailchimpApiKey,
+                    'Content-Type' => 'application/json',
+                ),
+                'body' => wp_json_encode($data),
+            ));
+
+            if (is_wp_error($response)) {
+                $error_message = $response->get_error_message();
+                $return = array('status' => 'error', 'message' => $error_message);
+            } else {
+                $body = wp_remote_retrieve_body($response);
+                $return_data = json_decode($body, true);
+
+                if (isset($return_data['status']) && $return_data['status'] === 'subscribed') {
+                    $return = array('status' => 'success', 'message' => 'Inschrijving is gelukt. U bent geabonneerd.');
+                } else {
+                    $return = array('status' => 'error', 'message' => 'Inschrijving mislukt. Probeer het opnieuw.');
+                }
+            }
+        } else {
+            $return = array('status' => 'error', 'message' => 'Mailchimp API-referenties zijn niet ingesteld.');
+        }
+
+        echo wp_send_json($return);
+        wp_die();
+    }
+    add_action('wp_ajax_mailchimp_subscription', 'mailchimp_subscription');
+    add_action('wp_ajax_nopriv_mailchimp_subscription', 'mailchimp_subscription');

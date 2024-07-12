@@ -251,10 +251,178 @@ jQuery(document).ready(function($) {
         });
     });
 
+    
+    // Email subscription to mailchimp ----------------
+
+    $('.emailsubmit').on('click', function(e) {
+        e.preventDefault();
+        
+        var newsemail = $('#newsiemail').val();
+    
+        $.ajax({
+            url: ajaxurl,
+            type: 'POST',
+            data: {
+                action: 'mailchimp_subscription',
+                email: newsemail,
+            },
+            success: function(response) {
+                swal("Geabonneerd!", response.message, "success");
+                $('#newsiemail').val('');
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching posts:', error);
+                swal("Error!", error, "error");
+            }
+        });
+    });
+
+
+    $('.downloadselector').click(function(e) {
+        e.preventDefault();
+        load_downloads(this);
+    });
+
 
 
 
 
 });
+
+// Global Scope
+
+function loadeventsbycat(cat) {
+    $.ajax({
+        url: ajaxurl,
+        type: 'POST',
+        data: {
+            action: 'fetch_verhuur_by_cat',
+            cat: cat,
+        },
+        success: function(response) {
+            filterWrap.empty();
+            var newContent = $(response.jobs);
+            filterWrap.append(newContent).isotope('appended', newContent);
+            filterWrap.isotope('layout');
+        },
+        error: function(xhr, status, error) {
+            console.error('Error fetching posts:', error);
+        }
+    });
+}
+
+var eventpage = 2;
+var eventloading = false;
+
+function loadmoreEvents() {
+    if (eventloading) return;
+    let cat      = $('.eventselector.active').attr('data-id');
+    eventloading = true;
+    console.log('events');
+    $.ajax({
+        url: ajaxurl,
+        type: 'POST',
+        data: {
+            action: 'load_more_events',
+            cat: cat,
+            page: eventpage,
+        },
+        success: function(response) {
+
+            eventpage++;
+            var newContent = $(response.jobs);
+            filterWrap.append(newContent).isotope('appended', newContent);
+            filterWrap.isotope('layout');
+
+            eventloading = false;
+        },
+        error: function(xhr, status, error) {
+            console.error('Error fetching posts:', error);
+        }
+    });
+}
+var newspage = 2;
+var newsloading = false;
+
+function load_news(el = '', loadmore = false){
+    let cat = $(el).attr('data-id');  
+    if(loadmore) cat = $('.newsselector.active').attr('data-id');
+    let data = {
+        action: 'load_new_by_category',
+        cat: cat,
+        loadmore: false,
+    }
+    if(loadmore){ 
+        if (newsloading) return; 
+        newsloading = true;
+        data.page = newspage;
+        data.loadmore = true;
+    }
+    
+    $.ajax({
+        url: ajaxurl,
+        type: 'POST',
+        data: data,
+        success: function(response) {
+            if(!loadmore) filterWrap.empty();
+            var newContent = $(response.news);
+            filterWrap.append(newContent).isotope('appended', newContent);
+            filterWrap.isotope('layout');
+
+            if(loadmore) {
+                newsloading = false;
+                newspage++;
+            }
+            newspage = 2; 
+        },
+        error: function(xhr, status, error) {
+            console.error('Error fetching posts:', error);
+            if(loadmore) newsloading = false;
+            newspage = 2; 
+        }
+    });
+}
+
+var downpage = 2;
+var downloading = false;
+
+function load_downloads(el = '', loadmore = false){
+    let cat = $(el).attr('data-id');  
+    if(loadmore) cat = $('.downloadselector.active').attr('data-id');
+    let data = {
+        action: 'load_downloads',
+        cat: cat,
+        loadmore: false,
+    }
+    if(loadmore){ 
+        if (downloading) return; 
+        downloading = true;
+        data.page = downpage;
+        data.loadmore = true;
+    }
+    
+    $.ajax({
+        url: ajaxurl,
+        type: 'POST',
+        data: data,
+        success: function(response) {
+            if(!loadmore) filterWrap.empty();
+            var newContent = $(response.downloads);
+            filterWrap.append(newContent).isotope('appended', newContent);
+            filterWrap.isotope('layout');
+
+            if(loadmore) {
+                downloading = false;
+                downpage++;
+            }
+            downpage = 2; 
+        },
+        error: function(xhr, status, error) {
+            console.error('Error fetching posts:', error);
+            if(loadmore) downloading = false;
+            downpage = 2; 
+        }
+    });
+}
 
 
