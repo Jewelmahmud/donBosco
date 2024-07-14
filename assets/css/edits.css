@@ -6,12 +6,6 @@
     text-decoration: none;
     color: white !important;
 }
-.go-back:hover {
-  color: var(--btn-primary) !important;
-}
-.go-back:hover img {
-  filter: brightness(0) saturate(100%) invert(11%) sepia(89%) saturate(4226%) hue-rotate(344deg) brightness(117%) contrast(110%);
-}
 .loading-animation img {
     width: 50px;
 }
@@ -108,7 +102,7 @@
   position: relative;
 }
 
-.menu-item-has-children .sub-menu {
+/* .menu-item-has-children .sub-menu {
   display: none;
   position: absolute;
   top: 100%;
@@ -122,16 +116,16 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   border-radius: 4px;
-}
+} */
 
-.menu-item-has-children:hover .sub-menu {
+/* .menu-item-has-children:hover .sub-menu {
   display: block;
   animation: slideUp 0.3s ease-in-out;
-}
+} */
 
-.sub-menu .nav-item {
+/* .sub-menu .nav-item {
   display: block;
-}
+} */
 
 .sub-menu .nav-link {
   padding: 10px 20px;
@@ -180,11 +174,7 @@
   border: 0 !important;
   outline: none !important;
 }
-
 .activity-tabs ul li button:hover {
-  color: var(--bs-nav-tabs-link-active-color) !important;
-}
-.activity-tabs ul li button.active:hover {
   color: var(--btn-primary) !important;
 }
 .eurosign {
@@ -282,7 +272,7 @@
 }
 .donation form#donationForm .donation-amount .other-amount {
   width: 100%;
-  margin-top: 15px !important;
+  margin-top: 5px !important;
 }
 .donation-amount > div {
   gap: 1%;
@@ -357,149 +347,43 @@
 #donationSubmit .loading-animation img {
   margin-top: -10px;
 }
-
-/* donation form in page */
-.page-donation-form {}
-.page-donation-form .donation {
-  background: transparent;
-  top: 0%;
-  right: 0%;
-  padding: 0px;
-  box-shadow: unset;
-  border-radius: unset;
-  position: relative;
-  margin-top: -10px !important;
-}
-.page-donation-form .donation > h2 {
-  color: #1e1616;
-}
-.page-donation-form .donation form#donationForm {
-  padding: 0 !important;
-}
-.page-donation-form .donation form#donationForm .frequency .form-check, .page-donation-form  .donation form#donationForm .donation-amount .form-check {
-  border: 2px solid var(--btn-primary);
-}
-.page-donation-form .donation form#donationForm .frequency .form-check label, .page-donation-form  .donation form#donationForm .donation-amount .form-check label {
-  color: #1e1616;
-  cursor: pointer;
-}
-
-.page-donation-form .donation form#donationForm .frequency .form-check.active label, .page-donation-form  .donation form#donationForm .donation-amount .form-check.active label {
-  color: #fff;
-}
-.page-donation-form .donation form#donationForm .frequency .form-check:hover label, .page-donation-form  .donation form#donationForm .donation-amount .form-check:hover label {
-  color: #fff;
-}
-.page-donation-form .donation form#donationForm .donation-amount .custom-amount input {
-  border: 2px solid var(--btn-primary);;
-  border-radius: 5px;
-  color: #1e1616;
-}
-.page-donation-form  .donation form#donationForm .donation-amount .other-amount {
-  margin-top: 25px !important;
-}
-.page-donation-form .custom-amount .euro-sign {
-  color: #1e1616;
-}
-
-/* Support page */
-.page-donation .donation {
-  background: rgb(0 0 0 / 35%);
-  box-shadow: 0px 0px 15px #0605059c;
-}
-.page-donation .donation form#donationForm .frequency .form-check label, .page-donation .donation form#donationForm .donation-amount .form-check label {
-  color: #ffffff;
-}
-.d-center {
-  align-items: center !important;
-}
-.dematen-title {
-  display: none;
-}
-
-
-.text-content-page a {
-    color: var(--btn-primary) !important;
-}
-.single-page-row {
-  position: relative;
-  z-index: 2;
-}
-.single-news-body hr {
-  position: relative;
-  z-index: 0;
-}
-.social-icon-wrapper li a:hover {
-  border: 0;
-  transform: scale(1.2);
-}
-
-
-.dot-list-style {
-    list-style-type: none;
-    padding: 0;
-}
-.dot-list-style li {
-  position: relative;
-  padding-left: 20px;
-  
-}
-/* Create a custom marker using ::before */
-.dot-list-style li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 8px; /* Adjust the size of the custom marker */
-    height: 8px; /* Adjust the size of the custom marker */
-    background-color: var(--p-color);
-    border-radius: 50%; /* Make it a circle */
-}
-.goForm {
-  width: 100%;
-}
-.goForm a {
-  color: #fff !important;
-  width: 100% !important;
-}
-
-.play_btn {
-    position: absolute;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all ease-in-out .5s;
-}
-.openVideo:hover .play_btn {
-  transform: scale(1.5);
-}
 @media(max-width:767.98px){
     .insta-carousel .swiper-slide{
       padding-top: 40%;
     }
-    .navbar-nav {
+    /* .navbar-nav {
         flex-direction: column;
         align-items: flex-start;
-    }
+    } */
 
     .nav-link {
         padding: 10px 20px;
     }
 
-    .menu-item-has-children::after {
-      content: ">";
-      width: 20px;
-      height: 20px;
-    }
-
-    .menu-item-has-children .sub-menu {
+    /* .menu-item-has-children::after {
+      position: absolute;
+      content: "";
+      margin-left: .255em;
+      top: 5px;
+      right: 0;
+      vertical-align: 0;
+      background-image: url(../images/icon-arrow.svg);
+      border-bottom: 0;
+      border-left: 0;
+      width: 30px;
+      height: 30px;
+      background-size: 10px;
+      background-repeat: no-repeat;
+      border: 0;
+      background-position: center;
+  } */
+  .navbar-nav .nav-item > a {
+    max-width: 90%;
+}
+    /* .menu-item-has-children .sub-menu {
         position: static;
         display: none;
-    }
+    } */
 
     .menu-item-has-children.active .sub-menu {
         display: block;
