@@ -747,7 +747,9 @@ h2 {
   line-height: 1;
   display: block;
 }
-
+.social-icon-wrapper li a:hover {
+  transform: scale(1.1);
+}
 .share-news div {
   color: #828282;
   border-right: 1px solid #dcdcdc;
@@ -758,11 +760,8 @@ h2 {
 .social-icon-wrapper li a svg {
   width: 36px;
   height: 36px;
-  border: 1px solid transparent;
 }
-.social-icon-wrapper li a:hover svg {
-  border-color: var(--p-color);
-}
+
 .tag-bg-ylw {
   background-color: #fbbc43;
 }
@@ -1145,6 +1144,7 @@ footer a:hover {
   border-radius: 8px;
   box-shadow: 0px 14px 44px 0px #0000001a;
   border: 1px solid #0f13391a;
+  z-index: 1;
 }
 .form-floating > label {
   color: #7c7d7e;
@@ -1694,7 +1694,7 @@ a.modalemail:hover {
 }
 figure figcaption {
   margin-top: 10px;
-  border-bottom: 1px solid #dfdfdf;
+  /* border-bottom: 1px solid #dfdfdf; */
   padding-bottom: 9px;
   margin-bottom: 15px;
 }
@@ -2318,12 +2318,12 @@ figure figcaption {
     font-size: 18px;
     margin-bottom: 40px;
   }
-  .single-news-body figure figcaption {
+  /* .single-news-body figure figcaption {
     margin-top: 20px;
 
     padding-bottom: 18px;
     margin-bottom: 30px;
-  }
+  } */
   .error-404 p {
     margin-bottom: 55px;
   }

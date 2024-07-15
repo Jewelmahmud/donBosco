@@ -51,7 +51,7 @@ margin: 0;
 display: flex;
 overflow: hidden;
 position: relative;
-padding-top: 22%;
+padding-top: 19%;
 transition: all 0.3s ease;
 }
 .insta-carousel .swiper-slide:hover .overlay {
@@ -137,7 +137,8 @@ border-bottom: 1px solid #eee; */
   font-size: inherit;
 }
 .navbar-expand-lg .navbar-nav .dropdown-menu .nav-link {
-
+  padding-top: 5px;
+  padding-bottom: 5px;
   color: #212529;
 }
 .sub-menu .nav-link:hover {
@@ -353,6 +354,54 @@ margin-top: -20px;
 }
 #donationSubmit .loading-animation img {
 margin-top: -10px;
+}
+/* donation form in page */
+.page-donation-form {
+}
+.page-donation-form .donation {
+  background: transparent;
+  top: 0%;
+  right: 0%;
+  padding: 0px;
+  box-shadow: unset;
+  border-radius: unset;
+  position: relative;
+  margin-top: -10px !important;
+}
+.page-donation-form .donation > h2 {
+  color: #1e1616;
+}
+.page-donation-form .donation form#donationForm {
+  padding: 0 !important;
+}
+.page-donation-form .donation form#donationForm .frequency .form-check,
+.page-donation-form .donation form#donationForm .donation-amount .form-check {
+  border: 2px solid var(--btn-primary);
+}
+.page-donation-form .donation form#donationForm .frequency .form-check label,
+.page-donation-form .donation form#donationForm .donation-amount .form-check label {
+  color: #1e1616;
+  cursor: pointer;
+}
+
+.page-donation-form .donation form#donationForm .frequency .form-check.active label,
+.page-donation-form .donation form#donationForm .donation-amount .form-check.active label {
+  color: #fff;
+}
+.page-donation-form .donation form#donationForm .frequency .form-check:hover label,
+.page-donation-form .donation form#donationForm .donation-amount .form-check:hover label {
+  color: #fff;
+}
+.page-donation-form .donation form#donationForm .donation-amount .custom-amount input {
+  border: 2px solid var(--btn-primary);
+  border-radius: 5px;
+  color: #1e1616;
+}
+.page-donation-form .donation form#donationForm .donation-amount .other-amount {
+  margin-top: 25px !important;
+}
+.page-donation-form .custom-amount .euro-sign {
+  color: #1e1616;
 }
 @media(max-width:767.98px){
   .insta-carousel .swiper-slide{
