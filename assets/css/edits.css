@@ -1,405 +1,410 @@
 .author-image {
-    width: 25px;
-    border-radius: 50%;
+  width: 25px;
+  border-radius: 50%;
 }
 .go-back {
-    text-decoration: none;
-    color: white !important;
+  text-decoration: none;
+  color: white !important;
 }
 .loading-animation img {
-    width: 50px;
+  width: 50px;
 }
 .loading-animation {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 .btntexts {
-    width: 100%;
+  width: 100%;
 }
 .text-link {
-    cursor: pointer;
+  cursor: pointer;
 }
 .modal-texts {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .person-img {
-    min-height: 100%;
-    width: auto !important;
+  min-height: 100%;
+  width: auto !important;
 }
 .img-holder {
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 0px 7px 7px 0px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0px 7px 7px 0px;
 }
 .text-content-page .container {
-    font-size: 1rem;
-    margin-bottom: 1.5em;
+  font-size: 1rem;
+  margin-bottom: 1.5em;
 }
 
 .insta-wrapper .container-fluid {
-  padding: 0;
-  margin: 0;
+padding: 0;
+margin: 0;
 }
 
 .insta-carousel .swiper-slide {
-  display: flex;
-  overflow: hidden;
-  position: relative;
-  padding-top: 22%;
-  transition: all 0.3s ease;
+display: flex;
+overflow: hidden;
+position: relative;
+padding-top: 22%;
+transition: all 0.3s ease;
 }
 .insta-carousel .swiper-slide:hover .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgb(230 5 35 / 30%);
-  z-index: 1;
-  pointer-events: none;
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgb(230 5 35 / 30%);
+z-index: 1;
+pointer-events: none;
 }
 .insta-carousel a {
 
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
+position: absolute;
+top: 0;
+width: 100%;
+height: 100%;
+display: block;
 }
 
 .insta-carousel a video {
-    width: 100%;
-    height: 100%;
-    object-fit: fill;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
 }
 
 .insta-carousel a img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 .donate-form .form-control {
-    height: calc(3.5rem + calc(var(--bs-border-width) * 2));
-    min-height: calc(3.5rem + calc(var(--bs-border-width) * 2));
-    line-height: 1.25;
-    padding: 1rem 1.7rem;
-    border-radius: 5px;
-    background-color: #f7f9fb;
-    border-color: transparent;
+  height: calc(3.5rem + calc(var(--bs-border-width) * 2));
+  min-height: calc(3.5rem + calc(var(--bs-border-width) * 2));
+  line-height: 1.25;
+  padding: 1rem 1.7rem;
+  border-radius: 5px;
+  background-color: #f7f9fb;
+  border-color: transparent;
 }
 .donate-form .form-control:focus, .donate-form .form-control:hover {
-    padding-top: 0.625rem;
-    border-color: var(--p-color);
-    background-color: transparent;
+  padding-top: 0.625rem;
+  border-color: var(--p-color);
+  background-color: transparent;
 }
 
 .nav-item {
-  position: relative;
+position: relative;
 }
 
 /* .menu-item-has-children .sub-menu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: white;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  min-width: 200px;
-  border-radius: 3px; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-  border-radius: 4px;
+display: none;
+position: absolute;
+top: 100%;
+left: 0;
+background-color: white;
+list-style: none;
+padding: 0;
+margin: 0;
+min-width: 200px;
+border-radius: 3px; 
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+z-index: 1000;
+border-radius: 4px;
 } */
 
 /* .menu-item-has-children:hover .sub-menu {
-  display: block;
-  animation: slideUp 0.3s ease-in-out;
+display: block;
+animation: slideUp 0.3s ease-in-out;
 } */
 
 /* .sub-menu .nav-item {
-  display: block;
+display: block;
 } */
 
 .sub-menu .nav-link {
-  padding: 10px 20px;
-  color: black !important;
-  border-bottom: 1px solid #eee;
+padding: 5px 15px;
+/* color: black !important;
+border-bottom: 1px solid #eee; */
 }
+.navbar-nav .dropdown-menu {
 
+  font-size: inherit;
+}
+.navbar-expand-lg .navbar-nav .dropdown-menu .nav-link {
+
+  color: #212529;
+}
 .sub-menu .nav-link:hover {
-  background-color: #f1f1f1;
-  color: black;
+background-color: #f1f1f1;
+color: black;
 }
 .eurodiv img {
-  width: 25px;
+width: 25px;
 }
 
 @keyframes slideUp {
-  from {
-      transform: translateY(10px);
-      opacity: 0;
-  }
-  to {
-      transform: translateY(0);
-      opacity: 1;
-  }
+from {
+    transform: translateY(10px);
+    opacity: 0;
+}
+to {
+    transform: translateY(0);
+    opacity: 1;
+}
 }
 
 
 .activity-tabs {}
 .activity-tabs ul {
-  border: none;
+border: none;
 }
 .activity-tabs ul li {
-  
+
 }
 .activity-tabs ul li button{
-  background-color: var(--btn-primary);
-  color: var(--btn-secondary) !important;
-  font-weight: bold !important;
-  border: 0 !important;
-  outline: none !important;
-  margin: 0 !important;
+background-color: var(--btn-primary);
+color: var(--btn-secondary) !important;
+font-weight: bold !important;
+border: 0 !important;
+outline: none !important;
+margin: 0 !important;
 }
 .activity-tabs ul li button.active {
-  background-color: rgba(255, 255, 255, 0.85)  !important;  
-  color: black !important;
-  border: 0 !important;
-  outline: none !important;
+background-color: rgba(255, 255, 255, 0.85)  !important;  
+color: black !important;
+border: 0 !important;
+outline: none !important;
 }
 .activity-tabs ul li button:hover {
-  color: var(--btn-primary) !important;
+color: var(--btn-primary) !important;
 }
 .eurosign {
-  width: 15px;
+width: 15px;
 }
 .bornona, .evt-title {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
 }
 .banner-home .container .row {
-  align-items: center;
+align-items: center;
 }
 .donation {
-  display: flex;
-  align-items: center;
-  background: rgba(0,0,0,.6);
-  z-index: 3;
-  top: 35%;
-  right: 10%;
-  padding: 40px;
-  box-shadow: 0px 0px 30px #0605059c;
-  border-radius: 7px;
-  flex-direction: column;
+display: flex;
+align-items: center;
+background: rgba(0,0,0,.6);
+z-index: 3;
+top: 35%;
+right: 10%;
+padding: 40px;
+box-shadow: 0px 0px 30px #0605059c;
+border-radius: 7px;
+flex-direction: column;
 }
 .donation > h2 {
-  color: #fff;
-  font-size: 27px;
-  text-align: left;
-  width: 100%;
-  padding: 0px 20px;
-  margin: 0;
+color: #fff;
+font-size: 27px;
+text-align: left;
+width: 100%;
+padding: 0px 20px;
+margin: 0;
 }
 .donation form#donationForm {
-  width: 100%;
+width: 100%;
 }
 .donation form#donationForm .frequency {}
 .frequency > div {
-  gap: 2%;
+gap: 2%;
 }
 .donation form#donationForm .frequency .form-label, .donation form#donationForm .donation-amount .form-label, .donation form#donationForm .payment-methods .form-label {
-  font-weight: bold;
-  font-size: 18px;
-  color: #fff;
+font-weight: bold;
+font-size: 18px;
+color: #fff;
 }
 
 
 .donation form#donationForm .frequency .form-check {
-  box-sizing: border-box;
-  padding: 10px 30px;
-  margin: 0 !important;
-  cursor: pointer;
-  border: 2px solid #fff;
-  border-radius: 5px;
-  width: 49%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+box-sizing: border-box;
+padding: 10px 30px;
+margin: 0 !important;
+cursor: pointer;
+border: 2px solid #fff;
+border-radius: 5px;
+width: 49%;
+display: flex;
+align-items: center;
+justify-content: center;
 }
 
 .donation form#donationForm .frequency .form-check input, .donation form#donationForm .donation-amount .form-check input {
-  display: none;
+display: none;
 }
 .donation form#donationForm .frequency .form-check label, .donation form#donationForm .donation-amount .form-check label {
-  color: #fff;
-  cursor: pointer;
+color: #fff;
+cursor: pointer;
 }
 .donation form#donationForm .frequency .form-check:hover, .donation form#donationForm .donation-amount .form-check:hover {
-  background: var(--btn-primary);
-  border: 2px solid var(--btn-primary);  
+background: var(--btn-primary);
+border: 2px solid var(--btn-primary);  
 }
 .donation form#donationForm .frequency .form-check:hover label, .donation form#donationForm .donation-amount .form-check:hover label {
-  color: #fff;
+color: #fff;
 } 
 .donation form#donationForm .frequency .form-check.active, .donation form#donationForm .donation-amount .form-check.active  {
-  background: var(--btn-primary);
-  border: 2px solid var(--btn-primary);
+background: var(--btn-primary);
+border: 2px solid var(--btn-primary);
 }
 .donation form#donationForm .frequency .form-check.active label, .donation form#donationForm .donation-amount .form-check.active label {
-  color: #fff;
+color: #fff;
 } 
 
 .donation form#donationForm .donation-amount {}
 .donation form#donationForm .donation-amount .form-check {
-  padding: 10px 10px;
-  box-sizing: border-box;
-  margin: 0 !important;
-  cursor: pointer;
-  border: 2px solid #fff;
-  border-radius: 5px;
-  width: 24%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+padding: 10px 10px;
+box-sizing: border-box;
+margin: 0 !important;
+cursor: pointer;
+border: 2px solid #fff;
+border-radius: 5px;
+width: 24%;
+display: flex;
+align-items: center;
+justify-content: center;
 }
 .donation form#donationForm .donation-amount .other-amount {
-  width: 100%;
-  margin-top: 5px !important;
+width: 100%;
+margin-top: 5px !important;
 }
 .donation-amount > div {
-  gap: 1%;
+gap: 1%;
 }
 .donation form#donationForm .donation-amount .custom-amount input {
-  border: 2px solid #fff;
-  border-radius: 5px;
-  color: #fff;
+border: 2px solid #fff;
+border-radius: 5px;
+color: #fff;
 }
 .donation form#donationForm .donation-amount .custom-amount input::before {
-  content: "€";
-  position: absolute;
-  width: 10px;
-  height: 10px;
+content: "€";
+position: absolute;
+width: 10px;
+height: 10px;
 }
 .donation form#donationForm .donation-amount .custom-amount input::placeholder {
-  color: #fff;
+color: #fff;
 }
 .donation form#donationForm .donation-amount .custom-amount label {}
 .donation form#donationForm .payment-methods{}
 .donation form#donationForm .payment-methods .form-label {}
 .donation form#donationForm .payment-methods #paymentMethodTab {}
 .donation form#donationForm .payment-methods #paymentMethodTab li {
-  margin-right: 15px;
+margin-right: 15px;
 }
 .donation form#donationForm .payment-methods #paymentMethodTab li button {
-  background: var(--btn-primary);
-  color: #fff;
+background: var(--btn-primary);
+color: #fff;
 
 }
 .donation form#donationForm .payment-methods #paymentMethodTab li button.active{
-  background: #fff;
-  color: var(--btn-primary);
+background: #fff;
+color: var(--btn-primary);
 }
 .donation form#donationForm .payment-methods #paymentMethodTab li button:hover {
-  background: #fff;
-  color: var(--btn-primary);
+background: #fff;
+color: var(--btn-primary);
 }
 .donation form#donationForm .payment-methods #paymentMethodTab li button.active:hover {}
 
 .donation form#donationForm .pay-section {}
 .donation form#donationForm .pay-section .form-floating {}
 .donation form#donationForm .pay-section .form-floating input {
-  border-radius: 5px;
-  border-color: var(--btn-primary);
+border-radius: 5px;
+border-color: var(--btn-primary);
 }
 .donation form#donationForm .pay-section .form-floating label {}
 .custom-amount {
-  display: none;
-  position: relative;
+display: none;
+position: relative;
 }
 .custom-amount .euro-sign {
-  position: absolute;
-  height: 100%;
-  color: #fff;
-  z-index: 10;
-  width: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
+position: absolute;
+height: 100%;
+color: #fff;
+z-index: 10;
+width: 30px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 18px;
 }
 #donationSubmit {
-  width: 100%;
-  border-radius: 5px;
+width: 100%;
+border-radius: 5px;
 }
 #donationSubmit .loading-animation {
-  display: none;
-  height: 0;
-  margin-top: -20px;
+display: none;
+height: 0;
+margin-top: -20px;
 }
 #donationSubmit .loading-animation img {
-  margin-top: -10px;
+margin-top: -10px;
 }
 @media(max-width:767.98px){
-    .insta-carousel .swiper-slide{
-      padding-top: 40%;
-    }
-    /* .navbar-nav {
-        flex-direction: column;
-        align-items: flex-start;
-    } */
-
-    .nav-link {
-        padding: 10px 20px;
-    }
-
-    /* .menu-item-has-children::after {
-      position: absolute;
-      content: "";
-      margin-left: .255em;
-      top: 5px;
-      right: 0;
-      vertical-align: 0;
-      background-image: url(../images/icon-arrow.svg);
-      border-bottom: 0;
-      border-left: 0;
-      width: 30px;
-      height: 30px;
-      background-size: 10px;
-      background-repeat: no-repeat;
-      border: 0;
-      background-position: center;
+  .insta-carousel .swiper-slide{
+    padding-top: 40%;
+  }
+  /* .navbar-nav {
+      flex-direction: column;
+      align-items: flex-start;
   } */
-  .navbar-nav .nav-item > a {
-    max-width: 90%;
-}
-    /* .menu-item-has-children .sub-menu {
-        position: static;
-        display: none;
-    } */
 
-    .menu-item-has-children.active .sub-menu {
-        display: block;
-    }
-    .carousel-action-both {
-        max-width: 90%;
-    }
-    .donation {
-        padding: 15px;
-    }
-    .donation > h2 {
-        font-size: 21px;
-    }
+  /* .nav-link {
+      padding: 10px 20px;
+  } */
+
+  /* .menu-item-has-children::after {
+    position: absolute;
+    content: "";
+    margin-left: .255em;
+    top: 5px;
+    right: 0;
+    vertical-align: 0;
+    background-image: url(../images/icon-arrow.svg);
+    border-bottom: 0;
+    border-left: 0;
+    width: 30px;
+    height: 30px;
+    background-size: 10px;
+    background-repeat: no-repeat;
+    border: 0;
+    background-position: center;
+} */
+
+  /* .menu-item-has-children .sub-menu {
+      position: static;
+      display: none;
+  } */
+
+  .menu-item-has-children.active .sub-menu {
+      display: block;
+  }
+  .carousel-action-both {
+      max-width: 90%;
+  }
+  .donation {
+      padding: 15px;
+  }
+  .donation > h2 {
+      font-size: 21px;
+  }
 }
 @media(max-width:640px){
-  .insta-carousel .swiper-slide{
-    padding-top: 64%;
-  }
+.insta-carousel .swiper-slide{
+  padding-top: 64%;
+}
 }
