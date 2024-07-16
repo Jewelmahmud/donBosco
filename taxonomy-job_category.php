@@ -18,7 +18,7 @@ if (isset($get['id'])) {
 // $hours_per_week = get_field_object('field_658ccf9ea8f40')['choices'];
 // $accomodation = get_field_object('field_658ccff9a8f41')['choices'];
 
-$posts_per_page = get_option('posts_per_page');
+$posts_per_page = (int) get_field('post_per_page', 'option');
 
 get_header(); 
 

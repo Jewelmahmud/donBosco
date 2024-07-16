@@ -2,7 +2,7 @@
 
 // Template name: Vacancies
 get_header(); 
-$posts_per_page = get_option('posts_per_page');
+$posts_per_page = (int) get_field('post_per_page', 'option');
 ?>
 
 <section class="vacancies-wrapper">

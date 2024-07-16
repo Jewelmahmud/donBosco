@@ -246,11 +246,19 @@ $("a.eventselector").on("click", function (e) {
   e.preventDefault();
   var value = $(this).attr("data-name");
   var cat = $(this).attr("data-id");
-  $("a.faqselector").removeClass("active");
+  $("a.eventselector").removeClass("active");
   $(this).addClass("active");
-  loadeventsbycat(cat);
+  load_events(this);
 });
 
+$("a.vselector").on("click", function (e) {
+  e.preventDefault();
+  var value = $(this).attr("data-name");
+  var cat = $(this).attr("data-id");
+  $("a.vselector").removeClass("active");
+  $(this).addClass("active");
+  load_verhuurs(this);
+});
 
 
 

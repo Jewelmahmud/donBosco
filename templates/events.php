@@ -2,7 +2,41 @@
 
 // Template name: Events
 get_header(); 
-$posts_per_page = get_option('posts_per_page');
+$posts_per_page = (int) get_field('post_per_page', 'option');
+
+$args = array(
+  'post_type'      => 'fk_events',
+  'posts_per_page' =>  -1,
+  'post_status'    => 'publish',
+  'order'          => 'ASC'
+);
+
+$query = new WP_Query($args);
+$years = [];
+
+if ($query->have_posts()) {
+  while($query->have_posts()) {
+    $query->the_post();
+    $enddata = get_field('end_date');
+    $endtime = get_field('end_time');
+    if(!isEventAlive($enddata, $endtime)){
+        $dateTime = DateTime::createFromFormat('d/m/Y', $enddata);
+        $year = $dateTime->format('Y');
+        array_push($years, (int)$year);
+
+        $terms = wp_get_post_terms(get_the_ID(), 'activity_type');
+        if (!empty($terms) && !is_wp_error($terms)) {
+            foreach ($terms as $term) {
+                wp_remove_object_terms(get_the_ID(), $term->term_id, 'activity_type');
+            }
+        }
+    }
+  }
+  wp_reset_postdata();
+}
+
+$years = array_unique($years);
+rsort($years);
 ?>
 <section class="news-wrapper">
     <div class="container">
@@ -46,11 +80,9 @@ $posts_per_page = get_option('posts_per_page');
             <div class="select-filter">
               Archief: 
               <select class="form-select" id="eventment">
-              <option value="" selected>Year</option>';
+              <option value="*" selected>Year</option>';
                 <?php
-                $current_year = date('Y');
-                for ($year = $current_year; $year >= 2000; $year--) {
-                    $selected = ($year == $current_year) ? 'selected' : '';
+                foreach($years as $year) {
                     echo '<option value="' . $year . '">' . $year . '</option>';
                 }
                 ?>
@@ -64,7 +96,7 @@ $posts_per_page = get_option('posts_per_page');
         <?php
             $args = array(
                 'post_type'      => 'fk_events',
-                'posts_per_page' => get_option('posts_per_page'),
+                'posts_per_page' => (int) get_field('post_per_page', 'option'),
                 'post_status'    => 'publish',
                 'meta_key'       => 'start_date', 
                 'orderby'        => 'meta_value_num',

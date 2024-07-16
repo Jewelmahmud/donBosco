@@ -89,13 +89,13 @@ function wpautop_for_post_content( $content ) {
 }
 add_filter( 'the_content', 'wpautop_for_post_content' );
 
-// function restrict_search_to_posts($query) {
-//     if ($query->is_search && !is_admin()) {
-//         $query->set('post_type', 'post');
-//     }
-//     return $query;
-// }
-// add_filter('pre_get_posts', 'restrict_search_to_posts');
+function restrict_search_to_posts($query) {
+    if ($query->is_search && !is_admin()) {
+        $query->set('post_type', 'post');
+    }
+    return $query;
+}
+add_filter('pre_get_posts', 'restrict_search_to_posts');
 
 // Change POSTS to Nieuws in WP dashboard ------------------------------------------------------------
 add_action( 'admin_menu', 'pilau_change_post_menu_label' );

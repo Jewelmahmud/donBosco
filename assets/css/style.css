@@ -704,6 +704,13 @@ h2 {
   font-size: 22px;
   color: #363636;
   margin-bottom: 17px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 3em; /* Approximate height for two lines of text */
+  line-height: 1.5em;
 }
 
 .news-card-body p {
@@ -995,7 +1002,12 @@ footer a:hover {
   background-color: var(--p-color);
   color: #fff;
 }
-.slide-content .swiper-slide .tab.active img {
+.slide-content .swiper-slide .tab:hover {
+  background-color: var(--p-color);
+  color: #fff;
+}
+
+.slide-content .swiper-slide .tab.active img, .slide-content .swiper-slide .tab:hover img {
   filter: brightness(0) invert(1);
 }
 .all-faqs .accordion-item {

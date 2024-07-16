@@ -101,37 +101,37 @@ jQuery(document).ready(function() {
 
 
     // Verhuur 2 page
-    let verhuurforms = jQuery('input[name="acf[field_669004caf3cb9]"]');
+    let verhuurforms = jQuery('input[name="acf[field_6691a5ba0365f]"]');
     let vcheckValue = verhuurforms.filter(':checked').val();
     verhuurforms.change(function() {
         let form = jQuery(this).val();
         if(form == 'General Form') {
-            jQuery('.acf-field-66900535f3cbb').show();
-            jQuery('.acf-field-66900507f3cba').hide();
-            jQuery('.acf-field-66900b342cb60').show();
+            jQuery('.acf-field-6691a60e03663').show();
+            jQuery('.acf-field-6691a5e403661').hide();
+            jQuery('.acf-field-6691a5ce03660').show();
         } else if (form == 'Donation Form') {
-            jQuery('.acf-field-66900535f3cbb').hide();
-            jQuery('.acf-field-66900507f3cba').show();
-            jQuery('.acf-field-66900b342cb60').show();
+            jQuery('.acf-field-6691a60e03663').hide();
+            jQuery('.acf-field-6691a5e403661').show();
+            jQuery('.acf-field-6691a5ce03660').show();
         }else {
-            jQuery('.acf-field-66900535f3cbb').hide();
-            jQuery('.acf-field-66900507f3cba').hide();
-            jQuery('.acf-field-66900b342cb60').hide();            
+            jQuery('.acf-field-6691a60e03663').hide();
+            jQuery('.acf-field-6691a5e403661').hide();
+            jQuery('.acf-field-6691a5ce03660').hide();            
         }         
         
     });
    
 
     if (vcheckValue == 'General Form') {
-        jQuery('.acf-field-66900535f3cbb').show();
-        jQuery('.acf-field-66900507f3cba').hide();      
+        jQuery('.acf-field-6691a60e03663').show();
+        jQuery('.acf-field-6691a5e403661').hide();     
     } else if (vcheckValue == 'Donation Form') {
-        jQuery('.acf-field-66900535f3cbb').hide();
-        jQuery('.acf-field-66900507f3cba').show();
+        jQuery('.acf-field-6691a60e03663').hide();
+        jQuery('.acf-field-6691a5e403661').show();
     }else if(vcheckValue === 'None'){
-        jQuery('.acf-field-66900535f3cbb').hide();
-        jQuery('.acf-field-66900507f3cba').hide();
-        jQuery('.acf-field-66900b342cb60').hide();
+        jQuery('.acf-field-6691a60e03663').hide();
+        jQuery('.acf-field-6691a5e403661').hide();
+        jQuery('.acf-field-6691a5ce03660').hide();   
     } 
 
 

@@ -100,7 +100,8 @@ jQuery(document).ready(function($) {
     // Event listener for select change
     $('#eventment').change(function() {
         var selectedYear = $(this).val();
-        fetchPostsByYear(selectedYear);
+        if(selectedYear === '*') load_events('');
+        else fetchPostsByYear(selectedYear);
     });
 
     $('#verhuur').change(function() {
@@ -279,34 +280,80 @@ jQuery(document).ready(function($) {
 
 
     $('.downloadselector').click(function(e) {
+        $('.downloadselector').removeClass('active');
+        $(this).addClass('active');
         e.preventDefault();
         load_downloads(this);
     });
 
+    $('.newsselector').click(function(e) {
+        e.preventDefault();
+        load_news(this);
+    });
 
 
+    var goForm = $('.goForm');
+    if (goForm.length > 0) {
+        var offset = goForm.offset().top;
+        $(window).scroll(function() {
+            if ($(window).scrollTop() > offset) {
+                goForm.addClass('stickybtn');
+            } else {
+                goForm.removeClass('stickybtn');
+            }
+        });
+    }
 
 
 });
 
-// Global Scope
 
-function loadeventsbycat(cat) {
+
+
+vpage = 2;
+eventloading = false;
+
+function load_verhuurs(el, loadmore=false) {
+    
+    let cat = $(el).attr('data-id');  
+    if(loadmore) cat = $('.vselector.active').attr('data-id');
+    let data = {
+        action: 'load_verhuurs',
+        cat: cat,
+        loadmore: loadmore
+    }
+    
+    if(loadmore){         
+        if (eventloading) return; 
+        eventloading = true;
+        data.page = vpage;
+        eventloading = true;
+    }    
+
     $.ajax({
         url: ajaxurl,
         type: 'POST',
-        data: {
-            action: 'fetch_verhuur_by_cat',
-            cat: cat,
-        },
+        data: data,
         success: function(response) {
-            filterWrap.empty();
-            var newContent = $(response.jobs);
+            console.log(response);
+            if(!loadmore) $('.newsselector').removeClass('active');
+            if(!loadmore) $(el).addClass('active');
+            if(!loadmore) filterWrap.empty();
+            var newContent = $(response.data);
             filterWrap.append(newContent).isotope('appended', newContent);
             filterWrap.isotope('layout');
+
+            if(loadmore) {
+                eventloading = false;
+                vpage++;
+            } else {
+                vpage = 2;
+            }
         },
         error: function(xhr, status, error) {
             console.error('Error fetching posts:', error);
+            if(loadmore) eventloading = false;
+            vpage = 2; 
         }
     });
 }
@@ -314,30 +361,45 @@ function loadeventsbycat(cat) {
 var eventpage = 2;
 var eventloading = false;
 
-function loadmoreEvents() {
+function load_events(el, loadmore=false) {
     if (eventloading) return;
-    let cat      = $('.eventselector.active').attr('data-id');
-    eventloading = true;
-    console.log('events');
+    let cat = $(el).attr('data-id');
+    if(loadmore) cat = $('.newsselector.active').attr('data-id');
+    
+    let data = {
+        action: 'load_more_events',
+        cat: cat,
+        loadmore: loadmore,
+    }
+    if(loadmore){ 
+        if (eventloading) return; 
+        eventloading = true;
+        data.page = eventpage;
+    }
+    
     $.ajax({
         url: ajaxurl,
         type: 'POST',
-        data: {
-            action: 'load_more_events',
-            cat: cat,
-            page: eventpage,
-        },
+        data: data,
         success: function(response) {
 
-            eventpage++;
+            if(!loadmore) filterWrap.empty();
             var newContent = $(response.jobs);
             filterWrap.append(newContent).isotope('appended', newContent);
             filterWrap.isotope('layout');
 
-            eventloading = false;
+            if(loadmore) {
+                eventloading = false;
+                eventpage++;
+            } else {
+                eventpage = 2;
+            }
+            
+            
         },
         error: function(xhr, status, error) {
             console.error('Error fetching posts:', error);
+            eventpage = 2;
         }
     });
 }
@@ -364,6 +426,8 @@ function load_news(el = '', loadmore = false){
         type: 'POST',
         data: data,
         success: function(response) {
+            if(!loadmore) $('.newsselector').removeClass('active');
+            if(!loadmore) $(el).addClass('active');
             if(!loadmore) filterWrap.empty();
             var newContent = $(response.news);
             filterWrap.append(newContent).isotope('appended', newContent);
@@ -372,8 +436,9 @@ function load_news(el = '', loadmore = false){
             if(loadmore) {
                 newsloading = false;
                 newspage++;
+            } else {
+                newspage = 2; 
             }
-            newspage = 2; 
         },
         error: function(xhr, status, error) {
             console.error('Error fetching posts:', error);
@@ -406,6 +471,7 @@ function load_downloads(el = '', loadmore = false){
         type: 'POST',
         data: data,
         success: function(response) {
+            console.log(response);
             if(!loadmore) filterWrap.empty();
             var newContent = $(response.downloads);
             filterWrap.append(newContent).isotope('appended', newContent);
@@ -414,13 +480,41 @@ function load_downloads(el = '', loadmore = false){
             if(loadmore) {
                 downloading = false;
                 downpage++;
+            } else {
+                downpage = 2; 
             }
-            downpage = 2; 
         },
         error: function(xhr, status, error) {
             console.error('Error fetching posts:', error);
             if(loadmore) downloading = false;
             downpage = 2; 
+        }
+    });
+}
+
+function loadeventsbycat() {
+    if (eventloading) return;
+    let cat      = $('.eventselector.active').attr('data-id');
+    eventloading = true;
+    $.ajax({
+        url: ajaxurl,
+        type: 'POST',
+        data: {
+            action: 'load_more_events',
+            cat: cat,
+            page: eventpage,
+        },
+        success: function(response) {
+
+            eventpage++;
+            var newContent = $(response.jobs);
+            filterWrap.append(newContent).isotope('appended', newContent);
+            filterWrap.isotope('layout');
+
+            eventloading = false;
+        },
+        error: function(xhr, status, error) {
+            console.error('Error fetching posts:', error);
         }
     });
 }

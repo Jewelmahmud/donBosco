@@ -44,7 +44,7 @@ get_header();
           <?php
           $args = array(
             'post_type' => 'post',
-            'posts_per_page' => get_option('post_per_page'),
+            'posts_per_page' => (int) get_field('post_per_page', 'option'),
             'post_status' => 'publish',
           );
 

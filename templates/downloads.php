@@ -2,7 +2,7 @@
 
 // Template name: Downloads
 get_header(); 
-$posts_per_page = get_option('posts_per_page');
+$posts_per_page = (int) get_field('post_per_page', 'option');
 ?>
 
 <section class="news-wrapper">
@@ -45,7 +45,7 @@ $posts_per_page = get_option('posts_per_page');
           <?php
           $args = array(
             'post_type' => 'download_items',
-            'posts_per_page' => get_option('posts_per_page'),
+            'posts_per_page' => (int) get_field('post_per_page', 'option'),
             'post_status' => 'publish',
             'meta_key' => 'post_position', 
             'orderby' => 'meta_value_num',

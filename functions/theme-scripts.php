@@ -36,7 +36,7 @@ function add_custom_script_to_footer_if_contact_template() {
                 $(window).scroll(function() {
                     var scrollTop = $(this).scrollTop();
                     if (scrollTop > lastScrollTop) {
-                        loadmoreEvents();
+                        load_events('', true);
                     }
                     lastScrollTop = scrollTop;
                 });
@@ -67,6 +67,22 @@ function add_custom_script_to_footer_if_contact_template() {
                     var scrollTop = $(this).scrollTop();
                     if (scrollTop > lastScrollTop) {
                         load_downloads('', true);
+                    }
+                    lastScrollTop = scrollTop;
+                });
+            });
+        </script> <?php
+    }
+
+     if (is_page_template('templates/verhurr.php')) {  ?>
+        <script>
+            jQuery(document).ready(function($) {
+                var lastScrollTop = 0;
+                $(window).scroll(function() {
+                    var scrollTop = $(this).scrollTop();
+                    if (scrollTop > lastScrollTop) {
+                        load_verhuurs('', true);
+                        console.log('loading');
                     }
                     lastScrollTop = scrollTop;
                 });

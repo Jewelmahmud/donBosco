@@ -7,8 +7,8 @@
  $isForm = get_field('choose_a_form'); 
  $formSwitch = get_field('form_on_left_side'); 
 
-if($isForm == 'General Form') $formtitle = "Ga naar formulier";
-elseif ($isForm == 'Donation Form') $formtitle = 'Donatieformulier';
+if($isForm == 'General Form') $formtitle = $sform['form_title'];
+elseif ($isForm == 'Donation Form') $formtitle = $donationDetails['form_title'];
 else $formtitle = 'Ga naar formulier';
 
 ?>

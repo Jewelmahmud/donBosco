@@ -13,8 +13,8 @@ $formDetails = get_field('form_details');
 $donationDetails = get_field('donation_form_details');
 $isForm      = get_field('choose_a_form');
 
-if($isForm == 'General Form') $formtitle = "Ga naar formulier";
-elseif ($isForm == 'Donation Form') $formtitle = 'Donatieformulier';
+if($isForm == 'General Form') $formtitle = $formDetails['form_title'];
+elseif ($isForm == 'Donation Form') $formtitle = $donationDetails['form_title'];
 else $formtitle = 'Ga naar formulier';
 
 
