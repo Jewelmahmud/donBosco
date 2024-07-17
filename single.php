@@ -11,7 +11,7 @@ else $formtitle = 'Ga naar formulier';
 
  ?>
 
-<section class="single-news-body">
+<section class="single-news-body contents">
     <div class="container">
         <?php if(wp_is_mobile() && $isForm !== 'None') :?>
             <div class="goForm mb-4">
